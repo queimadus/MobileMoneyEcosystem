@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  available: false
+  image_url: MyString
+  price: 1
+  qrcode: MyString
+
+two:
+  available: false
+  image_url: MyString
+  price: 1
+  qrcode: MyString

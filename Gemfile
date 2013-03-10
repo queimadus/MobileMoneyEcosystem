@@ -11,6 +11,10 @@ end
 
 group :test do
   gem 'sqlite3'
+  gem "rspec-rails", ">= 2.0.1"
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -30,6 +34,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation', '~> 4.0.0'
   gem 'devise'
+  gem "cancan"
 end
 
 gem 'jquery-rails'
