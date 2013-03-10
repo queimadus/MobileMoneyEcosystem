@@ -14,8 +14,8 @@ class Client < ActiveRecord::Base
 
   has_many :carts
 
-  has_many :purchases
-  has_many :products, :through => :purchases
+ # has_many :purchases
+ # has_many :products, :through => :purchases
 
   has_many :transfers
 end

@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309193854) do
+ActiveRecord::Schema.define(:version => 20130310154724) do
 
   create_table "carts", :force => true do |t|
     t.integer  "client_id"
     t.boolean  "complete"
-    t.date     "last_modified"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -56,6 +55,15 @@ ActiveRecord::Schema.define(:version => 20130309193854) do
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
+  create_table "items", :force => true do |t|
+    t.integer  "quantity"
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "limits", :force => true do |t|
     t.integer  "client_id"
     t.integer  "category_id"
@@ -85,6 +93,13 @@ ActiveRecord::Schema.define(:version => 20130309193854) do
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
 
+  create_table "orders", :force => true do |t|
+    t.integer  "merchant_id"
+    t.boolean  "sent"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.integer  "merchant_id"
     t.string   "name"
@@ -94,22 +109,6 @@ ActiveRecord::Schema.define(:version => 20130309193854) do
     t.string   "qrcode"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "purchases", :force => true do |t|
-    t.integer  "buyer_id"
-    t.integer  "seller_id"
-    t.integer  "product_id"
-    t.date     "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "shoppinglists", :force => true do |t|
-    t.integer  "cart_id"
-    t.integer  "product_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "transfers", :force => true do |t|
