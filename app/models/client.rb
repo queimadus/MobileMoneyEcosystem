@@ -13,9 +13,9 @@ class Client < ActiveRecord::Base
   has_many :categories, :through => :limits
 
   has_many :carts
-
+  has_many :transfers
  # has_many :purchases
  # has_many :products, :through => :purchases
 
-  has_many :transfers
+
 end

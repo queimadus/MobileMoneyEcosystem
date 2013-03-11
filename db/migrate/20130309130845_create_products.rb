@@ -9,6 +9,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :image_url
       t.integer :price
       t.string :qrcode
+      t.string :reference
+      t.string :brand
 
       t.timestamps
     end
