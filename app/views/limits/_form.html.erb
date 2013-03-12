@@ -1,0 +1,17 @@
+<%= form_for(@limit) do |f| %>
+  <% if @limit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@limit.errors.count, "error") %> prohibited this limit from being saved:</h2>
+
+      <ul>
+      <% @limit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
