@@ -9,7 +9,10 @@
 <body>
 
 <div style="width:100%;background: black;height: 100px;text-align: center;">
+    <%= link_to('Login', new_user_session_path, :method => 'get')   %>
+    <%= link_to('Register', new_user_registration_path, :method => 'get')   %>
     <span style=" font-size: 6em; color: white; line-height: 1em;"> A CABEÇA</span>
+    <%= link_to('Logout', destroy_user_session_path, :method => 'delete')   %>
 </div>
 
 <%= yield %>

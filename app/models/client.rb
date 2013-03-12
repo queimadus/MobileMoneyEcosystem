@@ -1,21 +1,13 @@
 class Client < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  belongs_to :user
 
   has_many :limits
   has_many :categories, :through => :limits
 
   has_many :carts
   has_many :transfers
- # has_many :purchases
- # has_many :products, :through => :purchases
+  # has_many :purchases
+  # has_many :products, :through => :purchases
 
 
 end

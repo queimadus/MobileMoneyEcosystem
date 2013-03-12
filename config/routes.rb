@@ -1,10 +1,13 @@
 MobileMoneyEcosystem::Application.routes.draw do
 
+  get "home/index"
+
+  devise_for :users, :path => '', :controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login', :sign_up => 'register', :sign_out => 'logout'}
+
   resources :limits
   resources :settings
 
-  devise_for :merchants, :path_names => { :sign_up => "register", :sign_in => "login" }
-  devise_for :clients,  :path_names => { :sign_up => "register", :sign_in => "login" }
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +59,7 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'welcome#index'
+   root :to => 'home#index'
 
 
   # See how all your routes lay out with "rake routes"
