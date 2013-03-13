@@ -2,17 +2,29 @@
 <html>
 <head>
   <title>MobileMoneyEcosystem</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <div style="width:100%;background: black;height: 100px;text-align: center;">
-    <%= link_to('Login', new_user_session_path, :method => 'get')   %>
-    <%= link_to('Register', new_user_registration_path, :method => 'get')   %>
+    <%= if (!user_signed_in?)
+        link_to('Login', new_user_session_path, :method => 'get')
+    end %>
+
+    <%= if (!user_signed_in?)
+        link_to('Register', new_user_registration_path, :method => 'get')
+    end %>
+
     <span style=" font-size: 6em; color: white; line-height: 1em;"> A CABEÇA</span>
-    <%= link_to('Logout', destroy_user_session_path, :method => 'delete')   %>
+  <%= if user_signed_in?
+       link_to(@cred,"http://www.rubyonrails.org/")
+     end %>
+  <%= if user_signed_in?
+        link_to('Logout', destroy_user_session_path, :method => 'delete')
+      end %>
+
 </div>
 
 <%= yield %>

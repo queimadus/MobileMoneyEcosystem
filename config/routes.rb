@@ -1,5 +1,7 @@
 MobileMoneyEcosystem::Application.routes.draw do
 
+  get "client/consult"
+
   get "home/index"
 
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login', :sign_up => 'register', :sign_out => 'logout'}
