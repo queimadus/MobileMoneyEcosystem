@@ -4,7 +4,7 @@ class CreateClients < ActiveRecord::Migration
 
       t.integer :user_id
 
-      t.integer :credit
+      t.integer :credit, :default => 0
       t.date :dob
 
       t.timestamps

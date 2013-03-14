@@ -1,6 +1,6 @@
 class ClientController < ApplicationController
   def consult
-    user = current_user.id
-    @cred = Client.where(:user_id => user).credit
+
+    @cred =current_user.client.credit
   end
 end
