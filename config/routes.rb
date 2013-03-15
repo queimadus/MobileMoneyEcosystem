@@ -2,7 +2,13 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get "client/consult"
 
-  devise_scope :user do match "/register/merchant" => "registrations#new_merchant"  end
+  devise_scope :user do
+    get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
+  end
+
+  devise_scope :user do
+    get "/register" => "registrations#new", :as => :client_registration
+  end
 
 
   get "home/index"

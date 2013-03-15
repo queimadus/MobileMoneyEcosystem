@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
 
   create_table "carts", :force => true do |t|
     t.integer  "client_id"
-    t.boolean  "complete"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "complete",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -36,19 +36,19 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
 
   create_table "clients", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "credit"
+    t.integer  "credit",     :default => 0
     t.date     "dob"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "quantity"
+    t.integer  "quantity",   :default => 1
     t.integer  "cart_id"
     t.integer  "product_id"
     t.integer  "order_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "limits", :force => true do |t|
@@ -62,17 +62,17 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
 
   create_table "merchants", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "credit"
+    t.integer  "credit",       :default => 0
     t.string   "bank_account"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "orders", :force => true do |t|
     t.integer  "merchant_id"
-    t.boolean  "sent"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "sent",        :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "products", :force => true do |t|

@@ -10,21 +10,29 @@
 <body>
 
 <div style="width:100%;background: black;height: 100px;text-align: center;">
-    <%= if (!user_signed_in?)
-        link_to('Login', new_user_session_path, :method => 'get')
-    end %>
+    <% unless user_signed_in? %>
+        <%= link_to 'Login', new_user_session_path, :method => 'get' %>
+    <%end%>
 
-    <%= if (!user_signed_in?)
-        link_to('Register', new_user_registration_path, :method => 'get')
-    end %>
+    <% unless user_signed_in? %>
+        <%=  link_to 'Register client', client_registration_path, :method => 'get'%>
+    <%end%>
 
-    <span style=" font-size: 6em; color: white; line-height: 1em;"> A CABEÇA</span>
-  <%= if user_signed_in?
-       link_to(@cred,"http://www.rubyonrails.org/")
-     end %>
-  <%= if user_signed_in?
-        link_to('Logout', destroy_user_session_path, :method => 'delete')
-      end %>
+    <% unless user_signed_in? %>
+        <%=  link_to 'Register merchant', merchant_registration_path, :method => 'get'%>
+    <%end%>
+
+    <span style=" font-size: 6em; color: white; line-height: 1em;">HEADER</span>
+
+    <% if user_signed_in? %>
+        <%=  link_to 'Logout', destroy_user_session_path, :method => 'delete'%>
+    <%end%>
+
+
+    <% if user_signed_in? && current_user.is_client? %>
+      <span> <%=  current_user.name %> </span>
+      <span>Credit:  <%= current_user.client.credit %></span>
+    <% end %>
 
 </div>
 
