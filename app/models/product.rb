@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :merchant
 
-  validates_presence_of :name, :price, :qrcode
+  validates_presence_of :name, :price #, :qrcode
   #validates_associated :categories
   #validates_associated :merchant
 

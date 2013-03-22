@@ -15,7 +15,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
-
   def create
     begin
 

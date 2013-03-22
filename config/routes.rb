@@ -1,5 +1,8 @@
 MobileMoneyEcosystem::Application.routes.draw do
 
+  get "product/add"
+  get "product/edit"
+
   get "client/consult"
 
   devise_scope :user do
