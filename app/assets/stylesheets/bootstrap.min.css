@@ -772,170 +772,160 @@ pre code {
     padding-left: 15px;
 }
 
-@media screen and (min-width: 768px) {
-    .container {
-        width:940px;
-    }
-    [class*="col-span-"] {
-        float: left;
-    }
-    .col-span-12 {
-        width: 100%;
-    }
-    .col-span-11 {
-        width: 91.66666666666666%;
-    }
-    .col-span-10 {
-        width: 83.33333333333334%;
-    }
-    .col-span-9 {
-        width: 75%;
-    }
-    .col-span-8 {
-        width: 66.66666666666666%;
-    }
-    .col-span-7 {
-        width: 58.333333333333336%;
-    }
-    .col-span-6 {
-        width: 50%;
-    }
-    .col-span-5 {
-        width: 41.66666666666667%;
-    }
-    .col-span-4 {
-        width: 33.33333333333333%;
-    }
-    .col-span-3 {
-        width: 25%;
-    }
-    .col-span-2 {
-        width: 16.666666666666664%;
-    }
-    .col-span-1 {
-        width: 8.333333333333332%;
-    }
-    .col-offset-12 {
-        margin-left: 100%;
-    }
-    .col-offset-11 {
-        margin-left: 91.66666666666666%;
-    }
-    .col-offset-10 {
-        margin-left: 83.33333333333334%;
-    }
-    .col-offset-9 {
-        margin-left: 75%;
-    }
-    .col-offset-8 {
-        margin-left: 66.66666666666666%;
-    }
-    .col-offset-7 {
-        margin-left: 58.333333333333336%;
-    }
-    .col-offset-6 {
-        margin-left: 50%;
-    }
-    .col-offset-5 {
-        margin-left: 41.66666666666667%;
-    }
-    .col-offset-4 {
-        margin-left: 33.33333333333333%;
-    }
-    .col-offset-3 {
-        margin-left: 25%;
-    }
-    .col-offset-2 {
-        margin-left: 16.666666666666664%;
-    }
-    .col-offset-1 {
-        margin-left: 8.333333333333332%;
-    }
-    .col-push-12 {
-        left: 100%;
-    }
-    .col-push-11 {
-        left: 91.66666666666666%;
-    }
-    .col-push-10 {
-        left: 83.33333333333334%;
-    }
-    .col-push-9 {
-        left: 75%;
-    }
-    .col-push-8 {
-        left: 66.66666666666666%;
-    }
-    .col-push-7 {
-        left: 58.333333333333336%;
-    }
-    .col-push-6 {
-        left: 50%;
-    }
-    .col-push-5 {
-        left: 41.66666666666667%;
-    }
-    .col-push-4 {
-        left: 33.33333333333333%;
-    }
-    .col-push-3 {
-        left: 25%;
-    }
-    .col-push-2 {
-        left: 16.666666666666664%;
-    }
-    .col-push-1 {
-        left: 8.333333333333332%;
-    }
-    .col-pull-12 {
-        right: 100%;
-    }
-    .col-pull-11 {
-        right: 91.66666666666666%;
-    }
-    .col-pull-10 {
-        right: 83.33333333333334%;
-    }
-    .col-pull-9 {
-        right: 75%;
-    }
-    .col-pull-8 {
-        right: 66.66666666666666%;
-    }
-    .col-pull-7 {
-        right: 58.333333333333336%;
-    }
-    .col-pull-6 {
-        right: 50%;
-    }
-    .col-pull-5 {
-        right: 41.66666666666667%;
-    }
-    .col-pull-4 {
-        right: 33.33333333333333%;
-    }
-    .col-pull-3 {
-        right: 25%;
-    }
-    .col-pull-2 {
-        right: 16.666666666666664%;
-    }
-    .col-pull-1 {
-        right: 8.333333333333332%;
-    }
+
+.container {
+    width:940px;
+}
+[class*="col-span-"] {
+    float: left;
+}
+.col-span-12 {
+    width: 100%;
+}
+.col-span-11 {
+    width: 91.66666666666666%;
+}
+.col-span-10 {
+    width: 83.33333333333334%;
+}
+.col-span-9 {
+    width: 75%;
+}
+.col-span-8 {
+    width: 66.66666666666666%;
+}
+.col-span-7 {
+    width: 58.333333333333336%;
+}
+.col-span-6 {
+    width: 50%;
+}
+.col-span-5 {
+    width: 41.66666666666667%;
+}
+.col-span-4 {
+    width: 33.33333333333333%;
+}
+.col-span-3 {
+    width: 25%;
+}
+.col-span-2 {
+    width: 16.666666666666664%;
+}
+.col-span-1 {
+    width: 8.333333333333332%;
+}
+.col-offset-12 {
+    margin-left: 100%;
+}
+.col-offset-11 {
+    margin-left: 91.66666666666666%;
+}
+.col-offset-10 {
+    margin-left: 83.33333333333334%;
+}
+.col-offset-9 {
+    margin-left: 75%;
+}
+.col-offset-8 {
+    margin-left: 66.66666666666666%;
+}
+.col-offset-7 {
+    margin-left: 58.333333333333336%;
+}
+.col-offset-6 {
+    margin-left: 50%;
+}
+.col-offset-5 {
+    margin-left: 41.66666666666667%;
+}
+.col-offset-4 {
+    margin-left: 33.33333333333333%;
+}
+.col-offset-3 {
+    margin-left: 25%;
+}
+.col-offset-2 {
+    margin-left: 16.666666666666664%;
+}
+.col-offset-1 {
+    margin-left: 8.333333333333332%;
+}
+.col-push-12 {
+    left: 100%;
+}
+.col-push-11 {
+    left: 91.66666666666666%;
+}
+.col-push-10 {
+    left: 83.33333333333334%;
+}
+.col-push-9 {
+    left: 75%;
+}
+.col-push-8 {
+    left: 66.66666666666666%;
+}
+.col-push-7 {
+    left: 58.333333333333336%;
+}
+.col-push-6 {
+    left: 50%;
+}
+.col-push-5 {
+    left: 41.66666666666667%;
+}
+.col-push-4 {
+    left: 33.33333333333333%;
+}
+.col-push-3 {
+    left: 25%;
+}
+.col-push-2 {
+    left: 16.666666666666664%;
+}
+.col-push-1 {
+    left: 8.333333333333332%;
+}
+.col-pull-12 {
+    right: 100%;
+}
+.col-pull-11 {
+    right: 91.66666666666666%;
+}
+.col-pull-10 {
+    right: 83.33333333333334%;
+}
+.col-pull-9 {
+    right: 75%;
+}
+.col-pull-8 {
+    right: 66.66666666666666%;
+}
+.col-pull-7 {
+    right: 58.333333333333336%;
+}
+.col-pull-6 {
+    right: 50%;
+}
+.col-pull-5 {
+    right: 41.66666666666667%;
+}
+.col-pull-4 {
+    right: 33.33333333333333%;
+}
+.col-pull-3 {
+    right: 25%;
+}
+.col-pull-2 {
+    right: 16.666666666666664%;
+}
+.col-pull-1 {
+    right: 8.333333333333332%;
 }
 
-@media screen and (min-width: 992px) {
-    .container {
-        width:940px;
-    }
-}
 
-@media screen and (min-width: 1200px) {
-    .container {
-        width:940px;
-    }
-}
+
 
 [class*="col-span-"].pull-right {
     float: right;
@@ -1246,7 +1236,7 @@ input[type="checkbox"] {
 select,
 input[type="file"] {
     height: 34px;
-    /* In IE7, the height of the select element cannot be changed by height, only font-size.
+    /* In IE7, the height of the select element cannot be changed by height, only font-size.     */
 
     line-height: 34px;
 }
@@ -2022,13 +2012,13 @@ fieldset[disabled] .btn-link:focus {
 }
 
 /*.collapse {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  .transition(height .35s ease);
-  &.in {
-    height: auto;
-  }
+position: relative;
+height: 0;
+overflow: hidden;
+.transition(height .35s ease);
+&.in {
+height: auto;
+}
 }*/
 
 .collapse {
@@ -3141,35 +3131,27 @@ button.close {
 }
 
 
-// Prevent IE8 from misplacing imgs
-// See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
 .nav > li > a > img {
-                                                               max-width: none;
-                                                           }
+    max-width: none;
+}
 
-// Dropdowns
-// -------------------------
 
 .nav-tabs .dropdown-menu {
-// Remove the top rounded corners here since there is a hard edge above the menu
-  .border-top-radius(0);
-    }
+    border-top-radius: 0;
+}
 
-// Default dropdown links
-// -------------------------
-// Make carets use linkColor to start
+
 .nav .dropdown-toggle .caret {
-       border-top-color: @link-color;
-       border-bottom-color: @link-color;
-       margin-top: 8px;
-   }
+    border-top-color: @link-color;
+    border-bottom-color: @link-color;
+    margin-top: 8px;
+}
 .nav .dropdown-toggle:hover .caret {
     border-top-color: @link-color-hover;
     border-bottom-color: @link-color-hover;
 }
 
-// Active dropdown links
-// -------------------------
+
 .nav .active .dropdown-toggle .caret {
     border-top-color: #fff;
     border-bottom-color: #fff;
@@ -3179,14 +3161,11 @@ button.close {
     border-bottom-color: @gray;
 }
 
-// Active:hover dropdown links
-// -------------------------
+
 .nav > .dropdown.active > a:hover {
     cursor: pointer;
 }
 
-// Open dropdowns
-// -------------------------
 .nav-tabs .open .dropdown-toggle,
 .nav-pills .open .dropdown-toggle,
 .nav > li.dropdown.open.active > a:hover {
@@ -3199,13 +3178,13 @@ button.close {
 .nav li.dropdown.open a:hover .caret {
     border-top-color: #fff;
     border-bottom-color: #fff;
-.opacity(1);
-    }
+    opacity: 1;
+}
 
-// Dropdowns in stacked tabs
+
 .tabs-stacked .open > a:hover {
-       border-color: @grayLight;
-   }
+    border-color: @grayLight;
+}
 
 
 
