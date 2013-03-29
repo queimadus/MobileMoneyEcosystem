@@ -1,0 +1,90 @@
+.login-well{
+  margin-top: 45px;
+}
+
+.login-title{
+  margin-top: 0px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.register-choice-panel{
+  height: 350px;
+  border-radius: 5px;
+  border: 1px solid rgb(155,155,155);
+  overflow: hidden;
+
+  position: relative;
+  opacity: 0.2;
+  transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  width: 100%;
+}
+
+.register-choice-panel:hover{
+  opacity: 1;
+}
+
+.register-choice-panel:hover .register-image-caption{
+  bottom: 0px;
+
+  transition: bottom 0.8s ;
+  -moz-transition: bottom 0.8s;
+  -webkit-transition: bottom 0.8s;
+}
+
+.register-image-caption span.type,
+.register-image-caption span.caption{
+  color: rgba(0, 0, 0, 0.68);
+  transition: color 0.6s;
+  -moz-transition: color 0.6s;
+  -webkit-transition: color 0.6s;
+}
+
+.register-image{
+  height: 350px;
+  width: auto;
+  display: block;
+  max-width: none;
+  margin-left: -20px;
+}
+
+.register-image-caption{
+  position: absolute;
+  bottom: -30px;
+  background-color: rgba(255, 255, 255, 0.66);
+  height: 100px;
+  width: inherit;
+  text-align: center;
+
+  transition: bottom 0.8s;
+  -moz-transition: bottom 0.8s;
+  -webkit-transition: bottom 0.8s;
+}
+
+.register-image-caption span.type,
+.register-image-caption span.caption{
+  color: black;
+  text-transform: uppercase;
+  font-size: 47px;
+  line-height: 81px;
+  font-weight: bold;
+  display: block;
+
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+.register-image-caption span.caption{
+  font-weight: normal;
+  font-size: 20px;
+  margin-top: -44px;
+  text-transform: none;
+  opacity: 0.6;
+}
+
+#register-selection{
+  display: none;
+}

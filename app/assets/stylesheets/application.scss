@@ -1,15 +1,58 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
-/*= require foundation */
-@import "foundation";
+//scss variables
+$ptblue: #428bca; /*#4085a1;     */
+$lightblack: #363636;
+
+//all scss must be explicitly imported here
+//@import "foundation_and_overrides.scss";
+@import "bootstrap.min.css";
+//@import "font-awesome.min.css";
+@import "auth.scss";
+@import "footer.scss";
+
+//global applicaion css
+
+//test css
+.red{background-color: red;}
+.green{background-color: green;}
+.margins{margin: 5px;}
+
+ //helpers
+.block{ display: block !important; }
+.inline{ display: inline-block !important; }
+.up{ display:block; height: inherit; }
+.side{ display:block; width:inherit; }
+.box{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.center{
+  text-align: center;
+}
+
+.shadow{
+  -webkit-box-shadow: 1px 1px 1px #cbcbcb;
+  -moz-box-shadow: 1px 1px 1px #cbcbcb;
+  box-shadow: 1px 1px 1px #cbcbcb;
+}
+
+
+body{
+  background-color:#fbfbfb;
+}
+
+#header{
+  background-color: white;
+  height: 100px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $ptblue;
+}
+
+#header-logo{
+  padding-top: 12px;
+  padding-bottom: 18px;
+}
+
+#register-link{
+  cursor: pointer;
+}
