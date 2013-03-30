@@ -11,7 +11,7 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
-
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -45,24 +45,37 @@
 
            </span>
           <% unless user_signed_in? %>
-              <span class="pull-right"><%= link_to 'Login', new_user_session_path, :method => 'get' %> </span>
-              <span class="pull-right"> <a href="#" id="register-link"> Register</a> </span>
+              <span class="pull-right"><%= link_to 'Login', new_user_session_path %> </span>
+              <span class="pull-right"> <%= link_to 'Register',  selection_registration_path, :id => "register-link" %> </span>
+          <%else%>
+
+               <span class="pull-right"><%=  link_to('Logout', destroy_user_session_path, :method => 'delete')%></span>
+
           <%end%>
 
         </div>
     </div>
 
 
-  <div id="main" class="container">
-    <%= yield %>
-  </div>
 
+
+    <div id="main" class="container">
+        <div class="row" style="position: absolute;width: 940px;">
+          <div class="col-span-10 col-offset-1 tcenter">
+            <%= bootstrap_flash %>
+          </div>
+        </div>
+    <%= yield %>
+    </div>
+
+  <div id="push"></div>
 </div>
+
 
 <div id="footer">
   <div class="container">
     <div class="row">
-        <div class="col-offset-4 col-span-4 center">
+        <div class="col-offset-4 col-span-4 tcenter">
             <p style="margin-top: 10px;">&copy; RisingTech</p>
         </div>
     </div>

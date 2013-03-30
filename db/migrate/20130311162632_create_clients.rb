@@ -6,6 +6,7 @@ class CreateClients < ActiveRecord::Migration
 
       t.integer :credit, :default => 0
       t.date :dob
+      t.string :sex, :first_name, :last_name
 
       t.timestamps
     end

@@ -1,20 +1,102 @@
-<h2>Sign up merchant</h2>
+<h2>Sign up for a merchant account</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-span-7">
+    <div class="bs-docs-example">
 
-    <input type="hidden" name="merchant" value="1">
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACBklEQVR4Xu2Yz6sBURTHv36UUhYsiZWSnSxY+fdFlmRlIVmQkpLfyevc19EYvLw5ec8031mNzD1z7/ee7/fT3NhyubwgwleMArADaAFmQIQzEAxBUoAUIAVIAVIgwgoQg8QgMUgMEoMRhgA/hohBYpAYJAaJQWIwwgqYMbjb7dBut3G5fDupUCigWq3eSDoajTAejx/+90j7d9R8tscmAU6nE7rdLtLpNOr1urvfbDao1WrI5XLunfrMfr9/SYB31PypwU0CzGYzDAYDVCoVFIvFh+/p9/tYrVY4HA5XAXSciCTCyTOLxcIJdzweA9UM6mKTANLak8kEyWTSTVwurxiy0OFwiFKpdGcB6ZbtdotGo4FOp4NsNuvEsNQMIoJJANm5+Xx+3VmvBTKZzNUe+Xze7ao3H7w+TyQSaLVaTkhLzT8XQMNNd937W9re39b+gBTB1uv1jTDWmr8VwdQB/gzQyZfLZUynU0jw+S/1vY5NpVIuKDU4LTV/u3h53iTAo8QWX2s764R0UdoBOk5aX3zf6/Ug981mE+fz+Y4sr9QMsnizAFLA6+V4PH6DwGcCqM/91lGBgtT8NwGCvvhTxpks8CmLsMyDAvBEiCdCPBHiiZAlRcM+lhQgBUgBUoAUCHuSW+ZPCpACpAApQApYUjTsY0kBUoAUIAVIgbAnuWX+pEDUKfAFWX94n25Pz+0AAAAASUVORK5CYII=">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
 
-    <div><%= f.label :email %><br />
-      <%= f.email_field :email, :autofocus => true %></div>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACBklEQVR4Xu2Yz6sBURTHv36UUhYsiZWSnSxY+fdFlmRlIVmQkpLfyevc19EYvLw5ec8031mNzD1z7/ee7/fT3NhyubwgwleMArADaAFmQIQzEAxBUoAUIAVIAVIgwgoQg8QgMUgMEoMRhgA/hohBYpAYJAaJQWIwwgqYMbjb7dBut3G5fDupUCigWq3eSDoajTAejx/+90j7d9R8tscmAU6nE7rdLtLpNOr1urvfbDao1WrI5XLunfrMfr9/SYB31PypwU0CzGYzDAYDVCoVFIvFh+/p9/tYrVY4HA5XAXSciCTCyTOLxcIJdzweA9UM6mKTANLak8kEyWTSTVwurxiy0OFwiFKpdGcB6ZbtdotGo4FOp4NsNuvEsNQMIoJJANm5+Xx+3VmvBTKZzNUe+Xze7ao3H7w+TyQSaLVaTkhLzT8XQMNNd937W9re39b+gBTB1uv1jTDWmr8VwdQB/gzQyZfLZUynU0jw+S/1vY5NpVIuKDU4LTV/u3h53iTAo8QWX2s764R0UdoBOk5aX3zf6/Ug981mE+fz+Y4sr9QMsnizAFLA6+V4PH6DwGcCqM/91lGBgtT8NwGCvvhTxpks8CmLsMyDAvBEiCdCPBHiiZAlRcM+lhQgBUgBUoAUCHuSW+ZPCpACpAApQApYUjTsY0kBUoAUIAVIgbAnuWX+pEDUKfAFWX94n25Pz+0AAAAASUVORK5CYII=">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
 
-    <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACBklEQVR4Xu2Yz6sBURTHv36UUhYsiZWSnSxY+fdFlmRlIVmQkpLfyevc19EYvLw5ec8031mNzD1z7/ee7/fT3NhyubwgwleMArADaAFmQIQzEAxBUoAUIAVIAVIgwgoQg8QgMUgMEoMRhgA/hohBYpAYJAaJQWIwwgqYMbjb7dBut3G5fDupUCigWq3eSDoajTAejx/+90j7d9R8tscmAU6nE7rdLtLpNOr1urvfbDao1WrI5XLunfrMfr9/SYB31PypwU0CzGYzDAYDVCoVFIvFh+/p9/tYrVY4HA5XAXSciCTCyTOLxcIJdzweA9UM6mKTANLak8kEyWTSTVwurxiy0OFwiFKpdGcB6ZbtdotGo4FOp4NsNuvEsNQMIoJJANm5+Xx+3VmvBTKZzNUe+Xze7ao3H7w+TyQSaLVaTkhLzT8XQMNNd937W9re39b+gBTB1uv1jTDWmr8VwdQB/gzQyZfLZUynU0jw+S/1vY5NpVIuKDU4LTV/u3h53iTAo8QWX2s764R0UdoBOk5aX3zf6/Ug981mE+fz+Y4sr9QMsnizAFLA6+V4PH6DwGcCqM/91lGBgtT8NwGCvvhTxpks8CmLsMyDAvBEiCdCPBHiiZAlRcM+lhQgBUgBUoAUCHuSW+ZPCpACpAApQApYUjTsY0kBUoAUIAVIgbAnuWX+pEDUKfAFWX94n25Pz+0AAAAASUVORK5CYII=">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
 
-    <div><%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %></div>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACBklEQVR4Xu2Yz6sBURTHv36UUhYsiZWSnSxY+fdFlmRlIVmQkpLfyevc19EYvLw5ec8031mNzD1z7/ee7/fT3NhyubwgwleMArADaAFmQIQzEAxBUoAUIAVIAVIgwgoQg8QgMUgMEoMRhgA/hohBYpAYJAaJQWIwwgqYMbjb7dBut3G5fDupUCigWq3eSDoajTAejx/+90j7d9R8tscmAU6nE7rdLtLpNOr1urvfbDao1WrI5XLunfrMfr9/SYB31PypwU0CzGYzDAYDVCoVFIvFh+/p9/tYrVY4HA5XAXSciCTCyTOLxcIJdzweA9UM6mKTANLak8kEyWTSTVwurxiy0OFwiFKpdGcB6ZbtdotGo4FOp4NsNuvEsNQMIoJJANm5+Xx+3VmvBTKZzNUe+Xze7ao3H7w+TyQSaLVaTkhLzT8XQMNNd937W9re39b+gBTB1uv1jTDWmr8VwdQB/gzQyZfLZUynU0jw+S/1vY5NpVIuKDU4LTV/u3h53iTAo8QWX2s764R0UdoBOk5aX3zf6/Ug981mE+fz+Y4sr9QMsnizAFLA6+V4PH6DwGcCqM/91lGBgtT8NwGCvvhTxpks8CmLsMyDAvBEiCdCPBHiiZAlRcM+lhQgBUgBUoAUCHuSW+ZPCpACpAApQApYUjTsY0kBUoAUIAVIgbAnuWX+pEDUKfAFWX94n25Pz+0AAAAASUVORK5CYII=">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
 
-    <div><%= f.submit "Sign up" %></div>
-<% end %>
+    </div>
+  </div>
+  <div class=" col-span-5">
 
-<%= render "devise/shared/links" %>
+    <div class="well">
+
+      <%= form_for(resource, :as => resource_name, :url => register_path, :html => { :class => ''}) do |f| %>
+
+        <input type="hidden" name="merc" value="1">
+
+        <div class="control-group">
+          <%= label :name, "Name", :class => "control-label" %><%= red_asterisk %>
+          <div class="controls">
+            <%= text_field_tag nil, nil, :name => "merchant[first_name]",  :placeholder => 'First',:autofocus => true   %>
+
+            <%= error_on_form(resource.errors,:email)  %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :email, "Email", :class => "control-label" %> <%= red_asterisk %>
+          <div class="controls">
+            <%= f.email_field :email,  :placeholder => 'Email' %>
+
+            <%= error_on_form(resource.errors,:email)  %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :password, "Password", :class => "control-label" %>  <%= red_asterisk %>
+          <div class="controls">
+
+            <%= f.password_field :password, :placeholder => 'Password' %>
+
+            <%= error_on_form(resource.errors,:password)  %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :password_confirmation, "Confirm your password", :class => "control-label" %> <%= red_asterisk %>
+          <div class="controls">
+            <%= f.password_field :password_confirmation, :placeholder => 'Password' %>
+            <%= error_on_form(resource.errors,:password_confirmation)  %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Register", :class => "btn btn-primary" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

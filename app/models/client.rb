@@ -9,5 +9,18 @@ class Client < ActiveRecord::Base
   # has_many :purchases
   # has_many :products, :through => :purchases
 
+  attr_accessible :dob, :credit, :sex, :first_name, :last_name
 
+  validates_presence_of :user
+ # validates :first_name, :presence => true
+ # validates :last_name, :presence => true
+
+  before_save :set_name
+
+  def set_name
+    if first_name.nil? or last_name.nil?
+      first_name = "User"
+      last_name = "unknown"
+    end
+  end
 end

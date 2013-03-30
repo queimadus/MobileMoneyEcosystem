@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#register-link').click(fade_main_to_register_selection);
+    //$('#register-link').click(fade_main_to_register_selection);
 });
 
 function fade_main_to_register_selection(){

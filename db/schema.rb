@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
     t.integer  "user_id"
     t.integer  "credit",     :default => 0
     t.date     "dob"
+    t.string   "sex"
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
 
   create_table "merchants", :force => true do |t|
     t.integer  "user_id"
+    t.string   "name"
     t.integer  "credit",       :default => 0
     t.string   "bank_account"
     t.datetime "created_at",                  :null => false
@@ -108,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

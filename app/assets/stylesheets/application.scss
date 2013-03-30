@@ -4,7 +4,7 @@ $lightblack: #363636;
 
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
-@import "bootstrap.min.css";
+@import "bootstrap.css";
 //@import "font-awesome.min.css";
 @import "auth.scss";
 @import "footer.scss";
@@ -26,9 +26,8 @@ $lightblack: #363636;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-.center{
-  text-align: center;
-}
+.tcenter{ text-align: center; }
+.bcenter{ margin: 0 auto; }
 
 .shadow{
   -webkit-box-shadow: 1px 1px 1px #cbcbcb;
@@ -43,16 +42,34 @@ body{
 
 #header{
   background-color: white;
-  height: 100px;
+  height: 80px;
   margin-bottom: 10px;
   border-bottom: 1px solid $ptblue;
+  box-sizing: content-box;
 }
 
 #header-logo{
-  padding-top: 12px;
-  padding-bottom: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 #register-link{
   cursor: pointer;
+}
+
+body,html{
+  font-family: 'PT sans','Helvetica',Arial,sans-serif;
+}
+
+.field_with_errors,
+.form-error-label{
+  color: #b94a48;
+  display: inline;
+}
+.field_with_errors input{
+  border-color: #b94a48;
+}
+
+.red-asterisk{
+  color: #b94a48;
 }

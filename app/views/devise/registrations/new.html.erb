@@ -1,18 +1,85 @@
-<h2>Sign up client</h2>
+<h2>Sign up for a client account</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<div class="row">
+  <div class="col-span-7">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nulla nunc, consequat ut consectetur sit amet, accumsan in mauris. Nullam ut metus ac mauris interdum porttitor nec ut erat. Quisque erat nulla, faucibus nec accumsan id, faucibus vel magna. Sed et nulla sit amet lacus congue tempor vitae eu justo. Nunc massa nibh, feugiat ac tincidunt eu, cursus at magna. Donec pharetra mauris sed eros condimentum vulputate. Phasellus velit massa, lobortis et dictum eu, placerat id nisi. Proin et purus urna. Nam non dictum lacus. Fusce ut velit leo, eu sodales libero. Sed sodales nulla vel elit scelerisque in auctor est malesuada. Sed a nisl id tellus imperdiet aliquam ac ac ligula. Cras faucibus nunc eget lorem feugiat venenatis.
+      </p>
+      <p>
+        Phasellus mauris nulla, lacinia ut condimentum et, placerat venenatis orci. Maecenas id feugiat turpis. Nulla facilisi. Proin vel ipsum nec leo rhoncus facilisis. Nunc tincidunt neque purus, eget lobortis eros. Aliquam consequat vestibulum ante, eget tincidunt lorem varius ac. Mauris eu metus ut velit fermentum ornare. Integer vestibulum elementum elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam at est eu est congue lobortis aliquet eu augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras interdum dui eu sapien mollis eget molestie diam tincidunt.
+      </p>
+      <p>
+        Sed vitae lacus libero, in dapibus massa. Nulla non risus in quam vehicula ultrices nec sed eros. Nullam tristique, nisi ac vehicula dapibus, velit ante dapibus justo, eu mollis ante quam at nunc. Aenean non velit hendrerit justo varius commodo. Nulla vitae semper sapien. Ut faucibus tempus massa quis congue. Nunc pharetra, ipsum quis bibendum tempor, turpis nunc facilisis diam, hendrerit luctus quam ipsum sit amet lacus.
+      </p>
+      <p>
+        Vestibulum pharetra nisl id mauris mollis adipiscing. Ut id lectus risus. Phasellus lobortis fringilla eros in congue. Vivamus posuere vehicula gravida. Pellentesque malesuada turpis sit amet lectus accumsan eu vehicula nisi pretium. Morbi bibendum sodales nulla, vel lobortis velit consequat ac. Praesent consectetur scelerisque libero ac dapibus. Integer a venenatis est. Nulla non tortor turpis, et tempus metus. Suspendisse pellentesque, metus vitae dictum sodales, ante dolor mattis est, ac interdum massa elit non metus. Suspendisse tempor, metus eget hendrerit viverra, tortor risus placerat lacus, in dictum est ipsum vitae eros. Aenean at dui eu felis mollis suscipit. Mauris dictum augue feugiat ante congue mollis. Praesent metus risus, pharetra quis ullamcorper ut, rutrum varius leo.
+      </p>
+  </div>
+  <div class=" col-span-5">
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="well">
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+      <%= form_for(resource, :as => resource_name, :url => register_path, :html => { :class => ''}) do |f| %>
 
-<%= render "devise/shared/links" %>
+          <div class="control-group">
+            <%= label :name, "Name", :class => "control-label" %>
+            <div class="controls">
+             <%= text_field_tag nil, nil, :name => "client[first_name]", :class => "client-name", :placeholder => 'First',:autofocus => true   %>
+             <%= text_field_tag nil, nil, :name => "client[last_name]", :class => "client-name", :placeholder => 'Last'   %>
+
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :email, "Email", :class => "control-label" %> <%= red_asterisk %>
+            <div class="controls">
+              <%= f.email_field :email,  :placeholder => 'Email' %>
+
+              <%= error_on_form(resource.errors,:email)  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :password, "Password", :class => "control-label" %>  <%= red_asterisk %>
+            <div class="controls">
+
+              <%= f.password_field :password, :placeholder => 'Password' %>
+
+              <%= error_on_form(resource.errors,:password)  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :password_confirmation, "Confirm your password", :class => "control-label" %> <%= red_asterisk %>
+            <div class="controls">
+              <%= f.password_field :password_confirmation, :placeholder => 'Password' %>
+              <%= error_on_form(resource.errors,:password_confirmation)  %>
+            </div>
+          </div>
+
+        <div class="control-group">
+          <%= label :dob, "Date of birth", :class => "control-label" %>
+          <div class="controls">
+            <%=  date_select :client, :dob, :start_year => Time.now.year, :end_year =>1913 ,  :order => [:day, :month, :year],:prompt => true%>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label :sex, "Gender", :class => "control-label" %>
+          <div class="controls">
+            <%=  select_tag(nil, options_for_select([['Male', 'Male'], ['Female', 'Female']]), :id => 'sex_Gender', :name => 'client[sex]',:prompt => 'Gender') %>
+          </div>
+        </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <%= f.submit "Register", :class => "btn btn-primary" %>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
