@@ -4,6 +4,8 @@ class ProductController < ApplicationController
      @p.merchant=current_user.merchant
      @p.save
 
+
+
 #     respond_to do |format|
 #       if  @p.save
  #        format.html { redirect_to "/home/index", notice:'Produto criado com sucesso!'}
