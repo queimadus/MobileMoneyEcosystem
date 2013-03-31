@@ -37,10 +37,10 @@ body{
 }
 
 #header{
-  background-color: $blue;
-  #background-color: white;
+  #background-color: $blue;
+  background-color: white;
 
-  height: 75px;
+  height: 95px;
   margin-bottom: 10px;
   border-bottom: 1px solid $ptblue;
   box-sizing: content-box;
@@ -74,8 +74,8 @@ body,html{
 }
 
 .header-btn-toolbar{
-  margin-top: 21px;
-  margin-right: 16px;
+  margin-top: 38px;
+  margin-right: 20px;
 }
 
 .header-btn-toolbar .btn-group > .btn  {
@@ -86,13 +86,24 @@ body,html{
 }
 
 .header-title{
-  color: $greywhite;
+  #color: $greywhite;
+  color: $blue;
   font-size: 35px;
-  line-height: 75px;
+  line-height: 90px;
   #font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .btn-primary{
   background-color: $blue;
   border-color: $blue;
+}
+
+.header-btn{
+  color: darken($blue,10%);
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-left: 21px;
+  text-decoration: none !important;
 }
