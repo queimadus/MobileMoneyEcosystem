@@ -40,19 +40,25 @@
     <div id="header">
         <div class="container up">
 
-           <span class="up inline">
-           <%= link_to image_tag("logo.png",{ :alt => 'logo', :id => 'header-logo', :class => 'box  up'}), :root, :class => "up block" %>
 
-           </span>
+          <%#<span class="up inline">%>
+          <%# link_to image_tag("logo.png",{ :alt => 'logo', :id => 'header-logo', :class => 'box  up'}), :root, :class => "up block" %>
+          <%#</span>%>
+
+          <a href="/" style="text-decoration: none;"><span class="header-title">Mobile Money Ecosystem</span></a>
+
+          <div class="btn-toolbar pull-right header-btn-toolbar">
+            <div class="btn-group">
+
           <% unless user_signed_in? %>
-              <span class="pull-right"><%= link_to 'Login', new_user_session_path %> </span>
-              <span class="pull-right"> <%= link_to 'Register',  selection_registration_path, :id => "register-link" %> </span>
+            <a class="btn" href="<%= new_user_session_path %>"><i class="icon-align-left"></i> Login</a>
+            <a class="btn" href="<%= selection_registration_path %>"><i class="icon-align-center"></i> Register </a>
           <%else%>
-
                <span class="pull-right"><%=  link_to('Logout', destroy_user_session_path, :method => 'delete')%></span>
-
           <%end%>
 
+            </div>
+        </div>
         </div>
     </div>
 

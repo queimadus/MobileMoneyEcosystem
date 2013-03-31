@@ -23,7 +23,7 @@
 }
 
 .register-choice-panel:hover{
-  opacity: 1;
+  opacity: 0.75;
 }
 
 .register-choice-panel:hover .register-image-caption{
@@ -53,7 +53,7 @@
 .register-image-caption{
   position: absolute;
   bottom: -30px;
-  background-color: rgba(255, 255, 255, 0.66);
+  background-color: rgba(255, 255, 255, 0.80);
   height: 100px;
   width: inherit;
   text-align: center;
@@ -65,7 +65,7 @@
 
 .register-image-caption span.type,
 .register-image-caption span.caption{
-  color: black;
+  color: $blue;
   text-transform: uppercase;
   font-size: 47px;
   line-height: 81px;

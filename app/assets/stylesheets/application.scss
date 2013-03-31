@@ -1,6 +1,9 @@
 //scss variables
 $ptblue: #428bca; /*#4085a1;     */
 $lightblack: #363636;
+$oldblue: #357ebd;
+$blue: #226699;
+$greywhite: #fbfbfb;
 
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
@@ -21,28 +24,23 @@ $lightblack: #363636;
 .inline{ display: inline-block !important; }
 .up{ display:block; height: inherit; }
 .side{ display:block; width:inherit; }
-.box{
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
+.box{box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box; }
 .tcenter{ text-align: center; }
 .bcenter{ margin: 0 auto; }
-
-.shadow{
-  -webkit-box-shadow: 1px 1px 1px #cbcbcb;
-  -moz-box-shadow: 1px 1px 1px #cbcbcb;
-  box-shadow: 1px 1px 1px #cbcbcb;
-}
+.just{ text-align: justify; }
+.shadow{ -webkit-box-shadow: 1px 1px 1px #cbcbcb;-moz-box-shadow: 1px 1px 1px #cbcbcb;box-shadow: 1px 1px 1px #cbcbcb; }
 
 
 body{
-  background-color:#fbfbfb;
+  background-color:$greywhite;
+  color: rgba(51, 51, 51, 0.8);
 }
 
 #header{
-  background-color: white;
-  height: 80px;
+  background-color: $blue;
+  #background-color: white;
+
+  height: 75px;
   margin-bottom: 10px;
   border-bottom: 1px solid $ptblue;
   box-sizing: content-box;
@@ -51,6 +49,7 @@ body{
 #header-logo{
   padding-top: 15px;
   padding-bottom: 15px;
+  display: none;
 }
 
 #register-link{
@@ -72,4 +71,28 @@ body,html{
 
 .red-asterisk{
   color: #b94a48;
+}
+
+.header-btn-toolbar{
+  margin-top: 21px;
+  margin-right: 16px;
+}
+
+.header-btn-toolbar .btn-group > .btn  {
+  background-color: $greywhite;
+  color: $blue;
+  border: none;
+  font-weight: 700;
+}
+
+.header-title{
+  color: $greywhite;
+  font-size: 35px;
+  line-height: 75px;
+  #font-weight: 700;
+}
+
+.btn-primary{
+  background-color: $blue;
+  border-color: $blue;
 }
