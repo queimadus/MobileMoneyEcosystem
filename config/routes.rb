@@ -2,6 +2,8 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get "product/add"
   get "product/edit"
+  get "product/discontinue"
+  get "product/listclientproducts"
 
   get "client/consult"
 

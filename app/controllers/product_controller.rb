@@ -16,8 +16,18 @@ class ProductController < ApplicationController
 
   end
 
+  def listclientproducts
+    @products = Product.find_by_client(current_user.id);
+  end
+
   def edit
 
+  end
+
+  def discontinue
+    p = Product.find(params[:id]);
+    p.available = false;
+    p.save;
   end
 
 
