@@ -50,16 +50,26 @@
 
     <div class="well">
 
-      <%= form_for(resource, :as => resource_name, :url => register_path, :html => { :class => ''}) do |f| %>
+      <%= form_for(resource, :as => resource_name, :url => register_merchant_path, :html => { :class => ''}) do |f| %>
 
         <input type="hidden" name="merc" value="1">
 
         <div class="control-group">
-          <%= label :name, "Name", :class => "control-label" %><%= red_asterisk %>
+          <% if !@c.nil? and !@c.errors[:name].empty?%>
+            <%= label :name, "Name", :class => "control-label field_with_errors"%>
+          <% else %>
+            <%= label :name, "Name", :class => "control-label"%>
+          <%end %>
+          <%= red_asterisk %>
           <div class="controls">
-            <%= text_field_tag nil, nil, :name => "merchant[first_name]",  :placeholder => 'First',:autofocus => true   %>
-
-            <%= error_on_form(resource.errors,:email)  %>
+            <% if !@c.nil? and !@c.errors[:name].empty?%>
+              <%= text_field_tag nil, nil, :name => "merchant[name]", :class => "field_with_errors", :placeholder => 'Company name',:autofocus => true, :value => @c.name  %>
+            <% else %>
+              <%= text_field_tag nil, nil, :name => "merchant[name]",  :placeholder => 'Company name',:autofocus => true %>
+            <%end %>
+            <%= if !@c.nil? and !@c.errors[:name].empty?
+                 error_on_form(@c.errors,:name)
+               end %>
           </div>
         </div>
 

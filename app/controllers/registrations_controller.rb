@@ -20,19 +20,22 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     begin
-      build_resource
+      merch = params.has_key?(:merc) and params[:merc]=="1"
+      User.transaction do
 
-      if resource.save
+      u = build_resource
+      if( merch )
+        @c = Merchant.new(params[:merchant])
+      else
+        @c = Client.new(params[:client])
+      end
 
-        if( params.has_key?(:merc) and params[:merc]==1 )
-          c = Merchant.new(params[:merchant])
-        else
-          c = Client.new(params[:client])
-        end
-        u = User.find_by_email(params[:user][:email])
-        c.user = u
-        if c.save
+      resource.valid?
 
+      if @c.valid?
+        if resource.valid?
+          @c.user = u
+          @c.save
           if resource.active_for_authentication?
             set_flash_message :notice, :signed_up if is_navigational_format?
             sign_up(resource_name, resource)
@@ -42,29 +45,38 @@ class RegistrationsController < Devise::RegistrationsController
             expire_session_data_after_sign_in!
             respond_with resource, :location => after_inactive_sign_up_path_for(resource)
           end
-
         else
-
-
           flash[:error] = "Please fill the form correctly"
-          respond_with resource
-          clean_up_passwords resource#({u => @sub, u => resource})
-          u.delete
+          clean_up_passwords resource
+          if merch
+            render :action => "new_merchant"
+          else
+            render :action => "new"
+          end
         end
       else
         flash[:error] = "Please fill the form correctly"
         clean_up_passwords resource
-        respond_with resource
+
+        if merch
+          render :action => "new_merchant"
+        else
+          render :action => "new"
+        end
       end
-
-
+      end
+    end
 
     rescue Error => e
       e.errors.each { |error| resource.errors.add :base, error }
       clean_up_passwords(resource)
-      respond_with_navigational(resource) { render_with_scope  params.has_key?(:merc)? :new_merchant : :new}
+      if merch
+        render :action => "new_merchant"
+      else
+        render :action => "new"
+      end
     end
-  end
+
 
   protected
 

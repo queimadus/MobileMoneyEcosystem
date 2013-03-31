@@ -9,7 +9,8 @@ MobileMoneyEcosystem::Application.routes.draw do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
     get "/register/client" => "registrations#new", :as => :client_registration
     get "/register" => "registrations#selection", :as => :selection_registration
-    match  "/register" => "registrations#create", :as => :register, :via => :post
+    match "/register/merchant" => "registrations#create", :as => :register_merchant, :via => :post
+    match "/register/client" => "registrations#create", :as => :register_client, :via => :post
   end
 
 

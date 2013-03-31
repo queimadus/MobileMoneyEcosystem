@@ -21,9 +21,9 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
-  def error_on_form(resource, hash)
+  def error_on_form(a, hash)
       text = []
-      resource[hash].each do |t|
+      a[hash].each do |t|
         text << content_tag(:span, t, :class => "form-error-label")
       end
     text.uniq.join("<br>").html_safe
