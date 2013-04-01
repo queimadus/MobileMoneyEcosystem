@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :id, :image_url, :name
+  attr_accessible :id, :image_url, :name, :color
 
   has_many :categorizations
   has_many :products, :through => :categorizations

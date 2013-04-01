@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :user_is_merchant!
 
   def new
     Product.new
@@ -15,8 +17,15 @@ class ProductsController < ApplicationController
   end
 
   def index
+
     @products = Kaminari.paginate_array(Product.find_all_by_merchant_id(current_user.merchant.id)).page(params[:page]).per(18)
 
+    respond_to do |format|
+
+        format.json { render :json => {:success => true, :html => render_to_string( :partial => 'product_list',
+                                                                                    :locals => {:products => @products})}}
+        format.html { render 'index.html.erb' }
+    end
 
   end
 

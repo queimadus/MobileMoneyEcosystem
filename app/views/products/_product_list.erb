@@ -1,0 +1,13 @@
+<% self.formats = [:json, :html] %>
+<%if products.nil? %>
+  <p>No products</p>
+<%else%>
+  <% products.each do |p|  %>
+    <%= render "container", product: p %>
+  <%end%>
+<%end%>
+<div class="row">
+  <div class="col-span-9 tcenter">
+    <%= paginate products, :remote => true %>
+  </div>
+</div>

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
   create_table "categories", :force => true do |t|
     t.string   "image_url"
     t.string   "name"
+    t.string   "color"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -46,12 +47,13 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "quantity",   :default => 1
+    t.integer  "quantity",     :default => 1
     t.integer  "cart_id"
     t.integer  "product_id"
     t.integer  "order_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "actual_price"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "limits", :force => true do |t|
@@ -82,14 +84,14 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
   create_table "products", :force => true do |t|
     t.integer  "merchant_id"
     t.string   "name"
-    t.boolean  "available"
+    t.boolean  "available",   :default => false
     t.string   "image_url"
     t.integer  "price"
     t.string   "qrcode"
     t.string   "reference"
     t.string   "brand"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "transfers", :force => true do |t|

@@ -1,21 +1,10 @@
 <h1> <%= current_user.merchant.name %>&apos;s Products </h1>
 <div class="row">
-  <div class="col-span-9">
-    <%if @products.nil? %>
-      <p>No products</p>
-    <%else%>
-      <% @products.each do |p|  %>
-
-          <%= render "container", product: p %>
-
-      <%end%>
-    <%end%>
-    <div class="row">
-      <div class="col-span-9 tcenter">
-        <%= paginate @products %>
-      </div>
+  <div id="products-container" class="col-span-9">
+    <div class="product-list-loading"><div class="product-loading-inner"><i class="glyphicon glyphicon-refresh icon-spin"></i></div></div>
+    <div id="products-container-inner">
+      <%= render 'product_list', :products => @products %>
     </div>
-
   </div>
   <div class="col-span-3">
      <div class="product-info-panel">

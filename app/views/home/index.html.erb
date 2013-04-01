@@ -3,5 +3,6 @@
 </div>
 
 <% if user_signed_in? and current_user.is_merchant?%>
-  <%= link_to 'add product', product_add_path %>
+  <%= link_to 'my products', products_path %>
+  <%= link_to 'add product', new_product_path %>
 <%end%>

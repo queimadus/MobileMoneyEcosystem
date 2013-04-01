@@ -1,5 +1,6 @@
 <div class="product-container">
-  <div class="product-category">
+  <div class="product-category" style="color: rgba(<%= product.categories.first.color %>,0.23)">
+    <div class="product-triangle-color"></div>
     <i class="glyphicon glyphicon-search"></i><%= product.categories.first.name %>
   </div>
   <div class="product-image">
@@ -8,7 +9,7 @@
   <div class="product-data">
     <span class="name" title="name"><%= product.name %></span>
     <span class="brand" title="brand"><small><%= product.brand %></small></span>
-    <span class="price" title="price"><%= product.price %>€</span>
+    <span class="price" title="price" style="background-color: rgba(<%= product.categories.first.color %>,0.23)"><%= product.price %>€</span>
     <div class="edit-button">
       <div class="edit-icon">
         <i class="glyphicon glyphicon-pencil"></i>
