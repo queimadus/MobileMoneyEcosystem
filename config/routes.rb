@@ -1,10 +1,5 @@
 MobileMoneyEcosystem::Application.routes.draw do
 
-  get "product/add"
-  get "product/edit"
-  get "product/discontinue"
-  get "product/listclientproducts"
-
   get "client/consult"
 
   devise_scope :user do
@@ -15,15 +10,13 @@ MobileMoneyEcosystem::Application.routes.draw do
     match "/register/client" => "registrations#create", :as => :register_client, :via => :post
   end
 
-
-
-
   get "home/index"
 
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login', :sign_up => 'register', :sign_out => 'logout'}
 
   resources :limits
   resources :settings
+  resources :products
 
 
 

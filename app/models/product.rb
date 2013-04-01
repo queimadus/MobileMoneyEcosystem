@@ -12,8 +12,21 @@ class Product < ActiveRecord::Base
 
   belongs_to :merchant
 
-  validates_presence_of :name, :price #, :qrcode
+
   #validates_associated :categories
   #validates_associated :merchant
+  validates :name, :presence => true
+  validates :qrcode, :presence => true, :uniqueness => true  #TODO not yet implemented
+  validates :price, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
+  validates_presence_of :categories
+
+
+  def image
+    if image_url.nil?
+      "http://www.street61.com/FRUITS&VEGETABLES-bananas.jpg"
+    else
+      image_url
+    end
+  end
 
 end

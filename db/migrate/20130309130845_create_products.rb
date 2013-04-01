@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :merchant_id
 
       t.string :name
-      t.boolean :available
+      t.boolean :available, :default => 0
       t.string :image_url
       t.integer :price
       t.string :qrcode

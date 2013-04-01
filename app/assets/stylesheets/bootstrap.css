@@ -2039,8 +2039,8 @@ height: auto;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: normal;
-    src: url('../fonts/glyphiconshalflings-regular.eot');
-    src: url('../fonts/glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphiconshalflings-regular.woff') format('woff'), url('../fonts/glyphiconshalflings-regular.ttf') format('truetype'), url('../fonts/glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    src: url('glyphiconshalflings-regular.eot');
+    src: url('glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphiconshalflings-regular.woff') format('woff'), url('glyphiconshalflings-regular.ttf') format('truetype'), url('glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon:before {
@@ -3776,7 +3776,7 @@ button.close {
 .pagination > .disabled > a:focus {
     color: #999999;
     cursor: default;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 
 .pagination > li:first-child > a,

@@ -6,4 +6,6 @@ class Category < ActiveRecord::Base
 
   has_many :limits
   has_many :user_clients, :through => :limits
+
+  validates :name, :presence => true, :uniqueness => true
 end

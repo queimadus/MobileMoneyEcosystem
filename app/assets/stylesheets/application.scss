@@ -11,6 +11,7 @@ $greywhite: #fbfbfb;
 //@import "font-awesome.min.css";
 @import "auth.scss";
 @import "footer.scss";
+@import "products.scss";
 
 //global applicaion css
 
@@ -34,6 +35,7 @@ $greywhite: #fbfbfb;
 body{
   background-color:$greywhite;
   color: rgba(51, 51, 51, 0.8);
+  background-image: url(/assets/bg.png);
 }
 
 #header{
@@ -108,3 +110,24 @@ body,html{
   margin-left: 21px;
   text-decoration: none !important;
 }
+
+.three-dots{
+  display: inline-block;
+}
+
+.three-dots div{
+  width: 4px;
+  height: 4px;
+  background-color: rgb(182, 182, 182);
+  margin: 3px;
+}
+
+.three-dots.horizontal div{
+  display: inline-block;
+  margin: 2px;
+}
+
+.three-dots:hover div{
+  background-color: rgb(151, 151, 151);
+}
+

@@ -29,6 +29,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'devise'
   gem "cancan"
+  gem 'kaminari'
 end
 
 gem 'jquery-rails'

@@ -1,0 +1,19 @@
+<div class="product-container">
+  <div class="product-category">
+    <i class="glyphicon glyphicon-search"></i><%= product.categories.first.name %>
+  </div>
+  <div class="product-image">
+    <%= image_tag product.image %>
+  </div>
+  <div class="product-data">
+    <span class="name" title="name"><%= product.name %></span>
+    <span class="brand" title="brand"><small><%= product.brand %></small></span>
+    <span class="price" title="price"><%= product.price %>€</span>
+    <div class="edit-button">
+      <div class="edit-icon">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </div>
+      <%= three_dots(:horizontal => false) %>
+    </div>
+  </div>
+</div>

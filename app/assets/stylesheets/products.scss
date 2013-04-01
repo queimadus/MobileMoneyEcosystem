@@ -1,0 +1,137 @@
+.product-container2{
+  display: inline-block;
+  width: 225px;
+  height: 108px;
+  background-color: white;
+  overflow: hidden;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  border-radius: 1px;
+  position: relative;
+  -webkit-box-shadow: 1px 1px 1px #cbcbcb;
+  -moz-box-shadow: 1px 1px 1px #cbcbcb;
+  box-shadow: 1px 1px 1px #cbcbcb;
+}
+
+.product-container{
+  display: inline-block;
+  width: 225px;
+  height: 108px;
+  background-color: white;
+  overflow: hidden;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  border-radius: 1px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+ }
+
+.product-category:after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 40px solid transparent;
+  border-right: 185px solid transparent;
+  border-left: 40px solid rgba(0, 128, 0, 0.23);
+  pointer-events: none;
+}
+
+.product-image{
+  display: inline-block;
+  width: 74px;
+  margin: 0 6px;
+  overflow: hidden;
+  height: 74px;
+  background: whitesmoke;
+  float: left;
+}
+
+.product-image img{
+  height: 74px;
+  width: auto;
+  max-width: none;
+}
+
+.product-data{
+  display: inline-block;
+  width: 134px;
+  margin-right: 5px;
+  height: 74px;
+}
+
+.product-data span.brand{
+  color: #999;
+}
+
+.product-data .price{
+  display: block;
+  padding: 3px;
+  background-color: rgba(0, 128, 0, 0.23);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 6px;
+}
+
+.product-category{
+  height: 22px;
+  #background-color: rgba(0, 128, 0, 0.23);
+  margin-bottom: 6px;
+  color: rgba(0, 128, 0, 0.23);
+  font-weight: 700;
+  text-align: right;
+  padding-right: 8px;
+  #cursor: pointer;
+}
+
+.product-container:hover .product-category .glyphicon{
+  display: inline;
+  cursor: pointer;
+}
+
+.product-container .edit-button{
+  position: absolute;
+  bottom: 0px;
+  right: 3px;
+  cursor: pointer;
+}
+
+
+.product-category .glyphicon{
+  font-size: 11px;
+  margin-right: 4px;
+  display: none;
+}
+
+.product-info-panel{
+  background-color: red;
+  height: 500px;
+  padding: 0;
+}
+.edit-button .glyphicon{
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 4px;
+  color: #979797;
+  transition: margin 0.1s;
+  -moz-transition: margin 0.2s;
+  -webkit-transition: margin 0.2s;
+}
+
+.edit-button .edit-icon{
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  height: 24px;
+  width: 20px;
+}
+
+.edit-button:hover .glyphicon{
+  margin-left:2px;
+}

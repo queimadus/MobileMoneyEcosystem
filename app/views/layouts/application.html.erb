@@ -53,10 +53,11 @@
 
 
           <% unless user_signed_in? %>
-            <a class="header-btn" href="<%= new_user_session_path %>"> Login</a>
-            <a class="header-btn" href="<%= selection_registration_path %>"> Register </a>
+            <%= link_to('Login', new_user_session_path, :class => "header-btn")%>
+            <%= link_to('Register', selection_registration_path, :class => "header-btn")%>
           <%else%>
-               <span class="pull-right"><%=  link_to('Logout', destroy_user_session_path, :method => 'delete')%></span>
+            <%= link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "header-btn")%>
+
           <%end%>
           </div>
           </div>

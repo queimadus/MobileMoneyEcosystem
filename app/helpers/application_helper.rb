@@ -33,4 +33,13 @@ module ApplicationHelper
     content_tag(:span,'*', :class => "red-asterisk")
   end
 
+  def three_dots(options = {})
+    text = options[:horizontal]? "three-dots horizontal" : "three-dots"
+    content_tag :div, :class => text do
+      content_tag(:div,"") +
+      content_tag(:div,"") +
+      content_tag(:div,"")
+    end
+  end
+
 end
