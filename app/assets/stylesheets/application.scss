@@ -31,6 +31,16 @@ $greywhite: #fbfbfb;
 .just{ text-align: justify; }
 .shadow{ -webkit-box-shadow: 1px 1px 1px #cbcbcb;-moz-box-shadow: 1px 1px 1px #cbcbcb;box-shadow: 1px 1px 1px #cbcbcb; }
 
+.fade{
+  opacity: 0;
+  transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+}
+
+.fade.show{
+  opacity: 1;
+}
 
 body{
   background-color:$greywhite;
@@ -158,5 +168,9 @@ body,html{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(359deg); }
+}
+
+.alert{
+  margin-left: 35px;
 }
 

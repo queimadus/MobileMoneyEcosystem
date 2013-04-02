@@ -13,10 +13,10 @@ m.user = u
 u.save
 m.save
 
-cat1 = Category.create(:name => "Vegetais", :color => "0,128,0")
-cat2 = Category.create(:name => "Assados", :color => "128,0,0")
-cat3 = Category.create(:name => "Higiene", :color => "0,0,128")
-cat4 = Category.create(:name => "Fruta", :color => "64,0,64")
+cat1 = Category.create(:name => "Vegetais", :color => "193, 222, 193")
+cat2 = Category.create(:name => "Assados", :color => "227,204,204")
+cat3 = Category.create(:name => "Higiene", :color => "204,206,227")
+cat4 = Category.create(:name => "Fruta", :color => "227,226,204")
 
 
 (1..50).each do |i|

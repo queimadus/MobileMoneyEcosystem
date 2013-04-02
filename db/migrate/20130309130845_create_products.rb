@@ -7,10 +7,11 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.boolean :available, :default => 0
       t.string :image_url
-      t.integer :price
+      t.integer :price, :default => 0
       t.string :qrcode
       t.string :reference
       t.string :brand
+      t.integer :stock, :default => 0
 
       t.timestamps
     end

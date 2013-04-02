@@ -1,0 +1,61 @@
+<% self.formats = [:json, :html] %>
+
+<div class="category-title" <%= category_color('background-color',product)%> ><%= product.categories.first.name %></div>
+<div class="category-image"><%= image_tag product.categories.first.image %></div>
+<div class="product-data-container">
+  <%= qrcode_image_for product.qrcode, :class => "qrcode" %>
+
+  <%= form_for product, :remote => true do |f| %>
+
+    <%= f.hidden_field :id %>
+
+    <div class="control-group">
+      <%= f.label :name, "Product name", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :name,  :placeholder => 'Product name',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :brand, "Product brand", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :brand,  :placeholder => 'Product brand',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :price, "Product price", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :price,  :placeholder => 'Product price',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :stock, "Product stock", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :stock,  :placeholder => 'Product stock',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :image_url, "Product image location", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :image_url,  :placeholder => 'Image URL',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :reference, "Product reference", :class => "control-label"%>
+      <div class="controls">
+        <%= f.text_field :reference,  :placeholder => 'Product stock',:autofocus => false %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Save", :class => "btn btn-primary", :id => "product-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<p style=""></p>

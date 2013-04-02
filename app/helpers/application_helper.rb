@@ -21,6 +21,23 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def bootstrap_notice(msg,type)
+    flash_messages = []
+
+
+      type = :success if type == :notice
+      type = :error   if type == :alert
+
+
+        text = content_tag(:div,
+                           content_tag(:button, ("&times;").html_safe, :class => "close", "data-dismiss" => "alert-notice") +
+                               msg.html_safe, :class => "inline alert alert-notice fade in alert-#{type}")
+        flash_messages << text
+
+
+    flash_messages.join("\n").html_safe
+  end
+
   def error_on_form(a, hash)
       text = []
       a[hash].each do |t|
@@ -42,4 +59,12 @@ module ApplicationHelper
     end
   end
 
+  def category_color(attr,obj)
+    'style='+attr+':rgba('+obj.categories.first.color+',0.80)'
+  end
+
+  def qrcode_image_for(product, options = {})
+    #TODO still a stub. needs to convert a product qrcode token into a qrcodeIMAGE url or somthing
+    image_tag "http://www.qrpix.com/blog/wp-content/uploads/2012/11/QR-code.jpg", options
+  end
 end

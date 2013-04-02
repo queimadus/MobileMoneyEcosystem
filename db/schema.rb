@@ -86,10 +86,11 @@ ActiveRecord::Schema.define(:version => 20130311163423) do
     t.string   "name"
     t.boolean  "available",   :default => false
     t.string   "image_url"
-    t.integer  "price"
+    t.integer  "price",       :default => 0
     t.string   "qrcode"
     t.string   "reference"
     t.string   "brand"
+    t.integer  "stock",       :default => 0
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end

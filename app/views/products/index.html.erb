@@ -1,14 +1,23 @@
 <h1> <%= current_user.merchant.name %>&apos;s Products </h1>
 <div class="row">
   <div id="products-container" class="col-span-9">
-    <div class="product-list-loading"><div class="product-loading-inner"><i class="glyphicon glyphicon-refresh icon-spin"></i></div></div>
+    <div class="product-list-loading">
+      <div class="product-loading-inner">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+    </div>
     <div id="products-container-inner">
       <%= render 'product_list', :products => @products %>
     </div>
   </div>
   <div class="col-span-3">
-     <div class="product-info-panel">
+     <div class="product-info-panel fade">
+        <div class="edit-loading">
+            <i class="glyphicon glyphicon-refresh icon-spin"></i>
+        </div>
+        <div id="product-info-inner">
 
+        </div>
      </div>
   </div>
 </div>

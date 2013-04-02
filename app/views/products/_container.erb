@@ -1,0 +1,25 @@
+<% self.formats = [:json, :html] %>
+<div id="<%=product.id%>" class="product-container">
+  <div class="product-category" <%= category_color('color',product)%> >
+    <div class="product-triangle-color"></div>
+    <i class="glyphicon glyphicon-search"></i><%= product.categories.first.name %>
+  </div>
+  <div class="product-image">
+    <%= image_tag product.image %>
+  </div>
+  <div class="product-data">
+
+    <span class="name" title="Name"><%= product.name %></span>
+    <span class="brand" title="Brand"><small><%= product.brand %></small></span>
+    <div class="price-stock">
+      <span class="price" title="Price" <%= category_color('background-color',product)%> ><%= product.price %>€</span>
+      <span class="quantity" title="Quantity" ><i class="glyphicon glyphicon-shopping-cart"></i><%= product.stock %></span>
+    </div>
+    <%= link_to edit_product_path(product.id), :class => "edit-button", :remote => true do %>
+      <div class="edit-icon">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </div>
+      <%= three_dots(:horizontal => false) %>
+    <%end%>
+  </div>
+</div>
