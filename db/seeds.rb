@@ -13,14 +13,14 @@ m.user = u
 u.save
 m.save
 
-cat1 = Category.create(:name => "Vegetais", :color => "193, 222, 193")
-cat2 = Category.create(:name => "Assados", :color => "227,204,204")
-cat3 = Category.create(:name => "Higiene", :color => "204,206,227")
-cat4 = Category.create(:name => "Fruta", :color => "227,226,204")
+cat1 = Category.create(:name => "Vegetais", :color => "79,128,79")
+cat2 = Category.create(:name => "Assados", :color => "223,32,32")
+cat3 = Category.create(:name => "Higiene", :color => "161,164,194")
+cat4 = Category.create(:name => "Fruta", :color => "175,190,0")
 
 
 (1..50).each do |i|
-  p1 = Product.new(:name => "Produto "+i.to_s, :price => (i*2).to_s, :qrcode => i.to_s)
+  p1 = Product.new(:name => "Produto "+i.to_s, :price => (i*2).to_s, :qrcode => i.to_s, :available => true)
   if i < 12
     p1.categories << cat1
   elsif i<24

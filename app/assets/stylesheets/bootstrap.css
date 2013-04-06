@@ -3972,6 +3972,7 @@ button.close {
 
 .modal-header .close {
     margin-top: 2px;
+    right:0px;
 }
 
 .modal-title {
@@ -4282,7 +4283,7 @@ button.close {
     position: relative;
     top: -2px;
     right: -21px;
-    line-height: 20px;
+    line-height: 28px;
     color: inherit;
 }
 

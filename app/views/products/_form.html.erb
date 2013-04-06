@@ -1,17 +1,76 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= form_for product, :remote => true, :html => {:multipart => true } do |f| %>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= f.hidden_field :id %>
+
+  <div class="control-group">
+    <%= f.label :name, "Product name", :class => "control-label"%>
+    <div class="controls relative">
+      <%= f.text_field :name,  :placeholder => 'Product name',:autofocus => false %>
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:name) unless product.errors[:name].empty?  %>
+    </div>
+  </div>
+
+  <% if product.id.nil? %>
+    <div class="control-group">
+      <%= label :category, "Product category", :class => "control-label"%>
+      <div class="controls relative">
+        <%# f.select :category,  :placeholder => 'Product category',:autofocus => false %>
+        <%= collection_select "category","id", Category.all, :id, :name %>
+        <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:category) unless product.errors[:category].empty?  %>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <%= f.label :brand, "Product brand", :class => "control-label"%>
+    <div class="controls relative">
+      <%= f.text_field :brand,  :placeholder => 'Product brand',:autofocus => false %>
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:brand) unless product.errors[:brand].empty?  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :price, "Product price", :class => "control-label"%>
+    <div class="controls relative">
+      <%= f.text_field :price,  :placeholder => 'Product price',:autofocus => false %>
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:price) unless product.errors[:price].empty?  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :stock, "Product stock", :class => "control-label"%>
+    <div class="controls relative">
+      <%= f.text_field :stock,  :placeholder => 'Product stock',:autofocus => false %>
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:stock) unless product.errors[:stock].empty?  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :image, "Product image", :class => "control-label"%>
+    <div class="controls relative">
+
+      <%= f.file_field :image, :title => "Select a file"%>
+
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:image) unless product.errors[:image].empty?  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :reference, "Product reference", :class => "control-label"%>
+    <div class="controls relative">
+      <%= f.text_field :reference,  :placeholder => 'Product reference',:autofocus => false %>
+      <%=	render 'layouts/tooltip', message: error_on_form(product.errors,:relative) unless product.errors[:relative].empty?  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls" style="white-space: nowrap;">
+      <%# (!submit_name.nil? and submit_name=="update")? "margin-right:-2px;":"" %>
+      <%= f.submit submit_name.nil?? "Save": submit_name, :class => "btn btn-primary", :id => "product-submit", :style => "margin-right:-2px;"  %>
+      <%= link_to "Cancel", products_path, :class => "btn", :id => "product-cancel", :remote => true, :data => {:dismiss => "modal"},  :style => "margin-right:-2px;"  %>
+      <% unless product.id.nil? %>
+        <%= link_to "Delete", {:action => "destroy", :controller => "products" }, :method => :delete, :data => {:toggle => "modal", :target => "#confirm-modal" }, :class => "btn btn-danger", :remote => false%>
+      <% end %>
+      </div>
   </div>
 <% end %>

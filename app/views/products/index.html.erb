@@ -1,4 +1,42 @@
-<h1> <%= current_user.merchant.name %>&apos;s Products </h1>
+<h1 style="margin-bottom: 20px;"> <%# current_user.merchant.name &apos;s%> Products </h1>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Add a new product</h4>
+      </div>
+      <div id="new-product-form-container" class="modal-body">
+         <%= render 'form', product: @product, submit_name: "Create" %>
+      </div>
+     <!-- <div class="modal-footer">
+        <button class="btn" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div> -->
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dalog -->
+</div>
+
+<div class="row">
+  <div class="col-span-9">
+    <div class="input-group span products-search-bar">
+      <input id="products-search " type="text" class=" input-large">
+      <span class="input-group-btn">
+        <button class="btn btn-primary btn-large" type="button">Search</button>
+      </span>
+    </div>
+
+
+  </div>
+  <div class="col-span-3 tcenter">
+    <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large" style="margin-left: 14px;">Add new product</a>
+
+  </div>
+</div>
 <div class="row">
   <div id="products-container" class="col-span-9">
     <div class="product-list-loading">
@@ -16,7 +54,7 @@
             <i class="glyphicon glyphicon-refresh icon-spin"></i>
         </div>
         <div id="product-info-inner">
-
+            <%= "LOL" unless @product.nil? %>
         </div>
      </div>
   </div>

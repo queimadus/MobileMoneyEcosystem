@@ -5,6 +5,10 @@ $oldblue: #357ebd;
 $blue: #226699;
 $greywhite: #fbfbfb;
 
+body{
+  background-image: url(/assets/bg.png) !important;
+}
+
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
 @import "bootstrap.css";
@@ -12,6 +16,27 @@ $greywhite: #fbfbfb;
 @import "auth.scss";
 @import "footer.scss";
 @import "products.scss";
+
+//scroll
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: #CCC;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AAA;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #888;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+}
+
 
 //global applicaion css
 
@@ -30,6 +55,7 @@ $greywhite: #fbfbfb;
 .bcenter{ margin: 0 auto; }
 .just{ text-align: justify; }
 .shadow{ -webkit-box-shadow: 1px 1px 1px #cbcbcb;-moz-box-shadow: 1px 1px 1px #cbcbcb;box-shadow: 1px 1px 1px #cbcbcb; }
+.relative{ position: relative;}
 
 .fade{
   opacity: 0;
@@ -45,7 +71,7 @@ $greywhite: #fbfbfb;
 body{
   background-color:$greywhite;
   color: rgba(51, 51, 51, 0.8);
-  background-image: url(/assets/bg.png);
+  background-image: url(/assets/bg.png) !important;
 }
 
 #header{
@@ -173,4 +199,29 @@ body,html{
 .alert{
   margin-left: 35px;
 }
+
+.error-tooltip{
+  top: 21px;
+  right: 3px;
+  display: block;
+  cursor: pointer;
+}
+
+.error-tooltip .tooltip-inner,
+.error-tooltip .tooltip-inner span{
+  background-color: rgba(#b94a48, 1);
+  color: white;
+}
+
+.error-tooltip .tooltip-arrow{
+  border-bottom-color: rgba(#b94a48, 1) !important;
+  right: 7px !important;
+  left:  auto !important;
+}
+
+.bigger-btn-padding{
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
 

@@ -10,8 +10,8 @@ class Category < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   def image
-    if image_url.nil?
-      "http://cuerpos-perfectos.es/img/product/thumb/4ea4b24053.jpg"
+    if image_url.nil? or image_url.blank?
+      "/assets/vegetais.jpg"
     else
       image_url
     end

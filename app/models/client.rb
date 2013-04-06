@@ -11,7 +11,7 @@ class Client < ActiveRecord::Base
 
   attr_accessible :dob, :credit, :sex, :first_name, :last_name
 
-  validates_presence_of :user
+  #validates_presence_of :user
  # validates :first_name, :presence => true
  # validates :last_name, :presence => true
 

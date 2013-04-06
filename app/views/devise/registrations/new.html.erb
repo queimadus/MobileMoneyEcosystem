@@ -34,28 +34,29 @@
 
           <div class="control-group">
             <%= f.label :email, "Email", :class => "control-label" %> <%= red_asterisk %>
-            <div class="controls">
+            <div class="controls relative">
               <%= f.email_field :email,  :placeholder => 'Email' %>
-
-              <%= error_on_form(resource.errors,:email)  %>
+              <%=	render 'layouts/tooltip', message: error_on_form(resource.errors,:email) unless resource.errors[:email].empty?  %>
+              <%# error_on_form(resource.errors,:email)  %>
             </div>
           </div>
 
-          <div class="control-group">
+          <div class="control-group relative">
             <%= f.label :password, "Password", :class => "control-label" %>  <%= red_asterisk %>
-            <div class="controls">
+            <div class="controls relative">
 
               <%= f.password_field :password, :placeholder => 'Password' %>
-
-              <%= error_on_form(resource.errors,:password)  %>
+              <%=	render 'layouts/tooltip', message: error_on_form(resource.errors,:password) unless resource.errors[:password].empty?  %>
+              <%# error_on_form(resource.errors,:password)  %>
             </div>
           </div>
 
           <div class="control-group">
             <%= f.label :password_confirmation, "Confirm your password", :class => "control-label" %> <%= red_asterisk %>
-            <div class="controls">
+            <div class="controls relative">
               <%= f.password_field :password_confirmation, :placeholder => 'Password' %>
-              <%= error_on_form(resource.errors,:password_confirmation)  %>
+              <%=	render 'layouts/tooltip', message: error_on_form(resource.errors,:password_confirmation) unless resource.errors[:password_confirmation].empty?  %>
+              <%# error_on_form(resource.errors,:password_confirmation)  %>
             </div>
           </div>
 

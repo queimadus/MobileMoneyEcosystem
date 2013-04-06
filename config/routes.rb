@@ -1,7 +1,4 @@
 MobileMoneyEcosystem::Application.routes.draw do
-
-  resources :products
-
   get "client/consult"
 
   devise_scope :user do

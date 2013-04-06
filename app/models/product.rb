@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :available, :image_url, :price, :qrcode, :reference, :brand, :stock, :id
-
+  attr_accessible :name, :available, :image_url, :price, :qrcode, :reference, :brand, :stock, :id, :image
+  has_attached_file :image, :default_url => ":category_image"#"/images/:style/missing.png"
+ #, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   has_many :items
   has_many :carts, :through => :items
 
@@ -16,18 +17,14 @@ class Product < ActiveRecord::Base
   #validates_associated :categories
   #validates_associated :merchant
   validates :name, :presence => true
-  validates :qrcode, :presence => true, :uniqueness => true  #TODO not yet implemented
+  validates :qrcode, :presence => true#, :uniqueness => true  #TODO not yet implemented
   validates :price, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :stock, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates_presence_of :categories
 
 
-  def image
-    if image_url.nil?
-      "http://www.street61.com/FRUITS&VEGETABLES-bananas.jpg"
-    else
-      image_url
-    end
+  Paperclip.interpolates :category_image do |attachment, style|
+    attachment.instance.categories.first.image
   end
 
 end

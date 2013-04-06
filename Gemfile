@@ -30,6 +30,7 @@ group :assets do
   gem 'devise'
   gem "cancan"
   gem 'kaminari'
+  gem "paperclip", "~> 3.0"
 end
 
 gem 'jquery-rails'
