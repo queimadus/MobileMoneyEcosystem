@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="price-cont">
-    <span class="price" title="Price" <%= category_color('background-color',product)%> ><%= product.price %>€</span>
+    <span class="price" title="Price" <%= category_color('background-color',product)%> ><%= number_to_currency(product.price, :unit => "€", :format => "%n%u") %></span>
   </div>
   <div class="stock-cont">
     <span class="quantity" title="Quantity" ><i class="glyphicon glyphicon-shopping-cart"></i><%= product.stock %></span>

@@ -111,12 +111,12 @@ function product_submit(evt,data){
         bind_form();
         $('.edit_product #product-cancel').click(close_info_panel);
         bind_edit_container();
-        glow_success(data.id);
+        glow_success(data.id,",.product-info-panel");
     }  else {
         $('#product-info-inner').html(data.html);
         bind_form();
         $('.edit_product #product-cancel').click(close_info_panel);
-        glow_error(data.id);
+        glow_error(data.id,",.product-info-panel");
     }
     edit_loading(false);
 
@@ -131,12 +131,12 @@ function product_submit_error(){
     alert("error");
 }
 
-function glow_success(id){
-    glow(id,'#226699');
+function glow_success(id,form){
+    glow(id+form,'#226699');
 }
 
-function glow_error(id){
-    glow(id,'#ff0000');
+function glow_error(id,form){
+    glow(id+form,'#ff0000');
 }
 
 function glow(id, color){
