@@ -7,6 +7,8 @@ MobileMoneyEcosystem::Application.routes.draw do
     get "/register" => "registrations#selection", :as => :selection_registration
     match "/register/merchant" => "registrations#create", :as => :register_merchant, :via => :post
     match "/register/client" => "registrations#create", :as => :register_client, :via => :post
+    post 'sessions' => 'sessions#create', :as => 'login'
+    delete 'sessions' => 'sessions#destroy', :as => 'logout'
   end
 
   get "home/index"
