@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
      @p = Product.new(params[:product])
      @p.merchant=current_user.merchant
      @p.categories << Category.find(params[:category][:id])
-     @p.qrcode = "qr2"
+     @p.set_hash
      @p.available = true
      #generate qrcode
      #add support for uploaded images

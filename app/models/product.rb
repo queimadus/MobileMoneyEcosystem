@@ -35,6 +35,11 @@ class Product < ActiveRecord::Base
     self.available = true
   end
 
+  def set_hash
+    begin token = SecureRandom.urlsafe_base64(12) end while
+        !Item.where(:qrcode => token).exists?
+    self.qrcode = token
+  end
 
   Paperclip.interpolates :category_image do |attachment, style|
     attachment.instance.categories.first.image
