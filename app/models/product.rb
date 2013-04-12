@@ -25,6 +25,8 @@ class Product < ActiveRecord::Base
   before_create :set_available
   before_save  :round_price
 
+  scope :filter_by_categories, lambda{ |name| includes(:categories).where(:categories=>{:name=>name}) }
+
   def round_price
     self.price = sprintf("%.2f", self.price)
   end

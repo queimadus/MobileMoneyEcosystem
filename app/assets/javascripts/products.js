@@ -1,6 +1,6 @@
 //helpers
 function bind_pagination(){
-    $('.pagination a, form.new_product').bind("ajax:success",update_products)
+    $('.pagination a, form.new_product, form#product-search-form').bind("ajax:success",update_products)
         .bind("ajax:beforeSend ",start_product_loading)
         .bind("ajax:error", product_error);
     $('.product-image-img').centerImage();

@@ -32,8 +32,27 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Kaminari.paginate_array(Product.where(:merchant_id => current_user.merchant.id, :available => true ).order("id DESC")).page(params[:page]).per(15)
+
+    #if params[q]? => is q a category? -> filter_by category else filter_by name or
+
+
+    @query = ""
+    q = Product.where(:products => {:merchant_id => current_user.merchant.id}, :available => true ).order("products.id DESC")
+    if params.has_key?(:q)  and !params{:q}.nil?
+      @query = params{:q}
+      params[:q].split(" ").each do |keyword|
+        if(Category.find_by_name(keyword))
+          q=q.filter_by_categories(keyword)
+        else
+          q=q.where('products.name like ? OR products.brand like ?',"%"+keyword+"%", "%"+keyword+"%")
+        end
+      end
+    end
+
+    @products = Kaminari.paginate_array(q).page(params[:page]).per(15)
     @product = Product.new
+
+    #Company.includes(:branches).where(:branches => {:id => 3})
 
     respond_to do |format|
         format.json { render :json => {:success => true, :html => render_to_string( :partial => 'product_list',

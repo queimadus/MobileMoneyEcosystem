@@ -1,7 +1,12 @@
 <% self.formats = [:json, :html] %>
-<%if products.nil? %>
-  <p>No products</p>
+<%if products.nil? or products.empty?%>
+  <div class="row">
+    <div class="col-span-12 tcenter">
+      <span>No products found</span>
+    </div>
+  </div>
 <%else%>
+
   <% products.each do |p|  %>
     <%= render "container", product: p %>
   <%end%>
