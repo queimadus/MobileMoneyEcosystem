@@ -1,24 +1,3 @@
-<h1>Listing limits</h1>
+Limits
 
-<p><%= current_user.name %></p>
-<h1>REST</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @limits.each do |limit| %>
-  <tr>
-    <td><%= link_to 'Show', limit %></td>
-    <td><%= link_to 'Edit', edit_limit_path(limit) %></td>
-    <td><%= link_to 'Destroy', limit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Limit', new_limit_path %>

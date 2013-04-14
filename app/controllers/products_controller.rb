@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:product][:id])
 
     respond_to do |format|
-      if( @product.update_attributes(params[:product]) and @product.merchant_id==current_user.merchant.id )
+      if @product.update_attributes(params[:product]) and @product.merchant_id==current_user.merchant.id
         format.json { render :json => { :success => true,
                                         :updated => render_to_string( :partial => 'container',
                                                                       :locals => {:product => @product}),

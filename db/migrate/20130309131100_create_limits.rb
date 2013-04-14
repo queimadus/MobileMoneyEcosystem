@@ -7,6 +7,7 @@ class CreateLimits < ActiveRecord::Migration
 
       t.integer :max
       t.string :type
+      t.date :starting
 
       t.timestamps
     end

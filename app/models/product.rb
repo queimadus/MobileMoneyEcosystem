@@ -36,7 +36,7 @@ class Product < ActiveRecord::Base
   end
 
   def set_hash
-
+    token = ""
     begin
       token = SecureRandom.urlsafe_base64()
     end while Product.find_by_qrcode(token)

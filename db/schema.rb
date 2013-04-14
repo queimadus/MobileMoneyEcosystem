@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130402135720) do
   create_table "clients", :force => true do |t|
     t.integer  "user_id"
     t.integer  "credit",     :default => 0
+    t.integer  "decimal",    :default => 0
     t.date     "dob"
     t.string   "sex"
     t.string   "first_name"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130402135720) do
     t.integer  "category_id"
     t.integer  "max"
     t.string   "type"
+    t.date     "starting"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130402135720) do
     t.integer  "user_id"
     t.string   "name"
     t.integer  "credit",       :default => 0
+    t.integer  "decimal",      :default => 0
     t.string   "bank_account"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false

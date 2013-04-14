@@ -187,7 +187,7 @@
   display: inline-block;
   margin-left: 20px;
   margin-top: 4px;
-  color: #979797;
+  color: rgb(182, 182, 182);
   transition: margin 0.1s;
   -moz-transition: margin 0.1s;
   -webkit-transition: margin 0.1s;
@@ -201,9 +201,14 @@
   width: 20px;
 }
 
-.edit-button:hover .glyphicon{
+.product-container:hover .edit-button .glyphicon{
   margin-left:2px;
 }
+
+.edit-button .glyphicon:hover{
+  color: rgb(151, 151, 151);
+}
+
 
 .product-list-loading{
   display: none;

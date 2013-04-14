@@ -136,7 +136,8 @@ function product_submit(evt,data){
         $('.edit_product #product-cancel').click(close_info_panel);
         bind_edit_container();
         glow_success(data.id,",.product-info-panel");
-        $('.product-container#'+data.id).click(bind_categ_search);
+        $('.product-container#'+data.id+" .categ-search").click(bind_categ_search);
+        close_info_panel();
     }  else {
         $('#product-info-inner').html(data.html);
         bind_form();

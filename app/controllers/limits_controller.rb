@@ -5,11 +5,12 @@ class LimitsController < ApplicationController
   # GET /limits
   # GET /limits.json
   def index
-    @limits = Limit.all
+    @limits = Limit.find_all_by_client_id(current_user.client.id)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @limits }
+      format.json { render :json => {:success => true, :html => render_to_string( :partial => 'limits_list',
+                                                                                  :locals => {:limits => limits})}}
+      format.html { render 'index.html.erb' }
     end
   end
 

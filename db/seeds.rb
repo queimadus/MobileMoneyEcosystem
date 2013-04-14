@@ -19,6 +19,7 @@ assados = Category.create(:name => "Assados", :color => "223,32,32")
 higiene = Category.create(:name => "Higiene", :color => "161,164,194")
 fruta = Category.create(:name => "Fruta", :color => "175,190,0")
 
+#products
 
 def new_product(name, brand, price, stock, img, cat, merc)
   p = Product.new(:name => name, :price => price, :brand => brand, :stock => stock)
@@ -26,6 +27,7 @@ def new_product(name, brand, price, stock, img, cat, merc)
   p.merchant = merc
   file = File.open(Rails.root.join('app', 'assets', 'images','seeds',img))
   p.image = file
+  p.set_hash
   file.close
   p.save
 end
@@ -42,6 +44,7 @@ end
     p1.categories << fruta
   end
   p1.merchant = m
+  p1.set_hash
   p1.save
 end
 
@@ -59,6 +62,20 @@ new_product("Frango Assado","Dom Brasas","4","300","frango.png",assados,m)
 new_product("Tomate","TomatoSauce","0.86","300","tomate.png",vegetais,m)
 new_product("Papel higienico","Renova","3","100","papel.png",higiene,m)
 new_product("Cenoura","Golden","1.33","33","CENOURA.png",vegetais,m)
+
+
+#Limits
+
+uu = User.new(:email => "c@c.c", :password => "bbbbbbbb")
+c = Client.new(:first_name => "Paulo", :last_name => "Maia", :sex => "Male")
+c.user = uu
+uu.save
+c.save
+
+l = Limit.new(:max => 20, :type => "weekly")
+l.category = vegetais
+l.client = c
+l.save
 
 
 

@@ -1,5 +1,5 @@
 class Limit < ActiveRecord::Base
-  attr_accessible :max, :type
+  attr_accessible :max, :type, :starting
 
   validates :type, :inclusion => {:in => ["weekly", "monthly", "yearly"]}
 
