@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
   #validates_associated :categories
   #validates_associated :merchant
   validates :name, :presence => true
-  #validates :qrcode, :presence => true#, :uniqueness => true  #TODO not yet implemented
+  validates :qrcode, :presence => true, :uniqueness => true
   validates :price, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :stock, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates_presence_of :categories
