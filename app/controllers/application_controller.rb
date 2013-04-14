@@ -5,15 +5,15 @@ class ApplicationController < ActionController::Base
 
   def user_is_client!
       unless current_user.is_client?
-          flash[:notice]  =  'Please login'
-          redirect_to  new_user_session_path
+          flash[:notice]  =  'Please login into a client account'
+          redirect_to  root_path
       end
   end
 
   def user_is_merchant!
     unless current_user.is_merchant?
-        flash[:notice]  =  'Please login'
-        redirect_to new_user_session_path
+        flash[:notice]  =  'Please login into a merchant account'
+        redirect_to root_path
     end
   end
 end
