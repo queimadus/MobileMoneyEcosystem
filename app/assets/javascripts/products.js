@@ -25,10 +25,33 @@ function bind_form(){
 bind_error_tooltips();
 bind_input();
 bind_form();
+bind_all_categ_search();
 //product listing
 
 bind_pagination();
+function reset_product_search(){
+    $(this).parent().siblings("input").val("").submit();
+}
 
+$(".product-search-reset").click(reset_product_search) ;
+
+function bind_all_categ_search(){
+    $(".categ-search").click(bind_categ_search);
+}
+
+function bind_categ_search(){
+    var selec = $(".products-search-bar input");
+    var oldvalue =  selec.val();
+    var newvalue =  $(this).parent().text();
+    if(oldvalue==newvalue)
+        selec.submit();
+    else{
+        if(oldvalue!="") oldvalue += " ";
+        selec.val(oldvalue+ newvalue ).focus();
+        selec.submit();
+    }
+
+}
 
 function start_product_loading(){
     product_loading(true);
@@ -50,6 +73,7 @@ function update_products(evt,data){
         product_loading(false);
         $("#myModal").modal('hide');
         $('form.new_product')[0].reset();
+        bind_all_categ_search();
     }
     product_loading(false);
 }
@@ -112,6 +136,7 @@ function product_submit(evt,data){
         $('.edit_product #product-cancel').click(close_info_panel);
         bind_edit_container();
         glow_success(data.id,",.product-info-panel");
+        $('.product-container#'+data.id).click(bind_categ_search);
     }  else {
         $('#product-info-inner').html(data.html);
         bind_form();

@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 
     @query = ""
     q = Product.where(:products => {:merchant_id => current_user.merchant.id}, :available => true ).order("products.id DESC")
-    if params.has_key?(:q)  and !params{:q}.nil?
+    if params.has_key?(:q)  and !params{:q}.nil?  and !params[:q].blank?
       @query = params{:q}
       params[:q].split(" ").each do |keyword|
         if(Category.find_by_name(keyword))
@@ -65,11 +65,14 @@ class ProductsController < ApplicationController
   def edit
 
     @product = Product.find(params[:id])
+    head :forbidden unless @product.merchant_id==current_user.merchant.id
 
     respond_to do |format|
+
       format.json { render :json => {:success => true, :html => render_to_string( :partial => 'edit',
                                                                                   :locals => {:product => @product})}}
       format.html { render '_edit.erb',:locals => {:product => @product} }  #TODO create another view to use this one --this is only for js disabled
+
     end
   end
 
@@ -77,7 +80,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:product][:id])
 
     respond_to do |format|
-      if @product.update_attributes(params[:product])
+      if( @product.update_attributes(params[:product]) and @product.merchant_id==current_user.merchant.id )
         format.json { render :json => { :success => true,
                                         :updated => render_to_string( :partial => 'container',
                                                                       :locals => {:product => @product}),
