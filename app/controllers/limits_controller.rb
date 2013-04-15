@@ -5,11 +5,12 @@ class LimitsController < ApplicationController
   # GET /limits
   # GET /limits.json
   def index
-    @limits = Limit.find_all_by_client_id(current_user.client.id)
+    q = Limit.find_all_by_client_id(current_user.client.id)
+    @limits = Kaminari.paginate_array(q).page(params[:page]).per(10)
 
     respond_to do |format|
       format.json { render :json => {:success => true, :html => render_to_string( :partial => 'limits_list',
-                                                                                  :locals => {:limits => limits})}}
+                                                                                  :locals => {:limits => @limits})}}
       format.html { render 'index.html.erb' }
     end
   end

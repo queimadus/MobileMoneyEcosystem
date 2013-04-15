@@ -6,7 +6,7 @@ class CreateLimits < ActiveRecord::Migration
       t.integer :category_id
 
       t.integer :max
-      t.string :type
+      t.string :period
       t.date :starting
 
       t.timestamps

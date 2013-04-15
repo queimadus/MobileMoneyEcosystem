@@ -72,7 +72,7 @@ c.user = uu
 uu.save
 c.save
 
-l = Limit.new(:max => 20, :type => "weekly")
+l = Limit.new(:max => 20, :period => "weekly")
 l.category = vegetais
 l.client = c
 l.save

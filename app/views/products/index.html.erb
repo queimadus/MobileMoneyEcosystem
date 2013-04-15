@@ -1,5 +1,3 @@
-<h1 style="margin-bottom: 20px;"> <%# current_user.merchant.name &apos;s%> Products </h1>
-
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -20,15 +18,18 @@
   </div><!-- /.modal-dalog -->
 </div>
 
-<div class="row">
-  <div class="col-span-9">
-    <%= form_tag products_path, :method => :get, :id=>"product-search-form", :remote => true do %>
-    <div class="input-group span products-search-bar">
+<div class="row" style="margin-top: 45px;margin-bottom: 4px;">
+  <div class="col-span-3">
+    <h1 style="line-height: 0px;display: inline-block;text-transform: uppercase;font-size: 31px;color: #226699;"> <%# current_user.merchant.name &apos;s%> Products </h1>
+  </div>
+  <div class="col-span-6">
+    <%= form_tag products_path, :method => :get, :id=>"product-search-form", :style => "margin-top: 2px;", :remote => true do %>
+    <div class="input-group span products-search-bar" style="width: 96%;">
 
-        <input id="products-search " name="q" type="text" class=" input-large" value="<%= @query %>">
+        <input id="products-search " name="q" type="text" class=" " value="<%= @query %>">
         <span class="input-group-btn">
           <i class="product-search-reset glyphicon-remove glyphicon"> </i>
-          <button class="btn btn-primary btn-large" type="submit">Search</button>
+          <button class="btn btn-primary " type="submit">Search</button>
         </span>
 
     </div>
@@ -37,7 +38,7 @@
   </div>
   <div class="col-span-3 tcenter">
     <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
-    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large" style="margin-left: 14px;">Add new product</a>
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary" style="margin-left: 14px; margin-top:2px;">Add new product</a>
 
   </div>
 </div>

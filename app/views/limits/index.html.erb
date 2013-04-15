@@ -1,3 +1,44 @@
-Limits
+<h1 style="margin-bottom: 20px;"> <%# current_user.merchant.name &apos;s%> Limits </h1>
 
+<div class="row">
+  <div class="col-span-9">
+    <%= form_tag limits_path, :method => :get, :id=>"limits-search-form", :remote => true do %>
+      <div class="input-group span limits-search-bar">
 
+        <input id="limits-search " name="q" type="text" class=" input-large" value="<%= @query unless @query.nil? %>">
+        <span class="input-group-btn">
+          <i class="limit-search-reset glyphicon-remove glyphicon"> </i>
+          <button class="btn btn-primary btn-large" type="submit">Search</button>
+        </span>
+
+      </div>
+    <%end%>
+
+  </div>
+  <div class="col-span-3 tcenter">
+    <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large" style="margin-left: 14px;">Add new limit</a>
+  </div>
+</div>
+<div class="row">
+  <div id="products-container" class="col-span-9">
+    <div class="limits-list-loading">
+      <div class="limits-loading-inner">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+    </div>
+    <div id="limits-container-inner">
+      <%= render 'limits_list', :limits => @limits %>
+    </div>
+  </div>
+  <div class="col-span-3">
+    <div class="limits-info-panel fade">
+      <div class="edit-loading">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+      <div id="product-info-inner">
+        <%= "No limit" unless @limits.nil? %>
+      </div>
+    </div>
+  </div>
+</div>
