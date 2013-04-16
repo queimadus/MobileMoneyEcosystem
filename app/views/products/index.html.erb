@@ -24,11 +24,11 @@
   </div>
   <div class="col-span-6">
     <%= form_tag products_path, :method => :get, :id=>"product-search-form", :style => "margin-top: 2px;", :remote => true do %>
-    <div class="input-group span products-search-bar" style="width: 96%;">
+    <div class="input-group span search-bar" style="width: 96%;">
 
-        <input id="products-search " name="q" type="text" class=" " value="<%= @query %>">
+        <input id="search" name="q" type="text" class=" " value="<%= @query %>">
         <span class="input-group-btn">
-          <i class="product-search-reset glyphicon-remove glyphicon"> </i>
+          <i class="search-reset glyphicon-remove glyphicon"> </i>
           <button class="btn btn-primary " type="submit">Search</button>
         </span>
 
@@ -44,15 +44,18 @@
 </div>
 <div class="row">
   <div id="products-container" class="col-span-9">
-    <div class="product-list-loading">
-      <div class="product-loading-inner">
+
+    <div class="list-loading">
+      <div class="loading-inner">
         <i class="glyphicon glyphicon-refresh icon-spin"></i>
       </div>
     </div>
+
     <div id="products-container-inner">
       <%= render 'product_list', :products => @products %>
     </div>
   </div>
+
   <div class="col-span-3">
      <div class="product-info-panel fade">
         <div class="edit-loading">

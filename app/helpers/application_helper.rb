@@ -60,7 +60,13 @@ module ApplicationHelper
   end
 
   def category_color(attr,obj)
-    'style='+attr+':rgba('+obj.categories.first.color+',0.59)'
+    if obj.instance_of?(Product)
+      color = obj.categories.first.color
+    elsif
+      color = obj.category.color
+    end
+
+    'style='+attr+':rgba('+color+',0.59)'
   end
 
   def qrcode_image_for(product, options = {})

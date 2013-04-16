@@ -16,6 +16,8 @@ body{
 @import "auth.scss";
 @import "footer.scss";
 @import "products.scss";
+@import "limits.scss";
+@import "jquery-ui-1.10.2.custom.min.css";
 
 //scroll
 ::-webkit-scrollbar {
@@ -223,4 +225,16 @@ body,html{
   padding-bottom: 10px !important;
 }
 
+input.invi-input{
+  width: 59px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 0;
+}
+
+input.invi-input:focus{
+  box-shadow: none;
+}
 

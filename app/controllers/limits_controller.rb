@@ -8,6 +8,13 @@ class LimitsController < ApplicationController
     q = Limit.find_all_by_client_id(current_user.client.id)
     @limits = Kaminari.paginate_array(q).page(params[:page]).per(10)
 
+    @l = Limit.new
+    @l.client=current_user.client
+    @l.max=30
+    @l.period="yearly"
+    @l.category=Category.find(3)
+    @l.starting=DateTime.now.to_date
+
     respond_to do |format|
       format.json { render :json => {:success => true, :html => render_to_string( :partial => 'limits_list',
                                                                                   :locals => {:limits => @limits})}}
@@ -46,6 +53,7 @@ class LimitsController < ApplicationController
   # POST /limits.json
   def create
     @limit = Limit.new(params[:limit])
+
 
     respond_to do |format|
       if @limit.save

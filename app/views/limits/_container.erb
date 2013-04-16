@@ -1,0 +1,67 @@
+<% self.formats = [:json, :html] %>
+<div id="<%=limit.id%>" class="limit-container">
+  <div class="limit-triangule" <%= category_color('border-left-color',limit)%> ></div>
+  <div class="limit-container-inner">
+    <div class="limit-category" <%= category_color('color',limit)%> ><%= limit.category.name %></div>
+
+    <div class="limit-progress">
+      <div class="limit-time-bar">
+        <div class="limit-progress-label">Time</div>
+        <div class="limit-bar-inner">
+           <div class="limit-time-percentage" style="width:<%=time_percentage(limit.starting,limit.period)%>%"></div>
+        </div>
+        <div class="limit-progress-label limit-status-time"><%=time_percentage(limit.starting,limit.period)%>%</div>
+      </div>
+      <div class="limit-progress-bar">
+        <div class="limit-progress-label">Spent</div>
+        <div class="limit-bar-inner">
+          <div class="limit-money-percentage"style="width:56%"></div>
+        </div>
+        <div class="limit-progress-label limit-status-money">56%</div>
+      </div>
+    </div>
+
+    <%= link_to edit_limit_path(limit.id), :class => "edit-button", :remote => true do %>
+      <div class="limit-edit-icon">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </div>
+      <%= three_dots(:horizontal => false) %>
+    <%end%>
+
+    <div class="limit-end">
+
+        <div class="limit-head-container">
+          <div class="limit-head-toggle">
+             FROM
+          </div>
+          <div class="limit-head-content">
+              <i class="glyphicon-calendar glyphicon"></i>
+              <%= limit.starting %>
+          </div>
+        </div>
+
+        <div class="limit-head-container">
+          <div class="limit-head-toggle">
+            TO
+          </div>
+          <div class="limit-head-content">
+              <i class="glyphicon-calendar glyphicon"></i>
+            <%= end_date(limit.starting, limit.period) %>
+          </div>
+        </div>
+
+
+      <div>
+        <div class="limit-money limit-head-toggle">
+          <%=limit.max %>€
+        </div>
+        <div class="limit-head-toggle limit-period">
+          <%=limit.period %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

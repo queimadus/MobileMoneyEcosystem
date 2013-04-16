@@ -27,7 +27,7 @@
   -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  border: 1px solid #f5f5f5;
+  border: 1px solid #dcdcdc;
  }
 
 .product-triangle-color{
@@ -211,28 +211,28 @@
 }
 
 
-.product-list-loading{
+.list-loading{
   display: none;
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.product-list-loading.show{
+.list-loading.show{
   display: block;
 }
 
-.product-list-loading.show+#products-container-inner{
+.list-loading.show+#products-container-inner{
   opacity: 0.7;
 }
 
-.product-loading-inner{
+.loading-inner{
   position: relative;
   text-align: center;
   height: 100%;
 }
 
-.product-loading-inner .glyphicon{
+.loading-inner .glyphicon{
   font-size: 30px;
   position: absolute;
   top: 50%;
@@ -324,7 +324,7 @@
   white-space: nowrap;
 }
 
-.products-search-bar{
+.search-bar{
   margin-bottom: 10px;
   margin-right: 8px;
 }
@@ -333,7 +333,7 @@
  background-color: rgba(255, 255, 255, 0.93);;
 }
 
-.products-search-bar input{
+.search-bar input{
   background-color: rgba(255, 255, 255, 0.93);
 }
 
@@ -351,7 +351,7 @@ ul.tagit input {
   box-shadow: none;
 }
 
-.product-search-reset{
+.search-reset{
   cursor: pointer;
   display: block;
   position: absolute;

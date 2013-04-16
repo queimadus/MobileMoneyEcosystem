@@ -80,9 +80,9 @@ function update_products(evt,data){
 
 function product_loading(t){
    if(t){
-       $(".product-list-loading").addClass("show")
+       $(".list-loading").addClass("show")
    }   else  {
-       $(".product-list-loading").removeClass("show");
+       $(".list-loading").removeClass("show");
    }
 }
 
