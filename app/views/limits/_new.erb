@@ -1,0 +1,51 @@
+<% self.formats = [:json, :html] %>
+<div id="<%=limit.id%>" class="limit-container new-item">
+  <%= form_for limit, :remote => true  do |f| %>
+    <div>
+      <div class="limit-triangule" <%# category_color('border-left-color',limit)%> ></div>
+    </div>
+    <div class="limit-container-inner">
+      <div class="limit-category" <%# category_color('color',limit)%> >
+        <%# limit.category.name %>
+        <div class="limit-category-select">
+          <%= collection_select "limit","category_id", Category.all, :id, :name, options ={:prompt => "Select a category", :selected => 0}  %>
+        </div>
+      </div>
+
+      <%= f.hidden_field :client_id %>
+
+      <div class="limit-submit-btns">
+        <%= f.submit "Create",  :class => "btn btn-primary"%>
+        <%= link_to "Cancel", limits_path, :remote => true, :class => "btn limit-new-cancel" %>
+      </div>
+
+      <div class="limit-end">
+
+        <div class="limit-head-container">
+          <div class="limit-head-toggle">
+            FROM
+          </div>
+          <div class="limit-head-content">
+            <i class="glyphicon-calendar glyphicon"></i>
+            <%= f.text_field :starting, :class => "invi-input datepicker", :style => "cursor:pointer;" %>
+          </div>
+        </div>
+
+        <div style="height:38px;">
+
+        </div>
+
+        <div class="limit-money-input ">
+          <%= f.text_field :max %><span class="limit-euro-edit">€</span>
+        </div>
+
+        <div class="limit-head-toggle-select">
+
+          <%= f.select :period, options_for_select( [['WEEKLY', 'weekly'], ['MONTHLY', 'montly'], ['YEARLY','yearly']], limit.period.upcase)  %>
+
+        </div>
+      </div>
+
+    </div>
+  <%end%>
+</div>

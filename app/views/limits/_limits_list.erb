@@ -6,7 +6,6 @@
     </div>
   </div>
 <%else%>
-  <%= render "edit", limit: testlimit %>
   <% limits.each do |l|  %>
     <%= render "container", limit: l %>
   <%end%>

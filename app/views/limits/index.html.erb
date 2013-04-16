@@ -18,8 +18,7 @@
   </div>
   <div class="col-span-4 tcenter">
     <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
-    <a data-toggle="modal" href="#myModal" class="btn btn-primary" style="margin-left: 14px; margin-top:2px;">Add new limit</a>
-
+    <%= link_to "Add new limit", new_limit_path, :id => "newlimit",:remote => true, :class => "btn btn-primary", :style => "margin-left: 14px; margin-top:2px;"%>
   </div>
 </div>
 <div class="row">
@@ -30,7 +29,7 @@
       </div>
     </div>
     <div id="limits-container-inner">
-      <%= render 'limits_list', :limits => @limits, :testlimit => @l %>
+      <%= render 'limits_list', :limits => @limits %>
     </div>
   </div>
   <div class="col-span-4">

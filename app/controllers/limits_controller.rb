@@ -22,14 +22,29 @@ class LimitsController < ApplicationController
     end
   end
 
+  def gotoindex
+    redirect_to limits_path, :alert => "Limit not found"
+  end
+
   # GET /limits/1
   # GET /limits/1.json
   def show
-    @limit = Limit.find(params[:id])
+
+
+    begin
+      @limit = Limit.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      return gotoindex
+    end
+
+    return gotoindex unless @limit.client_id==current_user.client.id
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @limit }
+      format.json { render :json => {:success => true,:id => params[:id], :html => render_to_string( :partial => 'container',
+
+                                                                                  :locals => {:limit => @limit})}}
+      format.html # new.html.erb
+
     end
   end
 
@@ -37,16 +52,27 @@ class LimitsController < ApplicationController
   # GET /limits/new.json
   def new
     @limit = Limit.new
+    @limit.starting = DateTime.now.to_date
+
 
     respond_to do |format|
+      format.json { render :json => {:success => true, :html => render_to_string( :partial => 'new',
+                                                                                  :locals => {:limit => @limit})}}
       format.html # new.html.erb
-      format.json { render json: @limit }
     end
   end
 
   # GET /limits/1/edit
   def edit
     @limit = Limit.find(params[:id])
+
+    respond_to do |format|
+      format.json { render :json => {:success => true,
+                                     :id => params[:id],
+                                     :html => render_to_string( :partial => 'edit',
+                                                                :locals => {:limit => @limit})}}
+      format.html # new.html.erb
+    end
   end
 
   # POST /limits
@@ -73,11 +99,14 @@ class LimitsController < ApplicationController
 
     respond_to do |format|
       if @limit.update_attributes(params[:limit])
-        format.html { redirect_to @limit, notice: 'Limit was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :json => {:success => true,
+                                       :id => params[:id],
+                                       :html => render_to_string( :partial => 'container',
+                                                                  :locals => {:limit => @limit})}}
+        format.html # new.html.erb
       else
         format.html { render action: "edit" }
-        format.json { render json: @limit.errors, status: :unprocessable_entity }
+        #format.json { render json: @limit.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -37,6 +37,7 @@
   margin-left: 32px;
   padding: 7px;
   #background-color: red;
+  z-index: 3;
 }
 
 .limit-head-container{
@@ -72,7 +73,7 @@
 }
 
 .limit-head-toggle.limit-period{
-  font-size: 30px;
+  font-size: 23px;
   padding: 10px 10px;
   text-transform: uppercase;
 }
@@ -87,7 +88,7 @@
   cursor: default;
   font-size: 11px;
   line-height: 27px;
-  min-width: 87px;
+  min-width: 93px;
   outline: none;
   padding: 0 8px 0 10px;
   text-decoration: none;
@@ -96,23 +97,22 @@
 }
 
 .limit-end{
-  float: right;
+  #float: right;
   text-align: right;
   margin-top: -8px;
+  #margin-left: 166px;
 }
 
 .limit-triangule{
   content: '';
   position: absolute;
-  right: 0;
+  left: 0px;
   top: 0;
-  width: 0;
+  width: 30px;
   height: 0;
   border-bottom: 50px solid transparent;
-  border-right: 563px solid transparent;
   border-left: 49px solid green;
   border-left-color: inherit;
-  pointer-events: none;
   z-index: 2;
 }
 
@@ -127,7 +127,7 @@
 
 .limit-money{
   display: inline-block;
-  font-size: 30px;
+  font-size: 23px;
   padding: 10px;
 }
 
@@ -214,7 +214,7 @@
   height: 34px;
   overflow: hidden;
   background: url(/assets/new_arrow.png) no-repeat right #f5f5f5;
-  margin-top: 12px;
+  margin-top: 8px;
   line-height: 36px;
   border-radius: 2px;
   background-color: #f5f5f5;
@@ -226,7 +226,7 @@
 }
 
 .limit-head-toggle-select{
-  width: 155px;
+  width: 150px;
   height: 49px;
   overflow: hidden;
   background: url(/assets/new_arrow.png) no-repeat right whitesmoke;
@@ -238,8 +238,6 @@
   border: 1px solid #dcdcdc;
   color: #444;
   cursor: default;
-  font-size: 11px;
-  line-height: 27px;
   min-width: 49px;
   outline: none;
   padding: 8px 4px;
@@ -263,9 +261,9 @@
 
 .limit-head-toggle-select select{
   background: transparent;
-  width: 155px;
+  width: 150px;
   padding: 8px 15px;
-  font-size: 30px;
+  font-size: 23px;
   border: 0;
   border-radius: 0;
   height: 49px;
@@ -279,7 +277,7 @@
 
 .limit-money-input{
   position: absolute;
-  right: 167px;
+  right: 162px;
   border-radius: 2px;
   background-color: #f5f5f5;
   background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
@@ -307,19 +305,120 @@
   display: inline-block;
   width: 76px;
   line-height: 27px;
-  font-size: 30px;
+  font-size: 23px;
   box-shadow: none;
   text-align: right;
   font-weight: bold;
   color: #444;
-  padding: 4px 2px 3px 2px;
+  padding: 9px 2px 8px 2px;
 }
 
 .limit-euro-edit{
   display: inline-block;
   line-height: 27px;
-  font-size: 30px;
+  font-size: 23px;
   color: #444;
   float: right;
   margin-top: 10px;
+}
+
+.limit-submit-btns{
+  position: absolute;
+  bottom: 13px;
+  left: 45px;
+}
+
+
+
+.remove-item {
+  max-height: 143px;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  animation: growHeight 0.3s ease forwards;
+  -webkit-animation: growHeight 0.3s ease forwards;
+}
+
+@keyframes growHeight {
+  to {
+    max-height: 0px;
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes growHeight {
+  to {
+    max-height: 0px;
+    opacity: 0;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+}
+
+.replace-item {
+  max-height: 0px;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  animation: growHeight2 0.3s ease forwards;
+  -webkit-animation: growHeight2 0.3s ease forwards;
+}
+
+@keyframes growHeight2 {
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes growHeight2 {
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+#limits-container-inner {
+  overflow: hidden;
+}
+.new-item {
+  max-height: 0;
+  opacity: 0;
+  transform: translateX(-614px);
+  -webkit-transform: translateX(-614px);
+  animation:
+    openSpace 0.2s ease forwards,
+    moveIn 0.3s 0.2s ease forwards;
+  -webkit-animation:
+    openSpace 0.2s ease forwards,
+    moveIn 0.3s 0.2s ease forwards;
+}
+
+@keyframes openSpace {
+  to {
+    max-height: 143px;
+  }
+}
+@keyframes moveIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes openSpace {
+  to {
+    max-height: 143px;
+  }
+}
+@-webkit-keyframes moveIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
 }
