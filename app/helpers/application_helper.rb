@@ -46,6 +46,15 @@ module ApplicationHelper
     text.uniq.join("<br>").html_safe
   end
 
+  def error_on_form_text(a)
+    text = []
+
+    a.full_messages.each do |t|
+      text << content_tag(:span, t)
+    end
+    text.uniq.join("<br>").html_safe
+  end
+
   def red_asterisk
     content_tag(:span,'*', :class => "red-asterisk")
   end

@@ -1,6 +1,6 @@
 //helpers
 function bind_pagination(){
-    $('.pagination a, form.new_product, form#product-search-form').bind("ajax:success",update_products)
+    $('#products-container-inner .pagination a, form.new_product, form#product-search-form').bind("ajax:success",update_products)
         .bind("ajax:beforeSend ",start_product_loading)
         .bind("ajax:error", product_error);
     $('.product-image-img').centerImage();
@@ -154,7 +154,7 @@ function product_submit_loading(){
 }
 
 function product_submit_error(){
-    alert("error");
+    indow.location = "/products";
 }
 
 function glow_success(id,form){

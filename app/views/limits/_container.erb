@@ -15,9 +15,9 @@
       <div class="limit-progress-bar">
         <div class="limit-progress-label">Spent</div>
         <div class="limit-bar-inner">
-          <div class="limit-money-percentage"style="width:56%"></div>
+          <div class="limit-money-percentage"style="width:<%= product_percentage(limit) %>%"></div>
         </div>
-        <div class="limit-progress-label limit-status-money">56%</div>
+        <div class="limit-progress-label limit-status-money"><%= product_percentage(limit) %>%</div>
       </div>
     </div>
 
