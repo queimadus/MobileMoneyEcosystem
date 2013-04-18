@@ -6,7 +6,7 @@ feature "User signup" do
 	end
 
 	Steps "Signing in with correct credentials" do
-		When "I go to sign in page" do
+		When "I go to sign up page" do
 			page.visit "/login"
 		end
 		And "I fill in right email" do
