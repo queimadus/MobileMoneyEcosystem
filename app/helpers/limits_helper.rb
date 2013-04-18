@@ -26,6 +26,8 @@ module LimitsHelper
   end
 
   def product_percentage(limit)
+
+
     54
   end
 

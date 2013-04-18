@@ -333,8 +333,8 @@
 .remove-item {
   max-height: 143px;
   opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1,1);
+  transform: scale(1,1);
   animation: growHeight 0.3s ease backwards;
   -webkit-animation: growHeight 0.3s ease backwards;
 }
@@ -342,25 +342,25 @@
 @keyframes growHeight {
   to {
     max-height: 143px;
-    opacity: 0;
-    transform: scale(0);
+    opacity: 1;
+    transform: scale(1,0);
   }
 }
 
 @-webkit-keyframes growHeight {
   to {
     max-height: 143px;
-    opacity: 0;
-    transform: scale(0);
-    -webkit-transform: scale(0);
+    opacity: 1;
+    transform: scale(1,0);
+    -webkit-transform: scale(1,0);
   }
 }
 
 .delete-item {
   max-height: 143px;
   opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1,1);
+  transform: scale(1,1);
   animation: disappear 0.3s ease backwards;
   -webkit-animation: disappear 0.3s ease backwards;
 }
@@ -369,7 +369,7 @@
   to {
     max-height: 0px;
     opacity: 0;
-    transform: scale(0);
+    transform: scale(1,0);
   }
 }
 
@@ -377,16 +377,16 @@
   to {
     max-height: 0px;
     opacity: 0;
-    transform: scale(0);
-    -webkit-transform: scale(0);
+    transform: scale(1,0);
+    -webkit-transform: scale(1,0);
   }
 }
 
 .replace-item {
   max-height: 143px;
-  opacity: 0;
-  -webkit-transform: scale(0);
-  transform: scale(0);
+  opacity: 1;
+  -webkit-transform: scale(1,0);
+  transform: scale(1,0);
   animation: growHeight2 0.3s ease forwards;
   -webkit-animation: growHeight2 0.3s ease forwards;
 }
@@ -395,7 +395,7 @@
   to {
     max-height: 143px;
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1,1);
   }
 }
 
@@ -403,8 +403,8 @@
   to {
     max-height: 143px;
     opacity: 1;
-    transform: scale(1);
-    -webkit-transform: scale(1);
+    transform: scale(1,1);
+    -webkit-transform: scale(1,1);
   }
 }
 
