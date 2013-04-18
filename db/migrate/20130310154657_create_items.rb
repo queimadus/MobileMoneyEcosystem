@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :product_id
       t.integer :order_id
       t.integer :actual_price
-
+      t.integer :category_id
       t.timestamps
     end
   end
