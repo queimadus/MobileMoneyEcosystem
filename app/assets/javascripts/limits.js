@@ -78,7 +78,7 @@ function limit_loading(evt,t){
     if(t){
         //$(".list-loading").addClass("show");
         var a = $(evt.currentTarget).parents(".limit-container");
-        a.attr("style","opacity:0.5;");
+        a.attr("style","opacity:0.2;");
         //var b = $(evt.currentTarget);
         //if(b==$("#limits-container-inner .pagination a"))
         //    $(".list-loading").addClass("show")
@@ -94,7 +94,7 @@ function bind_new_limit_cancel(){
        s.removeClass("new-item").addClass("delete-item");
         setTimeout(function() {
             s.remove();
-        }, 100);
+        }, 300);
 
     });
 }
