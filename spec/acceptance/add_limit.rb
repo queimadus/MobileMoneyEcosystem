@@ -1,7 +1,7 @@
 require 'spec_helper'
 include Warden::Test::Helpers
 
-feature "Add product" do
+feature "Add limit" do
 	before(:each) do
 		u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
 		c = Client.new(:name => "Bruno")

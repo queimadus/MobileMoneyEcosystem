@@ -3,14 +3,17 @@ include Warden::Test::Helpers
 
 feature "Add product" do
 	before(:each) do
-		u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
-		m = Merchant.new(:name => "Bruno")
-		m.user = u
-		login_as m, :scope => :user
+		@u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
+		@m = Merchant.new(:name => "Bruno")
+		@m.user = @u
+		login_as @m, :scope => :user
 	end
 	Steps "Add a product correctly" do
-		When "I go to sign in page" do
+		When "I go to products page" do
 			page.visit "/products"
+		end
+		And "I should be on products page " do
+			page.should have_content("Cenoura")
 		end
 		And "I click Add Product" do
 			page.click_on "newproduct"
@@ -47,7 +50,7 @@ feature "Add product" do
 		end
 	end
 	Steps "Click on cancel add product" do
-		When "I go to sign in page" do
+		When "I go to products page" do
 			page.visit "/products"
 		end
 		And "I click Add Product" do
