@@ -115,6 +115,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    rqrcode (0.4.2)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -164,6 +165,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.8)
   rake
+  rqrcode
   rspec-rails (>= 2.0.1)
   sass-rails (~> 3.2.3)
   sqlite3
