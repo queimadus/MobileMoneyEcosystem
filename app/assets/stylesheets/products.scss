@@ -87,12 +87,13 @@
 }
 
  .price-cont{
-  border-radius: 2px;
-  position: absolute;
-  bottom: 10px;
-  left: 6px;
-  width: 74px;
-  text-align: right;
+   border-radius: 2px;
+   position: absolute;
+   bottom: 10px;
+   left: 6px;
+   width: 81px;
+   text-align: right;
+   margin-left: -6px;
 }
 
 .stock-cont{
@@ -104,15 +105,12 @@
 }
 
  .price{
-  display: inline-block;
-  padding: 3px;
-  #background-color: rgba(0, 128, 0, 0.23);
-  #background-color: rgba(85, 85, 85, 0.9);
-  #background-color: transparent;
-  color: white;
-  font-weight: 700;
-  #color: #b6b6b6;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.32);
+   padding: 1px 3px;
+   color: white;
+   font-weight: 700;
+   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.32);
+   display: block;
+   margin-bottom: 2px;
 }
 
  .quantity{

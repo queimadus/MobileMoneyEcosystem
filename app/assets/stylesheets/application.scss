@@ -29,6 +29,8 @@ body{
 
 
 
+
+
 //scroll
 ::-webkit-scrollbar {
   width: 7px;
@@ -145,8 +147,8 @@ body,html{
 }
 
 .btn-primary{
-  background-color: $blue;
-  border-color: $blue;
+ #background-color: $blue;
+  #border-color: $blue;
 }
 
 .header-btn{

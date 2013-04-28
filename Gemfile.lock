@@ -115,6 +115,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    remotipart (1.0.5)
     rqrcode (0.4.2)
     rqrcode-rails3 (0.1.6)
       rqrcode (>= 0.4.2)
@@ -167,6 +168,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.8)
   rake
+  remotipart
   rqrcode-rails3
   rspec-rails (>= 2.0.1)
   sass-rails (~> 3.2.3)

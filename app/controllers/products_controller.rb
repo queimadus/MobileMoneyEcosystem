@@ -24,10 +24,25 @@ class ProductsController < ApplicationController
      @p.available = true
      #generate qrcode
      #add support for uploaded images
-     if @p.save
-       redirect_to products_path, :notice => "YAY NEW USER"
-     elsif
-       redirect_to products_path, :alert => "ERROR"
+
+     respond_to do |format|
+       if @p.save
+         q = Product.where(:products => {:merchant_id => current_user.merchant.id}, :available => true ).order("products.id DESC")
+         @products = Kaminari.paginate_array(q).page(params[:page]).per(15)
+         format.json { render :json => {:success => true, :notice => bootstrap_notice("Product was successfully created", :notice),
+                                                          :html => render_to_string( :partial => 'product_list',
+                                                                                     :locals => {:products => @products})}}
+         format.html { redirect_to products_path, notice: 'Product was successfully created' }
+
+       else
+
+         format.json { render :json => { :success => false,
+                                         :html => render_to_string( :partial => 'form',
+                                                                    :locals => {:product => @p, :submit_name => "Create"}),
+                                         :notice => bootstrap_notice("Product was not created", :error)
+         }}
+         format.html { redirect_to products_path, alert: 'Product was not successfully created' }
+       end
      end
   end
 
@@ -81,6 +96,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product]) and @product.merchant_id==current_user.merchant.id
+
         format.json { render :json => { :success => true,
                                         :updated => render_to_string( :partial => 'container',
                                                                       :locals => {:product => @product}),

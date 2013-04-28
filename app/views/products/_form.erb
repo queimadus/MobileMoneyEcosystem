@@ -1,4 +1,5 @@
-<%= form_for product, :remote => true, :html => {:multipart => true } do |f| %>
+<% self.formats = [:json, :html] %>
+<%= form_for product, :remote => true, :html => {:multipart => true, :data => { :type => 'json' }} do |f| %>
 
   <%= f.hidden_field :id %>
 
@@ -64,8 +65,9 @@
   </div>
 
   <div class="control-group">
-    <div class="controls" style="white-space: nowrap;">
+    <div class="controls tcenter" style="white-space: nowrap;">
       <%# (!submit_name.nil? and submit_name=="update")? "margin-right:-2px;":"" %>
+
       <%= f.submit submit_name.nil?? "Save": submit_name, :class => "btn btn-primary", :id => "product-submit", :style => "margin-right:-2px;"  %>
       <%= link_to "Cancel", products_path, :class => "btn", :id => "product-cancel", :remote => true, :data => {:dismiss => "modal"},  :style => "margin-right:-2px;"  %>
       <% unless product.id.nil? %>
