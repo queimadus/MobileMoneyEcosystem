@@ -7,7 +7,7 @@
   <div class="market-product-name"><%= product.name %> </div>
   <div class="market-product-brand"><%= product.brand %></div>
   <div class="market-product-buy" <%# category_color('background-color',product)%>>
-    <div class="market-product-price" <%= category_color('background-color',product)%>><%= product.price %>€</div>
+    <div class="market-product-price" <%= category_color('background-color,border-color',product)%>><%= product.price %>€</div>
     <%= draw_qrcode(product) %>
   </div>
 

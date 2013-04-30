@@ -5,7 +5,7 @@
 #market-proudcts-main-container{
   max-width: 1177px;
   min-width: 300px;
-  margin: 0 auto
+  margin: 20px auto;
 }
 
 #market-products-container{
@@ -47,7 +47,7 @@
 }
 
 .product-qrcode{
-  display: inline-block;
+  display: block;
   @include transition(opacity,1s,ease-in);
   background-color: #fff;
   padding: 6px;
@@ -60,14 +60,13 @@
 .market-product-price{
   font-size: 30px;
   font-weight: 700;
-  line-height: 15px;
+  line-height: 34px;
   margin: 0 10px;
-  padding: 21px 32px;
+  padding: 9px 2px;
   background-color: #eee;
   color: white;
-  width: 58%;
-  float: left;
-  margin-top: 10px;
+  margin-top: -14px;
+  display: inline-block;
 }
 
 .market-product-buy{
@@ -107,8 +106,34 @@
   text-transform: uppercase;
 }
 
-#market-logo{
+.market-logo{
   height: 50px;
+}
+
+.market-name{
+  font-size: 28px;
+}
+
+.market-product-price:after,
+.market-product-price:before{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border-color: inherit;
+  border-width: 26px;
+  border-style: solid;
+  margin-top: -9px;
+
+}
+
+.market-product-price:after{
+  margin-left: 2px;
+  border-right-color: transparent;
+}
+
+.market-product-price:before{
+  margin-left: -54px;
+  border-left-color: transparent;
 }
 
 @media (min-width: 1050px){

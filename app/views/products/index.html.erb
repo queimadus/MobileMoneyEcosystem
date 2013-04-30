@@ -18,30 +18,27 @@
   </div><!-- /.modal-dalog -->
 </div>
 
-<div class="row" style="margin-top: 45px;margin-bottom: 4px;">
-  <div class="col-span-3">
-    <h1 style="line-height: 0px;display: inline-block;text-transform: uppercase;font-size: 31px;color: #226699;"> <%# current_user.merchant.name &apos;s%> Products </h1>
-  </div>
-  <div class="col-span-6">
-    <%= form_tag products_path, :method => :get, :id=>"product-search-form", :style => "margin-top: 2px;", :remote => true do %>
-    <div class="input-group span search-bar" style="width: 96%;">
+<div class="row">
+  <div class="product-search-container">
+    <%= form_tag products_path, :method => :get, :id=>"product-search-form", :remote => true do %>
+      <div class="span search-bar">
+        <input id="search" name="q" type="text" class="wsearch" placeholder="Search for products by name and category"
+               value="<%= @query %>" data-items="4" data-provide="typeahead" data-source="<%= all_categories %>">
 
-        <input id="search" name="q" type="text" class=" " value="<%= @query %>">
-        <span class="input-group-btn">
-          <i class="search-reset glyphicon-remove glyphicon"> </i>
-          <button class="btn " type="submit">Search</button>
-        </span>
+        <i class="search-reset glyphicon-remove glyphicon"> </i>
+        <button class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
 
-    </div>
+
+      </div>
     <%end%>
-
   </div>
-  <div class="col-span-3 tcenter">
+  <div class="product-new-container tcenter">
     <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
-    <a data-toggle="modal" id="newproduct" href="#myModal" class="btn " style="margin-left: 14px; margin-top:2px;">Add new product</a>
+    <a data-toggle="modal" id="newproduct" href="#myModal" class="bbutton">Add new product</a>
 
   </div>
 </div>
+
 <div class="row">
   <div id="products-container" class="col-span-9">
 

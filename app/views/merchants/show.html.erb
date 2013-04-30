@@ -38,13 +38,23 @@
 
 <div id="market-proudcts-main-container">
   <div class="row">
-    <%= link_to image_tag("logo-square.png",{ :alt => 'logo', :id => 'market-logo', :class => ''}), :root, :class => "up block" %>
-    <span><%= @merchant_name %></span>
+    <div class="col-offset-3 col-span-6 tcenter">
+      <%= link_to image_tag("logo-square.png",{ :alt => 'logo', :id => '', :class => 'market-logo'}), :root %>
+      <span class="market-name"><%= @merchant_name %></span>
+    </div>
+  </div>
+  <div>
+    <div class="col-offset-3 col-span-6">
+      <div class="input-group span search-bar">
+        <input id="search" name="q" type="text" class=" " value="<%= @query %>">
+          <span class="input-group-btn">
+            <i class="search-reset glyphicon-remove glyphicon"> </i>
+            <button class="btn" type="submit">Search</button>
+          </span>
+      </div>
+    </div>
   </div>
   <div class="row">
-    <div class="col-span-6 col-offset-3">
-      BBB
-    </div>
     <div class="col-span-12">
       <ul id="market-products-container">
         <%= render "products", products: @products %>

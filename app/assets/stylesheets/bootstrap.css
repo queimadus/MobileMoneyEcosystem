@@ -3800,7 +3800,7 @@ button.close {
 .pagination > .disabled > a:focus {
     color: #999999;
     cursor: default;
-    background-color: transparent;
+    background-color: #f5f5f5;
 }
 
 .pagination > li:first-child > a,

@@ -8,7 +8,7 @@
   margin-bottom: 8px;
   border-radius: 1px;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.93);
+  background-color: rgba(255, 255, 255, 1.00);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
@@ -76,6 +76,7 @@
   font-size: 23px;
   padding: 10px 10px;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .limit-head-content{
@@ -123,12 +124,14 @@
   position: absolute;
   left: 47px;
   top: 0px;
+  font-weight: 100;
 }
 
 .limit-money{
   display: inline-block;
   font-size: 23px;
   padding: 10px;
+  font-weight: 400;
 }
 
 .limit-money-container{
@@ -272,7 +275,8 @@
   margin-left: -1px;
   margin-top: -10px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
+
 }
 
 .limit-money-input{
@@ -308,9 +312,9 @@
   font-size: 23px;
   box-shadow: none;
   text-align: right;
-  font-weight: bold;
+  font-weight: 500;
   color: #444;
-  padding: 9px 2px 8px 2px;
+  padding: 7px 2px 7px 2px;
 }
 
 .limit-euro-edit{
@@ -320,6 +324,7 @@
   color: #444;
   float: right;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .limit-submit-btns{
@@ -447,4 +452,21 @@
     transform: translateX(0);
     -webkit-transform: translateX(0);
   }
+}
+
+.limit-search-container{
+  margin-top: 16px;
+  width: 621px;
+  position: relative;
+  margin-left: 15px;
+  float: left;
+}
+
+.limit-new-container{
+  float: left;
+  margin-left: 54px;
+  width: 225px;
+  margin-top: 16px;
+  height: 45px;
+  margin-right: 55px;
 }
