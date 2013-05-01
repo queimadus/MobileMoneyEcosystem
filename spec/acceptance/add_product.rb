@@ -2,12 +2,15 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 feature "Add product" do
-	before(:each) do
-		@u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
-		@m = Merchant.new(:name => "Bruno")
-		@m.user = @u
-		login_as @m, :scope => :user
-	end
+	#before(:each) do
+	#	@u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
+	#	@m = Merchant.new(:name => "Bruno")
+	#	@m.user = @u
+	#	login_as @m, :scope => :user
+	#end
+	
+	login_admin
+	
 	Steps "Add a product correctly" do
 		When "I go to products page" do
 			page.visit "/products"
