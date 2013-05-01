@@ -6,6 +6,9 @@ class Limit < ActiveRecord::Base
 
   before_save :set_starting_date
 
+  scope :filter_by_categories, lambda{ |name| includes(:category).where(:categories=>{:name=>name}) }
+
+
   def set_starting_date
      self.starting = Time.now.to_date if self.starting.nil?
   end

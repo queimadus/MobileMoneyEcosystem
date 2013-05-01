@@ -79,7 +79,7 @@ bind_modal_dismissal();
 
 bind_pagination();
 function reset_product_search(){
-    $(this).parent().siblings("input").val("").submit();
+    $(this).siblings("input").val("").submit();
 }
 
 $(".search-reset").click(reset_product_search) ;
@@ -93,7 +93,7 @@ function bind_categ_search(){
     var oldvalue =  selec.val();
     var newvalue =  $(this).parent().text();
     if(oldvalue==newvalue)
-        selec.submit();
+        return false; //selec.submit();
     else{
         if(oldvalue!="") oldvalue += " ";
         selec.val(oldvalue+ newvalue ).focus();
@@ -167,9 +167,9 @@ function edit_error(){
 
 function edit_product(evt,data){
     if(data.success == true){
-        $('#product-info-inner').html(data.html);
+       $('#product-info-inner').html(data.html);
        bind_form();
-        $('.edit_product #product-cancel').click(close_info_panel);
+       $('.edit_product #product-cancel').click(close_info_panel);
     }
     edit_loading(false);
 }

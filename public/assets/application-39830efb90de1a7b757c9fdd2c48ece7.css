@@ -1,0 +1,1774 @@
+@import url(bootstrap.css);
+@import url(jquery-ui-1.10.2.custom.min.css);
+/*#4085a1;     */
+/* line 1, ../../app/assets/stylesheets/auth.scss */
+.login-well {
+  margin-top: 45px;
+  background-color: white;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 1px;
+}
+
+/* line 9, ../../app/assets/stylesheets/auth.scss */
+.login-title {
+  margin-top: 0px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+/* line 15, ../../app/assets/stylesheets/auth.scss */
+.register-choice-panel {
+  height: 350px;
+  border-radius: 5px;
+  border: 1px solid #9b9b9b;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.2;
+  transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  width: 100%;
+}
+
+/* line 29, ../../app/assets/stylesheets/auth.scss */
+.register-choice-panel:hover {
+  opacity: 0.75;
+}
+
+/* line 33, ../../app/assets/stylesheets/auth.scss */
+.register-choice-panel:hover .register-image-caption {
+  bottom: 0px;
+  transition: bottom 0.8s;
+  -moz-transition: bottom 0.8s;
+  -webkit-transition: bottom 0.8s;
+}
+
+/* line 42, ../../app/assets/stylesheets/auth.scss */
+.register-image-caption span.type,
+.register-image-caption span.caption {
+  color: rgba(0, 0, 0, 0.68);
+  transition: color 0.6s;
+  -moz-transition: color 0.6s;
+  -webkit-transition: color 0.6s;
+}
+
+/* line 49, ../../app/assets/stylesheets/auth.scss */
+.register-image {
+  height: 350px;
+  width: auto;
+  display: block;
+  max-width: none;
+  margin-left: -20px;
+}
+
+/* line 57, ../../app/assets/stylesheets/auth.scss */
+.register-image-caption {
+  position: absolute;
+  bottom: -30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100px;
+  width: inherit;
+  text-align: center;
+  transition: bottom 0.8s;
+  -moz-transition: bottom 0.8s;
+  -webkit-transition: bottom 0.8s;
+}
+
+/* line 71, ../../app/assets/stylesheets/auth.scss */
+.register-image-caption span.type,
+.register-image-caption span.caption {
+  color: #226699;
+  text-transform: uppercase;
+  font-size: 47px;
+  line-height: 81px;
+  font-weight: bold;
+  display: block;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+/* line 84, ../../app/assets/stylesheets/auth.scss */
+.register-image-caption span.caption {
+  font-weight: normal;
+  font-size: 20px;
+  margin-top: -44px;
+  text-transform: none;
+  opacity: 0.6;
+}
+
+/* line 92, ../../app/assets/stylesheets/auth.scss */
+#register-selection {
+  display: none;
+}
+
+/* line 96, ../../app/assets/stylesheets/auth.scss */
+#client_dob_1i {
+  width: 90px;
+}
+
+/* line 100, ../../app/assets/stylesheets/auth.scss */
+#client_dob_2i {
+  width: 155px;
+}
+
+/* line 104, ../../app/assets/stylesheets/auth.scss */
+#client_dob_3i {
+  width: 80px;
+}
+
+/* line 108, ../../app/assets/stylesheets/auth.scss */
+.client-name {
+  width: 49%;
+}
+
+/* line 2, ../../app/assets/stylesheets/footer.scss */
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+/* line 8, ../../app/assets/stylesheets/footer.scss */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+/* line 18, ../../app/assets/stylesheets/footer.scss */
+#push,
+#footer {
+  height: 60px;
+}
+
+/* line 22, ../../app/assets/stylesheets/footer.scss */
+#footer {
+  #background-color: #f5f5f5;
+}
+
+/* line 1, ../../app/assets/stylesheets/products.scss */
+.product-container2 {
+  display: inline-block;
+  width: 225px;
+  height: 108px;
+  background-color: white;
+  overflow: hidden;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  border-radius: 1px;
+  position: relative;
+  -webkit-box-shadow: 1px 1px 1px #cbcbcb;
+  -moz-box-shadow: 1px 1px 1px #cbcbcb;
+  box-shadow: 1px 1px 1px #cbcbcb;
+}
+
+/* line 16, ../../app/assets/stylesheets/products.scss */
+.product-container {
+  display: inline-block;
+  width: 225px;
+  height: 143px;
+  background-color: white;
+  overflow: hidden;
+  margin-right: 3px;
+  margin-bottom: 8px;
+  border-radius: 1px;
+  position: relative;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  #border: 1px solid #dcdcdc;
+}
+
+/* line 33, ../../app/assets/stylesheets/products.scss */
+.product-triangle-color {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 40px solid transparent;
+  border-right: 185px solid transparent;
+  border-left: 40px solid green;
+  border-left-color: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* line 49, ../../app/assets/stylesheets/products.scss */
+.product-image {
+  display: inline-block;
+  width: 74px;
+  margin: 0 6px;
+  overflow: hidden;
+  height: 74px;
+  #background: whitesmoke;
+  float: left;
+  #background-size: cover;
+  #background-repeat: no-repeat;
+  #background-position: 50% 50%;
+  z-index: 1;
+}
+
+/* line 63, ../../app/assets/stylesheets/products.scss */
+.product-image img {
+  height: 74px;
+  width: auto;
+  max-width: none;
+  #display: none;
+}
+
+/* line 70, ../../app/assets/stylesheets/products.scss */
+.product-data {
+  display: inline-block;
+  width: 131px;
+  margin-right: 5px;
+  height: 75px;
+  margin-left: 1px;
+  position: relative;
+}
+
+/* line 79, ../../app/assets/stylesheets/products.scss */
+.product-namebrand {
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+}
+
+/* line 85, ../../app/assets/stylesheets/products.scss */
+.product-data span.brand {
+  color: #999;
+}
+
+/* line 89, ../../app/assets/stylesheets/products.scss */
+.price-cont {
+  border-radius: 2px;
+  position: absolute;
+  bottom: 10px;
+  left: 6px;
+  width: 81px;
+  text-align: right;
+  margin-left: -6px;
+}
+
+/* line 99, ../../app/assets/stylesheets/products.scss */
+.stock-cont {
+  border-radius: 2px;
+  position: absolute;
+  bottom: 8px;
+  left: 80px;
+  width: 106px;
+}
+
+/* line 107, ../../app/assets/stylesheets/products.scss */
+.price {
+  padding: 1px 3px;
+  color: white;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.32);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* line 116, ../../app/assets/stylesheets/products.scss */
+.quantity {
+  display: inline-block;
+  padding: 3px;
+  #background-color: white;
+  border-radius: 2px;
+  color: #b6b6b6;
+  margin-left: 3px;
+}
+
+/* line 125, ../../app/assets/stylesheets/products.scss */
+.quantity i {
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 5px;
+  float: right;
+  padding-top: 2px;
+}
+
+/* line 133, ../../app/assets/stylesheets/products.scss */
+.product-category {
+  height: 22px;
+  #background-color: rgba(0, 128, 0, 0.23);
+  margin-bottom: 6px;
+  color: rgba(0, 128, 0, 0.23);
+  font-weight: 700;
+  text-align: right;
+  padding-right: 8px;
+  #cursor: pointer;
+}
+
+/* line 144, ../../app/assets/stylesheets/products.scss */
+.product-container:hover .product-category .glyphicon {
+  display: inline;
+  cursor: pointer;
+}
+
+/* line 149, ../../app/assets/stylesheets/products.scss */
+.product-container .edit-button {
+  position: absolute;
+  bottom: 5px;
+  right: 3px;
+  cursor: pointer;
+}
+
+/* line 157, ../../app/assets/stylesheets/products.scss */
+.product-category .glyphicon {
+  font-size: 11px;
+  margin-right: 4px;
+  display: none;
+}
+
+/* line 163, ../../app/assets/stylesheets/products.scss */
+.product-info-panel {
+  height: 580px;
+  padding: 0;
+  width: 225px;
+  background-color: white;
+  #overflow: hidden;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  border-radius: 1px;
+  position: relative;
+  -background-color: white;
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  display: none;
+  margin-left: -13px;
+}
+
+/* line 181, ../../app/assets/stylesheets/products.scss */
+.product-info-panel.show {
+  display: block;
+}
+
+/* line 185, ../../app/assets/stylesheets/products.scss */
+.edit-button .glyphicon {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 4px;
+  color: #b6b6b6;
+  transition: margin 0.1s;
+  -moz-transition: margin 0.1s;
+  -webkit-transition: margin 0.1s;
+}
+
+/* line 196, ../../app/assets/stylesheets/products.scss */
+.edit-button .edit-icon {
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  height: 24px;
+  width: 20px;
+}
+
+/* line 204, ../../app/assets/stylesheets/products.scss */
+.product-container:hover .edit-button .glyphicon {
+  margin-left: 2px;
+}
+
+/* line 208, ../../app/assets/stylesheets/products.scss */
+.edit-button .glyphicon:hover {
+  color: #979797;
+}
+
+/* line 213, ../../app/assets/stylesheets/products.scss */
+.list-loading {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 220, ../../app/assets/stylesheets/products.scss */
+.list-loading.show {
+  display: block;
+}
+
+/* line 224, ../../app/assets/stylesheets/products.scss */
+.list-loading.show + #products-container-inner {
+  opacity: 0.7;
+}
+
+/* line 228, ../../app/assets/stylesheets/products.scss */
+.loading-inner {
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+
+/* line 234, ../../app/assets/stylesheets/products.scss */
+.loading-inner .glyphicon {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  margin-top: -60px;
+}
+
+/* line 241, ../../app/assets/stylesheets/products.scss */
+.edit-loading {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  display: none;
+  z-index: 2;
+}
+
+/* line 250, ../../app/assets/stylesheets/products.scss */
+.edit-loading.show {
+  display: block;
+}
+
+/* line 254, ../../app/assets/stylesheets/products.scss */
+.edit-loading i {
+  font-size: 45px;
+  margin-top: 55px;
+}
+
+/* line 259, ../../app/assets/stylesheets/products.scss */
+#product-info-inner {
+  #padding: 10px;
+}
+
+/* line 263, ../../app/assets/stylesheets/products.scss */
+#product-info-inner .category-title {
+  width: 100%;
+  padding: 7px 2px 8px 17px;
+  color: white;
+  font-size: 21px;
+  position: absolute;
+  margin-top: 70px;
+}
+
+/* line 272, ../../app/assets/stylesheets/products.scss */
+#product-info-inner .category-image {
+  width: 100%;
+  overflow: hidden;
+  height: 105px;
+  z-index: 1;
+}
+
+/* line 279, ../../app/assets/stylesheets/products.scss */
+#product-info-inner img {
+  width: 100%;
+  max-width: none;
+}
+
+/* line 284, ../../app/assets/stylesheets/products.scss */
+#product-info-inner .product-data-container {
+  padding: 5px 10px;
+}
+
+/* line 288, ../../app/assets/stylesheets/products.scss */
+#product-info-inner .qrcode {
+  width: 125px;
+  margin: 7px auto;
+  display: block;
+  display: none;
+}
+
+/* line 295, ../../app/assets/stylesheets/products.scss */
+.file-input-wrapper {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  max-width: 100%;
+}
+
+/* line 296, ../../app/assets/stylesheets/products.scss */
+.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus, .file-input-wrapper input[type=file]:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: 99;
+  outline: 0;
+}
+
+/* line 297, ../../app/assets/stylesheets/products.scss */
+.file-input-name {
+  margin-left: 8px;
+}
+
+/* line 299, ../../app/assets/stylesheets/products.scss */
+.file-input-wrapper {
+  display: inline-block;
+  min-height: 34px;
+  padding: 6px 9px;
+  font-size: 14;
+  line-height: 20px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  width: 100%;
+  text-align: left;
+  text-decoration: none !important;
+  overflow: hidden;
+}
+
+/* line 322, ../../app/assets/stylesheets/products.scss */
+.file-input-wrapper span {
+  white-space: nowrap;
+}
+
+/* line 326, ../../app/assets/stylesheets/products.scss */
+.search-bar {
+  margin-bottom: 10px;
+  margin-right: 8px;
+}
+
+/* line 331, ../../app/assets/stylesheets/products.scss */
+.product-data-container .input {
+  background-color: rgba(255, 255, 255, 0.93);
+}
+
+/* line 335, ../../app/assets/stylesheets/products.scss */
+.search-bar input {
+  background-color: #fff;
+}
+
+/* line 339, ../../app/assets/stylesheets/products.scss */
+ul.tagit {
+  margin-left: 0;
+}
+
+/* line 343, ../../app/assets/stylesheets/products.scss */
+#notice {
+  z-index: 9000;
+}
+
+/* line 347, ../../app/assets/stylesheets/products.scss */
+ul.tagit input {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 355, ../../app/assets/stylesheets/products.scss */
+.product-header {
+  background-color: white;
+  position: relative;
+  -background-color: white;
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  padding-top: 36px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 367, ../../app/assets/stylesheets/products.scss */
+.product-search-container {
+  margin-top: 16px;
+  width: 696px;
+  position: relative;
+  margin-left: 15px;
+  float: left;
+}
+
+/* line 375, ../../app/assets/stylesheets/products.scss */
+.product-new-container {
+  float: left;
+  margin-left: 17px;
+  width: 225px;
+  margin-top: 16px;
+  height: 45px;
+}
+
+/* line 5, ../../app/assets/stylesheets/market.scss */
+#market-proudcts-main-container {
+  max-width: 1177px;
+  min-width: 300px;
+  margin: 20px auto;
+}
+
+/* line 11, ../../app/assets/stylesheets/market.scss */
+#market-products-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* line 17, ../../app/assets/stylesheets/market.scss */
+.market-product {
+  float: left;
+  height: 400px;
+  margin: 13px;
+  padding: 10px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.93);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* line 32, ../../app/assets/stylesheets/market.scss */
+.market-product span {
+  display: block;
+}
+
+/* line 36, ../../app/assets/stylesheets/market.scss */
+.market-product-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 41, ../../app/assets/stylesheets/market.scss */
+.market-product-top {
+  width: 87%;
+  height: 54%;
+  overflow: hidden;
+  position: relative;
+  margin: 9px 17px 5px 17px;
+}
+
+/* line 49, ../../app/assets/stylesheets/market.scss */
+.product-qrcode {
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -ms-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+  display: inline-block;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 5px;
+  padding-bottom: 2px;
+  vertical-align: bottom;
+  margin-bottom: -14px;
+}
+
+/* line 60, ../../app/assets/stylesheets/market.scss */
+.market-product-price {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  margin: 0 10px;
+  padding: 9px 9px;
+  background-color: #eee;
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* line 72, ../../app/assets/stylesheets/market.scss */
+.market-product-buy {
+  padding: 9px;
+  #background-color: #f0f0f0;
+  #margin: 0 -14px;
+  #box-shadow: inset 0px 2px 9px rgba(0, 0, 0, 0.2), inset 0 -2px 9px rgba(0, 0, 0, 0.2);
+  #opacity: 0.9;
+  border-top: 1px solid #EEE;
+}
+
+/* line 81, ../../app/assets/stylesheets/market.scss */
+.market-product-name {
+  font-size: 16px;
+  height: 25px;
+  line-height: 25px;
+}
+
+/* line 87, ../../app/assets/stylesheets/market.scss */
+.market-product-brand {
+  font-size: 13px;
+  height: 20px;
+  line-height: 14px;
+  color: #858585;
+}
+
+/* line 94, ../../app/assets/stylesheets/market.scss */
+.market-product-category {
+  font-size: 17px;
+  padding: 3px;
+  #background-color: #f0f0f0;
+  #margin: 0 -14px;
+  #box-shadow: inset 0px 1px 7px rgba(0, 0, 0, 0.2), inset 0 -1px 7px rgba(0, 0, 0, 0.2);
+  #opacity: 0.9;
+  #color: white;
+  #border-top: 1px solid grey;
+  border-bottom: 1px solid #EEE;
+  margin-top: -3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 109, ../../app/assets/stylesheets/market.scss */
+.market-logo {
+  height: 50px;
+}
+
+/* line 113, ../../app/assets/stylesheets/market.scss */
+.market-name {
+  font-size: 28px;
+}
+
+/* line 118, ../../app/assets/stylesheets/market.scss */
+#market-product-price:after,
+#market-product-price:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border-color: inherit;
+  border-width: 26px;
+  border-style: solid;
+  margin-top: -9px;
+}
+
+/* line 129, ../../app/assets/stylesheets/market.scss */
+#market-product-price:after {
+  margin-left: 2px;
+  border-right-color: transparent;
+}
+
+/* line 134, ../../app/assets/stylesheets/market.scss */
+#market-product-price:before {
+  margin-left: -54px;
+  border-left-color: transparent;
+}
+
+@media (min-width: 1050px) {
+  /* line 140, ../../app/assets/stylesheets/market.scss */
+  .market-product {
+    width: 22.7%;
+    width: 267px;
+  }
+}
+@media (min-width: 873px) and (max-width: 1049px) {
+  /* line 147, ../../app/assets/stylesheets/market.scss */
+  .market-product {
+    width: 30.5%;
+    width: 267px;
+  }
+}
+@media (min-width: 481px) and (max-width: 872px) {
+  /* line 154, ../../app/assets/stylesheets/market.scss */
+  .market-product {
+    width: 47%;
+    width: 267px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 161, ../../app/assets/stylesheets/market.scss */
+  .market-product {
+    width: 97%;
+    width: 267px;
+  }
+}
+/* line 1, ../../app/assets/stylesheets/limits.scss */
+.limit-container {
+  #display: inline-block;
+  #width: 300px;
+  height: 143px;
+  background-color: white;
+  #overflow: hidden;
+  margin-right: 3px;
+  margin-bottom: 8px;
+  border-radius: 1px;
+  position: relative;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  #border: 1px solid #dcdcdc;
+}
+
+/* line 18, ../../app/assets/stylesheets/limits.scss */
+.limit-categegory-sidebar {
+  float: left;
+  width: 31px;
+  height: 100%;
+  background-color: blue;
+}
+
+/* line 26, ../../app/assets/stylesheets/limits.scss */
+.limit-categegory-sidebar:after {
+  content: "";
+  width: 32px;
+  height: 100%;
+  border-right: 1px dashed blue;
+  float: left;
+}
+
+/* line 34, ../../app/assets/stylesheets/limits.scss */
+.limit-container-inner {
+  height: 100%;
+  #width: 95%;
+  margin-left: 32px;
+  padding: 7px;
+  #background-color: red;
+  z-index: 3;
+}
+
+/* line 43, ../../app/assets/stylesheets/limits.scss */
+.limit-head-container {
+  display: inline-block;
+  margin-left: 10px;
+  display: block;
+  margin: 9px 0px;
+}
+
+/* line 50, ../../app/assets/stylesheets/limits.scss */
+.limit-head-container .limit-head-toggle {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/* line 56, ../../app/assets/stylesheets/limits.scss */
+.limit-head-toggle {
+  display: inline-block;
+  text-align: right;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
+  background-image: linear-gradient(top, whitesmoke, #f1f1f1);
+  border: 1px solid #dcdcdc;
+  color: #444;
+  cursor: default;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 27px;
+  min-width: 49px;
+  outline: none;
+  padding: 0 8px 0 10px;
+  text-decoration: none;
+}
+
+/* line 75, ../../app/assets/stylesheets/limits.scss */
+.limit-head-toggle.limit-period {
+  font-size: 23px;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* line 82, ../../app/assets/stylesheets/limits.scss */
+.limit-head-content {
+  display: inline-block;
+  text-align: center;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border: 1px solid #dcdcdc;
+  color: rgba(68, 68, 68, 0.7);
+  cursor: default;
+  font-size: 11px;
+  line-height: 27px;
+  min-width: 93px;
+  outline: none;
+  padding: 0 8px 0 10px;
+  text-decoration: none;
+  margin-left: -5px;
+  box-shadow: inset 0 0 1px 1px rgba(136, 136, 136, 0.2);
+}
+
+/* line 100, ../../app/assets/stylesheets/limits.scss */
+.limit-end {
+  #float: right;
+  text-align: right;
+  margin-top: -8px;
+  #margin-left: 166px;
+}
+
+/* line 107, ../../app/assets/stylesheets/limits.scss */
+.limit-triangule {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 30px;
+  height: 0;
+  border-bottom: 50px solid transparent;
+  border-left: 49px solid green;
+  border-left-color: inherit;
+  z-index: 2;
+}
+
+/* line 120, ../../app/assets/stylesheets/limits.scss */
+.limit-category {
+  font-size: 40px;
+  line-height: 51px;
+  display: inline-block;
+  position: absolute;
+  left: 47px;
+  top: 0px;
+  font-weight: 100;
+}
+
+/* line 130, ../../app/assets/stylesheets/limits.scss */
+.limit-money {
+  display: inline-block;
+  font-size: 23px;
+  padding: 10px;
+  font-weight: 400;
+}
+
+/* line 137, ../../app/assets/stylesheets/limits.scss */
+.limit-money-container {
+  display: inline-block;
+}
+
+/* line 141, ../../app/assets/stylesheets/limits.scss */
+.limit-data-container {
+  display: inline-block;
+}
+
+/* line 145, ../../app/assets/stylesheets/limits.scss */
+.limit-bar-inner {
+  position: relative;
+  margin: 2px;
+  border: 1px solid #dcdcdc;
+  height: 12px;
+  display: inline-block;
+  width: 76%;
+}
+
+/* line 154, ../../app/assets/stylesheets/limits.scss */
+.limit-progress {
+  position: absolute;
+  width: 306px;
+  left: 51px;
+  bottom: 9px;
+}
+
+/* line 161, ../../app/assets/stylesheets/limits.scss */
+.limit-progress-label {
+  display: inline-block;
+  float: left;
+  line-height: 15px;
+  width: 29px;
+  margin-right: 7px;
+  font-size: 12px;
+  text-align: right;
+}
+
+/* line 172, ../../app/assets/stylesheets/limits.scss */
+.limit-progress-label.limit-status-time,
+.limit-progress-label.limit-status-money {
+  float: right;
+  width: 29px;
+  text-align: left;
+  margin-right: 0px;
+}
+
+/* line 180, ../../app/assets/stylesheets/limits.scss */
+.limit-time-percentage,
+.limit-money-percentage {
+  background-color: #d5d5d5;
+  height: 100%;
+  background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
+  border-right: 1px solid #d5d5d5;
+  max-width: 100%;
+}
+
+/* line 188, ../../app/assets/stylesheets/limits.scss */
+.limit-head-content i {
+  color: rgba(68, 68, 68, 0.7);
+}
+
+/* line 192, ../../app/assets/stylesheets/limits.scss */
+.limit-container .edit-button {
+  position: absolute;
+  bottom: 14px;
+  left: 5px;
+}
+
+/* line 198, ../../app/assets/stylesheets/limits.scss */
+.limit-edit-icon {
+  overflow: hidden;
+  display: inline-block;
+  #float: left;
+  height: 24px;
+  width: 20px;
+  float: right;
+}
+
+/* line 207, ../../app/assets/stylesheets/limits.scss */
+.limit-edit-icon i.glyphicon {
+  margin-left: -32px;
+}
+
+/* line 211, ../../app/assets/stylesheets/limits.scss */
+.limit-container:hover .limit-edit-icon i {
+  margin-left: 2px;
+}
+
+/* line 215, ../../app/assets/stylesheets/limits.scss */
+.limit-category-select {
+  width: 202px;
+  height: 34px;
+  overflow: hidden;
+  background: url(/assets/new_arrow.png) no-repeat right whitesmoke;
+  margin-top: 8px;
+  line-height: 36px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  color: #444;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 231, ../../app/assets/stylesheets/limits.scss */
+.limit-head-toggle-select {
+  width: 150px;
+  height: 49px;
+  overflow: hidden;
+  background: url(/assets/new_arrow.png) no-repeat right whitesmoke;
+  text-decoration: none;
+  display: inline-block;
+  text-align: right;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  color: #444;
+  cursor: default;
+  min-width: 52px;
+  outline: none;
+  padding: 8px 4px;
+  padding-right: 8px;
+  padding-left: 0px;
+  border-top: 2px solid #dcdcdc;
+}
+
+/* line 252, ../../app/assets/stylesheets/limits.scss */
+.limit-category-select select {
+  background: transparent;
+  width: 201px;
+  padding: 5px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -webkit-appearance: none;
+  line-height: 20px;
+  margin-top: -13px;
+}
+
+/* line 265, ../../app/assets/stylesheets/limits.scss */
+.limit-head-toggle-select select {
+  background: transparent;
+  width: 150px;
+  padding: 8px 15px;
+  font-size: 23px;
+  border: 0;
+  border-radius: 0;
+  height: 49px;
+  -webkit-appearance: none;
+  line-height: 27px;
+  margin-left: -1px;
+  margin-top: -10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* line 282, ../../app/assets/stylesheets/limits.scss */
+.limit-money-input {
+  position: absolute;
+  right: 162px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
+  background-image: linear-gradient(top, whitesmoke, #f1f1f1);
+  border: 1px solid #dcdcdc;
+  color: #444;
+  cursor: default;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 27px;
+  min-width: 49px;
+  outline: none;
+  padding: 0 8px 0 10px;
+  text-decoration: none;
+  border-top: 2px solid #dcdcdc;
+}
+
+/* line 302, ../../app/assets/stylesheets/limits.scss */
+.limit-money-input input:focus {
+  box-shadow: none;
+}
+
+/* line 306, ../../app/assets/stylesheets/limits.scss */
+.limit-money-input input {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  width: 76px;
+  line-height: 27px;
+  font-size: 23px;
+  box-shadow: none;
+  text-align: right;
+  font-weight: 500;
+  color: #444;
+  padding: 7px 2px 7px 2px;
+}
+
+/* line 320, ../../app/assets/stylesheets/limits.scss */
+.limit-euro-edit {
+  display: inline-block;
+  line-height: 27px;
+  font-size: 23px;
+  color: #444;
+  float: right;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* line 330, ../../app/assets/stylesheets/limits.scss */
+.limit-submit-btns {
+  position: absolute;
+  bottom: 13px;
+  left: 45px;
+}
+
+/* line 338, ../../app/assets/stylesheets/limits.scss */
+.remove-item {
+  max-height: 143px;
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  animation: growHeight 0.3s ease backwards;
+  -webkit-animation: growHeight 0.3s ease backwards;
+}
+
+@keyframes growHeight {
+  /* line 348, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1, 0);
+  }
+}
+
+@-webkit-keyframes growHeight {
+  /* line 356, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1, 0);
+    -webkit-transform: scale(1, 0);
+  }
+}
+
+/* line 364, ../../app/assets/stylesheets/limits.scss */
+.delete-item {
+  max-height: 143px;
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  animation: disappear 0.3s ease backwards;
+  -webkit-animation: disappear 0.3s ease backwards;
+}
+
+@keyframes disappear {
+  /* line 374, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 0px;
+    opacity: 0;
+    transform: scale(1, 0);
+  }
+}
+
+@-webkit-keyframes disappear {
+  /* line 382, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 0px;
+    opacity: 0;
+    transform: scale(1, 0);
+    -webkit-transform: scale(1, 0);
+  }
+}
+
+/* line 390, ../../app/assets/stylesheets/limits.scss */
+.replace-item {
+  max-height: 143px;
+  opacity: 1;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+  animation: growHeight2 0.3s ease forwards;
+  -webkit-animation: growHeight2 0.3s ease forwards;
+}
+
+@keyframes growHeight2 {
+  /* line 400, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes growHeight2 {
+  /* line 408, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+    opacity: 1;
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+/* line 416, ../../app/assets/stylesheets/limits.scss */
+#limits-container-inner {
+  overflow: hidden;
+}
+
+/* line 419, ../../app/assets/stylesheets/limits.scss */
+.new-item {
+  max-height: 0;
+  opacity: 0;
+  transform: translateX(-614px);
+  -webkit-transform: translateX(-614px);
+  animation: openSpace 0.2s ease forwards, moveIn 0.3s 0.2s ease forwards;
+  -webkit-animation: openSpace 0.2s ease forwards, moveIn 0.3s 0.2s ease forwards;
+}
+
+@keyframes openSpace {
+  /* line 433, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+  }
+}
+
+@keyframes moveIn {
+  /* line 438, ../../app/assets/stylesheets/limits.scss */
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes openSpace {
+  /* line 445, ../../app/assets/stylesheets/limits.scss */
+  to {
+    max-height: 143px;
+  }
+}
+
+@-webkit-keyframes moveIn {
+  /* line 450, ../../app/assets/stylesheets/limits.scss */
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+/* line 457, ../../app/assets/stylesheets/limits.scss */
+.limit-search-container {
+  margin-top: 16px;
+  width: 621px;
+  position: relative;
+  margin-left: 15px;
+  float: left;
+}
+
+/* line 465, ../../app/assets/stylesheets/limits.scss */
+.limit-new-container {
+  float: left;
+  margin-left: 54px;
+  width: 225px;
+  margin-top: 16px;
+  height: 45px;
+  margin-right: 55px;
+}
+
+/* line 33, ../../app/assets/stylesheets/application.scss */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* line 36, ../../app/assets/stylesheets/application.scss */
+::-webkit-scrollbar-track {
+  background: #FFF;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 40, ../../app/assets/stylesheets/application.scss */
+::-webkit-scrollbar-thumb {
+  background: #CCC;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 44, ../../app/assets/stylesheets/application.scss */
+::-webkit-scrollbar-thumb:hover {
+  background: #AAA;
+}
+
+/* line 47, ../../app/assets/stylesheets/application.scss */
+::-webkit-scrollbar-thumb:active {
+  background: #888;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* line 56, ../../app/assets/stylesheets/application.scss */
+.red {
+  background-color: red;
+}
+
+/* line 57, ../../app/assets/stylesheets/application.scss */
+.green {
+  background-color: green;
+}
+
+/* line 58, ../../app/assets/stylesheets/application.scss */
+.margins {
+  margin: 5px;
+}
+
+/* line 61, ../../app/assets/stylesheets/application.scss */
+.block {
+  display: block !important;
+}
+
+/* line 62, ../../app/assets/stylesheets/application.scss */
+.inline {
+  display: inline-block !important;
+}
+
+/* line 63, ../../app/assets/stylesheets/application.scss */
+.up {
+  display: block;
+  height: inherit;
+}
+
+/* line 64, ../../app/assets/stylesheets/application.scss */
+.side {
+  display: block;
+  width: inherit;
+}
+
+/* line 65, ../../app/assets/stylesheets/application.scss */
+.box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 66, ../../app/assets/stylesheets/application.scss */
+.tcenter {
+  text-align: center;
+}
+
+/* line 67, ../../app/assets/stylesheets/application.scss */
+.bcenter {
+  margin: 0 auto;
+}
+
+/* line 68, ../../app/assets/stylesheets/application.scss */
+.just {
+  text-align: justify;
+}
+
+/* line 69, ../../app/assets/stylesheets/application.scss */
+.shadow {
+  -webkit-box-shadow: 1px 1px 1px #cbcbcb;
+  -moz-box-shadow: 1px 1px 1px #cbcbcb;
+  box-shadow: 1px 1px 1px #cbcbcb;
+}
+
+/* line 70, ../../app/assets/stylesheets/application.scss */
+.relative {
+  position: relative;
+}
+
+/* line 72, ../../app/assets/stylesheets/application.scss */
+.fade {
+  opacity: 0;
+  transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+}
+
+/* line 79, ../../app/assets/stylesheets/application.scss */
+.fade.show {
+  opacity: 1;
+}
+
+/* line 83, ../../app/assets/stylesheets/application.scss */
+body {
+  background-color: #fbfbfb;
+  color: rgba(51, 51, 51, 0.8);
+}
+
+/* line 88, ../../app/assets/stylesheets/application.scss */
+#header {
+  background-color: white;
+  height: 99px;
+  box-sizing: content-box;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.43);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
+}
+
+/* line 98, ../../app/assets/stylesheets/application.scss */
+#header-logo {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: none;
+}
+
+/* line 104, ../../app/assets/stylesheets/application.scss */
+#register-link {
+  cursor: pointer;
+}
+
+/* line 108, ../../app/assets/stylesheets/application.scss */
+body, html {
+  font-family: 'Open Sans','Helvetica Neue','PT sans','Helvetica',Arial,sans-serif;
+}
+
+/* line 113, ../../app/assets/stylesheets/application.scss */
+.field_with_errors,
+.form-error-label {
+  color: #b94a48;
+  display: inline;
+  border-color: #b94a48 !important;
+}
+
+/* line 118, ../../app/assets/stylesheets/application.scss */
+.field_with_errors input {
+  border-color: #b94a48;
+}
+
+/* line 122, ../../app/assets/stylesheets/application.scss */
+.red-asterisk {
+  color: #b94a48;
+}
+
+/* line 126, ../../app/assets/stylesheets/application.scss */
+.header-btn-toolbar {
+  margin-top: 38px;
+  margin-right: 20px;
+}
+
+/* line 131, ../../app/assets/stylesheets/application.scss */
+.header-btn-toolbar .btn-group > .btn {
+  background-color: #fbfbfb;
+  color: #226699;
+  border: none;
+  font-weight: 700;
+}
+
+/* line 138, ../../app/assets/stylesheets/application.scss */
+.header-title {
+  color: #428bca;
+  font-size: 55px;
+  line-height: 90px;
+  letter-spacing: 2px;
+  font-family: 'League Gothic';
+  font-weight: 100;
+  margin-left: 68px;
+}
+
+/* line 148, ../../app/assets/stylesheets/application.scss */
+.btn-primary {
+  #background-color: #226699;
+  #border-color: #226699;
+}
+
+/* line 153, ../../app/assets/stylesheets/application.scss */
+.header-btn {
+  color: #194a6f;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-left: 21px;
+  text-decoration: none !important;
+}
+
+/* line 162, ../../app/assets/stylesheets/application.scss */
+.three-dots {
+  display: inline-block;
+}
+
+/* line 166, ../../app/assets/stylesheets/application.scss */
+.three-dots div {
+  width: 4px;
+  height: 4px;
+  background-color: #b6b6b6;
+  margin: 3px;
+}
+
+/* line 173, ../../app/assets/stylesheets/application.scss */
+.three-dots.horizontal div {
+  display: inline-block;
+  margin: 2px;
+}
+
+/* line 178, ../../app/assets/stylesheets/application.scss */
+.three-dots:hover div {
+  background-color: #979797;
+}
+
+/* line 182, ../../app/assets/stylesheets/application.scss */
+.icon-spin {
+  display: inline-block;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+@-moz-keyframes spin {
+  /* line 191, ../../app/assets/stylesheets/application.scss */
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  /* line 192, ../../app/assets/stylesheets/application.scss */
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  /* line 195, ../../app/assets/stylesheets/application.scss */
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 196, ../../app/assets/stylesheets/application.scss */
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spin {
+  /* line 199, ../../app/assets/stylesheets/application.scss */
+  0% {
+    -o-transform: rotate(0deg);
+  }
+
+  /* line 200, ../../app/assets/stylesheets/application.scss */
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@-ms-keyframes spin {
+  /* line 203, ../../app/assets/stylesheets/application.scss */
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+
+  /* line 204, ../../app/assets/stylesheets/application.scss */
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  /* line 207, ../../app/assets/stylesheets/application.scss */
+  0% {
+    transform: rotate(0deg);
+  }
+
+  /* line 208, ../../app/assets/stylesheets/application.scss */
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* line 211, ../../app/assets/stylesheets/application.scss */
+.alert {
+  margin-left: 35px;
+}
+
+/* line 215, ../../app/assets/stylesheets/application.scss */
+.error-tooltip {
+  top: 21px;
+  right: 3px;
+  display: block;
+  cursor: pointer;
+}
+
+/* line 223, ../../app/assets/stylesheets/application.scss */
+.error-tooltip .tooltip-inner,
+.error-tooltip .tooltip-inner span {
+  background-color: #b94a48;
+  color: white;
+}
+
+/* line 228, ../../app/assets/stylesheets/application.scss */
+.error-tooltip .tooltip-arrow {
+  border-bottom-color: #b94a48 !important;
+  right: 7px !important;
+  left: auto !important;
+}
+
+/* line 234, ../../app/assets/stylesheets/application.scss */
+.bigger-btn-padding {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+/* line 239, ../../app/assets/stylesheets/application.scss */
+input.invi-input {
+  width: 59px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 0;
+}
+
+/* line 248, ../../app/assets/stylesheets/application.scss */
+input.invi-input:focus {
+  box-shadow: none;
+}
+
+/* line 252, ../../app/assets/stylesheets/application.scss */
+#menu-container {
+  border-bottom: 1px solid rgba(184, 184, 184, 0);
+  height: 38px;
+}
+
+/* line 257, ../../app/assets/stylesheets/application.scss */
+.menu-item {
+  padding: 9px 25px;
+  margin: 0px 0px;
+  float: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  margin-top: -1px;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+/* line 271, ../../app/assets/stylesheets/application.scss */
+.menu-item:hover:not(.active) {
+  text-decoration: none;
+  color: #428bca;
+  padding-bottom: 8px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.88);
+  padding-top: 10px;
+}
+
+/* line 280, ../../app/assets/stylesheets/application.scss */
+.menu-item.active {
+  text-decoration: none;
+  background-color: white;
+  color: #428bca;
+  margin: 0;
+  margin-top: -1px;
+  padding-top: 10px;
+  padding: 9px 30px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  position: relative;
+}
+
+/* line 293, ../../app/assets/stylesheets/application.scss */
+input.wsearch:focus {
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* line 297, ../../app/assets/stylesheets/application.scss */
+input.wsearch {
+  border: none;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  border-radius: 1px;
+}
+
+/* line 304, ../../app/assets/stylesheets/application.scss */
+button.icon-button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 20px;
+  display: block;
+  top: 12px;
+  font-size: 17px;
+  color: #9e9e9e;
+}
+
+/* line 315, ../../app/assets/stylesheets/application.scss */
+.search-bar:hover .search-reset {
+  opacity: 1;
+}
+
+/* line 319, ../../app/assets/stylesheets/application.scss */
+.search-reset {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: 54px;
+  top: 15px;
+  font-size: 14px;
+  color: rgba(200, 200, 200, 0.36);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -ms-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+}
+
+/* line 331, ../../app/assets/stylesheets/application.scss */
+.bbutton {
+  background-color: #4d90fe;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4d90fe), to(#4787ed));
+  background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -moz-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -ms-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -o-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: linear-gradient(top, #4d90fe, #4787ed);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#4787ed');
+  border: 1px solid #3079ed;
+  color: white !important;
+  width: 100%;
+  display: block;
+  height: 100%;
+  line-height: 42px;
+  border-radius: 1px;
+  font-weight: 600;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* line 354, ../../app/assets/stylesheets/application.scss */
+.bbutton:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #357ae8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4d90fe), to(#357ae8));
+  background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: -moz-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: -ms-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: -o-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: linear-gradient(top, #4d90fe, #357ae8);
+  border-color: #2f5bb7;
+  text-decoration: none;
+}

@@ -2,7 +2,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :merchants
 
   get "client/consult"
-  match 'market/:merchant_name' => 'merchants#show'
+  get 'market/:merchant_name' => 'markets#show', :as => :market
 
 
   devise_scope :user do

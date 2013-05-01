@@ -26,17 +26,20 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'devise'
-  gem "cancan"
-  gem 'kaminari'
-  gem "paperclip", "~> 3.0"
+  gem 'closure-compiler'
+
+  #gem "cancan"
+
 end
+
+gem 'kaminari'
+gem 'devise'
 
 gem 'rake'
 gem 'jquery-rails'
 gem 'rqrcode-rails3'
 gem "remotipart"
+gem "paperclip", "~> 3.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

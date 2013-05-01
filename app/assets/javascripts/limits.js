@@ -76,14 +76,14 @@ function remove_limit_error(){
 
 function limit_loading(evt,t){
     if(t){
-        //$(".list-loading").addClass("show");
+        $(".list-loading").addClass("show");
         var a = $(evt.currentTarget).parents(".limit-container");
         a.attr("style","opacity:0.2;");
         //var b = $(evt.currentTarget);
         //if(b==$("#limits-container-inner .pagination a"))
         //    $(".list-loading").addClass("show")
     }   else  {
-        //$(".list-loading").removeClass("show");
+        $(".list-loading").removeClass("show");
         //a.show();
     }
 }
@@ -211,7 +211,7 @@ function replace_edit_for_show_error(){
 }
 
 function bind_limit_pagination(){
-    $('#limits-container-inner .pagination a').bind("ajax:success",page_limits)
+    $('#limits-container-inner .pagination a, form#limit-search-form').bind("ajax:success",page_limits)
         .bind("ajax:beforeSend ",page_limits_loading)
         .bind("ajax:error", page_limits_error);
 }
@@ -222,7 +222,7 @@ function page_limits(evt,data){
 
         $("#limits-container-inner").html(data.html);
         bind_limit_pagination();
-
+        bind_replace_for_edit();
     }
     limit_loading(evt,false);
 }

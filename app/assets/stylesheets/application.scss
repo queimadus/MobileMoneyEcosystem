@@ -5,9 +5,6 @@ $oldblue: #357ebd;
 $blue: #226699;
 $greywhite: #fbfbfb;
 
-body{
-  #background-image: url(/assets/bg.png);
-}
 
 @mixin transition($transition-property, $transition-time, $method) {
   -webkit-transition: $transition-property $transition-time $method;
@@ -18,12 +15,13 @@ body{
 }
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
+//@import "gothicleague.css";
 @import "bootstrap.css";
 //@import "font-awesome.min.css";
 @import "auth.scss";
 @import "footer.scss";
 @import "products.scss";
-@import "merchants.scss";
+@import "market.scss";
 @import "limits.scss";
 @import "jquery-ui-1.10.2.custom.min.css";
 
@@ -88,13 +86,13 @@ body{
 }
 
 #header{
-  #background-color: $blue;
-  #background-color: white;
-
-  height: 95px;
-  margin-bottom: 10px;
-  #border-bottom: 1px solid $ptblue;
+  background-color: white;
+  height: 99px;
   box-sizing: content-box;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.43);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
 }
 
 #header-logo{
@@ -108,7 +106,7 @@ body{
 }
 
 body,html{
-  font-family: 'PT sans','Helvetica',Arial,sans-serif;
+  font-family: 'Open Sans','Helvetica Neue','PT sans','Helvetica',Arial,sans-serif;
 }
 
 .field_with_errors,
@@ -138,12 +136,13 @@ body,html{
 }
 
 .header-title{
-  #color: $greywhite;
-  color: $blue;
-  font-size: 35px;
+  color: #428bca;
+  font-size: 55px;
   line-height: 90px;
-  #font-weight: 700;
   letter-spacing: 2px;
+  font-family: 'League Gothic';
+  font-weight: 100;
+  margin-left: 68px;
 }
 
 .btn-primary{
@@ -250,3 +249,116 @@ input.invi-input:focus{
   box-shadow: none;
 }
 
+#menu-container{
+  border-bottom: 1px solid rgba(184, 184, 184, 0);
+  height: 38px;
+}
+
+.menu-item{
+  padding: 9px 25px;
+  margin: 0px 0px;
+  float: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  margin-top: -1px;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+.menu-item:hover:not(.active){
+  text-decoration: none;
+  color: #428bca;
+  padding-bottom: 8px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.88);
+  padding-top: 10px;
+}
+
+.menu-item.active{
+  text-decoration: none;
+  background-color: white;
+  color: #428bca;
+  margin: 0;
+  margin-top: -1px;
+  padding-top: 10px;
+  padding: 9px 30px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  position: relative;
+}
+
+input.wsearch:focus{
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+input.wsearch{
+  border: none;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  border-radius: 1px;
+}
+
+button.icon-button{
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 20px;
+  display: block;
+  top: 12px;
+  font-size: 17px;
+  color: rgb(158, 158, 158);
+}
+
+.search-bar:hover .search-reset{
+  opacity: 1;
+}
+
+.search-reset{
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: 54px;
+  top: 15px;
+  font-size: 14px;
+  color: rgba(200, 200, 200, 0.36);
+  opacity: 0;
+  @include transition(opacity,0.2s,ease-in);
+}
+
+.bbutton{
+  background-color: #4d90fe;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4d90fe), to(#4787ed));
+  background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -moz-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -ms-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: -o-linear-gradient(top, #4d90fe, #4787ed);
+  background-image: linear-gradient(top, #4d90fe, #4787ed);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#4787ed');
+  border: 1px solid #3079ed;
+  color: white !important;
+  width: 100%;
+  display: block;
+  height: 100%;
+  line-height: 42px;
+  border-radius: 1px;
+  font-weight: 600;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bbutton:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #357ae8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#357ae8));
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: linear-gradient(top,#4d90fe,#357ae8);
+  border-color: #2f5bb7;
+  text-decoration: none;
+}
