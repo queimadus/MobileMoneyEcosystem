@@ -53,8 +53,8 @@ production:
   encoding: unicode
   database: MobileMoneyEcosystem_production
   pool: 5
-  username: MobileMoneyEcosystem
-  password:
+  username: mme
+  password: mme
 
 cucumber:
   <<: *test

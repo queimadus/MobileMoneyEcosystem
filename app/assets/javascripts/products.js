@@ -167,9 +167,9 @@ function edit_error(){
 
 function edit_product(evt,data){
     if(data.success == true){
-        $('#product-info-inner').html(data.html);
+       $('#product-info-inner').html(data.html);
        bind_form();
-        $('.edit_product #product-cancel').click(close_info_panel);
+       $('.edit_product #product-cancel').click(close_info_panel);
     }
     edit_loading(false);
 }

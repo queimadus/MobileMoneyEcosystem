@@ -71,13 +71,16 @@
           <div class="row">
             <div class="col-span-12" id="menu">
                 <% if current_user.is_merchant? %>
+                  <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Products', products_path, :class=> "menu-item"+active(products_path) %>
                   <%= link_to 'History', products_path, :class=> "menu-item" %>
                   <%= link_to 'Analytics', products_path, :class=> "menu-item" %>
                   <%= link_to 'Settings', products_path, :class=> "menu-item" %>
                 <%elsif current_user.is_client?%>
+                  <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Limits', limits_path, :class=> "menu-item"+active(limits_path) %>
                   <%= link_to 'History', limits_path, :class=> "menu-item" %>
+                  <%= link_to 'Credits', limits_path, :class=> "menu-item" %>
                   <%= link_to 'Settings', limits_path, :class=> "menu-item" %>
                 <%end%>
             </div>

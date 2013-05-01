@@ -8,6 +8,21 @@ class LimitsController < ApplicationController
   # GET /limits.json
   def index
     q = Limit.where(:client_id => current_user.client.id).order("limits.id DESC")
+
+    if params.has_key?(:q)  and !params{:q}.nil?  and !params[:q].blank?
+      @query = params{:q}
+      params[:q].split(" ").each do |keyword|
+        if(Category.find_by_name(keyword))
+          q=q.filter_by_categories(keyword)
+          break
+        else
+          q=q.clear
+          break
+        end
+      end
+    end
+
+
     @limits = Kaminari.paginate_array(q).page(params[:page]).per(10)
 
     respond_to do |format|

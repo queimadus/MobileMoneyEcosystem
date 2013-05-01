@@ -12,10 +12,10 @@ MobileMoneyEcosystem::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -69,4 +69,8 @@ MobileMoneyEcosystem::Application.configure do
 
 # Precompile additional assets
   config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.precompile += ['application.scss']
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+
+
 end

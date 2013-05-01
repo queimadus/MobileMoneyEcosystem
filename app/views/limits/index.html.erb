@@ -2,7 +2,8 @@
   <div class="limit-search-container">
     <%= form_tag limits_path, :method => :get, :id=>"limit-search-form", :remote => true do %>
       <div class="span search-bar">
-        <input id="search" name="q" type="text" class="wsearch" placeholder="Search for limits by category" value="<%= @query %>">
+        <input id="search" name="q" type="text" class="wsearch" placeholder="Search for limits by category"
+               value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
         <i class="search-reset glyphicon-remove glyphicon"> </i>
         <button class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
       </div>

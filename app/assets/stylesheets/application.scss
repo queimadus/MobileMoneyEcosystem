@@ -21,7 +21,7 @@ $greywhite: #fbfbfb;
 @import "auth.scss";
 @import "footer.scss";
 @import "products.scss";
-@import "merchants.scss";
+@import "market.scss";
 @import "limits.scss";
 @import "jquery-ui-1.10.2.custom.min.css";
 
@@ -86,15 +86,13 @@ body{
 }
 
 #header{
-  #background-color: $blue;
-  #background-color: white;
-  background-color: #5398c1;
-
-
+  background-color: white;
   height: 99px;
-  #margin-bottom: 10px;
-  #border-bottom: 1px solid $ptblue;
   box-sizing: content-box;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.43);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
 }
 
 #header-logo{
@@ -138,12 +136,13 @@ body,html{
 }
 
 .header-title{
-  #color: $greywhite;
-  color: white;
-  font-size: 35px;
+  color: #428bca;
+  font-size: 55px;
   line-height: 90px;
-  #font-weight: 700;
   letter-spacing: 2px;
+  font-family: 'League Gothic';
+  font-weight: 100;
+  margin-left: 68px;
 }
 
 .btn-primary{
@@ -251,24 +250,44 @@ input.invi-input:focus{
 }
 
 #menu-container{
-  background-color: #3f4c54;
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(184, 184, 184, 0);
+  height: 38px;
 }
 
 .menu-item{
-  padding: 9px 23px;
-  float:left;
+  padding: 9px 25px;
+  margin: 0px 0px;
+  float: left;
   text-transform: uppercase;
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-family: 'League Gothic';
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  margin-top: -1px;
+  padding-bottom: 8px;
+  font-weight: 600;
 }
 
-.menu-item:hover,
+.menu-item:hover:not(.active){
+  text-decoration: none;
+  color: #428bca;
+  padding-bottom: 8px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.88);
+  padding-top: 10px;
+}
+
 .menu-item.active{
   text-decoration: none;
-  background-color: #5398c1;
-  color: white;
+  background-color: white;
+  color: #428bca;
+  margin: 0;
+  margin-top: -1px;
+  padding-top: 10px;
+  padding: 9px 30px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  position: relative;
 }
 
 input.wsearch:focus{
