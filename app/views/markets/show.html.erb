@@ -45,7 +45,7 @@
   </div>-->
   <div>
     <div class="col-offset-3 col-span-6">
-      <%= form_tag products_path, :method => :get, :id=>"product-search-form", :style=>"margin:0 -8px;",  :remote => true do%>
+      <%= form_tag "/market/"+@merchant_name, :method => :get, :id=>"product-search-form", :style=>"margin:0 -8px;",  :remote => true do%>
         <%= hidden_field_tag @merchant_id %>
         <div class="span search-bar">
           <input id="search" name="q" type="text" class="wsearch" placeholder="Search for products by name and category"

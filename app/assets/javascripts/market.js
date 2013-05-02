@@ -14,7 +14,7 @@ function generate_qrcodes(){
 }
 
 function bind_market_pagination(){
-    $('#market-products-container .pagination a').bind("ajax:success",update_market)
+    $('#market-products-container .pagination a, #product-search-form').bind("ajax:success",update_market)
         .bind("ajax:beforeSend ",start_market_loading)
         .bind("ajax:error", market_error);
 }
@@ -29,6 +29,7 @@ function update_market(evt, data){
     if(data.success == true){
         update_market_data(data.html);
         bind_market_pagination();
+        generate_qrcodes();
         market_loading(evt,false);
         $('.market-product-image').centerImage();
     }
