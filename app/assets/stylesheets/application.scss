@@ -16,14 +16,14 @@ $greywhite: #fbfbfb;
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
 //@import "gothicleague.css";
-@import "bootstrap.css";
+@import "bootstrap.scss";
 //@import "font-awesome.min.css";
 @import "auth.scss";
 @import "footer.scss";
 @import "products.scss";
 @import "market.scss";
 @import "limits.scss";
-@import "jquery-ui-1.10.2.custom.min.css";
+@import "jquery-ui-1.10.2.custom.min.scss";
 
 
 
@@ -140,8 +140,8 @@ body,html{
   font-size: 55px;
   line-height: 90px;
   letter-spacing: 2px;
-  font-family: 'League Gothic';
-  font-weight: 100;
+  #font-family: 'League Gothic';
+  font-weight: 700;
   margin-left: 68px;
 }
 

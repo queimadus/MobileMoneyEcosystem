@@ -1,17 +1,3 @@
-/*!
- * Bootstrap v3.0.0
- *
- * Copyright 2013 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world by @mdo and @fat.
- */
-
-/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
-
-
-
 article,
 aside,
 details,
@@ -3166,13 +3152,13 @@ button.close {
 
 
 .nav .dropdown-toggle .caret {
-    border-top-color: @link-color;
-    border-bottom-color: @link-color;
+    border-top-color: #08c;
+    border-bottom-color: #08c;
     margin-top: 8px;
 }
 .nav .dropdown-toggle:hover .caret {
-    border-top-color: @link-color-hover;
-    border-bottom-color: @link-color-hover;
+    border-top-color: #005580;
+    border-bottom-color: #005580;
 }
 
 
@@ -3181,8 +3167,8 @@ button.close {
     border-bottom-color: #fff;
 }
 .nav-tabs .active .dropdown-toggle .caret {
-    border-top-color: @gray;
-    border-bottom-color: @gray;
+    border-top-color: #555;
+    border-bottom-color: #555;
 }
 
 
@@ -3194,8 +3180,8 @@ button.close {
 .nav-pills .open .dropdown-toggle,
 .nav > li.dropdown.open.active > a:hover {
     color: #fff;
-    background-color: @grayLight;
-    border-color: @grayLight;
+    background-color: #999;
+    border-color: #999;
 }
 .nav li.dropdown.open .caret,
 .nav li.dropdown.open.active .caret,
@@ -3207,7 +3193,7 @@ button.close {
 
 
 .tabs-stacked .open > a:hover {
-    border-color: @grayLight;
+    border-color: #999;
 }
 
 

@@ -76,7 +76,9 @@ function remove_limit_error(){
 
 function limit_loading(evt,t){
     if(t){
-        $(".list-loading").addClass("show");
+        if($(evt.currentTarget).parents(".pagination").length>0)
+            $(".list-loading").addClass("show");
+
         var a = $(evt.currentTarget).parents(".limit-container");
         a.attr("style","opacity:0.2;");
         //var b = $(evt.currentTarget);

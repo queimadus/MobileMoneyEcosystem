@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
         if(Category.find_by_name(keyword))
           q=q.filter_by_categories(keyword)
         else
-          q=q.where('products.name like ? OR products.brand like ?',"%"+keyword+"%", "%"+keyword+"%")
+          q=q.where('products.name like ? OR products.brand like ?',"%"+keyword, "%"+keyword)
         end
       end
     end

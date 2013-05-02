@@ -57,8 +57,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-span-12">
-      <ul id="market-products-container">
+    <div id="market-products-container" class="col-span-12">
+
+      <div class="list-loading">
+        <div class="loading-inner">
+          <i class="glyphicon glyphicon-refresh icon-spin"></i>
+        </div>
+      </div>
+
+      <ul id="market-products-container-inner">
         <%= render "products", products: @products %>
       </ul>
     </div>

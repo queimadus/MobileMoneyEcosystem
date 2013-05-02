@@ -23,8 +23,8 @@ class MarketsController < ApplicationController
     @merchant_id = @merc.id
 
     respond_to do |format|
-
-        format.json { render partial: "products", products: @products }
+      format.json { render :json => {:success => true, :html => render_to_string( :partial => 'products',
+                                                                                  :locals => {:products => @products})}}
         format.html { render html: "show.html.erb", :layout => false }
 
     end

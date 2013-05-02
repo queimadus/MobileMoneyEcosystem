@@ -23,7 +23,7 @@ class LimitsController < ApplicationController
     end
 
 
-    @limits = Kaminari.paginate_array(q).page(params[:page]).per(10)
+    @limits = Kaminari.paginate_array(q).page(params[:page]).per(8)
 
     respond_to do |format|
       format.json { render :json => {:success => true,
