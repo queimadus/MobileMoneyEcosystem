@@ -1,0 +1,10 @@
+<% self.formats = [:json, :html] %>
+
+<div class="product-data-container">
+  <%# qrcode_image_for product.qrcode, :class => "qrcode" %>
+  <div class="new-product-title">
+     New Product
+  </div>
+  <%= render 'form', product: product, submit_name: 'Create' %>
+</div>
+<p style=""></p>

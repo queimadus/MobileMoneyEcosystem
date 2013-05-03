@@ -8,9 +8,9 @@ class ProductsController < ApplicationController
     @product = Product.new
 
     respond_to do |format|
-      format.json { render :json => {:success => true, :html => render_to_string( :partial => 'edit',
+      format.json { render :json => {:success => true, :html => render_to_string( :partial => 'new',
                                                                                   :locals => {:product => @product})}}
-      format.html { render '_edit.erb',:locals => {:product => @product} }  #TODO create another view to use this one --this is only for js disabled
+      format.html { render '_new.erb',:locals => {:product => @product} }  #TODO create another view to use this one --this is only for js disabled
     end
   end
 

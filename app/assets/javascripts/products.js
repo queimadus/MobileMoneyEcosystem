@@ -7,7 +7,7 @@ function bind_pagination(){
 }
 
 function bind_edit_container(){
-    $(".edit-button").bind("ajax:success",edit_product)
+    $(".edit-button,#newproduct").bind("ajax:success",edit_product)
         .bind("ajax:beforeSend ",start_edit_loading)
         .bind("ajax:error ",edit_error);
 
@@ -26,6 +26,7 @@ function bind_new_form(){
     $('form.new_product').bind("ajax:success",new_product)
         .bind("ajax:beforeSend ",new_product_loading)
         .bind("ajax:error", new_product_error);
+    bind_input();
 }
 
 
@@ -52,6 +53,7 @@ function new_product(evt,data){
         $('form.new_product')[0].reset();
         bind_all_categ_search();
         bind_input();
+        close_info_panel();
 
     }  else {
         $('form.new_product').replaceWith(data.html);
@@ -168,8 +170,14 @@ function edit_error(){
 function edit_product(evt,data){
     if(data.success == true){
        $('#product-info-inner').html(data.html);
-       bind_form();
-       $('.edit_product #product-cancel').click(close_info_panel);
+       var id = $(evt.target).attr("id");
+       if(id=="newproduct"){
+           bind_new_form();
+       } else if(id=="editproduct"){
+           bind_form();
+       }
+       bind_input();
+       $('.edit_product #product-cancel,.new_product #product-cancel').click(close_info_panel);
     }
     edit_loading(false);
 }
