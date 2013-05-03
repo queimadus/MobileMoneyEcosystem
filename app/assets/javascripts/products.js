@@ -75,7 +75,6 @@ bind_error_tooltips();
 bind_input();
 bind_form();
 bind_all_categ_search();
-bind_new_form();
 bind_modal_dismissal();
 //product listing
 
@@ -173,7 +172,7 @@ function edit_product(evt,data){
        var id = $(evt.target).attr("id");
        if(id=="newproduct"){
            bind_new_form();
-       } else if(id=="editproduct"){
+       } else if($(evt.target).hasClass("edit-button")){
            bind_form();
        }
        bind_input();
