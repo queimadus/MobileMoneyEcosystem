@@ -13,6 +13,56 @@ $greywhite: #fbfbfb;
   -o-transition: $transition-property $transition-time $method;
   transition: $transition-property $transition-time $method;
 }
+
+@mixin animation($delay, $duration, $animation) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  -o-animation-delay: $delay;
+  -o-animation-duration: $duration;
+  -o-animation-name: $animation;
+  -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}
+
+@mixin keyframe($animation_name) {
+  @-webkit-keyframes $animation_name {
+    @content;
+  }
+
+  @-moz-keyframes $animation_name {
+    @content;
+  }
+
+  @-o-keyframes $animation_name {
+    @content;
+  }
+
+  @keyframes $animation_name {
+    @content;
+  }
+}
+
+@mixin background($from,$to){
+  background-color: $to;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -ms-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(top, $from, $to);
+}
 //all scss must be explicitly imported here
 //@import "foundation_and_overrides.scss";
 //@import "gothicleague.css";
@@ -81,12 +131,12 @@ $greywhite: #fbfbfb;
 }
 
 body{
-  background-color:$greywhite;
-  color: rgba(51, 51, 51, 0.8);
+  background-color:#f6f6f6;
+  color: #555;
 }
 
 #header{
-  background-color: white;
+  @include background(#fdfdfd,#fff);
   height: 99px;
   box-sizing: content-box;
   border-bottom: 1px solid rgba(180, 180, 180, 0.43);
@@ -279,7 +329,7 @@ input.invi-input:focus{
 
 .menu-item.active{
   text-decoration: none;
-  background-color: white;
+  background-color: #fff;
   color: #428bca;
   margin: 0;
   margin-top: -1px;

@@ -160,6 +160,29 @@
   display: none;
 }
 
+@include keyframe(goright) {
+  0% {
+    margin-left: -245px;
+  }
+
+  100% {
+    margin-left: -14px;
+  }
+}
+@include keyframe(goleft) {
+  0% {
+    margin-left: -14px;
+  }
+
+  10% {
+    margin-left: 10px;
+  }
+
+  100% {
+    margin-left: -245px;
+  }
+}
+
 .product-info-panel{
   #height: 580px;
   padding: 0;
@@ -174,12 +197,21 @@
   -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
-  display: none;
+  #display: none;
   margin-left: -13px;
+
+  margin-left: -245px;
 }
 
 .product-info-panel.show{
-   display: block;
+  @include animation(0s, 0.3s, goright);
+  #display: block;
+  #margin-left: -14px;
+}
+
+.product-info-panel.unshow{
+  @include animation(0s, 0.25s, goleft);
+  display: block;
 }
 
 .edit-button .glyphicon{

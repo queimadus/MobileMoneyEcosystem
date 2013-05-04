@@ -148,8 +148,14 @@ function product_loading(t){
 bind_edit_container();
 
 function start_edit_loading(){
-    $('#product-info-inner').html('');
-    $('.product-info-panel').addClass("show");
+    var a = $('.product-info-panel');
+
+    if(a.hasClass("show")){
+        close_info_panel();
+    }else{
+       $('#product-info-inner').html('');
+    }
+
     edit_loading(true);
 }
 
@@ -163,22 +169,31 @@ function edit_loading(t){
 
 function edit_error(){
     edit_loading(false);
-    $('.product-info-panel').removeClass("show");
+    close_info_panel();
 }
 
 function edit_product(evt,data){
     if(data.success == true){
-       $('#product-info-inner').html(data.html);
-       var id = $(evt.target).attr("id");
-       if(id=="newproduct"){
-           bind_new_form();
-       } else if($(evt.target).hasClass("edit-button")){
-           bind_form();
-       }
-       bind_input();
-       $('.edit_product #product-cancel,.new_product #product-cancel').click(close_info_panel);
+
+
+        var timer = setInterval(function(){
+            if($('.product-info-panel.show,.product-info-panel.unshow').length==0)
+            {
+                $('#product-info-inner').html(data.html);
+                $('.product-info-panel').addClass("show");
+                var id = $(evt.target).attr("id");
+                if(id=="newproduct"){
+                    bind_new_form();
+                } else if($(evt.target).hasClass("edit-button")){
+                    bind_form();
+                }
+                bind_input();
+                $('.edit_product #product-cancel,.new_product #product-cancel').click(close_info_panel);
+                edit_loading(false);
+                clearInterval(timer);
+            }
+        },50);
     }
-    edit_loading(false);
 }
 
 // product form submitting
@@ -243,8 +258,13 @@ function glow(id, color){
 }
 
 function close_info_panel(){
-
-    $('.product-info-panel').removeClass("show");
+    if($('.product-info-panel.show').length>0){
+        $('.product-info-panel').addClass("unshow").removeClass("show");
+        setTimeout(function() {
+            $('.product-info-panel').removeClass("unshow");
+            $('#product-info-inner').html('');
+        }, 255);
+    }
     return false;
 }
 
