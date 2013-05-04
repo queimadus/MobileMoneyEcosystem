@@ -163,23 +163,28 @@
 @include keyframe(goright) {
   0% {
     margin-left: -245px;
+    @include timing-animation(ease-out);
   }
 
   100% {
     margin-left: -14px;
+    @include timing-animation(ease-out);
   }
 }
 @include keyframe(goleft) {
   0% {
     margin-left: -14px;
+    @include timing-animation(ease-in);
   }
 
   10% {
     margin-left: 10px;
+    @include timing-animation(ease-out);
   }
 
   100% {
     margin-left: -245px;
+    @include timing-animation(ease-out);
   }
 }
 

@@ -14,6 +14,11 @@ $greywhite: #fbfbfb;
   transition: $transition-property $transition-time $method;
 }
 
+@mixin timing-animation($type){
+  animation-timing-function:$type;
+  -webkit-animation-timing-function:$type; /* Safari and Chrome */
+}
+
 @mixin animation($delay, $duration, $animation) {
   -webkit-animation-delay: $delay;
   -webkit-animation-duration: $duration;
