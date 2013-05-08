@@ -71,7 +71,7 @@
       <%= f.submit submit_name.nil?? "Save": submit_name, :class => "btn btn-primary", :id => "product-submit", :style => "margin-right:-2px;"  %>
       <%= link_to "Cancel", products_path, :class => "btn", :id => "product-cancel", :remote => true, :data => {:dismiss => "modal"},  :style => "margin-right:-2px;"  %>
       <% unless product.id.nil? %>
-        <%= link_to "Delete", {:action => "destroy", :controller => "products" }, :id => "delete-product", :method => :delete, :data => {:toggle => "modal", :target => "#confirm-modal" }, :class => "btn btn-danger", :remote => true%>
+        <%= link_to "Delete", {:action => "destroy", :controller => "products" }, :id => "delete-product", :method => :delete, :data => {:toggle => "modal", :target => "#confirm-modal" }, :class => "btn btn-danger",:type => "button",  :remote => true%>
       <% end %>
       </div>
   </div>

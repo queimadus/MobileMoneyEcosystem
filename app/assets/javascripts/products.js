@@ -7,7 +7,7 @@ function bind_pagination(){
 }
 
 function bind_edit_container(){
-    $(".edit-button,#newproduct").bind("ajax:success",edit_product)
+    $(".edit-button,#newproduct").unbind().bind("ajax:success",edit_product)
         .bind("ajax:beforeSend ",start_edit_loading)
         .bind("ajax:error ",edit_error);
 
@@ -53,7 +53,7 @@ function new_product(evt,data){
         $('form.new_product')[0].reset();
         bind_all_categ_search();
         bind_input();
-        close_info_panel();
+        close_info_panel(false);
 
     }  else {
         $('form.new_product').replaceWith(data.html);
@@ -105,6 +105,10 @@ function bind_categ_search(){
 
 function start_product_loading(){
     product_loading(true);
+
+    //close_info_panel(false);
+
+    //edit_loading(true);
 }
 
 function product_error(a,b,c){
@@ -116,6 +120,8 @@ function update_products_data(html){
 }
 
 function update_products(evt,data){
+
+    close_info_panel(false);
 
     if(data.notice){
         $('#notice').html(data.notice);
@@ -130,6 +136,7 @@ function update_products(evt,data){
         bind_all_categ_search();
     }
     product_loading(false);
+    return false;
 }
 
 function product_loading(t){
@@ -148,7 +155,7 @@ function start_edit_loading(){
     var a = $('.product-info-panel');
 
     if(a.hasClass("show")){
-        close_info_panel();
+        close_info_panel(false);
     }else{
        $('#product-info-inner').html('');
     }
@@ -166,7 +173,7 @@ function edit_loading(t){
 
 function edit_error(){
     edit_loading(false);
-    close_info_panel();
+    close_info_panel(false);
 }
 
 function edit_product(evt,data){
@@ -186,6 +193,7 @@ function edit_product(evt,data){
                 }
                 bind_input();
                 $('.edit_product #product-cancel,.new_product #product-cancel').click(close_info_panel);
+
                 $('#delete-product').bind("ajax:success",update_products)
                                     .bind("ajax:beforeSend ",start_product_loading)
                                     .bind("ajax:error", product_error);
@@ -198,10 +206,6 @@ function edit_product(evt,data){
 }
 
 // product form submitting
-
-$("form.edit_product").bind("ajax:success",product_submit)
-    .bind("ajax:beforeSend, ajax:remotipartSubmit",product_submit_loading)
-    .bind("ajax:error ",product_submit_error);
 
 function product_submit(evt,data){
     $('#notice').html(data.notice);
@@ -216,7 +220,7 @@ function product_submit(evt,data){
         bind_edit_container();
         glow_success(data.id,",.product-info-panel");
         $('.product-container#'+data.id+" .categ-search").click(bind_categ_search);
-        close_info_panel();
+        close_info_panel(false);
     }  else {
         $('#product-info-inner').html(data.html);
         bind_form();
@@ -258,7 +262,8 @@ function glow(id, color){
     });
 }
 
-function close_info_panel(){
+function close_info_panel(button){
+    button = button || true;
     if($('.product-info-panel.show').length>0){
         $('.product-info-panel').addClass("unshow").removeClass("show");
         setTimeout(function() {
@@ -266,7 +271,8 @@ function close_info_panel(){
             $('#product-info-inner').html('');
         }, 255);
     }
-    return false;
+    if (button)
+        return false;
 }
 
 function bind_error_tooltips(){

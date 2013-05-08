@@ -121,15 +121,20 @@ class ProductsController < ApplicationController
 
   def destroy
     p = Product.find(params[:id])
-    #p.available = false
-    #p.save
+    p.available = false
+
 
     respond_to do |format|
-      format.json { render :json => {:success => true,
-                                     :notice => bootstrap_notice("Product was removed", :notice),
-                                     :html => render_to_string( :partial => 'product_list',
-                                                                :locals => {:products => Kaminari.paginate_array(q).page(params[:page]).per(15)})}}
-      format.html { redirect_to products_path, notice: "Product was removed" }
+      if p.save
+        format.json { render :json => {:success => true,
+                                       :notice => bootstrap_notice("Product was removed", :notice),
+                                       :html => render_to_string( :partial => 'product_list',
+                                                                  :locals => {:products => Kaminari.paginate_array(Product.where(:products => {:merchant_id => current_user.merchant.id}, :available => true ).order("products.id DESC")).page(params[:page]).per(15)})}}
+
+        format.html { redirect_to products_path, notice: "Product was removed" }
+      else
+        format.html { redirect_to products_path, error: "Product was not removed" }
+      end
     end
 
 

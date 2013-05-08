@@ -35,11 +35,6 @@ MobileMoneyEcosystem::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.assets.compress = false
-  config.assets.compile = true
-  config.assets.digest = false
-  config.assets.debug = false
-
   # Add the fonts path
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
