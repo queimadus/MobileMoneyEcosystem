@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
     end
 
     @products = Kaminari.paginate_array(q).page(params[:page]).per(15)
-    @product = Product.new
+
 
     #Company.includes(:branches).where(:branches => {:id => 3})
 
@@ -120,11 +120,20 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    p = Product.find(params[:id]);
-    p.available = false;
-    p.save;
+    p = Product.find(params[:id])
+    #p.available = false
+    #p.save
 
-    redirect_to products_path, notice: "Product was removed"
+    respond_to do |format|
+      format.json { render :json => {:success => true,
+                                     :notice => bootstrap_notice("Product was removed", :notice),
+                                     :html => render_to_string( :partial => 'product_list',
+                                                                :locals => {:products => Kaminari.paginate_array(q).page(params[:page]).per(15)})}}
+      format.html { redirect_to products_path, notice: "Product was removed" }
+    end
+
+
+
   end
 
 end

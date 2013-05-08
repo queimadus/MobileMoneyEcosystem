@@ -82,29 +82,6 @@ $greywhite: #fbfbfb;
 
 
 
-
-
-//scroll
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-track {
-  background: #FFF;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
-}
-::-webkit-scrollbar-thumb {
-  background: #CCC;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #AAA;
-}
-::-webkit-scrollbar-thumb:active {
-  background: #888;
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-
 //global applicaion css
 
 //test css
@@ -141,19 +118,17 @@ body{
 }
 
 #header{
-  @include background(#fdfdfd,#fff);
-  height: 99px;
+  background-color: #fff;
+  height: 55px;
   box-sizing: content-box;
-  border-bottom: 1px solid rgba(180, 180, 180, 0.43);
+  #border-bottom: 1px solid rgba(180, 180, 180, 0.43);
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   z-index: 2;
   position: relative;
 }
 
 #header-logo{
-  padding-top: 15px;
-  padding-bottom: 15px;
-  display: none;
+  width: 49px;
 }
 
 #register-link{
@@ -179,7 +154,7 @@ body,html{
 }
 
 .header-btn-toolbar{
-  margin-top: 38px;
+  #margin-top: 38px;
   margin-right: 20px;
 }
 
@@ -192,12 +167,10 @@ body,html{
 
 .header-title{
   color: #428bca;
-  font-size: 55px;
-  line-height: 90px;
-  letter-spacing: 2px;
-  #font-family: 'League Gothic';
+  font-size: 37px;
   font-weight: 700;
-  margin-left: 68px;
+  line-height: 56px;
+  vertical-align: middle;
 }
 
 .btn-primary{

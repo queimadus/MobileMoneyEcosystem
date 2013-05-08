@@ -107,7 +107,7 @@ function start_product_loading(){
     product_loading(true);
 }
 
-function product_error(){
+function product_error(a,b,c){
     product_loading(false);
 }
 
@@ -127,9 +127,6 @@ function update_products(evt,data){
         update_products_data(data.html);
         bind_pagination();
         bind_edit_container();
-        product_loading(false);
-        $("#myModal").modal('hide');
-        $('form.new_product')[0].reset();
         bind_all_categ_search();
     }
     product_loading(false);
@@ -189,6 +186,10 @@ function edit_product(evt,data){
                 }
                 bind_input();
                 $('.edit_product #product-cancel,.new_product #product-cancel').click(close_info_panel);
+                $('#delete-product').bind("ajax:success",update_products)
+                                    .bind("ajax:beforeSend ",start_product_loading)
+                                    .bind("ajax:error", product_error);
+
                 edit_loading(false);
                 clearInterval(timer);
             }
