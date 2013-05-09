@@ -13,6 +13,8 @@
 <%end%>
 <div class="row">
   <div class="col-span-12 tcenter">
-    <%= paginate products, :remote => true, params: {controller: "products", action: "index", :id => nil, :utf8 => nil} %>
+
+    <%= paginate products, :remote => true, params: {controller: "products", action: "index", :id => nil, :utf8 => nil, :authenticity_token => nil,
+                                                     :category => nil, :product => nil, :commit => nil } %>
   </div>
 </div>
