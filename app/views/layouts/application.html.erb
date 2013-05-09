@@ -15,6 +15,7 @@
   -->
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "before/settings.js" %>
   <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -59,7 +60,7 @@
                   <%= link_to('Login', new_user_session_path, :class => "header-btn")%>
                   <%= link_to('Register', selection_registration_path, :class => "header-btn")%>
                 <%else%>
-                  <%= link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "header-btn")%>
+                   <%= render "layouts/logged_info_block" %>
                 <%end%>
               </div>
             </div>
@@ -77,13 +78,13 @@
                   <%= link_to 'Products', products_path, :class=> "menu-item"+active(products_path) %>
                   <%= link_to 'History', products_path, :class=> "menu-item" %>
                   <%= link_to 'Analytics', products_path, :class=> "menu-item" %>
-                  <%= link_to 'Settings', products_path, :class=> "menu-item" %>
+                  <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
                 <%elsif current_user.is_client?%>
                   <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Limits', limits_path, :class=> "menu-item"+active(limits_path) %>
                   <%= link_to 'History', limits_path, :class=> "menu-item" %>
                   <%= link_to 'Credits', limits_path, :class=> "menu-item" %>
-                  <%= link_to 'Settings', limits_path, :class=> "menu-item" %>
+                  <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
                 <%end%>
             </div>
           </div>

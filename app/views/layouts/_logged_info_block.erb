@@ -1,0 +1,25 @@
+<% self.formats = [:json, :html] %>
+
+<div class="header-info-block">
+  <div class="header-credit">
+    <i class="glyphicon-euro glyphicon"> </i>
+    <% if current_user.is_client? %>
+      <%=  current_user.client.credit %>
+    <%else%>
+      <%=  current_user.merchant.credit %>
+    <%end%>
+  </div>
+  <div class="header-name">
+    <i class="glyphicon-user glyphicon"> </i>
+    <% if current_user.is_client? %>
+      <%=  current_user.client.name %>
+    <%else%>
+      <%=  current_user.merchant.name %>
+    <%end%>
+  </div>
+  <div class="main-avatar-container">
+    <%= image_tag current_user.avatar.url, :class => "settings-avatar-image" %>
+  </div>
+</div>
+
+<%# link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "header-btn")%>

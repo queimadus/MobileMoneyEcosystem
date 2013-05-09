@@ -77,6 +77,11 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
 
+  def after_update_path_for
+    "/settings"
+  end
+
+
 
   protected
 

@@ -1660,7 +1660,7 @@ select:focus:invalid:focus {
     border-bottom-right-radius: 3px;
 }
 
-@media screen and (min-width: 768px) {
+
     .form-horizontal .control-group {
         position: relative;
         margin-bottom: 20px;
@@ -1676,7 +1676,7 @@ select:focus:invalid:focus {
     .form-horizontal .control-group input,
     .form-horizontal .control-group select,
     .form-horizontal .control-group textarea {
-        margin-bottom: 0;
+        margin-bottom: 9px;
     }
     .form-horizontal .control-group > .control-label {
         float: left;
@@ -1690,7 +1690,7 @@ select:focus:invalid:focus {
     .form-horizontal .form-actions {
         padding-left: 180px;
     }
-}
+
 
 .btn {
     display: inline-block;

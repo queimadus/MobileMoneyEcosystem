@@ -78,6 +78,7 @@ $greywhite: #fbfbfb;
 @import "products.scss";
 @import "market.scss";
 @import "limits.scss";
+@import "settings.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -101,6 +102,10 @@ $greywhite: #fbfbfb;
 .shadow{ -webkit-box-shadow: 1px 1px 1px #cbcbcb;-moz-box-shadow: 1px 1px 1px #cbcbcb;box-shadow: 1px 1px 1px #cbcbcb; }
 .relative{ position: relative;}
 
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  border-radius: 1px;
+}
+
 .fade{
   opacity: 0;
   transition: opacity 0.2s;
@@ -118,11 +123,11 @@ body{
 }
 
 #header{
-  background-color: #fff;
-  height: 55px;
+  #background-color: #fff;
+  height: 70px;
   box-sizing: content-box;
   #border-bottom: 1px solid rgba(180, 180, 180, 0.43);
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  #box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   z-index: 2;
   position: relative;
 }
@@ -155,7 +160,7 @@ body,html{
 
 .header-btn-toolbar{
   #margin-top: 38px;
-  margin-right: 20px;
+  #margin-right: 20px;
 }
 
 .header-btn-toolbar .btn-group > .btn  {
@@ -282,16 +287,19 @@ input.invi-input:focus{
   height: 38px;
 }
 
+.menu-item:first-child{
+  margin-left: 0px;
+}
+
 .menu-item{
-  padding: 9px 25px;
-  margin: 0px 0px;
+  padding: 9px 25px 8px 25px;
+  margin: 0px 4px;
   float: left;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
-  margin-top: -1px;
   padding-bottom: 8px;
   font-weight: 600;
 }
@@ -299,20 +307,17 @@ input.invi-input:focus{
 .menu-item:hover:not(.active){
   text-decoration: none;
   color: #428bca;
-  padding-bottom: 8px;
+
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.88);
-  padding-top: 10px;
+
 }
 
 .menu-item.active{
   text-decoration: none;
   background-color: #fff;
   color: #428bca;
-  margin: 0;
-  margin-top: -1px;
-  padding-top: 10px;
-  padding: 9px 30px;
+  padding: 9px 25px 8px 25px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   z-index: 4;
   position: relative;
@@ -389,4 +394,35 @@ button.icon-button{
   background-image: linear-gradient(top,#4d90fe,#357ae8);
   border-color: #2f5bb7;
   text-decoration: none;
+}
+
+.main-avatar-container{
+  width: 40px;
+  height: 40px;
+  background-color: #EEE;
+  border: 3px solid #fff;
+  box-shadow: 0px 0px 1px 0px black;
+  float: left;
+}
+
+.header-info-block{
+  float: right;
+  padding: 3px 7px;
+  #background-color: #fff;
+  #box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+}
+
+.header-credit{
+  float: left;
+  padding: 11px 8px;
+  #color: #428bca;
+}
+
+.header-name{
+  float: left;
+  padding: 11px 15px;
+  font-size: 15px;
+  font-weight: 100;
+  #color: #428bca;
 }

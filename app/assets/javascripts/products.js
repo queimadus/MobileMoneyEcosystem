@@ -72,8 +72,6 @@ function new_product_error(){
 }
 
 bind_error_tooltips();
-bind_input();
-bind_form();
 bind_all_categ_search();
 bind_modal_dismissal();
 //product listing

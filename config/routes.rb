@@ -11,6 +11,7 @@ MobileMoneyEcosystem::Application.routes.draw do
     get "/register" => "registrations#selection", :as => :selection_registration
     match "/register/merchant" => "registrations#create", :as => :register_merchant, :via => :post
     match "/register/client" => "registrations#create", :as => :register_client, :via => :post
+
   end
 
   get "home/index"
@@ -20,6 +21,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :limits
   resources :settings
   resources :products
+  resources :users
 
 
 
