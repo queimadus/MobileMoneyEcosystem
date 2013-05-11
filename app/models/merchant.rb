@@ -8,4 +8,5 @@ class Merchant < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
   validates_associated :user
+  validates :bank_account, :numericality => { :greater_than_or_equal_to => 0 }
 end

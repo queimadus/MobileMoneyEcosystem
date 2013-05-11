@@ -8,11 +8,19 @@ class MerchantsController < ApplicationController
 
     respond_to do |format|
       if current_user.merchant.save
-        format.json { render :json => {:success => true, :notice => bootstrap_notice("Saved", :notice) }}
-        format.html { redirect_to settings_path }
+        format.json { render json: {:success => true,
+                                    :html => render_to_string( :partial => 'settings/bank_account_form',
+                                                               :locals => {:resource => current_user.merchant}),
+                                    :notice => "Bank account updated"}}
+
+        format.html { redirect_to settings_path, notice: "Bank account updated" }
       else
-        format.json { render :json => {:success => false, :notice => bootstrap_notice("Failure", :notice) }}
-        format.html { redirect_to settings_path }
+        format.json { render json: {:success => false,
+                                    :html => render_to_string( :partial => 'settings/bank_account_form',
+                                                               :locals => {:resource => current_user.merchant}),
+                                    :notice => "Bank account not updated"}}
+
+        format.html { redirect_to settings_path, error: "Bank account not updated" }
       end
     end
   end

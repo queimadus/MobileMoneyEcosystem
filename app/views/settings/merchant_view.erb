@@ -1,6 +1,6 @@
 <%= render :layout => 'index', :locals => {:title => 'some title'} do %>
 
-  <h1></h1>
+  <h1 style="margin-bottom: 35px;">Account settings</h1>
 
   <div class="form-horizontal">
 
@@ -21,46 +21,13 @@
     </div>
     <hr>
 
-    <%= form_for(current_user, :as => :user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
-      <div class="control-group">
-        <%= f.label :password,  :class => "control-label" do%>
-          Password<br> <span class="input-details">8 chars minimum</span>
-          <%end%>
-        <div class="controls">
-          <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password" %>
-          <%= f.password_field :password_confirmation, :placeholder =>"Confirm new password" %>
-          <%= f.password_field :current_password, :placeholder => "Current Password"%>
-
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    <%end%>
+    <%= render "password_form", resource: current_user %>
     <hr>
 
-    <%= form_for current_user, :remote => true, :html => {:multipart => true, :data => { :type => 'json' }} do |f| %>
-      <div class="control-group">
-        <%= f.label :avatar, "Company logo", :class => "control-label"%>
-        <div class="controls">
-          <div class="settings-avatar-image-container">
-            <%= image_tag current_user.avatar.url, :class => "settings-avatar-image" %>
-          </div>
-          <%= f.file_field :avatar, :title => "Select a file to upload"%>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    <%end%>
+    <%= render 'avatar_form', resource: current_user %>
     <hr>
 
-    <%= form_for current_user.merchant, :remote => true, :html => { :data => { :type => 'json' }} do |f| %>
-      <div class="control-group">
-        <label class="control-label" for="bankaccount">Bank account</label>
-        <div class="controls">
-          <%= f.text_field :bank_account, :id => "bankaccount",  :placeholder => 'Bank account' %>
-          <span class="input-details">Credit will be deposited into this account</span>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'bank_account_form', resource: current_user.merchant %>
   </div>
 
 <% end %>

@@ -120,6 +120,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 body{
   background-color:#f6f6f6;
   color: #555;
+  background-image: url(cross_scratches.png);
 }
 
 #header{
@@ -147,9 +148,15 @@ body,html{
 .field_with_errors,
 .form-error-label{
   color: #b94a48;
-  display: inline;
+  display: inline-block;
   border-color: #b94a48 !important;
 }
+
+.field_with_errors:first-letter,
+.form-error-label:first-letter{
+  text-transform: uppercase;
+}
+
 .field_with_errors input{
   border-color: #b94a48;
 }
@@ -425,4 +432,32 @@ button.icon-button{
   font-size: 15px;
   font-weight: 100;
   #color: #428bca;
+}
+
+.profile-dropdown-container{
+  display: block;
+  position: absolute;
+  background-color: white;
+  right: 21px;
+  top: 55px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.profile-dropdown-container ol{
+  list-style: none;
+  margin: 0;
+  padding: 3px 0px;
+}
+
+.profile-dropdown-container ol li a{
+  display: block;
+  padding: 3px 21px;
+  margin: 2px 0px;
+  text-decoration: none;
+  color: #444;
+}
+
+.profile-dropdown-container ol li a:hover{
+  background-color: #DDD;
 }
