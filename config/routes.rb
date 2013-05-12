@@ -13,6 +13,16 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get "home/index"
 
+  get "api/cart/create"
+  get "api/cart/addproduct"
+  get "api/cart/listcart"
+  get "api/cart/removeproduct"
+  get "api/cart/completed"
+  get "api/cart/clearcart"
+  get "api/cart/allcarts"
+
+  match "api/products/:id" => "api/products#show"
+
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login', :sign_up => 'register', :sign_out => 'logout'}
 
   resources :limits
