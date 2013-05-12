@@ -4,6 +4,8 @@ $(".settings-avatar-image").centerImage();
 bind_password_form();
 bind_avatar_form();
 bind_bank_account_form();
+bind_email_form();
+bind_name_form();
 
 function bind_password_form(){
     $('.settings-password-form').bind("ajax:success",password_form_update)
@@ -38,6 +40,7 @@ function avatar_form_update(evt,data){
         $(".settings-avatar-form .controls .settings-success").delay(3000).fadeOut(1000);
         bind_avatar_form();
         $("input[file]").ready(bind_input);
+        update_header_info();
     }
     else
     {
@@ -73,6 +76,72 @@ function bank_account_form_update(evt,data){
     }
 }
 
+
+
+function bind_email_form(){
+    $('.settings-email-form').bind("ajax:success",email_form_update)
+        .bind("ajax:error", settings_reload);
+}
+
+function email_form_update(evt,data){
+
+    if(data.success == true){
+        $(".settings-email-form").replaceWith(data.html);
+        $(".settings-email-form .controls").append('<span class="settings-success">'+data.notice+'</span>');
+        $(".settings-email-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_email_form();
+    }
+    else
+    {
+        $(".settings-email-form").replaceWith(data.html);
+        //$(".bank-account-password-form .controls").append('<span class="settings-failure">'+data.notice+'</span>');
+        //$(".bank-account-password-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_email_form();
+    }
+}
+
+
+function bind_name_form(){
+    $('.settings-name-form').bind("ajax:success",name_form_update)
+        .bind("ajax:error", settings_reload);
+}
+
+function name_form_update(evt,data){
+
+    if(data.success == true){
+        $(".settings-name-form").replaceWith(data.html);
+        $(".settings-name-form .controls").append('<span class="settings-success">'+data.notice+'</span>');
+        $(".settings-name-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_name_form();
+        update_header_info();
+    }
+    else
+    {
+        $(".settings-name-form").replaceWith(data.html);
+        //$(".bank-account-password-form .controls").append('<span class="settings-failure">'+data.notice+'</span>');
+        //$(".bank-account-password-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_name_form();
+    }
+}
+
 function settings_reload(){
     window.location("/settings");
+}
+
+function update_header_info(){
+    $.ajax({
+        type: 'GET',
+        url: 'header_info.json',
+        async: true,
+        datatype: 'JSON',
+        success: function(data)
+        {
+            if (data)
+            {
+                $(".header-credit span").text(data.credit);
+                $(".header-name span").text(data.name);
+                $(".main-avatar-image").attr("src",data.image_url);
+            }
+        }
+    });
 }

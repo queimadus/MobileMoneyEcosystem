@@ -1,0 +1,32 @@
+<%= render :layout => 'index', :locals => {:title => 'some title'} do %>
+
+  <h1 style="margin-bottom: 35px;">Account settings</h1>
+
+  <div class="form-horizontal">
+
+    <div class="control-group">
+      <label class="control-label" for="accounttype">Account Type</label>
+      <div class="controls">
+        <input type="text" id="accounttype" placeholder="Type" value="Client" disabled>
+      </div>
+    </div>
+    <hr>
+
+    <%= render 'avatar_form', resource: current_user %>
+    <hr>
+
+    <%= render "name_form", resource: current_user.client %>
+    <hr>
+
+    <%= render "email_form", resource: current_user %>
+    <hr>
+
+    <%= render "password_form", resource: current_user %>
+
+
+
+
+
+  </div>
+
+<% end %>

@@ -12,22 +12,22 @@ class Client < ActiveRecord::Base
   attr_accessible :dob, :credit, :sex, :first_name, :last_name
 
   #validates_presence_of :user
- # validates :first_name, :presence => true
- # validates :last_name, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
 
   before_save :set_name
   before_save :set_sex
 
   def set_name
     if first_name.nil? or last_name.nil?
-      first_name = "User"
-      last_name = "unknown"
+      self.first_name = "User"
+      self.last_name = "unknown"
     end
   end
 
   def set_sex
     if sex.nil? or sex!="Male" or sex!="Female"
-      sex = "N/A"
+      self.sex = "N/A"
     end
   end
 end

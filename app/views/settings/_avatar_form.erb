@@ -1,6 +1,6 @@
 <%= form_for resource, :remote => true, :html => {:multipart => true, :class => "settings-avatar-form", :data => { :type => 'json' }} do |f| %>
   <div class="control-group">
-    <%= f.label :avatar, "Company logo", :class => "control-label"%>
+    <%= f.label :avatar, (resource.is_merchant? ? "Company logo" : "Profile image"), :class => "control-label"%>
     <div class="controls">
       <div class="settings-avatar-image-container">
         <%= image_tag resource.avatar.url, :class => "settings-avatar-image" %>

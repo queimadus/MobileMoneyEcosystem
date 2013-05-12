@@ -3,22 +3,26 @@
 <div class="header-info-block">
   <div class="header-credit">
     <i class="glyphicon-euro glyphicon"> </i>
-    <% if current_user.is_client? %>
-      <%=  current_user.client.credit %>
-    <%else%>
-      <%=  current_user.merchant.credit %>
-    <%end%>
+    <span>
+      <% if current_user.is_client? %>
+        <%=  current_user.client.credit %>
+      <%else%>
+        <%=  current_user.merchant.credit %>
+      <%end%>
+     </span>
   </div>
   <div class="header-name">
     <i class="glyphicon-user glyphicon"> </i>
-    <% if current_user.is_client? %>
-      <%=  current_user.client.name %>
-    <%else%>
-      <%=  current_user.merchant.name %>
-    <%end%>
+    <span>
+      <% if current_user.is_client? %>
+        <%=  current_user.client.first_name+" "+current_user.client.last_name %>
+      <%else%>
+        <%=  current_user.merchant.name %>
+      <%end%>
+    </span>
   </div>
   <%= link_to "#", :class=>"main-avatar-container" do %>
-    <%= image_tag current_user.avatar.url, :class => "settings-avatar-image" %>
+    <%= image_tag current_user.avatar.url, :class => "main-avatar-image" %>
   <%end%>
 </div>
 <div class="profile-dropdown-container">

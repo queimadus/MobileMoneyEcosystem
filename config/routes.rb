@@ -1,9 +1,6 @@
 MobileMoneyEcosystem::Application.routes.draw do
-  resources :merchants
 
-  get "client/consult"
   get 'market/:merchant_name' => 'markets#show', :as => :market
-
 
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
@@ -11,17 +8,22 @@ MobileMoneyEcosystem::Application.routes.draw do
     get "/register" => "registrations#selection", :as => :selection_registration
     match "/register/merchant" => "registrations#create", :as => :register_merchant, :via => :post
     match "/register/client" => "registrations#create", :as => :register_client, :via => :post
-
   end
 
   get "home/index"
+  get "header_info" => "users#header_info"
 
-  devise_for :users, :path => '', :controllers => {:registrations => "registrations"}, :path_names => { :sign_in => 'login', :sign_up => 'register', :sign_out => 'logout'}
+  devise_for :users, :path => '', :controllers => {:registrations => "registrations"},
+             :path_names => { :sign_in => 'login',
+                              :sign_up => 'register',
+                              :sign_out => 'logout'}
 
   resources :limits
   resources :settings
   resources :products
   resources :users
+  resources :merchants
+  resources :clients
 
 
 
