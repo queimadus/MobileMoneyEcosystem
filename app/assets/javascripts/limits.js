@@ -2,9 +2,12 @@ $(function() {
     $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", minDate: "-1y", maxDate: " " });
 });
 
-bind_add();
-bind_replace_for_edit();
-bind_limit_pagination();
+$(document).ready(function(){
+    bind_add();
+    bind_replace_for_edit();
+    bind_limit_pagination();
+});
+
 
 function notice(notice){
     if(notice!=null){

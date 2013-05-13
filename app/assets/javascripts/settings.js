@@ -1,16 +1,18 @@
 $("input[file]").ready(bind_input);
 $(".settings-avatar-image").centerImage();
 
-bind_password_form();
-bind_avatar_form();
-bind_bank_account_form();
-bind_email_form();
-bind_name_form();
-bind_extra_form();
+$(document).ready(function(){
+    bind_password_form();
+    bind_avatar_form();
+    bind_bank_account_form();
+    bind_email_form();
+    bind_name_form();
+    bind_extra_form();
+});
 
 function bind_password_form(){
     $('.settings-password-form').bind("ajax:success",password_form_update)
-                                .bind("ajax:error", settings_reload);
+        .bind("ajax:error", settings_reload);
 }
 
 function password_form_update(evt,data){
@@ -30,7 +32,7 @@ function password_form_update(evt,data){
 
 function bind_avatar_form(){
     $('.settings-avatar-form').bind("ajax:success",avatar_form_update)
-                              .bind("ajax:error", settings_reload);
+        .bind("ajax:error", settings_reload);
 }
 
 function avatar_form_update(evt,data){

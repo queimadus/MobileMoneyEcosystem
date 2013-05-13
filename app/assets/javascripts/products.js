@@ -1,3 +1,12 @@
+$(document).ready(function(){
+    bind_error_tooltips();
+    bind_all_categ_search();
+    bind_modal_dismissal();
+    bind_pagination();
+    bind_edit_container();
+});
+
+
 //helpers
 function bind_pagination(){
     $('#products-container-inner .pagination a, form.new_product, form#product-search-form').bind("ajax:success",update_products)
@@ -7,7 +16,7 @@ function bind_pagination(){
 }
 
 function bind_edit_container(){
-    $(".edit-button,#newproduct").unbind().bind("ajax:success",edit_product)
+    $(".product-container .edit-button,#newproduct").unbind().bind("ajax:success",edit_product)
         .bind("ajax:beforeSend ",start_edit_loading)
         .bind("ajax:error ",edit_error);
 
@@ -71,12 +80,9 @@ function new_product_error(){
     product_loading(false);
 }
 
-bind_error_tooltips();
-bind_all_categ_search();
-bind_modal_dismissal();
 //product listing
 
-bind_pagination();
+
 function reset_product_search(){
     $(this).siblings("input").val("").submit();
 }
@@ -147,7 +153,7 @@ function product_loading(t){
 
 //product editing
 
-bind_edit_container();
+
 
 function start_edit_loading(){
     var a = $('.product-info-panel');
