@@ -1,0 +1,13 @@
+<% self.formats = [:json, :html] %>
+<%= form_for resource,  :remote => true, :html => {:class => "client-extra-info-form", :data => { :type => 'json' }} do |f| %>
+  <div class="control-group">
+    <%= label :dob, "Date of birth", :class => "control-label" %>
+    <%= label :sex, "Gender", :class => "control-label", :style => "clear:both; margin-top:14px;" %>
+    <div class="controls">
+      <%=  f.date_select :dob, :start_year => Time.now.year, :end_year =>1913 ,  :order => [:day, :month, :year],:prompt => true%>
+      <%=  f.select( :sex , options_for_select([['N/A',"na"],['Male', 'Male'], ['Female', 'Female']],resource.sex),
+                     {}, {:prompt => 'Gender',:selected => resource.sex, :style =>  "width:300px;display:block; "}) %>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+<%end%>

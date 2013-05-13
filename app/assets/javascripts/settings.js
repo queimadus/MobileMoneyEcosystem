@@ -6,6 +6,7 @@ bind_avatar_form();
 bind_bank_account_form();
 bind_email_form();
 bind_name_form();
+bind_extra_form();
 
 function bind_password_form(){
     $('.settings-password-form').bind("ajax:success",password_form_update)
@@ -121,6 +122,28 @@ function name_form_update(evt,data){
         //$(".bank-account-password-form .controls").append('<span class="settings-failure">'+data.notice+'</span>');
         //$(".bank-account-password-form .controls .settings-success").delay(3000).fadeOut(1000);
         bind_name_form();
+    }
+}
+
+function bind_extra_form(){
+    $('.client-extra-info-form').bind("ajax:success",extra_form_update)
+        .bind("ajax:error", settings_reload);
+}
+
+function extra_form_update(evt,data){
+
+    if(data.success == true){
+        $(".client-extra-info-form").replaceWith(data.html);
+        $(".client-extra-info-form .controls").append('<span class="settings-success">'+data.notice+'</span>');
+        $(".client-extra-info-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_extra_form();
+    }
+    else
+    {
+        $(".client-extra-info-form").replaceWith(data.html);
+        //$(".bank-account-password-form .controls").append('<span class="settings-failure">'+data.notice+'</span>');
+        //$(".bank-account-password-form .controls .settings-success").delay(3000).fadeOut(1000);
+        bind_extra_form();
     }
 }
 

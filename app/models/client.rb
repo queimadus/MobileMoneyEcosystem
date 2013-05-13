@@ -26,7 +26,7 @@ class Client < ActiveRecord::Base
   end
 
   def set_sex
-    if sex.nil? or sex!="Male" or sex!="Female"
+    if sex.nil? and !(sex=="Male" or sex=="Female")
       self.sex = "N/A"
     end
   end
