@@ -6,3 +6,9 @@
   <%= link_to 'my products', products_path %>
   <%= link_to 'add product', new_product_path %>
 <%end%>
+
+<% if user_signed_in? and current_user.is_client?%>
+  <%= link_to 'my limits', limits_path %>
+  <%= link_to 'add limit', new_limit_path %>
+<%end%>
+

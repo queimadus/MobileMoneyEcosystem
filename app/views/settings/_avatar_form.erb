@@ -1,0 +1,12 @@
+<%= form_for resource, :remote => true, :html => {:multipart => true, :class => "settings-avatar-form", :data => { :type => 'json' }} do |f| %>
+  <div class="control-group">
+    <%= f.label :avatar, (resource.is_merchant? ? "Company logo" : "Profile image"), :class => "control-label"%>
+    <div class="controls">
+      <div class="settings-avatar-image-container">
+        <%= image_tag resource.avatar.url, :class => "settings-avatar-image" %>
+      </div>
+      <%= f.file_field :avatar, :title => "Select a file to upload"%>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+<%end%>

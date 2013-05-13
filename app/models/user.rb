@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me#, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar#, :name
   # attr_accessible :title, :body
+
+  has_attached_file :avatar, :default_url => "/assets/avatar.jpg"
 
   validates :email, :presence => true, :uniqueness => true
   #validates :name, :uniqueness => true

@@ -1,0 +1,12 @@
+<% self.formats = [:json, :html] %>
+<%= form_for resource,  :remote => true, :html => {:class => "bank-account-password-form", :data => { :type => 'json' }} do |f| %>
+  <div class="control-group">
+    <label for="merchant_bank_account" class="control-label">
+      Bank account<br><span class="input-details">Credit will be deposited into this account</span></label>
+    <div class="controls">
+      <%= f.text_field :bank_account,  :placeholder => 'Bank account' %>
+      <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:bank_account) unless resource.errors[:bank_account].empty?  %>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+<% end %>

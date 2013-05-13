@@ -1,9 +1,6 @@
 <% self.formats = [:json, :html] %>
 <div id="<%=product.id%>" class="product-container">
-  <div class="product-category" <%= category_color('color',product)%> >
-    <div class="product-triangle-color"></div>
-    <i class="glyphicon glyphicon-search"></i><%= product.categories.first.name %>
-  </div>
+  <div class="product-category" <%= category_color('color',product)%> ><div class="product-triangle-color"></div><i class="glyphicon glyphicon-search categ-search"></i><%= product.categories.first.name %></div>
   <div class="product-image">
     <%= image_tag product.image.url, :class => "product-image-img" %>
   </div>
@@ -14,7 +11,7 @@
     </div>
   </div>
   <div class="price-cont">
-    <span class="price" title="Price" <%= category_color('background-color',product)%> ><%= number_to_currency(product.price, :unit => "€", :format => "%n%u") %></span>
+    <span class="price" title="Price" <%= category_color('background-color',product)%> ><%= number_to_currency(product.price, :locale => :en) %></span>
   </div>
   <div class="stock-cont">
     <span class="quantity" title="Quantity" ><i class="glyphicon glyphicon-shopping-cart"></i><%= product.stock %></span>

@@ -1,1 +1,36 @@
-<h1>merchant</h1>
+<%= render :layout => 'index', :locals => {:title => 'some title'} do %>
+
+  <h1 style="margin-bottom: 35px;">Account settings</h1>
+
+  <div class="form-horizontal">
+
+    <div class="control-group">
+      <label class="control-label" for="accounttype">Account Type</label>
+      <div class="controls">
+        <input type="text" id="accounttype" placeholder="Type" value="Merchant" disabled>
+      </div>
+    </div>
+    <hr>
+
+    <div class="control-group">
+      <label class="control-label" for="companyname">Company name
+      <br><span class="input-details">Unique and cannot be edited</span></label>
+      <div class="controls">
+        <input type="text" id="companyname" placeholder="Name" value="<%= current_user.merchant.name%>"disabled>
+      </div>
+    </div>
+    <hr>
+
+    <%= render "email_form", resource: current_user %>
+    <hr>
+
+    <%= render "password_form", resource: current_user %>
+    <hr>
+
+    <%= render 'avatar_form', resource: current_user %>
+    <hr>
+
+    <%= render 'bank_account_form', resource: current_user.merchant %>
+  </div>
+
+<% end %>

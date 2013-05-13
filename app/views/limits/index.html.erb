@@ -1,24 +1,32 @@
-<h1>Listing limits</h1>
+<div class="row">
+  <div class="limit-search-container">
+    <%= form_tag limits_path, :method => :get, :id=>"limit-search-form", :remote => true do %>
+      <div class="span search-bar">
+        <input id="search" name="q" type="text" class="wsearch" placeholder="Search for limits by category"
+               value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
+        <i class="search-reset glyphicon-remove glyphicon"> </i>
+        <button class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
+      </div>
+    <%end%>
+  </div>
+  <div class="limit-new-container tcenter">
+    <%= link_to "Create a new limit", new_limit_path, :id => "newlimit",:remote => true, :class => "bbutton"%>
 
-<p><%= current_user.name %></p>
-<h1>REST</h1>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+  <div id="limits-container" class="col-span-8">
+    <div class="list-loading">
+      <div class="loading-inner">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+    </div>
+    <div id="limits-container-inner">
+      <%= render 'limits_list', :limits => @limits %>
+    </div>
+  </div>
+  <div class="col-span-4">
 
-<% @limits.each do |limit| %>
-  <tr>
-    <td><%= link_to 'Show', limit %></td>
-    <td><%= link_to 'Edit', edit_limit_path(limit) %></td>
-    <td><%= link_to 'Destroy', limit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Limit', new_limit_path %>
+  </div>
+</div>
