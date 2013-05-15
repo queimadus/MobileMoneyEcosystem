@@ -1,0 +1,29 @@
+<%= render :layout => 'index', :locals => {:title => 'some title'} do %>
+
+  <div class="row">
+
+    <%= form_tag history_path, :method => :get, :id=>"history-search-form", :remote => true do %>
+      <div class="history-search-container">
+
+          <div class="span search-bar">
+            <input id="search" name="q" type="text" class="wsearch" placeholder="Search for categories in your history"
+                   value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
+
+            <i class="search-reset glyphicon-remove glyphicon"> </i>
+            <button class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
+
+          </div>
+
+      </div>
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>FROM</span>
+      </div>
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>TO</span>
+      </div>
+    <%end%>
+
+  </div>
+<%end%>

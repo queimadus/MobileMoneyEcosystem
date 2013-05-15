@@ -1,0 +1,35 @@
+.history-search-container{
+  margin-top: 10px;
+  width: 570px;
+  position: relative;
+  margin-left: 15px;
+  float: left;
+}
+
+.history-container .search-bar{
+  margin-right: 0px;
+}
+
+.history-date-selector-container{
+  float: left;
+  width: 180px;
+  height: 44px;
+  padding: 12px;
+  overflow: hidden;
+  margin-left: 8px;
+  position: relative;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.history-date-selector-container .date-title{
+  vertical-align:middle;
+}
+
+.history-date-selector-container .date-title i{
+  vertical-align:middle;
+}
+

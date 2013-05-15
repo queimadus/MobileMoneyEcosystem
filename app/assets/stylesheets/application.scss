@@ -79,6 +79,7 @@ $greywhite: #fbfbfb;
 @import "market.scss";
 @import "limits.scss";
 @import "settings.scss";
+@import "histories.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -460,4 +461,8 @@ button.icon-button{
 
 .profile-dropdown-container ol li a:hover{
   background-color: #DDD;
+}
+
+.search-bar input{
+  padding-right: 70px;
 }

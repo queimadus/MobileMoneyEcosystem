@@ -12,20 +12,6 @@ class SettingsController < ApplicationController
     end
   end
 
-  # GET /settings/1
-  # GET /settings/1.json
-  def show
-    @setting = Setting.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @setting }
-    end
-  end
-
-
-  # PUT /settings/1
-  # PUT /settings/1.json
   def update
     @setting = Setting.find(params[:id])
 
