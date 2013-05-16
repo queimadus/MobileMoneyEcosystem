@@ -32,4 +32,13 @@
     <%end%>
 
   </div>
+  <div class="row">
+    <% @carts.each do |c| %>
+      <%= c.updated_at.to_date %>
+      <% c.items.each do |i| %>
+
+          <%= i.product.name %>
+      <%end %>
+    <%end%>
+  </div>
 <%end%>

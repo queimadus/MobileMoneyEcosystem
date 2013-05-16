@@ -16,6 +16,11 @@ class HistoriesController < ApplicationController
 
   def client_history
 
+    from = params[:from] ? params[:from] : Time.now.to_date-1.month
+    to   = params[:to]   ? params[:to]   : Time.now.to_date
+
+    @carts = Cart.from(current_user.client).archived.date_between(from,to)
+
     respond_to do |format|
         format.html { render 'client_history' }
         format.json { render json: { :ok => "ok"} }

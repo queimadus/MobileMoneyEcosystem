@@ -18,7 +18,9 @@ $('.history-date-selector-container span span').click(function(){
 
         }
        parent.children('.mock-date').remove();//.parent().append(elem);
-       parent.prepend(elem);
+       elem.fadeIn(300);
+       parent.prepend(elem)
+
        elem.focus();
     }
 });

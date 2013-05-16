@@ -1,13 +1,27 @@
 class Cart < ActiveRecord::Base
   attr_accessible :complete, :last_modified
-    belongs_to :client
+  belongs_to :client
 
-    has_many :items
-    has_many :products, :through => :items
+  has_many :items
+  has_many :products, :through => :items
 
-    def self.active
-      Cart.where(:complete => false).first
-    end
+  def self.archived
+   where(:complete => true)
+  end
 
-   scope :date_between, lambda{ |s,e| where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s(:db),e.to_s(:db)) }
+  def self.active
+    where(:complete => false).first
+  end
+
+  #deprecated - use between_dates(s,e) instead
+  scope :date_between, lambda{ |s,e| where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s(:db),e.to_s(:db)) }
+
+  def self.between_dates(s,e)
+    where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s(:db),e.to_s(:db))
+  end
+
+  def self.from(c)
+    where(:client_id => c.id)
+  end
+
 end
