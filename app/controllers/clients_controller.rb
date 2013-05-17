@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   def update
     current_user.client.update_attributes(params["client"])
 
-    if params["client"]["name"]
+    if params["client"]["first_name"] or params["client"]["last_name"]
       notice = "Name updated"
       failure = "Error"
       partial =  "settings/name_form"

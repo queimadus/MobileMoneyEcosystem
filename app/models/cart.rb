@@ -17,7 +17,7 @@ class Cart < ActiveRecord::Base
   scope :date_between, lambda{ |s,e| where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s(:db),e.to_s(:db)) }
 
   def self.between_dates(s,e)
-    where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s(:db),e.to_s(:db))
+    where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s,e.to_s)
   end
 
   def self.from(c)
