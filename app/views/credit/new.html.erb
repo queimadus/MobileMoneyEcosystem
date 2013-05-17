@@ -1,0 +1,11 @@
+<% self.formats = [:json, :html] %>
+<%= form_for current_user.client,  :remote => true, :html => {:class => "credit-form", :data => { :type => 'json' }} do |f| %>
+    <div class="control-group">
+      <label for="user_credit" class="control-label">Amount</label>
+      <div class="controls">
+        <%= f.text_field :credit,  :placeholder => 'Amount' %>
+        <%=	render 'settings/error_on_form', message: error_on_form(current_user.client.errors,:credit) unless current_user.client.errors[:credit].empty?  %>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+<% end %>

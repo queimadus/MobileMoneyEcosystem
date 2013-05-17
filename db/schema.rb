@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
     t.integer  "product_id"
     t.integer  "order_id"
     t.integer  "actual_price"
+    t.integer  "category_id"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
-    t.integer  "category_id"
   end
 
   create_table "limits", :force => true do |t|
