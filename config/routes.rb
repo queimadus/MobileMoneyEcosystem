@@ -14,7 +14,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "home/index"
   get "header_info" => "users#header_info", :as => :credit_client
 
-  get "/credit" => "credit#new", :as => :credit
+
 
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"},
              :path_names => { :sign_in => 'login',
@@ -27,7 +27,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :users
   resources :merchants
   resources :clients
-  resources :credit
+  resources :credits
 
 
 
