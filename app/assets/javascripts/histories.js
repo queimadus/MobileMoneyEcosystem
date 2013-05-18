@@ -19,8 +19,45 @@ $('.history-date-selector-container span span').click(function(){
         }
        parent.children('.mock-date').remove();//.parent().append(elem);
        elem.fadeIn(300);
-       parent.prepend(elem)
+       parent.prepend(elem);
 
        elem.focus();
     }
 });
+
+bind_history_pagination();
+
+function bind_history_pagination(){
+    $('.client-history-container .pagination a, form#history-search-form').bind("ajax:success",update_history)
+        .bind("ajax:beforeSend ",start_history_loading)
+        .bind("ajax:error", history_error);
+    $('.product-image-img').centerImage();
+}
+
+function history_loading(t){
+    if(t){
+        $(".list-loading").addClass("show")
+    }   else  {
+        $(".list-loading").removeClass("show");
+    }
+}
+
+function start_history_loading(){
+    history_loading(true);
+}
+
+
+function history_error(){
+    window.location("/history");
+}
+
+function update_history(evt,data){
+
+    if(data.success == true){
+        $(".client-history-container-inner").replaceWith(data.html);
+        bind_history_pagination();
+        bind_all_categ_search();
+    }
+    history_loading(false);
+    return false;
+}

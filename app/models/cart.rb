@@ -21,6 +21,7 @@ class Cart < ActiveRecord::Base
   end
 
   def self.from(c)
+
     where(:client_id => c.id)
   end
 

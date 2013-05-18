@@ -8,7 +8,9 @@
     <div class="product-namebrand">
       <span class="name" title="Name"><%= item.product.name %></span>
       <span class="brand" title="Brand"><small><%= item.product.brand %></small></span>
+      <% if item.order and item.order.merchant %>
       <span class="company" title="Company"><small><i class="glyphicon glyphicon-briefcase"></i><%= item.order.merchant.name %></small></span>
+      <%end%>
     </div>
   </div>
   <div class="price-cont">

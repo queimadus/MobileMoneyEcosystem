@@ -79,6 +79,13 @@ l.save
 
 #purchases
 
+a = Cart.new(:complete => true)
+a.client = c
+a.save
+
+i = Item.new()
+i.quantity
+
 
 
 
