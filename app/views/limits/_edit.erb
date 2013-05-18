@@ -1,0 +1,51 @@
+<% self.formats = [:json, :html] %>
+<div id="<%=limit.id%>" class="limit-container">
+  <%= form_for limit, :remote => true  do |f| %>
+
+  <div class="limit-container-inner">
+    <div class="limit-category" <%# category_color('color',limit)%> >
+      <%# limit.category.name %>
+      <div class="limit-category-select" style="<%= "border-color:red;" unless limit.errors[:category_id].empty?%>">
+        <%= collection_select "limit","category_id", Category.all, :id, :name, options ={:prompt => "Select a category", :selected => limit.category.id}  %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :client_id %>
+
+    <div class="limit-submit-btns">
+      <%= f.submit "Save",  :class => "btn btn-primary limit-edit-submit"%>
+      <%= link_to "Cancel", limit, :remote => true, :class => "btn limit-edit-cancel" %>
+      <%= link_to "Delete", {:action => "destroy", :controller => "limits" }, :method => :delete, :data => {:toggle => "modal", :target => "#confirm-modal" }, :class => "btn btn-danger limit-edit-delete", :remote => true%>
+    </div>
+
+    <div class="limit-end">
+
+      <div class="limit-head-container">
+        <div class="limit-head-toggle">
+          FROM
+        </div>
+        <div class="limit-head-content">
+          <i class="glyphicon-calendar glyphicon"></i>
+          <%= f.text_field :starting, :class => "invi-input datepicker", :style => "cursor:pointer;" %>
+
+        </div>
+      </div>
+
+      <div style="height:36px;">
+
+      </div>
+
+      <div class="limit-money-input" style="<%= "border-color:#b94a48;" unless limit.errors[:max].empty?%>">
+        <%= f.text_field :max %><span class="limit-euro-edit">€</span>
+      </div>
+
+        <div class="limit-head-toggle-select">
+
+          <%= f.select :period, options_for_select( [['WEEKLY', 'weekly'], ['MONTHLY', 'monthly'], ['YEARLY','yearly']], limit.period.upcase )  %>
+
+        </div>
+    </div>
+
+  </div>
+  <%end%>
+</div>

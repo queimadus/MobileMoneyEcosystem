@@ -17,13 +17,15 @@ class Product < ActiveRecord::Base
   #validates_associated :categories
   #validates_associated :merchant
   validates :name, :presence => true
-  #validates :qrcode, :presence => true#, :uniqueness => true  #TODO not yet implemented
+  validates :qrcode, :presence => true, :uniqueness => true
   validates :price, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :stock, :presence => true, :numericality => { :greater_than_or_equal_to => 0 }
   validates_presence_of :categories
 
   before_create :set_available
   before_save  :round_price
+
+  scope :filter_by_categories, lambda{ |name| includes(:categories).where(:categories=>{:name=>name}) }
 
   def round_price
     self.price = sprintf("%.2f", self.price)
@@ -33,6 +35,14 @@ class Product < ActiveRecord::Base
     self.available = true
   end
 
+  def set_hash
+    token = ""
+    begin
+      token = SecureRandom.urlsafe_base64()
+    end while Product.find_by_qrcode(token)
+
+    self.qrcode = token
+  end
 
   Paperclip.interpolates :category_image do |attachment, style|
     attachment.instance.categories.first.image

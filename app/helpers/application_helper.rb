@@ -46,6 +46,15 @@ module ApplicationHelper
     text.uniq.join("<br>").html_safe
   end
 
+  def error_on_form_text(a)
+    text = []
+
+    a.full_messages.each do |t|
+      text << content_tag(:span, t)
+    end
+    text.uniq.join("<br>").html_safe
+  end
+
   def red_asterisk
     content_tag(:span,'*', :class => "red-asterisk")
   end
@@ -60,11 +69,37 @@ module ApplicationHelper
   end
 
   def category_color(attr,obj)
-    'style='+attr+':rgba('+obj.categories.first.color+',0.59)'
+    if obj.instance_of?(Product)
+      color = obj.categories.first.color
+    elsif
+      color = obj.category.color
+    end
+
+    ret = 'style='
+    attr.split(",").each do |a|
+
+      ret+= a+':rgba('+color+',0.59);'
+    end
+
+    ret
   end
 
   def qrcode_image_for(product, options = {})
     #TODO still a stub. needs to convert a product qrcode token into a qrcodeIMAGE url or somthing
     image_tag "http://www.qrpix.com/blog/wp-content/uploads/2012/11/QR-code.jpg", options
   end
+
+  def active(path)
+   return " active" if current_page?(path)
+    ""
+  end
+
+  def all_categories
+    cat=[]
+    Category.all.each do |c|
+      cat << c.name
+    end
+    cat
+  end
+
 end

@@ -5,7 +5,7 @@ class CreateMerchants < ActiveRecord::Migration
       t.integer :user_id
 
       t.string :name
-      t.integer :credit, :default => 0
+      t.integer :credit, :decimal, :precision => 8, :scale => 2, :default => 0
       t.string :bank_account
 
       t.timestamps

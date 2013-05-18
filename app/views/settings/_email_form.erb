@@ -1,0 +1,11 @@
+<% self.formats = [:json, :html] %>
+<%= form_for resource,  :remote => true, :html => {:class => "settings-email-form", :data => { :type => 'json' }} do |f| %>
+  <div class="control-group">
+    <label for="user_email" class="control-label">Email</label>
+    <div class="controls">
+      <%= f.text_field :email,  :placeholder => 'Email' %>
+      <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:email) unless resource.errors[:email].empty?  %>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+<% end %>

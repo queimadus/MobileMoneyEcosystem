@@ -1,0 +1,17 @@
+<% self.formats = [:json, :html] %>
+<%if limits.nil? or limits.empty?%>
+  <div class="row">
+    <div class="col-span-12 tcenter">
+      <span>No limits added</span>
+    </div>
+  </div>
+<%else%>
+  <% limits.each do |l|  %>
+    <%= render "container", limit: l %>
+  <%end%>
+<%end%>
+<div class="row">
+  <div class="col-span-12 tcenter">
+    <%= paginate limits, :remote => true %>
+  </div>
+</div>

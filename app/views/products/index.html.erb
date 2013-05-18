@@ -1,55 +1,39 @@
-<h1 style="margin-bottom: 20px;"> <%# current_user.merchant.name &apos;s%> Products </h1>
-
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="myModalLabel">Add a new product</h4>
-      </div>
-      <div id="new-product-form-container" class="modal-body">
-         <%= render 'form', product: @product, submit_name: "Create" %>
-      </div>
-     <!-- <div class="modal-footer">
-        <button class="btn" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-      </div> -->
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dalog -->
-</div>
-
 <div class="row">
-  <div class="col-span-9">
-    <div class="input-group span products-search-bar">
-      <input id="products-search " type="text" class=" input-large">
-      <span class="input-group-btn">
-        <button class="btn btn-primary btn-large" type="button">Search</button>
-      </span>
-    </div>
+  <div class="product-search-container">
+    <%= form_tag products_path, :method => :get, :id=>"product-search-form", :remote => true do %>
+      <div class="span search-bar">
+        <input id="search" name="q" type="text" class="wsearch" placeholder="Search for products by name and category"
+               value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
+
+        <i class="search-reset glyphicon-remove glyphicon"> </i>
+        <button class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
 
 
+      </div>
+    <%end%>
   </div>
-  <div class="col-span-3 tcenter">
-    <%# link_to "Add new product", new_product_path, :remote => true, :class => "btn btn-primary btn-large", :style => "margin-left: 14px;" %>
-    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large" style="margin-left: 14px;">Add new product</a>
+  <div class="product-new-container tcenter">
+    <%= link_to "Add new product", new_product_path, :id => "newproduct", :remote => true, :class => "bbutton" %>
 
   </div>
 </div>
+
 <div class="row">
   <div id="products-container" class="col-span-9">
-    <div class="product-list-loading">
-      <div class="product-loading-inner">
+
+    <div class="list-loading">
+      <div class="loading-inner">
         <i class="glyphicon glyphicon-refresh icon-spin"></i>
       </div>
     </div>
+
     <div id="products-container-inner">
       <%= render 'product_list', :products => @products %>
     </div>
   </div>
-  <div class="col-span-3">
-     <div class="product-info-panel fade">
+
+  <div class="col-span-3" style="overflow: hidden;width: 240px;">
+     <div class="product-info-panel">
         <div class="edit-loading">
             <i class="glyphicon glyphicon-refresh icon-spin"></i>
         </div>
