@@ -10,7 +10,7 @@ class Cart < ActiveRecord::Base
   end
 
   def self.active
-    where(:complete => false).first
+    where(:complete => false)
   end
 
   #deprecated - use between_dates(s,e) instead
