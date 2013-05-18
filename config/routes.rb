@@ -3,14 +3,22 @@ MobileMoneyEcosystem::Application.routes.draw do
   get '/market/:merchant_name' => 'markets#show', :as => :market
   get '/history' => 'histories#index', :as => :history
 
+  match "api/products/:id" => "api/products#show"
+  match "api/cart/:id" => "api/cart#show"
+
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
     get "/register/client" => "registrations#new", :as => :client_registration
     get "/register" => "registrations#selection", :as => :selection_registration
     match "/register/merchant" => "registrations#create", :as => :register_merchant, :via => :post
     match "/register/client" => "registrations#create", :as => :register_client, :via => :post
+    post 'registrations' => 'registrations#create', :as => 'register'
+    post 'sessions' => 'sessions#create', :as => 'login'
+    delete 'sessions' => 'sessions#destroy', :as => 'logout'
   end
 
+
+  get "api/cart/allcarts"
   get "home/index"
   get "header_info" => "users#header_info", :as => :credit_client
 
@@ -28,7 +36,6 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :merchants
   resources :clients
   resources :credits
-
 
 
   # The priority is based upon order of creation:
