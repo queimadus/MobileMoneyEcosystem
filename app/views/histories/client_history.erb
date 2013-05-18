@@ -6,12 +6,10 @@
       <div class="history-search-container">
 
           <div class="span search-bar">
-            <input id="search" name="q" type="text" class="wsearch" placeholder="Search for categories in your history"
-                   value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
+            <input id="search" name="q" type="text" class="wsearch" placeholder="Filter by categories in your history"
+                   value="<%= @query %>" data-provide="typeahead" autocomplete="off" data-source='<%= all_categories %>'>
 
             <i class="history search-reset glyphicon-remove glyphicon"> </i>
-
-
           </div>
 
       </div>
@@ -32,7 +30,13 @@
     <%end%>
 
   </div>
-  <div class="row">
-    <%= render 'client_history_list', carts: @carts %>
+
+  <div class="client-history-container">
+    <div class="list-loading">
+      <div class="loading-inner">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+    </div>
+    <%= render 'client_history_list', carts: @carts, categories: @categories %>
   </div>
 <%end%>
