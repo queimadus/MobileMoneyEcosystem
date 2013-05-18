@@ -77,6 +77,10 @@ l.category = vegetais
 l.client = c
 l.save
 
+#purchases
+
+
+
 
 
 

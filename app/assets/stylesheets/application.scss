@@ -79,6 +79,7 @@ $greywhite: #fbfbfb;
 @import "market.scss";
 @import "limits.scss";
 @import "settings.scss";
+@import "histories.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -410,6 +411,21 @@ button.icon-button{
   border: 3px solid #fff;
   box-shadow: 0px 0px 1px 0px black;
   float: left;
+  position: relative;
+}
+
+.main-avatar-image{
+  display: inline-block;
+}
+
+.profile-down-arrow{
+  position: absolute;
+  right: -22px;
+  top: -3px;
+  background-color: #fff;
+  padding: 10px 2px;
+  box-shadow: 0px 0px 1px 0px black;
+  color: #555;
 }
 
 .header-info-block{
@@ -418,6 +434,7 @@ button.icon-button{
   #background-color: #fff;
   #box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   margin-top: 8px;
+  margin-right: 13px;
 }
 
 .header-credit{
@@ -438,10 +455,11 @@ button.icon-button{
   display: block;
   position: absolute;
   background-color: white;
-  right: 21px;
-  top: 55px;
+  right: 16px;
+  top: 52px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   display: none;
+  z-index: -1;
 }
 
 .profile-dropdown-container ol{
@@ -460,4 +478,8 @@ button.icon-button{
 
 .profile-dropdown-container ol li a:hover{
   background-color: #DDD;
+}
+
+.search-bar input{
+  padding-right: 70px;
 }

@@ -23,7 +23,9 @@
   </div>
   <%= link_to "#", :class=>"main-avatar-container" do %>
     <%= image_tag current_user.avatar.url, :class => "main-avatar-image" %>
+    <span class="profile-down-arrow">&#x25BC;</span>
   <%end%>
+
 </div>
 <div class="profile-dropdown-container">
   <ol>

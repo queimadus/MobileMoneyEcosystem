@@ -1,6 +1,7 @@
 MobileMoneyEcosystem::Application.routes.draw do
 
-  get 'market/:merchant_name' => 'markets#show', :as => :market
+  get '/market/:merchant_name' => 'markets#show', :as => :market
+  get '/history' => 'histories#index', :as => :history
 
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
@@ -11,7 +12,9 @@ MobileMoneyEcosystem::Application.routes.draw do
   end
 
   get "home/index"
-  get "header_info" => "users#header_info"
+  get "header_info" => "users#header_info", :as => :credit_client
+
+
 
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"},
              :path_names => { :sign_in => 'login',
@@ -24,6 +27,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :users
   resources :merchants
   resources :clients
+  resources :credits
 
 
 
