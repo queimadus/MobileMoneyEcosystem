@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :cart_id
       t.integer :product_id
       t.integer :order_id
-      t.decimal :actual_price, :precision => 8, :scale => 2, :default => 0
+      t.column :actual_price,:decimal, :precision => 8, :scale => 2, :default => 0
       t.integer :category_id
       t.timestamps
     end
