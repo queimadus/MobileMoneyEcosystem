@@ -1,0 +1,42 @@
+<% self.formats = [:json, :html] %>
+<div class="client-history-container-inner">
+  <div class="row">
+    <%if orders.nil? or orders.empty? %>
+
+      <div class="col-span-12 tcenter">
+        <span>No history</span>
+      </div>
+
+    <%end%>
+
+
+    <% orders.each do |c| %>
+
+      <% ords = join_orders_by_date(c,categories) %>
+
+      <% unless ords[:content].blank? %>
+          <div class="history-products-container">
+            <div class="history-header">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <%= ords[:date] %>
+              <span> - </span>
+              <i class="glyphicon glyphicon-euro"></i>
+              <%= ords[:price] %>
+            </div>
+            <%= ords[:content].html_safe %>
+          </div>
+        <%end%>
+      <%end%>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-span-12 tcenter">
+
+      <%= paginate orders, :remote => true, params: {controller: "histories", action: "index", :id => nil, :utf8 => nil, :authenticity_token => nil,
+                                                    :category => nil, :product => nil, :commit => nil } %>
+    </div>
+  </div>
+
+</div>

@@ -84,27 +84,31 @@
 }
 
 .client-history-container{
-  width: 955px;
-  margin-left: 15px;
+  padding: 0 15px;
 }
 
 .history-header{
   display: block;
-  padding: 5px 0px 1px 0px;
-  border-bottom: 1px solid #B6B6B6;
-  margin-bottom: 5px;
-  color: #555;
-  width: 98.7%;
+  margin-bottom: 6px;
+  color: rgba(85, 85, 85, 0.75);
+  padding: 6px 10px;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 .history-products-container{
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  background-color: rgba(182, 182, 182, 0.09);
+  padding-top: 7px;
+
 }
 
 .client-history-product{
-  margin-right: 10px;
-  margin-bottom: 12px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  width: 225px;;
 }
 
 .product-namebrand .company{
@@ -117,4 +121,12 @@
   vertical-align: middle;
 }
 
+.product-container.client-history-product .product-triangle-color{
+  border-right:185px solid transparent;
+}
 
+.product-container.client-history-product .stock-cont{
+  left: initial;
+  right: 13px;
+  text-align: right;
+}

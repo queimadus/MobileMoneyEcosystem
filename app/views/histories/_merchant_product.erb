@@ -9,7 +9,7 @@
       <span class="name" title="Name"><%= item.product.name %></span>
       <span class="brand" title="Brand"><small><%= item.product.brand %></small></span>
       <% if item.order and item.order.merchant %>
-      <span class="company" title="Company"><small><i class="glyphicon glyphicon-briefcase"></i><%= item.order.merchant.name %></small></span>
+        <span class="company" title="Company"><small><i class="glyphicon glyphicon-briefcase"></i><%= item.order.merchant.name %></small></span>
       <%end%>
     </div>
   </div>
@@ -17,7 +17,7 @@
     <span class="price" title="Price" <%= category_color('background-color',item.product)%> ><%= number_to_currency(item.actual_price, :locale => :en) %></span>
   </div>
   <div class="stock-cont">
-    <span class="quantity" title="Quantity" ><%= item.quantity %><i class="glyphicon glyphicon-shopping-cart"></i></span>
+    <span class="quantity" title="Quantity" ><%= item.sum_quantity %><i class="glyphicon glyphicon-shopping-cart"></i></span>
   </div>
 
 </div>

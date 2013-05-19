@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+=begin
 #merchant
 u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
 m = Merchant.new(:name => "Bruno")
@@ -30,6 +30,7 @@ def new_product(name, brand, price, stock, img, cat, merc)
   p.set_hash
   file.close
   p.save
+  p
 end
 
 (1..50).each do |i|
@@ -48,20 +49,20 @@ end
   p1.save
 end
 
-new_product("Desodorizante para homens","AXE","6.19","25","axe.png",higiene,m)
-new_product("Maca","Golden","1.2","6000","apple.png",vegetais,m)
-new_product("Espetadas","Continente","5","1","espetada.png",assados,m)
-new_product("Shampoo para homens","Pantene","5","124","shampoo.png",higiene,m)
-new_product("Pepino","","1.5","543","pepino.png",vegetais,m)
-new_product("Cotonetes","","1.9","6","cotonetes.png",higiene,m)
-new_product("Cebola","","1.8","200","cebola.png",vegetais,m)
-new_product("Broculos","Continente","1","200","broculos.png",vegetais,m)
-new_product("Pimento","","3","512","pimentos.png",vegetais,m)
-new_product("Alface","Verdinha","0.53","1000","alface.png",vegetais,m)
-new_product("Frango Assado","Dom Brasas","4","300","frango.png",assados,m)
-new_product("Tomate","TomatoSauce","0.86","300","tomate.png",vegetais,m)
-new_product("Papel higienico","Renova","3","100","papel.png",higiene,m)
-new_product("Cenoura","Golden","1.33","33","CENOURA.png",vegetais,m)
+ip1=new_product("Desodorizante para homens","AXE","6.19","25","axe.png",higiene,m)
+ip2=new_product("Maca","Golden","1.2","6000","apple.png",vegetais,m)
+ip3 = new_product("Espetadas","Continente","5","1","espetada.png",assados,m)
+ip4 = new_product("Shampoo para homens","Pantene","5","124","shampoo.png",higiene,m)
+ip5=new_product("Pepino","","1.5","543","pepino.png",vegetais,m)
+ip6=new_product("Cotonetes","","1.9","6","cotonetes.png",higiene,m)
+ip7=new_product("Cebola","","1.8","200","cebola.png",vegetais,m)
+ip8=new_product("Broculos","Continente","1","200","broculos.png",vegetais,m)
+ip9=new_product("Pimento","","3","512","pimentos.png",vegetais,m)
+ip10=new_product("Alface","Verdinha","0.53","1000","alface.png",vegetais,m)
+ip11=new_product("Frango Assado","Dom Brasas","4","300","frango.png",assados,m)
+ip12=new_product("Tomate","TomatoSauce","0.86","300","tomate.png",vegetais,m)
+ip13=new_product("Papel higienico","Renova","3","100","papel.png",higiene,m)
+ip14=new_product("Cenoura","Golden","1.33","33","CENOURA.png",vegetais,m)
 
 
 #Limits
@@ -76,15 +77,48 @@ l = Limit.new(:max => 20, :period => "weekly")
 l.category = vegetais
 l.client = c
 l.save
-
+=end
 #purchases
 
-a = Cart.new(:complete => true)
-a.client = c
-a.save
+c=Client.first
+m=Merchant.first
+
+ip3 = Product.find(58)
+ip4 = Product.find(59)
+ip5 = Product.find(63)
+
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
+
+order = Order.new
+order.merchant = m
+order.save
 
 i = Item.new()
-i.quantity
+i.product = ip3
+i.quantity = 1
+i.actual_price = ip3.price
+i.category = ip3.category.first
+i.cart=cart
+i.order = order
+i.save
+
+i = Item.new()
+i.product = ip4
+i.quantity = 3
+i.actual_price = ip4.price
+i.cart=cart
+i.order = order
+i.save
+
+i = Item.new()
+i.product = ip5
+i.quantity = 3
+i.actual_price = ip5.price
+i.cart=cart
+i.order = order
+i.save
 
 
 

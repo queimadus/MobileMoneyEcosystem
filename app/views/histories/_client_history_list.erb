@@ -11,16 +11,27 @@
 
 
   <% carts.each do |c| %>
-    <div class="history-header">
-      <%= c.updated_at.to_date %>
-    </div>
-    <div class="history-products-container">
-      <% c.items.each do |i| %>
-          <% if filter_categories(i.product,categories) %>
-            <%= render 'client_product', item: i %>
-          <% end %>
-      <%end %>
-    </div>
+
+    <% content = "" %>
+    <% price = 0 %>
+    <% c.items.order("category_id").each do |i| %>
+      <% if filter_categories(i.product,categories) %>
+        <% content << render('client_product', item: i) %>
+        <% price += i.actual_price*i.quantity %>
+      <% end %>
+    <%end %>
+    <%unless content.blank? %>
+      <div class="history-products-container">
+        <div class="history-header">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <%= c.updated_at.to_date %>
+          <span>-</span>
+          <i class="glyphicon glyphicon-euro"></i>
+          <%= price %>
+        </div>
+        <%= content.html_safe %>
+      </div>
+    <%end%>
   <%end%>
   </div>
 
