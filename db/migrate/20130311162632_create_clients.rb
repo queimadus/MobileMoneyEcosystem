@@ -4,7 +4,7 @@ class CreateClients < ActiveRecord::Migration
 
       t.integer :user_id
 
-      t.integer :credit, :decimal, :precision => 8, :scale => 2, :default => 0
+      t.decimal :credit, :precision => 8, :scale => 2, :default => 0
       t.date :dob
       t.string :sex, :first_name, :last_name
 

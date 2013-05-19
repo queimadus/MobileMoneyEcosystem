@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-=begin
+
 #merchant
 u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
 m = Merchant.new(:name => "Bruno")
@@ -77,15 +77,19 @@ l = Limit.new(:max => 20, :period => "weekly")
 l.category = vegetais
 l.client = c
 l.save
-=end
+
 #purchases
 
-c=Client.first
-m=Merchant.first
-
-ip3 = Product.find(58)
-ip4 = Product.find(59)
-ip5 = Product.find(63)
+def new_item(pro,car,ord)
+  i = Item.new()
+  i.product = pro
+  i.quantity = 1
+  i.actual_price = pro.price
+  i.category_id = pro.categories.first.id
+  i.cart=car
+  i.order = ord
+  i.save
+end
 
 cart = Cart.new(:complete => true)
 cart.client = c
@@ -95,35 +99,47 @@ order = Order.new
 order.merchant = m
 order.save
 
-i = Item.new()
-i.product = ip3
-i.quantity = 1
-i.actual_price = ip3.price
-i.category = ip3.category.first
-i.cart=cart
-i.order = order
-i.save
+new_item(ip1,cart,order)
+new_item(ip2,cart,order)
+new_item(ip3,cart,order)
+new_item(ip4,cart,order)
+new_item(ip5,cart,order)
+new_item(ip6,cart,order)
 
-i = Item.new()
-i.product = ip4
-i.quantity = 3
-i.actual_price = ip4.price
-i.cart=cart
-i.order = order
-i.save
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
 
-i = Item.new()
-i.product = ip5
-i.quantity = 3
-i.actual_price = ip5.price
-i.cart=cart
-i.order = order
-i.save
+order = Order.new
+order.merchant = m
+order.save
 
+new_item(ip7,cart,order)
+new_item(ip8,cart,order)
+new_item(ip9,cart,order)
 
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
 
+order = Order.new
+order.merchant = m
+order.save
 
+new_item(ip10,cart,order)
+new_item(ip11,cart,order)
+new_item(ip12,cart,order)
 
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
+
+order = Order.new
+order.merchant = m
+order.save
+
+new_item(ip13,cart,order)
+new_item(ip14,cart,order)
 
 
 

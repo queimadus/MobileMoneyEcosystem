@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.boolean :available, :default => true
       t.string :image_url
-      t.decimal :price, :decimal, :precision => 8, :scale => 2, :default => 0
+      t.integer :price, :decimal, :precision => 8, :scale => 2, :default => 0
       t.string :qrcode
       t.string :reference
       t.string :brand
