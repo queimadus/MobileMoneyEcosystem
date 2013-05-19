@@ -31,7 +31,7 @@ function bind_history_pagination(){
     $('.client-history-container .pagination a, form#history-search-form').bind("ajax:success",update_history)
         .bind("ajax:beforeSend ",start_history_loading)
         .bind("ajax:error", history_error);
-    $('.product-image-img').centerImage();
+    //$('.product-image-img').centerImage();
 }
 
 function history_loading(t){
