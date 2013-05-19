@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
   create_table "clients", :force => true do |t|
     t.integer  "user_id"
     t.decimal  "credit",     :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",    :precision => 8, :scale => 2, :default => 0.0
     t.date     "dob"
     t.string   "sex"
     t.string   "first_name"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
     t.integer  "product_id"
     t.integer  "order_id"
     t.decimal  "actual_price", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",      :precision => 8, :scale => 2, :default => 0.0
     t.integer  "category_id"
     t.datetime "created_at",                                                  :null => false
     t.datetime "updated_at",                                                  :null => false
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
     t.integer  "user_id"
     t.string   "name"
     t.decimal  "credit",       :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",      :precision => 8, :scale => 2, :default => 0.0
     t.string   "bank_account"
     t.datetime "created_at",                                                  :null => false
     t.datetime "updated_at",                                                  :null => false
@@ -89,16 +92,16 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
   create_table "products", :force => true do |t|
     t.integer  "merchant_id"
     t.string   "name"
-    t.boolean  "available",          :default => true
+    t.boolean  "available",                                        :default => true
     t.string   "image_url"
-    t.integer  "price",              :default => 0
-    t.integer  "decimal",            :default => 0
+    t.decimal  "price",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",            :precision => 8, :scale => 2, :default => 0.0
     t.string   "qrcode"
     t.string   "reference"
     t.string   "brand"
-    t.integer  "stock",              :default => 0
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "stock",                                            :default => 0
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

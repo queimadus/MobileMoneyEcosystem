@@ -13,7 +13,7 @@ module HistoriesHelper
     date=""
     #c.each do |grp|
 #.select("items.*, SUM(items.quantity) as quantity")
-      a = Item.select("items.*, sum(quantity) as sum_quantity").where(:order_id => c).order("category_id").group(:product_id)
+      a = Item.select("items.*, sum(quantity) as sum_quantity").where(:order_id => c).order("category_id").group(:product_id, :id)
       a.each_with_index do |i,index|
         if filter_categories(i.product, categories)
           content << render('merchant_product', item: i)
