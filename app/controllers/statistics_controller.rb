@@ -45,7 +45,7 @@ class StatisticsController < ApplicationController
     rows = []
 
     items.each do |i|
-      rows << {:c => [{:v => i.updated_at.to_date.to_formatted_s(:short)},{:v => i.total_price}]}
+      rows << {:c => [{:v => i.updated_at.to_date.to_formatted_s(:short)},{:v => i.total_price.to_f}]}
     end
 
     {:cols => [{:label => "Month", :type => "string"},
@@ -66,7 +66,7 @@ class StatisticsController < ApplicationController
     rows = []
     colors = []
     items.each do |i|
-      rows << {:c => [{:v => i.category_name},{:v => i.total_price}]}
+      rows << {:c => [{:v => i.category_name},{:v => i.total_price.to_f}]}
       colors << "rgb("+i.color+")"
     end
 
