@@ -21,13 +21,21 @@
       <% end %>
     <%end %>
     <%unless content.blank? %>
-      <div class="history-products-container">
+      <div class="history-products-container clearfix">
         <div class="history-header">
-          <i class="glyphicon glyphicon-calendar"></i>
-          <%= c.updated_at.to_date %>
-          <span>-</span>
-          <i class="glyphicon glyphicon-euro"></i>
-          <%= price %>
+          <span class="home-cart-title">
+            <span class="cart-id cart-title-sub">
+              <%= "CART #"+c.id.to_s %>
+            </span>
+            <span class="cart-title-sub">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <%= c.updated_at.to_date %>
+            </span>
+            <span class="cart-title-sub">
+              <i class="glyphicon glyphicon-euro"></i>
+              <%= price %>
+            </span>
+          </span>
         </div>
         <%= content.html_safe %>
       </div>

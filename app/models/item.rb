@@ -7,8 +7,11 @@ class Item < ActiveRecord::Base
   has_one :category
 
 
-
   before_save  :round_price
+
+  def self.between_dates(s,e)
+    where('date(items.updated_at) >= ? and date(items.updated_at) <= ?',s.to_s,e.to_s)
+  end
 
   def round_price
     self.actual_price = sprintf("%.2f", self.actual_price)

@@ -13,8 +13,12 @@
     <![endif]-->
   <!--  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   -->
+  <%if current_page?(root_path) %>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <%end%>
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300' rel='stylesheet' type='text/css'>
+  <!--link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'-->
   <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
