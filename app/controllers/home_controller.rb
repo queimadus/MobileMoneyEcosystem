@@ -1,15 +1,16 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   respond_to :html
 
   def index
-
-    if current_user.is_client?
-      client_history #params
-    elsif  current_user.is_merchant?
-      merchant_history #params
+    if current_user
+      if current_user.is_client?
+        client_history #params
+      else  current_user.is_merchant?
+        merchant_history #params
+      end
     else
-      render :nothing => true
+      render "global"
     end
   end
 

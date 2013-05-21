@@ -14,7 +14,7 @@ class StatisticsController < ApplicationController
     elsif  current_user.is_merchant?
       merchant_statistics #params
     else
-      render :nothing => true
+      render :html => "lol"
     end
   end
 
@@ -40,8 +40,8 @@ class StatisticsController < ApplicationController
 
   def credit_time(id,from,to)
 
-    items = Item.between_dates(from, to).joins("LEFT JOIN 'carts' ON carts.id=items.cart_id AND carts.complete='t'")
-    .group("date(items.updated_at)").select("items.updated_at, SUM(actual_price) AS total_price").where("client_id=?",id)
+    items = Item.between_dates(from, to).joins('LEFT JOIN "carts" ON carts.id=items.cart_id')
+    .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price").where("client_id=?",id).where(:carts => {:complete => true})
     rows = []
 
     items.each do |i|
@@ -61,8 +61,8 @@ class StatisticsController < ApplicationController
     from ||=  1.month.ago.to_date
     to   ||=  Time.now.to_date
 
-    items = Item.between_dates(from, to).joins("LEFT JOIN `categories` ON categories.id = items.category_id LEFT JOIN 'carts' ON carts.id= items.cart_id AND carts.complete='t'")
-    .group("items.category_id").select("name AS category_name, SUM(actual_price) AS total_price, color AS color").where("client_id=?",client_id)
+    items = Item.between_dates(from, to).joins('LEFT JOIN "categories" ON categories.id = items.category_id LEFT JOIN "carts" ON carts.id= items.cart_id')
+    .group("items.category_id,categories.name,categories.color").select("name AS category_name, SUM(actual_price) AS total_price, color AS color").where("client_id=?",client_id).where(:carts => {:complete => true})
     rows = []
     colors = []
     items.each do |i|
