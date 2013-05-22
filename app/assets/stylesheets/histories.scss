@@ -135,9 +135,19 @@
 
 .cart-title-sub{
   margin-right: 32px;
+  font-weight: 400;
 }
 
 .cart-title-sub i{
   font-size: 18px;
   vertical-align: initial;
+}
+
+.cart-title-sub:nth-child(1){
+  font-weight: 500;
+}
+
+.cart-title-sub small{
+  font-weight: 300;
+  margin-right: 2px;
 }

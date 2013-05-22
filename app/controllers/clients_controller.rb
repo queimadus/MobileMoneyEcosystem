@@ -9,11 +9,34 @@ class ClientsController < ApplicationController
       failure = "Error"
       partial =  "settings/name_form"
     elsif params["client"]["credit"]
-       i = params["client"]["credit"].to_i + current_user.client.credit
+
+      Braintree::Configuration.environment = :sandbox
+      Braintree::Configuration.merchant_id = "m3spqbmq9kbmymwg"
+      Braintree::Configuration.public_key = "jbv6s4yfkdsdj3vd"
+      Braintree::Configuration.private_key = "953f2ec66b8afa868a2081b71497adf6"
+
+
+        result = Braintree::Transaction.sale(
+            :amount => params[:amount],
+            :credit_card => {
+                :number => params[:number],
+                :cvv => params[:cvv],
+                :expiration_month => params[:month],
+                :expiration_year => params[:year]
+            },
+            :options => {
+                :submit_for_settlement => true
+            }
+        )
+
+       result
+
+       i = params["client"]["credit"].to_f + current_user.client.credit
        params["client"]["credit"]=i
        notice = "Credited"
        failure = "Error"
        partial =  "credits/_credit_form"
+
     else
       notice = "Info updated"
       failure = "Error"

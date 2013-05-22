@@ -34,7 +34,7 @@ end
 
 gem 'kaminari'
 gem 'devise'
-
+gem 'braintree'
 gem 'rake'
 gem 'jquery-rails'
 gem 'rqrcode-rails3'
