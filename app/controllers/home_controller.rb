@@ -18,8 +18,8 @@ class HomeController < ApplicationController
 
   def client_history
 
-    @current_cart = Cart.from(current_user.client).active.first
-    @last_cart = Cart.from(current_user.client).archived.order("date(updated_at) desc").first
+    @current_cart = Cart.from_client(current_user.client).active.first
+    @last_cart = Cart.from_client(current_user.client).archived.order("date(updated_at) desc").first
     @a = "client"
 
     render "client_home"

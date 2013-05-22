@@ -20,8 +20,7 @@ class Cart < ActiveRecord::Base
     where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s,e.to_s)
   end
 
-  def self.from(c)
-
+  def self.from_client(c)
     where(:client_id => c.id)
   end
 

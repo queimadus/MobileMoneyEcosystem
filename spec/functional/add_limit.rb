@@ -13,13 +13,13 @@ feature "Add limit" do
 			page.visit "/limits/new"
 		end
 		And "I select category" do
-			page.select "Assados", :from => 'limit_category_id'
+			page.select "Assados", :from_client => 'limit_category_id'
 		end
 		And "I fill in limit value" do
 			page.fill_in "limit_max", :with => '100'
 		end
 		And "I select periodicity" do
-			page.select "MONTHLY", :from => 'limit_period'
+			page.select "MONTHLY", :from_client => 'limit_period'
 		end
 		And "I click create" do
 			page.click_on "Create"

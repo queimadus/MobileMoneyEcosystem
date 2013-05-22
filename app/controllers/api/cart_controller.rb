@@ -14,7 +14,7 @@ class Api::CartController < ApplicationController
   end
 
   def addproduct
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     i = Item.new
     i.cart = c
     p = Product.find_by_qrcode(params[:qrcode])
@@ -30,7 +30,7 @@ class Api::CartController < ApplicationController
 
   def listcart
 
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     #  products = []
     yeah = current_user.client.id
     if c == nil
@@ -106,7 +106,7 @@ class Api::CartController < ApplicationController
   def removeproduct
 
     i = Item.where(:product_id => params[:product_id],
-                   :cart_id => Cart.active.from(current_user.client)).first
+                   :cart_id => Cart.active.from_client(current_user.client)).first
     if Item.destroy(i.id)
       render :json=> {:success=>true}
     else
@@ -116,7 +116,7 @@ class Api::CartController < ApplicationController
   end
 
   def completed
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     c.items.each do |item|
       p = Product.find(item.product_id)
       if(!Order.where(:merchant_id => p.merchant_id,:sent => false))
@@ -137,7 +137,7 @@ class Api::CartController < ApplicationController
   end
 
   def clearcart
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     if c == nil
       render :json=> {:success=>false}
     else

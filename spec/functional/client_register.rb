@@ -21,16 +21,16 @@ feature "Client register" do
 			page.fill_in "user_password_confirmation", :with => 'testtest'
 		end
 		And "I select day of birth" do
-			page.select "1", :from => 'client_dob_3i'
+			page.select "1", :from_client => 'client_dob_3i'
 		end
 		And "I select month of birth" do
-			page.select "January", :from => 'client_dob_2i'
+			page.select "January", :from_client => 'client_dob_2i'
 		end
 		And "I select year of birth" do
-			page.select "1991", :from => 'client_dob_1i'
+			page.select "1991", :from_client => 'client_dob_1i'
 		end
 		And "I select gender" do
-			page.select "Male", :from => 'sex_Gender'
+			page.select "Male", :from_client => 'sex_Gender'
 		end
 		And "I click register" do
 			page.click_button "Register"
