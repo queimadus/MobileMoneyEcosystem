@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="client-home col-span-12">
+
+    <div class="history-products-container clearfix">
+      <div class="history-header">
+
+        <% unless @current_cart.nil? %>
+          <% open_cart_content = "" %>
+          <% price = 0 %>
+          <% @current_cart.items.each do |i| %>
+            <% open_cart_content << render("histories/client_product", item: i) %>
+            <% price+= i.quantity*i.actual_price %>
+          <%end%>
+        <%end%>
+
+        <span class="home-cart-title">
+          <span class="cart-title-sub">Open Cart</span>
+          <span class="cart-title-sub"> <small>price:</small><%= price%>€</span>
+        </span>
+
+      </div>
+      <%if @current_cart.nil? %>
+        <div class="cart-empty">Empty</div>
+      <%else%>
+        <%= open_cart_content.html_safe %>
+      <%end%>
+
+    </div>
+
+    <div id="client-home-stats" class="history-products-container clearfix home-stats">
+      <div class="history-header">
+        <span class="home-cart-title">
+          <span class="cart-title-sub">Last Month's Statistics</span>
+
+        </span>
+      </div>
+
+      <div class="home-stats-chart-container">
+        <div class="stats-loader loading"></div>
+        <div id="client-home-stats-pie" class="home-stats-chart"></div>
+      </div>
+
+      <div class="home-stats-chart-container">
+        <div class="stats-loader loading"></div>
+        <div id="client-home-stats-bar" class="home-stats-chart"></div>
+      </div>
+
+    </div>
+
+    <div class="history-products-container clearfix">
+      <div class="history-header">
+
+        <% unless @last_cart.nil? %>
+          <% open_cart_content = "" %>
+          <% price = 0 %>
+          <% @last_cart.items.each do |i| %>
+            <% open_cart_content << render("histories/client_product", item: i) %>
+            <% price+= i.quantity*i.actual_price %>
+          <%end%>
+        <%end%>
+
+        <span class="home-cart-title">
+          <span class="cart-title-sub"> last cart bought</span>
+          <span class="cart-title-sub"> <small>price:</small><%= price%>€</span>
+        </span>
+
+      </div>
+      <%if @last_cart.nil? %>
+        <div class="cart-empty">No history</div>
+      <%else%>
+        <%= open_cart_content.html_safe %>
+      <%end%>
+    </div>
+
+  </div>
+</div>
+

@@ -30,6 +30,7 @@ def new_product(name, brand, price, stock, img, cat, merc)
   p.set_hash
   file.close
   p.save
+  p
 end
 
 (1..50).each do |i|
@@ -48,20 +49,20 @@ end
   p1.save
 end
 
-new_product("Desodorizante para homens","AXE","6.19","25","axe.png",higiene,m)
-new_product("Maca","Golden","1.2","6000","apple.png",vegetais,m)
-new_product("Espetadas","Continente","5","1","espetada.png",assados,m)
-new_product("Shampoo para homens","Pantene","5","124","shampoo.png",higiene,m)
-new_product("Pepino","","1.5","543","pepino.png",vegetais,m)
-new_product("Cotonetes","","1.9","6","cotonetes.png",higiene,m)
-new_product("Cebola","","1.8","200","cebola.png",vegetais,m)
-new_product("Broculos","Continente","1","200","broculos.png",vegetais,m)
-new_product("Pimento","","3","512","pimentos.png",vegetais,m)
-new_product("Alface","Verdinha","0.53","1000","alface.png",vegetais,m)
-new_product("Frango Assado","Dom Brasas","4","300","frango.png",assados,m)
-new_product("Tomate","TomatoSauce","0.86","300","tomate.png",vegetais,m)
-new_product("Papel higienico","Renova","3","100","papel.png",higiene,m)
-new_product("Cenoura","Golden","1.33","33","CENOURA.png",vegetais,m)
+ip1=new_product("Desodorizante para homens","AXE","6.19","25","axe.png",higiene,m)
+ip2=new_product("Maca","Golden","1.2","6000","apple.png",vegetais,m)
+ip3 = new_product("Espetadas","Continente","5","1","espetada.png",assados,m)
+ip4 = new_product("Shampoo para homens","Pantene","5","124","shampoo.png",higiene,m)
+ip5=new_product("Pepino","","1.5","543","pepino.png",vegetais,m)
+ip6=new_product("Cotonetes","","1.9","6","cotonetes.png",higiene,m)
+ip7=new_product("Cebola","","1.8","200","cebola.png",vegetais,m)
+ip8=new_product("Broculos","Continente","1","200","broculos.png",vegetais,m)
+ip9=new_product("Pimento","","3","512","pimentos.png",vegetais,m)
+ip10=new_product("Alface","Verdinha","0.53","1000","alface.png",vegetais,m)
+ip11=new_product("Frango Assado","Dom Brasas","4","300","frango.png",assados,m)
+ip12=new_product("Tomate","TomatoSauce","0.86","300","tomate.png",vegetais,m)
+ip13=new_product("Papel higienico","Renova","3","100","papel.png",higiene,m)
+ip14=new_product("Cenoura","Golden","1.33","33","CENOURA.png",vegetais,m)
 
 
 #Limits
@@ -79,10 +80,66 @@ l.save
 
 #purchases
 
+def new_item(pro,car,ord)
+  i = Item.new()
+  i.product = pro
+  i.quantity = 1
+  i.actual_price = pro.price
+  i.category_id = pro.categories.first.id
+  i.cart=car
+  i.order = ord
+  i.save
+end
 
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
 
+order = Order.new
+order.merchant = m
+order.save
 
+new_item(ip1,cart,order)
+new_item(ip2,cart,order)
+new_item(ip3,cart,order)
+new_item(ip4,cart,order)
+new_item(ip5,cart,order)
+new_item(ip6,cart,order)
 
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
+
+order = Order.new
+order.merchant = m
+order.save
+
+new_item(ip7,cart,order)
+new_item(ip8,cart,order)
+new_item(ip9,cart,order)
+
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
+
+order = Order.new
+order.merchant = m
+order.save
+
+new_item(ip10,cart,order)
+new_item(ip11,cart,order)
+new_item(ip12,cart,order)
+
+cart = Cart.new(:complete => true)
+cart.client = c
+cart.save
+
+order = Order.new
+order.merchant = m
+order.save
+
+new_item(ip13,cart,order)
+new_item(ip14,cart,order)
 
 
 

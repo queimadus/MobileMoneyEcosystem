@@ -15,9 +15,12 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
 
   create_table "carts", :force => true do |t|
     t.integer  "client_id"
-    t.boolean  "complete",   :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "complete",                                 :default => false
+    t.decimal  "total",      :precision => 8, :scale => 2
+    t.decimal  "decimal",    :precision => 8, :scale => 2
+    t.string   "categories"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -37,25 +40,26 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
 
   create_table "clients", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "credit",     :default => 0
-    t.integer  "decimal",    :default => 0
+    t.decimal  "credit",     :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",    :precision => 8, :scale => 2, :default => 0.0
     t.date     "dob"
     t.string   "sex"
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "quantity",     :default => 1
+    t.integer  "quantity",                                   :default => 1
     t.integer  "cart_id"
     t.integer  "product_id"
     t.integer  "order_id"
-    t.integer  "actual_price"
+    t.decimal  "actual_price", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",      :precision => 8, :scale => 2, :default => 0.0
     t.integer  "category_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
   end
 
   create_table "limits", :force => true do |t|
@@ -71,11 +75,11 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
   create_table "merchants", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "credit",       :default => 0
-    t.integer  "decimal",      :default => 0
+    t.decimal  "credit",       :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "decimal",      :precision => 8, :scale => 2, :default => 0.0
     t.string   "bank_account"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
   end
 
   create_table "orders", :force => true do |t|
@@ -124,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "avatar_file_name"
@@ -132,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

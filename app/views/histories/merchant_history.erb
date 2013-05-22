@@ -1,0 +1,42 @@
+<%= render :layout => 'index', :locals => {:title => 'some title'} do %>
+
+  <div class="row">
+
+    <%= form_tag history_path, :method => :get, :id=>"history-search-form", :remote => true do %>
+      <div class="history-search-container">
+
+        <div class="span search-bar">
+          <input id="search" name="q" type="text" class="wsearch" placeholder="Filter by categories in your history"
+                 value="<%= @query %>" data-provide="typeahead" autocomplete="off" data-source='<%= all_categories %>'>
+
+          <i class="history search-reset glyphicon-remove glyphicon"> </i>
+        </div>
+
+      </div>
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>FROM</span>
+        <span id="from" class="date-content"><span class="mock-date">A MONTH AGO</span><span class="down-arrow">&#x25BC;</span></span>
+        <%# text_field_tag "starting", Time.now.to_date, :class => "datepicker" %>
+      </div>
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>TO</span>
+        <span id="to" class="date-content"><span class="mock-date">TODAY</span><span class="down-arrow">&#x25BC;</span></span>
+
+      </div>
+
+      <button class="history icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
+    <%end%>
+
+  </div>
+
+  <div class="client-history-container">
+    <div class="list-loading">
+      <div class="loading-inner">
+        <i class="glyphicon glyphicon-refresh icon-spin"></i>
+      </div>
+    </div>
+    <%= render 'merchant_history_list', orders: @orders, categories: @categories %>
+  </div>
+<%end%>

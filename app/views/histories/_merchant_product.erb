@@ -1,10 +1,6 @@
 <% self.formats = [:json, :html] %>
 <div id="<%=item.product.id%>" class="product-container client-history-product">
-  <div class="product-category" <%= category_color('color',item.product)%> ><div class="product-triangle-color"></div>
-   <%unless current_page?(root_path) %>
-    <i class="glyphicon glyphicon-search categ-search"></i>
-   <%end%>
-    <%= item.product.categories.first.name %></div>
+  <div class="product-category" <%= category_color('color',item.product)%> ><div class="product-triangle-color"></div><i class="glyphicon glyphicon-search categ-search"></i><%= item.product.categories.first.name %></div>
   <div class="product-image">
     <%= image_tag item.product.image.url, :class => "product-image-img" %>
   </div>
@@ -13,7 +9,7 @@
       <span class="name" title="Name"><%= item.product.name %></span>
       <span class="brand" title="Brand"><small><%= item.product.brand %></small></span>
       <% if item.order and item.order.merchant %>
-      <span class="company" title="Company"><small><i class="glyphicon glyphicon-briefcase"></i><%= item.order.merchant.name %></small></span>
+        <span class="company" title="Company"><small><i class="glyphicon glyphicon-briefcase"></i><%= item.order.merchant.name %></small></span>
       <%end%>
     </div>
   </div>
@@ -21,7 +17,7 @@
     <span class="price" title="Price" <%= category_color('background-color',item.product)%> ><%= number_to_currency(item.actual_price, :locale => :en) %></span>
   </div>
   <div class="stock-cont">
-    <span class="quantity" title="Quantity" ><%= item.quantity %><i class="glyphicon glyphicon-shopping-cart"></i></span>
+    <span class="quantity" title="Quantity" ><%= item.sum_quantity %><i class="glyphicon glyphicon-shopping-cart"></i></span>
   </div>
 
 </div>

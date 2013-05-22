@@ -1,11 +1,42 @@
 <% self.formats = [:json, :html] %>
-<%= form_for current_user.client,  :remote => true, :html => {:class => "credit-form", :data => { :type => 'json' }} do |f| %>
+<%# unless result.nil?
+result.errors.each do |error|
+
+  #puts error.message
+ end
+ result.errors.for(:amount).each do |e|
+   puts e.message
+  end
+
+puts result.errors.for(:number)
+puts result.errors.for(:cvv)
+  end
+%>
+<%= form_for credit_path,  :remote => false, :html => {:class => "credit-form", :id=>"credit-form", :data => { :type => 'json' }} do |f| %>
   <div class="control-group">
-    <label for="user_credit" class="control-label">Amount</label>
+    <label for="amount" class="control-label">Amount</label>
     <div class="controls">
-      <%= f.text_field :credit,  :placeholder => 'Amount' %>
-      <%=	render 'settings/error_on_form', message: error_on_form(current_user.client.errors,:credit) unless current_user.client.errors[:credit].empty?  %>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <%= text_field_tag  :amount, nil,  :placeholder => 'Amount' %>
+      <%# result.errors.for(:customer).for(:credit_card) if !result.nil? and !errors.nil?%>
+       </div>
+    <label for="number" class="control-label">Card Number</label>
+    <div class="controls">
+      <%= text_field_tag  :number,nil,  :placeholder => 'Card' %>
     </div>
+    <label for="cvv" class="control-label">CVV</label>
+    <div class="controls">
+      <%= text_field_tag  :cvv, nil, :placeholder => 'cvv' %>
+        </div>
+    <label for="month" class="control-label">Expiration (MM/YYYY)</label>
+    <div class="controls">
+      <%= text_field_tag  :month,nil,  :placeholder => 'mm' %>
+      <%= text_field_tag  :year,nil,  :placeholder => 'yyyy' %>
+       </div>
+    <button type="submit" class="btn btn-primary">Add</button>
   </div>
-<% end %>
+ <%end%>
+<script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
+<script type="text/javascript">
+  var braintree = Braintree.create("MIIBCgKCAQEAyXzkPQaOaMfA0DFrZuyhk6jaVopxAjJssLjPwyIUO8ByfX/JI/Qvg9A8X8AXz6cb6w6j9Lh1tzNltmnWhl1a5QGDrFjypgUb6GVJh7xlKQXM5iEIYgb055hl//7eqRkAsB2eawNyQjchxxrWlNMLT0usyKkiIgRW5adGKY4ZFXuQ2ivP1QcQI7TmfMxmjFEEO0g8XZJXwXS9s9teXhepMAOx9erYFnDFGyNBh+SekNEH8SkgZAodZCsFp0ptnJAK+CeM3AUy/tYV5s5RTRBpRzuAaj/peWaWiKdE5bkV/vdjqccVZ7y3qtY13dM1BFGmI5yGc5Zi72CLcZ06HX/MSQIDAQAB");
+  braintree.onSubmitEncryptForm('credit-form');
+</script>

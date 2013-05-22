@@ -1,13 +1,54 @@
 <% self.formats = [:json, :html] %>
-<div class="client-history-container">
-  <% carts.each do |c| %>
-    <div class="history-header">
-      <%= c.updated_at.to_date %>
-    </div>
-    <div class="history-products-container">
-      <% c.items.each do |i| %>
-          <%= render 'client_product', item: i %>
-      <%end %>
-    </div>
+<div class="client-history-container-inner">
+  <div class="row">
+  <%if carts.nil? or carts.empty? %>
+
+      <div class="col-span-12 tcenter">
+        <span>No history</span>
+      </div>
+
   <%end%>
+
+
+  <% carts.each do |c| %>
+
+    <% content = "" %>
+    <% price = 0 %>
+    <% c.items.order("category_id").each do |i| %>
+      <% if filter_categories(i.product,categories) %>
+        <% content << render('client_product', item: i) %>
+        <% price += i.actual_price*i.quantity %>
+      <% end %>
+    <%end %>
+    <%unless content.blank? %>
+      <div class="history-products-container clearfix">
+        <div class="history-header">
+          <span class="home-cart-title">
+            <span class="cart-id cart-title-sub">
+              <%= "CART #"+c.id.to_s %>
+            </span>
+            <span class="cart-title-sub">
+              <i class="glyphicon glyphicon-calendar"></i>
+              <%= c.updated_at.to_date %>
+            </span>
+            <span class="cart-title-sub">
+              <i class="glyphicon glyphicon-euro"></i>
+              <%= price %>
+            </span>
+          </span>
+        </div>
+        <%= content.html_safe %>
+      </div>
+    <%end%>
+  <%end%>
+  </div>
+
+  <div class="row">
+    <div class="col-span-12 tcenter">
+
+      <%= paginate carts, :remote => true, params: {controller: "histories", action: "index", :id => nil, :utf8 => nil, :authenticity_token => nil,
+                                                       :category => nil, :product => nil, :commit => nil } %>
+    </div>
+  </div>
+
 </div>

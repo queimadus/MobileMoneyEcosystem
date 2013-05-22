@@ -2,6 +2,7 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get '/market/:merchant_name' => 'markets#show', :as => :market
   get '/history' => 'histories#index', :as => :history
+  get '/statistics/:kind' => 'statistics#index', :as => :statistics
 
   match "api/products/:id" => "api/products#show"
   match "api/cart/:id" => "api/cart#show"
@@ -21,8 +22,8 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "api/cart/allcarts"
   get "home/index"
   get "header_info" => "users#header_info", :as => :credit_client
-
-
+  get "/credits" => "credits#index", :as => :credits
+  match "/credits" => "credits#update", :as => :credits, :via => :post
 
   devise_for :users, :path => '', :controllers => {:registrations => "registrations"},
              :path_names => { :sign_in => 'login',
@@ -35,7 +36,6 @@ MobileMoneyEcosystem::Application.routes.draw do
   resources :users
   resources :merchants
   resources :clients
-  resources :credits
 
 
   # The priority is based upon order of creation:

@@ -80,6 +80,7 @@ $greywhite: #fbfbfb;
 @import "limits.scss";
 @import "settings.scss";
 @import "histories.scss";
+@import "homes.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -121,7 +122,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 body{
   background-color:#f6f6f6;
   color: #555;
-  background-image: url(cross_scratches.png);
+  background-image: url(shl.png);
 }
 
 #header{
@@ -143,7 +144,7 @@ body{
 }
 
 body,html{
-  font-family: 'Open Sans','Helvetica Neue','PT sans','Helvetica',Arial,sans-serif;
+  font-family: 'Roboto','Open Sans','Helvetica Neue','PT sans','Helvetica',Arial,sans-serif;
 }
 
 .field_with_errors,
@@ -290,9 +291,13 @@ input.invi-input:focus{
   box-shadow: none;
 }
 
+#menu{
+  margin: -8px 0px;
+}
+
 #menu-container{
   border-bottom: 1px solid rgba(184, 184, 184, 0);
-  height: 38px;
+  height: 27px;
 }
 
 .menu-item:first-child{
@@ -301,15 +306,22 @@ input.invi-input:focus{
 
 .menu-item{
   padding: 9px 25px 8px 25px;
-  margin: 0px 4px;
-  float: left;
+  #margin: 0px 4px;
+  #float: left;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  #background-color: rgba(255, 255, 255, 0.5);
+  #box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
   padding-bottom: 8px;
-  font-weight: 600;
+  font-weight: 500;
+}
+
+.menu-inner{
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 8px 0px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .menu-item:hover:not(.active){
@@ -404,14 +416,18 @@ button.icon-button{
   text-decoration: none;
 }
 
+#ui-datepicker-div{
+  z-index: 2 !important;
+}
+
 .main-avatar-container{
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: #EEE;
-  border: 3px solid #fff;
-  box-shadow: 0px 0px 1px 0px black;
-  float: left;
-  position: relative;
+  float: right;
+  display: inline;
+  margin-top: -6px;
+  margin-right: 20px;
 }
 
 .main-avatar-image{
@@ -420,12 +436,10 @@ button.icon-button{
 
 .profile-down-arrow{
   position: absolute;
-  right: -22px;
-  top: -3px;
-  background-color: #fff;
+  top: -2px;
   padding: 10px 2px;
-  box-shadow: 0px 0px 1px 0px black;
-  color: #555;
+  color: rgba(85, 85, 85, 0.64);
+  right: 16px;
 }
 
 .header-info-block{
@@ -438,17 +452,19 @@ button.icon-button{
 }
 
 .header-credit{
-  float: left;
+  float: right;
   padding: 11px 8px;
-  #color: #428bca;
+  margin-top: -11px;
+  color: rgba(85, 85, 85, 0.64);
 }
 
 .header-name{
-  float: left;
+  float: right;
   padding: 11px 15px;
   font-size: 15px;
-  font-weight: 100;
-  #color: #428bca;
+  font-weight: 400;
+  margin-top: -11px;
+  color: rgba(85, 85, 85, 0.64);
 }
 
 .profile-dropdown-container{
@@ -456,10 +472,10 @@ button.icon-button{
   position: absolute;
   background-color: white;
   right: 16px;
-  top: 52px;
+  top: 35px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
   display: none;
-  z-index: -1;
+  z-index: 4;
 }
 
 .profile-dropdown-container ol{
