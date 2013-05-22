@@ -9,6 +9,14 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get "api/clientinfo/info"
 
+  get "api/cart/create"
+  get "api/cart/addproduct"
+  get "api/cart/listcart"
+  get "api/cart/removeproduct"
+  get "api/cart/completed"
+  get "api/cart/clearcart"
+  get "api/cart/allcarts"
+
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
     get "/register/client" => "registrations#new", :as => :client_registration
@@ -21,7 +29,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   end
 
 
-  get "api/cart/allcarts"
+
   get "home/index"
   get "header_info" => "users#header_info", :as => :credit_client
   get "/credits" => "credits#index", :as => :credits
