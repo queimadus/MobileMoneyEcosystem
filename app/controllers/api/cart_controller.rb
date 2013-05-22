@@ -14,26 +14,27 @@ class Api::CartController < ApplicationController
   end
 
   def addproduct
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     i = Item.new
     i.cart = c
     p = Product.find_by_qrcode(params[:qrcode])
     i.product = p
     i.actual_price = p.price
     if(current_user.client.credit < p.price)
-      render :json=> {:success=>false, :message => "Not enough credit"}
+      result = {:success=>false, :message => "Not enough credit"}
     end
     i.quantity = params[:quantity]
     if i.save
-      render :json=> {:success=>true}
+      result = {:success=>true}
     else
-      render :json=> {:success=>false}
+      result = {:success=>false}
     end
+    render :json => result
   end
 
   def listcart
 
-    c = Cart.active(current_user.client.id).first
+    c = Cart.active.from_client(current_user.client).first
     #  products = []
     if c == nil
       result = {:success=>false}
@@ -106,7 +107,7 @@ class Api::CartController < ApplicationController
   def removeproduct
 
     i = Item.where(:product_id => params[:product_id],
-                   :cart_id => Cart.active.from(current_user.client)).first
+                   :cart_id => Cart.active.from_client(current_user.client).first )
     if Item.destroy(i.id)
       render :json=> {:success=>true}
     else
@@ -116,7 +117,7 @@ class Api::CartController < ApplicationController
   end
 
   def completed
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     c.items.each do |item|
       p = Product.find(item.product_id)
       if(!Order.where(:merchant_id => p.merchant_id,:sent => false))
@@ -137,7 +138,7 @@ class Api::CartController < ApplicationController
   end
 
   def clearcart
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active.from_client(current_user.client).first
     if c == nil
       render :json=> {:success=>false}
     else
