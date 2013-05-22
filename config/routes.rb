@@ -15,7 +15,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "api/cart/removeproduct"
   get "api/cart/completed"
   get "api/cart/clearcart"
-  get "api/cart/allcarts"
+    get "api/cart/allcarts"
 
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
