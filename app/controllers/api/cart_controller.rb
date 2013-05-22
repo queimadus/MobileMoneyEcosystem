@@ -13,25 +13,28 @@ class Api::CartController < ApplicationController
       end
   end
 
+  #complete
   def addproduct
     c = Cart.active.from_client(current_user.client).first
-    i = Item.new
-    i.cart = c
     p = Product.find_by_qrcode(params[:qrcode])
-    i.product = p
-    i.actual_price = p.price
-    if(current_user.client.credit < p.price)
+    if(current_user.client.credit < (p.price * params[:quantity].to_i ))
       result = {:success=>false, :message => "Not enough credit"}
-    end
-    i.quantity = params[:quantity]
-    if i.save
-      result = {:success=>true}
     else
-      result = {:success=>false}
+      i = Item.new
+      i.cart = c
+      i.product = p
+      i.actual_price = p.price
+      i.quantity = params[:quantity]
+      if i.save
+        result = {:success=>true}
+      else
+        result = {:success=>false}
+      end
     end
     render :json => result
-  end
+    end
 
+  #complete
   def listcart
 
     c = Cart.active.from_client(current_user.client).first
@@ -69,6 +72,7 @@ class Api::CartController < ApplicationController
     render :json=> result
   end
 
+  #complete
   def show
     c = Cart.find(params[:id])
     if c == nil
@@ -104,6 +108,7 @@ class Api::CartController < ApplicationController
     render :json=> result
   end
 
+  #complete
   def removeproduct
 
     i = Item.where(:product_id => params[:product_id],
@@ -116,8 +121,11 @@ class Api::CartController < ApplicationController
 
   end
 
+  #corrigir credito para retirar o dinheiro do cart
   def completed
     c = Cart.active.from_client(current_user.client).first
+    cli = Client.find(current_user.client.id)
+    cartprice = 0
     c.items.each do |item|
       p = Product.find(item.product_id)
       if(!Order.where(:merchant_id => p.merchant_id,:sent => false))
@@ -127,16 +135,20 @@ class Api::CartController < ApplicationController
       else
         o = Order.where(:merchant_id => p.merchant_id,:sent => false).first
       end
-      item.order = o
+       cartprice = cartprice + item.actual_price * item.quantity;
+       item.order = o
     end
     c.complete = true
     if c.save
+      cli.credit =  cli.credit - cartprice
+      cli.save
       render :json=> {:success=>true}
     else
       render :json=> {:success=>false}
     end
   end
 
+  #complete
   def clearcart
     c = Cart.active.from_client(current_user.client).first
     if c == nil
@@ -149,6 +161,7 @@ class Api::CartController < ApplicationController
     end
   end
 
+  #complete
   def allcarts
     c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date],:client_id => current_user.client.id})
     #c = Cart.from(current_user.client).between_dates(params[:start_date],params[:end_date])
@@ -164,7 +177,8 @@ class Api::CartController < ApplicationController
           cartprice = cartprice + i.actual_price
         end
         carts << {:date => cart.created_at,
-                 :pricesum => cartprice
+                 :pricesum => cartprice,
+                 :cart_id => cart.id
         }
       end
       result[:content] = carts
