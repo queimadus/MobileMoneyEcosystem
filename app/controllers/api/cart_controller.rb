@@ -102,8 +102,6 @@ class Api::CartController < ApplicationController
 
     end
     render :json=> result
-
-
   end
 
   def removeproduct
@@ -152,7 +150,7 @@ class Api::CartController < ApplicationController
   end
 
   def allcarts
-    c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date]})
+    c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date],:client_id => current_user.client.id})
     #c = Cart.from(current_user.client).between_dates(params[:start_date],params[:end_date])
     if c == nil
       result = {:success=>false}
