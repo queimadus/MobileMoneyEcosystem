@@ -9,8 +9,8 @@ class Cart < ActiveRecord::Base
    where(:complete => true)
   end
 
-  def self.active
-    where(:complete => false)
+  def self.active(id)
+    where(:complete => false, :client_id =>id )
   end
 
   #deprecated - use between_dates(s,e) instead

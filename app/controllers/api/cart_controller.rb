@@ -33,9 +33,8 @@ class Api::CartController < ApplicationController
 
   def listcart
 
-    c = Cart.active.from(current_user.client).first
+    c = Cart.active(current_user.client.id).first
     #  products = []
-    yeah = current_user.client.id
     if c == nil
       result = {:success=>false}
     else
