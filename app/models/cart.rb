@@ -9,8 +9,8 @@ class Cart < ActiveRecord::Base
    where(:complete => true)
   end
 
-  def self.active(id)
-    where(:complete => false, :client_id =>id )
+  def self.active
+    where(:complete => false)
   end
 
   #deprecated - use between_dates(s,e) instead
@@ -20,8 +20,7 @@ class Cart < ActiveRecord::Base
     where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s,e.to_s)
   end
 
-  def self.from(c)
-
+  def self.from_client(c)
     where(:client_id => c.id)
   end
 
