@@ -20,6 +20,9 @@ class Api::CartController < ApplicationController
     p = Product.find_by_qrcode(params[:qrcode])
     i.product = p
     i.actual_price = p.price
+    if(current_user.client.credit < p.price)
+      render :json=> {:success=>false, :message => "Not enough credit"}
+    end
     i.quantity = params[:quantity]
     if i.save
       render :json=> {:success=>true}
