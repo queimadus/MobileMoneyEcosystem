@@ -20,19 +20,22 @@ class Api::CartController < ApplicationController
     p = Product.find_by_qrcode(params[:qrcode])
     i.product = p
     i.actual_price = p.price
+    if(current_user.client.credit < p.price)
+      result = {:success=>false, :message => "Not enough credit"}
+    end
     i.quantity = params[:quantity]
     if i.save
-      render :json=> {:success=>true}
+      result = {:success=>true}
     else
-      render :json=> {:success=>false}
+      result = {:success=>false}
     end
+    render :json => result
   end
 
   def listcart
 
     c = Cart.active.from_client(current_user.client).first
     #  products = []
-    yeah = current_user.client.id
     if c == nil
       result = {:success=>false}
     else
@@ -99,14 +102,12 @@ class Api::CartController < ApplicationController
 
     end
     render :json=> result
-
-
   end
 
   def removeproduct
 
     i = Item.where(:product_id => params[:product_id],
-                   :cart_id => Cart.active.from_client(current_user.client)).first
+                   :cart_id => Cart.active.from_client(current_user.client).first )
     if Item.destroy(i.id)
       render :json=> {:success=>true}
     else
@@ -137,7 +138,7 @@ class Api::CartController < ApplicationController
   end
 
   def clearcart
-    c = Cart.active.from_client(current_user.client).first
+    c = Cart.active.from(current_user.client).first
     if c == nil
       render :json=> {:success=>false}
     else
@@ -149,8 +150,8 @@ class Api::CartController < ApplicationController
   end
 
   def allcarts
-    #c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date]})
-    c = Cart.from(current_user.client).between_dates(params[:start_date],params[:end_date])
+    c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date],:client_id => current_user.client.id})
+    #c = Cart.from(current_user.client).between_dates(params[:start_date],params[:end_date])
     if c == nil
       result = {:success=>false}
     else

@@ -4,8 +4,19 @@ MobileMoneyEcosystem::Application.routes.draw do
   get '/history' => 'histories#index', :as => :history
   get '/statistics/:kind' => 'statistics#index', :as => :statistics
 
+  get "api/cart/create"
+  get "api/cart/addproduct"
+  get "api/cart/listcart"
+  get "api/cart/removeproduct"
+  get "api/cart/completed"
+  get "api/cart/clearcart"
+  get "api/cart/allcarts"
+
   match "api/products/:id" => "api/products#show"
   match "api/cart/:id" => "api/cart#show"
+
+  get "api/clientinfo/info"
+
 
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
@@ -19,7 +30,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   end
 
 
-  get "api/cart/allcarts"
+
   get "home/index"
   get "header_info" => "users#header_info", :as => :credit_client
   get "/credits" => "credits#index", :as => :credits
