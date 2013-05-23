@@ -25,7 +25,7 @@ feature "Add product" do
 			page.fill_in "product_name", :with => 'TestProduct'
 		end
 		And "I select category" do
-			page.select "Assados", :from => 'category_id'
+			page.select "Assados", :from_client => 'category_id'
 		end
 		And "I fill in product brande" do
 			page.fill_in "product_brand", :with => 'TestBrand'

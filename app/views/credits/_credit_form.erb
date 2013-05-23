@@ -12,27 +12,31 @@ puts result.errors.for(:number)
 puts result.errors.for(:cvv)
   end
 %>
-<%= form_for credit_path,  :remote => false, :html => {:class => "credit-form", :id=>"credit-form", :data => { :type => 'json' }} do |f| %>
+<%= form_for credits_path,  :remote => true, :html => {:class => "credit-form", :id=>"credit-form", :data => { :type => 'json' }} do |f| %>
   <div class="control-group">
     <label for="amount" class="control-label">Amount</label>
     <div class="controls">
-      <%= text_field_tag  :amount, nil,  :placeholder => 'Amount' %>
-      <%# result.errors.for(:customer).for(:credit_card) if !result.nil? and !errors.nil?%>
+      <%= text_field_tag  :amount, nil,  :placeholder => 'Amount', :style => "width: 100px;", :value=>params.has_key?(:amount)? params[:amount]:""  %>
+       <%= error_messages(result,:credit_card,:amount) %>
        </div>
     <label for="number" class="control-label">Card Number</label>
     <div class="controls">
-      <%= text_field_tag  :number,nil,  :placeholder => 'Card' %>
+      <%= text_field_tag  :number,nil,  :placeholder => 'Card', :value=>params.has_key?(:number)? params[:number]:"" %>
+      <%= error_messages(result,:credit_card,:number) %>
     </div>
     <label for="cvv" class="control-label">CVV</label>
     <div class="controls">
-      <%= text_field_tag  :cvv, nil, :placeholder => 'cvv' %>
+      <%= text_field_tag  :cvv, nil, :placeholder => 'cvv', :style => "width: 100px;", :value=>params.has_key?(:cvv)? params[:cvv]:"" %>
+      <%= error_messages(result,:credit_card,:cvv) %>
         </div>
     <label for="month" class="control-label">Expiration (MM/YYYY)</label>
     <div class="controls">
-      <%= text_field_tag  :month,nil,  :placeholder => 'mm' %>
-      <%= text_field_tag  :year,nil,  :placeholder => 'yyyy' %>
+      <%= text_field_tag  :month,nil,  :placeholder => 'mm', :style=>"width:44px;", :value=>params.has_key?(:month)? params[:month]:"" %>
+      <%= text_field_tag  :year,nil,  :placeholder => 'yyyy', :style=>"width:52px;", :value=>params.has_key?(:year)? params[:year]:"" %>
+      <%= error_messages(result,:credit_card,:expiration_month) %>
+      <%= error_messages(result,:credit_card,:expiration_year) %>
        </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Credit</button>
   </div>
  <%end%>
 <script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>

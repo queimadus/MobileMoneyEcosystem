@@ -81,6 +81,7 @@ $greywhite: #fbfbfb;
 @import "settings.scss";
 @import "histories.scss";
 @import "homes.scss";
+@import "credits.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -120,7 +121,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 body{
-  background-color:#f6f6f6;
+  background-color:#ececec;
   color: #555;
   background-image: url(shl.png);
 }

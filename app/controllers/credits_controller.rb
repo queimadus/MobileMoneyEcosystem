@@ -1,7 +1,8 @@
 class CreditsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :user_is_client!
-
+  include ApplicationHelper
+  include ActionView::Helpers::TagHelper
   require "rubygems"
   require "braintree"
 
@@ -33,11 +34,27 @@ class CreditsController < ApplicationController
 
     if @result.success?
        current_user.client.credit += params[:amount].to_f
-
+       valid=true
     else
-
+       valid=false
     end
-    render 'new'
+
+
+    respond_to do |format|
+      if valid
+        format.json { render :json => {:success => true,
+                                       :notice => bootstrap_notice("Success", :notice),
+                                       :html => render_to_string( :partial => 'credit_form',
+                                                                  :locals => {:result => @result})}}
+        format.html { render 'new', :notice => "Success"}
+      else
+        format.json { render :json => {:success => false,
+                                       :notice => bootstrap_notice("Error", :error),
+                                       :html => render_to_string( :partial => 'credit_form',
+                                                                  :locals => {:result => @result})}}
+        format.html { render 'new', :error => "Error"}
+      end
+    end
   end
 
 

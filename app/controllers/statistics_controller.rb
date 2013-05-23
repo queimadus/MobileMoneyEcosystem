@@ -21,7 +21,7 @@ class StatisticsController < ApplicationController
   protected
 
   def client_statistics_categories
-    from = params[:from] ? params[:from] : 1.month.ago.to_date
+    from = params[:from_client] ? params[:from_client] : 1.month.ago.to_date
     to   = params[:to]   ? params[:to]   : Time.now.to_date
     #items = Item.joins(:categories).from(current_user.client).group("item.id, item.category_id").select("category.name as category_name, sum(actual_price) as total_price")
     #items = Item.joins("LEFT JOIN `categories` ON categories.id = items.category_id left join 'carts' on carts.id= items.cart_id").group("items.id, items.category_id").select("name as category_name, sum(actual_price) as total_price").where("client_id=?",1)
@@ -32,7 +32,7 @@ class StatisticsController < ApplicationController
   end
 
   def client_statistics_credit
-    from = params[:from] ? params[:from] : 1.month.ago.to_date
+    from = params[:from_client] ? params[:from_client] : 1.month.ago.to_date
     to   = params[:to]   ? params[:to]   : Time.now.to_date
 
     render :json => credit_time(current_user.client.id,from,to)

@@ -17,12 +17,12 @@ class HistoriesController < ApplicationController
   def client_history
 
     search = params[:q]  ? params[:q]    : ""
-    from = params[:from] ? params[:from] : Time.now.to_date-1.month
+    from = params[:from_client] ? params[:from_client] : Time.now.to_date-1.month
     to   = params[:to]   ? params[:to]   : Time.now.to_date
 
 
     @categories = category_query_parse(search)
-    c = Cart.from(current_user.client).archived.between_dates(from,to).order("date(updated_at) desc")
+    c = Cart.from_client(current_user.client).archived.between_dates(from,to).order("date(updated_at) desc")
     @carts = Kaminari.paginate_array(c).page(params[:page]).per(5)
 
 
@@ -35,7 +35,7 @@ class HistoriesController < ApplicationController
 
   def merchant_history
     search = params[:q]  ? params[:q]    : ""
-    from = params[:from] ? params[:from] : Time.now.to_date-1.month
+    from = params[:from_client] ? params[:from_client] : Time.now.to_date-1.month
     to   = params[:to]   ? params[:to]   : Time.now.to_date
 
 
