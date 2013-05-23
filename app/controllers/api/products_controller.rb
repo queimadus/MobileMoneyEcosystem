@@ -27,14 +27,16 @@ class Api::ProductsController < ApplicationController
       result = {:success => false}
     else
       m = p.merchant
-      result = {:success => true, :content => {
-          :id => p.id,
-          :name => p.name,
-          :brand => p.brand,
-          :company => m.name,
-          :price => p.price,
-          :image_url => p.image_url
-      }}
+      result = {:success => true,
+                :content => {
+                      :id => p.id,
+                      :name => p.name,
+                      :brand => p.brand,
+                      :company => m.name,
+                      :price => p.price,
+                      :image_url => p.image_url
+                }
+                }
     end
     render :json=> result
   end
