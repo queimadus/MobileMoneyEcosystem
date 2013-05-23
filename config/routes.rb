@@ -15,7 +15,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   match "api/products/:id" => "api/products#show"
   match "api/cart/:id" => "api/cart#show"
 
-  get "api/clientinfo/info"
+  get "api/client/info"
 
 
   devise_scope :user do
