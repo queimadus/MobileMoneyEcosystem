@@ -123,7 +123,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 body{
   background-color:#ececec;
   color: #555;
-  background-image: url(shl.png);
+  #background-image: url(shl.png);
 }
 
 #header{
@@ -143,6 +143,8 @@ body{
 #register-link{
   cursor: pointer;
 }
+
+
 
 body,html{
   font-family: 'Roboto','Open Sans','Helvetica Neue','PT sans','Helvetica',Arial,sans-serif;
@@ -499,4 +501,16 @@ button.icon-button{
 
 .search-bar input{
   padding-right: 70px;
+}
+
+#menu-bar{
+  position: absolute;
+  top: 34px;
+  height: 3px;
+  background-color: #428bca;
+  width: 95px;
+  left: 15px;
+  transition: all 0.18s ease-in-out;
+  -webkit-transition: all 0.18s ease-in-out;
+  display: none;
 }

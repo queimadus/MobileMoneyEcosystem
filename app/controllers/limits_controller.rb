@@ -25,6 +25,21 @@ class LimitsController < ApplicationController
 
     @limits = Kaminari.paginate_array(q).page(params[:page]).per(8)
 
+    now = Time.now.to_date
+
+    @limits.each do |lim|
+      p = period_to_date(lim.period)
+      while lim.starting.to_date+p< now
+
+        lim.starting+=p
+        #lim.save
+      end
+      while now < lim.starting.to_date
+        lim.starting-=p
+      end
+      lim.save
+    end
+
     respond_to do |format|
       format.json { render :json => {:success => true,
                                      :html => render_to_string( :partial => 'limits_list',
