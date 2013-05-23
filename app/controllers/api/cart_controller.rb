@@ -3,6 +3,7 @@ class Api::CartController < ApplicationController
   respond_to :json
   before_filter :authenticate_user!
 
+  #complete
   def create
       c = Cart.new
       c.client=current_user.client
@@ -13,7 +14,7 @@ class Api::CartController < ApplicationController
       end
   end
 
-  #complete
+  #adicionar clausula com force buy
   def addproduct
     c = Cart.active.from_client(current_user.client).first
     p = Product.find_by_qrcode(params[:qrcode])
@@ -121,7 +122,7 @@ class Api::CartController < ApplicationController
 
   end
 
-  #corrigir credito para retirar o dinheiro do cart
+  #complete
   def completed
     c = Cart.active.from_client(current_user.client).first
     cli = Client.find(current_user.client.id)
@@ -141,7 +142,7 @@ class Api::CartController < ApplicationController
     c.complete = true
     if c.save
       cli.credit =  cli.credit - cartprice
-      cli.save
+      cli.save!
       render :json=> {:success=>true}
     else
       render :json=> {:success=>false}
