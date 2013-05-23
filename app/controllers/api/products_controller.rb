@@ -22,7 +22,9 @@ class Api::ProductsController < ApplicationController
   end
 
   def scan
-    p = Product.where(:qrcode => params[:qrcode])
+    p = Product.where(:qrcode => params[:qrcode]).first
+    cat = Categorization.where(:product_id => p.id).first
+
     if p == nil
       result = {:success => false}
     else
@@ -32,9 +34,10 @@ class Api::ProductsController < ApplicationController
                       :id => p.id,
                       :name => p.name,
                       :brand => p.brand,
-                      :company => m.name,
+                      :merchant => m.name,
                       :price => p.price,
-                      :image_url => p.image_url
+                      :image_url => p.image_url,
+                      :category =>  cat.category.name
                 }
                 }
     end
