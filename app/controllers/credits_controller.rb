@@ -34,6 +34,7 @@ class CreditsController < ApplicationController
 
     if @result.success?
        current_user.client.credit += params[:amount].to_f
+       current_user.client.save
        valid=true
     else
        valid=false
