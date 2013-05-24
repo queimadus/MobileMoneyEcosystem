@@ -6,10 +6,10 @@ feature "Merchant register" do
 			page.visit "/register/merchant"
 		end
 		And "I fill in name" do
-			page.fill_in "merchant[name]", :with => 'Test'
+			page.fill_in "merchant[name]", :with => 'TestMerchant'
 		end
 		And "I fill in desired email" do
-			page.fill_in "user_email", :with => 'testemail@test.com'
+			page.fill_in "user_email", :with => 'testmerchant@test.com'
 		end
 		And "I fill in desired password" do
 			page.fill_in "user_password", :with => 'testtest'
@@ -21,7 +21,7 @@ feature "Merchant register" do
 			page.click_button "Register"
 		end
 		Then "I should see greeting" do
-			page.should have_content("Hello")
+			page.should have_content("You have signed up successfully")
 		end
 	end
 end

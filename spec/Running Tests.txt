@@ -1,0 +1,2 @@
+rake db:seed RAILS_ENV=test --trace
+rails server -e test

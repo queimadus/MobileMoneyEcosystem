@@ -12,7 +12,7 @@ feature "Client register" do
 			page.fill_in "client[last_name]", :with => 'TestLast'
 		end
 		And "I fill in desired email" do
-			page.fill_in "user_email", :with => 'testemail@test.com'
+			page.fill_in "user_email", :with => 'testclient@test.com'
 		end
 		And "I fill in desired password" do
 			page.fill_in "user_password", :with => 'testtest'
@@ -21,22 +21,22 @@ feature "Client register" do
 			page.fill_in "user_password_confirmation", :with => 'testtest'
 		end
 		And "I select day of birth" do
-			page.select "1", :from_client => 'client_dob_3i'
+			page.select "1", :from => 'client_dob_3i'
 		end
 		And "I select month of birth" do
-			page.select "January", :from_client => 'client_dob_2i'
+			page.select "January", :from => 'client_dob_2i'
 		end
 		And "I select year of birth" do
-			page.select "1991", :from_client => 'client_dob_1i'
+			page.select "1991", :from => 'client_dob_1i'
 		end
 		And "I select gender" do
-			page.select "Male", :from_client => 'sex_Gender'
+			page.select "Male", :from => 'sex_Gender'
 		end
 		And "I click register" do
 			page.click_button "Register"
 		end
 		Then "I should see greeting" do
-			page.should have_content("Hello")
+			page.should have_content("You have signed up successfully")
 		end
 	end
 end
