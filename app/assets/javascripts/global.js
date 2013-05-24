@@ -15,7 +15,7 @@ $(document).mouseup(function()
 });
 
 
-if($(".menu-item").length>0){
+if($(".menu-item.active").length>0){
     $(".menu-item").mouseenter(handlerIn).mouseleave(handlerOut);
     var menu_bar = $("#menu-bar");
     var act = $(".menu-item.active");
