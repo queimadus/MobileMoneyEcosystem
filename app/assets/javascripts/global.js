@@ -16,16 +16,12 @@ $(document).mouseup(function()
 
 
 if($(".menu-item.active").length>0){
-    $(".menu-item").mouseenter(handlerIn).mouseleave(handlerOut);
+
     var menu_bar = $("#menu-bar");
     var act = $(".menu-item.active");
+    menu_bar.css("width",act.outerWidth()).css("left",act.position().left);
+
+    $(".menu-item").mouseenter(function(){menu_bar.css("width",$(this).outerWidth()).css("left",$(this).position().left);}).mouseleave(function(){menu_bar.css("width",act.outerWidth()).css("left",act.position().left);});
     menu_bar.show();
 
-    function handlerIn(){
-       menu_bar.css("width",$(this).outerWidth()).css("left",$(this).position().left);
-    }
-
-    function handlerOut(){
-        menu_bar.css("width",act.outerWidth()).css("left",act.position().left);
-    }
 }
