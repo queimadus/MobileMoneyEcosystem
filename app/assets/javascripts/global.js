@@ -19,7 +19,6 @@ if($(".menu-item.active").length>0){
     $(".menu-item").mouseenter(handlerIn).mouseleave(handlerOut);
     var menu_bar = $("#menu-bar");
     var act = $(".menu-item.active");
-    handlerOut();
     menu_bar.show();
 
     function handlerIn(){
@@ -27,6 +26,6 @@ if($(".menu-item.active").length>0){
     }
 
     function handlerOut(){
-        menu_bar.delay(1300).css("width",act.outerWidth()).css("left",act.position().left);
+        menu_bar.css("width",act.outerWidth()).css("left",act.position().left);
     }
 }
