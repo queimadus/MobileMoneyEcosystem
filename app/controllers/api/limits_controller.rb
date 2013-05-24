@@ -6,7 +6,7 @@ class Api::LimitsController < ApplicationController
     limits = current_user.client.limits
     if(limits != nil)
       result = {:success => true}
-      result.merge(:content => [])
+      result.merge(:content => [] )
       content = []
       limits.each do |limit|
         cat = Category.find(limit.category_id)
