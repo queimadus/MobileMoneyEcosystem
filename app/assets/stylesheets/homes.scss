@@ -28,10 +28,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index:5;
 }
 
 .stats-loader.loading+home-stats-chart{
   box-shadow: none;
+  opacity: 0.3;
 }
 
 .home-stats-chart-container{

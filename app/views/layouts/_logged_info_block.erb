@@ -22,11 +22,13 @@
   <div class="header-credit">
   <i class="glyphicon-euro glyphicon"> </i>
     <span>
-      <% if current_user.is_client? %>
-        <%=  current_user.client.credit %>
-      <%else%>
-        <%=  current_user.merchant.credit %>
-      <%end%>
+
+        <% if current_user.is_client? %>
+          <%=  link_to current_user.client.credit, credits_path %>
+        <%else%>
+          <%=  current_user.merchant.credit %>
+        <%end%>
+
      </span>
 </div>
 
@@ -34,6 +36,11 @@
 <div class="profile-dropdown-container">
   <ol>
     <li><%= link_to "Profile", settings_path %></li>
+    <%if current_user.is_merchant? %>
+      <li><%= link_to "My market", market_path(current_user.merchant.name) %></li>
+    <%else%>
+      <li><%= link_to "Credits", credits_path %></li>
+    <%end%>
     <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "")%></li>
   </ol>
 </div>

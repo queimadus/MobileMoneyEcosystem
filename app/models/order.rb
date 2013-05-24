@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
     where('date(updated_at) >= ? and date(updated_at) <= ?',s.to_s,e.to_s)
   end
 
-  def self.from(m)
+  def self.from_merchant(m)
 
     where(:merchant_id => m.id)
   end

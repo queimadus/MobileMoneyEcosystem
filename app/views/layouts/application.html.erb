@@ -13,7 +13,7 @@
     <![endif]-->
   <!--  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   -->
-  <%if current_page?(root_path) %>
+  <%if current_page?(root_path) or current_page?("/statistics")%>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <%end%>
 
@@ -54,7 +54,6 @@
 
               <a href="/" style="text-decoration: none;">
                 <%=image_tag("logo-square.png",{ :alt => 'logo', :id => 'header-logo'}) %>
-                <span class="header-title">MobiWallet</span>
               </a>
             </div>
             <div class="col-span-5">
@@ -82,7 +81,7 @@
                   <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Products', products_path, :class=> "menu-item"+active(products_path) %>
                   <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
-                  <%= link_to 'Analytics', products_path, :class=> "menu-item" %>
+                  <%= link_to 'Analytics', "/statistics", :class=> "menu-item"+active("/statistics") %>
                   <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
                   <span id="menu-bar"></span>
                 <%elsif current_user.is_client?%>
@@ -90,7 +89,7 @@
                   <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Limits', limits_path, :class=> "menu-item"+active(limits_path) %>
                   <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
-                  <%= link_to 'Credits', credits_path, :class=> "menu-item"+active(credits_path) %>
+                  <%= link_to 'Statistics', "/statistics", :class=> "menu-item"+active("/statistics") %>
                   <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
                   <span id="menu-bar" ></span>
                 <%end%>

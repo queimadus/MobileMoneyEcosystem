@@ -2,6 +2,7 @@ MobileMoneyEcosystem::Application.routes.draw do
 
   get '/market/:merchant_name' => 'markets#show', :as => :market
   get '/history' => 'histories#index', :as => :history
+  get '/statistics' => 'statistics#index', :as => :statistics
   get '/statistics/:kind' => 'statistics#index', :as => :statistics
 
   get "api/cart/create"

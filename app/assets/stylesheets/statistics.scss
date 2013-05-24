@@ -1,0 +1,13 @@
+.stats-chart-container{
+  width: 928px;
+  height: 420px;
+  position: relative;
+  margin: 5px;
+  border-radius: 1px;
+}
+
+.client-statistics .history-header,
+.merchant-statistics .history-header
+  {
+  padding: 16px 10px;
+}

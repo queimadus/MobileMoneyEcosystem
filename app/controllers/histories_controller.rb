@@ -40,7 +40,7 @@ class HistoriesController < ApplicationController
 
 
     @categories = category_query_parse(search)
-    o = Order.from(current_user.merchant).between_dates(from,to).order("date(created_at) desc")
+    o = Order.from_merchant(current_user.merchant).between_dates(from,to).order("date(created_at) desc")
 
 
     arr = []

@@ -82,6 +82,7 @@ $greywhite: #fbfbfb;
 @import "histories.scss";
 @import "homes.scss";
 @import "credits.scss";
+@import "statistics.scss";
 @import "jquery-ui-1.10.2.custom.min.scss";
 
 
@@ -137,7 +138,8 @@ body{
 }
 
 #header-logo{
-  width: 49px;
+  width: 340px;
+  margin-top: 14px;
 }
 
 #register-link{

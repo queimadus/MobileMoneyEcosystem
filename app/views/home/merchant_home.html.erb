@@ -1,0 +1,60 @@
+<div class="client-history-container" style="margin-top: 8px;">
+  <div class="client-history-container-inner">
+    <div class="row">
+      <%if @order.nil? or @order.empty? %>
+
+        <div class="history-products-container clearfix">
+          <div class="history-header">
+              <span class="home-cart-title">
+                <span class="cart-title-sub">
+                  SOLD LAST WEEK
+                </span>
+              </span>
+          </div>
+         <div class="tcenter" style="padding-bottom: 18px;">Empty</div>
+        </div>
+
+      <%end%>
+        <% ords = join_orders_by_date(@order,nil) %>
+
+        <% unless ords[:content].blank? %>
+          <div class="history-products-container clearfix">
+            <div class="history-header">
+              <span class="home-cart-title">
+                <span class="cart-title-sub">
+                  SOLD LAST WEEK
+                </span>
+                 <span class="cart-title-sub">
+                  <small>price:</small>
+                   <%= ords[:price] %>€
+                </span>
+              </span>
+            </div>
+            <%= ords[:content].html_safe %>
+          </div>
+        <%end%>
+    </div>
+  </div>
+</div>
+
+<div id="merchant-home-stats" class="history-products-container clearfix home-stats">
+  <div class="history-header">
+        <span class="home-cart-title">
+          <span class="cart-title-sub">Last Month's Statistics</span>
+
+        </span>
+  </div>
+
+  <div class="home-stats-chart-container">
+
+    <div id="merchant-home-stats-pie" class="home-stats-chart"></div>
+    <div class="stats-loader loading"></div>
+  </div>
+
+  <div class="home-stats-chart-container">
+
+    <div id="merchant-home-stats-bar" class="home-stats-chart"></div>
+    <div class="stats-loader loading"></div>
+  </div>
+
+</div>

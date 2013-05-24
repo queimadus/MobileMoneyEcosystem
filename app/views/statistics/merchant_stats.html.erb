@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="merchant-statistics col-span-12" style="margin-top:8px;"  >
+
+    <form action="#" id="merchant-stat-form" style="margin-right: 9px; float:right;">
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>FROM</span>
+        <span id="from" class="date-content"><span class="mock-date">A MONTH AGO</span><span class="down-arrow">&#x25BC;</span></span>
+        <%# text_field_tag "starting", Time.now.to_date, :class => "datepicker" %>
+      </div>
+
+      <div class="history-date-selector-container">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>TO</span>
+        <span id="to" class="date-content"><span class="mock-date">TODAY</span><span class="down-arrow">&#x25BC;</span></span>
+
+      </div>
+
+      <button class="history icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
+    </form>
+
+    <div id="merchant-stats-one" class="history-products-container clearfix home-stats">
+      <div class="history-header">
+        <span class="home-cart-title">
+          <span class="cart-title-sub">Statistics</span>
+
+        </span>
+      </div>
+
+      <div class="stats-chart-container">
+
+        <div id="merchant-stats-pie" class="home-stats-chart"></div>
+        <div class="stats-loader loading"></div>
+      </div>
+
+      <div class="stats-chart-container">
+
+        <div id="merchant-stats-bar" class="home-stats-chart"></div>
+        <div class="stats-loader loading"></div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</div>
+</div>

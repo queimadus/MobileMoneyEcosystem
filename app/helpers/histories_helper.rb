@@ -16,7 +16,7 @@ module HistoriesHelper
       a = Item.select("items.*, sum(quantity) as sum_quantity").where(:order_id => c).order("category_id").group(:product_id, :id)
       a.each_with_index do |i,index|
         if filter_categories(i.product, categories)
-          content << render('merchant_product', item: i)
+          content << render('histories/merchant_product', item: i)
           price += i.actual_price
         end
 
