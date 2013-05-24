@@ -14,17 +14,36 @@ class Api::CartController < ApplicationController
       end
   end
 
-  #adicionar clausula com force buy
+  #adicionar clausula com force buy perguntar se é para fazer force quando não temos dinheiro ou/e passa do limite estabelecido
   def addproduct
+
     c = Cart.active.from_client(current_user.client).first
-    p = Product.find_by_qrcode(params[:qrcode])
-    if(current_user.client.credit < (p.price * params[:quantity].to_i ))
+    p = Product.find(params[:id])
+
+    prodcat = Categorization.where(:product_id => p.id).first.category
+    limit =  current_user.client.limits.where(:category_id => prodcat.id).first
+    limitleft = ((100-limit.credit_percentage)/100)*limit.max
+
+    categorypricesum = 0
+
+    c.items.each do |i|
+      if(i.category_id == prodcat.id)
+        categorypricesum += i.actual_price * i.quantity
+      end
+    end
+
+    if((categorypricesum + (p.price * params[:quantity].to_i))  > limitleft)
+      result = {:success=>false, :message => "Passing limit"}
+    elsif(current_user.client.credit < (p.price * params[:quantity].to_i ))#&& params[:force] == false)
       result = {:success=>false, :message => "Not enough credit"}
+    elsif(limitleft <(p.price * params[:quantity].to_i))
+      result = {:success=>false, :message => "Passing limit"}
     else
       i = Item.new
       i.cart = c
       i.product = p
       i.actual_price = p.price
+      i.category_id = prodcat.id
       i.quantity = params[:quantity]
       if i.save
         result = {:success=>true}
@@ -39,7 +58,6 @@ class Api::CartController < ApplicationController
   def listcart
 
     c = Cart.active.from_client(current_user.client).first
-    #  products = []
     if c == nil
       result = {:success=>false}
     else
@@ -56,21 +74,21 @@ class Api::CartController < ApplicationController
           cartitems << item
         end
       end
-
       cartitems.each do |i|
         new= []
         p = Product.find(i.product_id)
         m = Merchant.find(p.merchant_id)
         new  = {:product_id => i.product_id,:actual_price => i.actual_price,
                 :quantity => qt[i.product_id], :name => p.name,:image_url => p.image_url,
-                :merchant_name => m.name}
+                :category => Category.find(i.category_id).name,
+                :merchant => m.name}
         #juntar item quantity do mesmo merch
         res << new
       end
       result[:content] = res
 
     end
-    render :json=> result
+      render :json=> result
   end
 
   #complete
