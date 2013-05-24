@@ -21,6 +21,18 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def period_to_date(period)
+    if period=="weekly"
+      1.week
+    elsif period=="monthly"
+      1.month
+    elsif  period=="yearly"
+      1.year
+    else
+      0.day
+    end
+  end
+
   def bootstrap_notice(msg,type)
     flash_messages = []
 

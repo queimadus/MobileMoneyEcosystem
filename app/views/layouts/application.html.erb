@@ -78,12 +78,13 @@
             <div class="col-span-12" id="menu">
               <span class="menu-inner">
                 <% if current_user.is_merchant? %>
-                   <%= render "layouts/logged_info_block" %>
+                  <%= render "layouts/logged_info_block" %>
                   <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
                   <%= link_to 'Products', products_path, :class=> "menu-item"+active(products_path) %>
                   <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
                   <%= link_to 'Analytics', products_path, :class=> "menu-item" %>
                   <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
+                  <span id="menu-bar"></span>
                 <%elsif current_user.is_client?%>
                    <%= render "layouts/logged_info_block" %>
                   <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
@@ -91,6 +92,7 @@
                   <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
                   <%= link_to 'Credits', credits_path, :class=> "menu-item"+active(credits_path) %>
                   <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
+                  <span id="menu-bar" ></span>
                 <%end%>
               </span>
             </div>

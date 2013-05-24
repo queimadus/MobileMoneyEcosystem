@@ -17,10 +17,9 @@ function credit_error(){
 
 function credit_loading(t){
     if(t){
-
-        $("#credit-form").attr("disabled", "disabled");
+        $("#credit-form, #credit-form input").attr("disabled", "disabled");
     }   else {
-        $("#credit-form").removeAttr("disabled");
+        $("#credit-form, #credit-form input").removeAttr("disabled");
     }
 }
 
@@ -31,10 +30,13 @@ function credit_form(evt,data){
     if(data.success == true){
         $(".credit-form-container").html(data.html);
         bind_credit_form();
+        update_header_info();
+        $("#credit-form input").val('');
     }
     else
     {
         $(".credit-form-container").html(data.html);
         bind_credit_form();
     }
+    notice(data.notice);
 }
