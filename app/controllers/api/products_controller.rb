@@ -2,7 +2,7 @@ class Api::ProductsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :json
 
-
+=begin
   def show
     p = Product.find(params[:id])
     if p == nil
@@ -20,7 +20,28 @@ class Api::ProductsController < ApplicationController
     end
     render :json=> result
   end
+=end
 
+  def show
+    product = Product.find(params[:id])
+
+    if product.nil?
+      render :json => {:success => false}
+    else
+      render :json => {:success => true, :product => product}
+    end
+  end
+
+  def scan
+    product = Product.where(:qrcode => params[:qrcode]).first
+
+    if product.nil?
+      render :json => {:success => false}
+    else
+      render :json => {:success => true, :product => product}
+    end
+  end
+=begin
   def scan
     p = Product.where(:qrcode => params[:qrcode]).first
     cat = Categorization.where(:product_id => p.id).first
@@ -43,7 +64,7 @@ class Api::ProductsController < ApplicationController
     end
     render :json=> result
   end
-
+=end
 end
 
 

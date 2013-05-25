@@ -13,7 +13,7 @@ class Limit < ActiveRecord::Base
      self.starting = Time.now.to_date if self.starting.nil?
   end
 
-  def credit_percentage
+  def current_price
     return 0 if self.max==0
 
     if self.period=="weekly"
@@ -24,7 +24,12 @@ class Limit < ActiveRecord::Base
       ending = self.starting + 1.year
     end
 
-    a = Item.where(:category_id => self.category.id ,:cart_id => Cart.where(:complete => true, :client_id => self.client_id ).between_dates(self.starting,ending)).sum(:actual_price)
+    Item.where(:category_id => self.category.id ,:cart_id => Cart.where(:complete => true, :client_id => self.client_id )
+    .between_dates(self.starting,ending)).sum(:actual_price)
+  end
+
+  def credit_percentage
+    a = self.current_price
     b = self.max/100.0
     a/b
     #number_with_precision(a/b, :precision => 0)

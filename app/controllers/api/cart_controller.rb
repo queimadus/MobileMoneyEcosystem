@@ -14,9 +14,41 @@ class Api::CartController < ApplicationController
       end
   end
 
-  #adicionar clausula com force buy perguntar se é para fazer force quando não temos dinheiro ou/e passa do limite estabelecido
-  def addproduct
 
+  def add_product
+
+    return false unless params.has_key?(:id) and params.has_key?(:quantity)
+
+
+    product = Product.find(params[:id])
+    force = params[:force] || false
+
+    if !force and  product.will_break_limit current_user.client
+      render :json => {:success => false, :code=> 1, :message => "Will break limit"}
+      return
+    else
+      if !force and  product.will_break_cart current_user.client
+        render :json => {:success => false, :code=> 2, :message => "Will break cart"}
+        return
+      else
+        if product.add_to_cart current_user.client, params[:quantity]
+          render :json => {:success => true, :cart => Cart.active.from_client(current_user.client)}
+          return
+        else
+          render :json => {:success => false, :code=> 3, :message => "Already in cart"}
+          return
+        end
+      end
+    end
+ end
+
+ def show
+   render :json => Cart.active.from_client(current_user.client)
+ end
+
+
+
+=begin
     c = Cart.active.from_client(current_user.client).first
     p = Product.find(params[:id])
 
@@ -26,7 +58,7 @@ class Api::CartController < ApplicationController
 
     categorypricesum = 0
 
-    c.items.each do |i|
+    c.items.each do |i|                                      +
       if(i.category_id == prodcat.id)
         categorypricesum += i.actual_price * i.quantity
       end
@@ -52,7 +84,7 @@ class Api::CartController < ApplicationController
       end
     end
     render :json => result
-    end
+=end
 
   #complete
   def listcart
@@ -91,7 +123,8 @@ class Api::CartController < ApplicationController
       render :json=> result
   end
 
-  #complete
+  #complete 7
+=begin
   def show
     c = Cart.find(params[:id])
     if c == nil
@@ -126,6 +159,7 @@ class Api::CartController < ApplicationController
     end
     render :json=> result
   end
+=end
 
   #complete
   def removeproduct

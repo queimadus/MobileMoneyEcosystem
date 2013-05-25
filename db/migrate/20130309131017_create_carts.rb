@@ -4,7 +4,7 @@ class CreateCarts < ActiveRecord::Migration
 
       t.integer :client_id
       t.boolean :complete, :default => false
-      t.decimal :total, :decimal, :precision => 8, :scale => 2
+      t.decimal :total, :decimal, :precision => 8, :scale => 2, :default => 0
       t.string  :categories
 
       t.timestamps

@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   belongs_to :order
   has_one :category
 
+  validates :quantity, :presence => true, :numericality => { :greater_than_or_equal_to => 1 }
 
   before_save  :round_price
 
@@ -15,5 +16,10 @@ class Item < ActiveRecord::Base
 
   def round_price
     self.actual_price = sprintf("%.2f", self.actual_price)
+  end
+
+  def as_json(options={})
+    {:id => self.product_id, :name => self.product.name,:brand => self.product.brand, :quantity => self.quantity, :image => self.product.image.url,
+     :merchant => self.product.merchant.name ,:category => Category.find(self.category_id).name,:price => self.actual_price}
   end
 end

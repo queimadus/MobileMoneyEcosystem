@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  attr_accessible :complete, :last_modified
+  attr_accessible :client_id, :complete, :last_modified
   belongs_to :client
 
   has_many :items
@@ -22,6 +22,17 @@ class Cart < ActiveRecord::Base
 
   def self.from_client(c)
     where(:client_id => c.id)
+  end
+
+  def self.new_for_client client
+    c = Cart.new(:client_id => client.id, :complete=> false)
+    c.total=0
+    c
+    #temp until migration is ran again
+  end
+
+  def as_json(options={})
+    {:items => self.items, :total => self.total, :success => self.items.size>0}
   end
 
 end
