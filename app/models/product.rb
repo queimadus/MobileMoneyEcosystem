@@ -47,7 +47,7 @@ class Product < ActiveRecord::Base
   def will_break_limit client
       limit = Limit.where(:category_id => self.categories.first.id, :client_id => client.id).first
       return false if limit.nil?
-      limit.current_price+self.price < limit.max
+      limit.current_price+self.price > limit.max
   end
 
   def will_break_cart client
