@@ -72,12 +72,12 @@ c = Client.new(:first_name => "Paulo", :last_name => "Maia", :sex => "Male")
 c.user = uu
 uu.save
 c.save
-
+=begin
 l = Limit.new(:max => 20, :period => "weekly")
 l.category = vegetais
 l.client = c
 l.save
-
+=end
 #purchases
 
 def new_item(pro,car,ord)
@@ -90,7 +90,7 @@ def new_item(pro,car,ord)
   i.order = ord
   i.save
 end
-
+=begin
 cart = Cart.new(:complete => true)
 cart.client = c
 cart.save
@@ -140,6 +140,6 @@ order.save
 
 new_item(ip13,cart,order)
 new_item(ip14,cart,order)
-
+=end
 
 

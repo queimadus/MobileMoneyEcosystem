@@ -23,8 +23,8 @@ class Limit < ActiveRecord::Base
     elsif self.period=="yearly"
       ending = self.starting + 1.year
     end
-
-    Item.where(:category_id => self.category.id ,:cart_id => Cart.where(:complete => true, :client_id => self.client_id )
+                                                                        #:complete => true, to only search on archived ones
+    Item.where(:category_id => self.category.id ,:cart_id => Cart.where( :client_id => self.client_id )
     .between_dates(self.starting,ending)).sum(:actual_price)
   end
 
