@@ -1,2 +1,5 @@
+rake db:migrate
+rake db:test:prepare
 rake db:seed RAILS_ENV=test --trace
-rails server -e test
+<optional> rails server -e test
+rspec -fs spec/functional/<folder_name>/<test_name>.rb
