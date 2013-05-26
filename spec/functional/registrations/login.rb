@@ -19,7 +19,7 @@ feature "User signup" do
 			page.click_button "Sign in"
 		end
 		Then "I should see greeting" do
-			page.should have_content("Hello")
+			page.should have_content("Signed in successfully")
 		end
 	end
 
