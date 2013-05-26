@@ -16,7 +16,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "/api/logout" => "api/sessions#destroy", :via => :post
   get "api/client/info"
   get "api/products/scan"
-  get "api/products" => "api/products#show"
+  get "api/products/show"
 
 
   get "api/limits/show"
