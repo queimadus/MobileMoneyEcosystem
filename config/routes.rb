@@ -5,24 +5,24 @@ MobileMoneyEcosystem::Application.routes.draw do
   get '/statistics' => 'statistics#index', :as => :statistics
   get '/statistics/:kind' => 'statistics#index', :as => :statistics
 
-  get "api/cart/create"
   match "api/cart/add_product" => "api/cart#add_product", :via => :post
-  get "api/cart/listcart"
-  get "api/cart/removeproduct"
-  get "api/cart/completed"
-  get "api/cart/clearcart"
-  get "api/cart/allcarts"
-  match "api/cart" => "api/cart#show"
-
+  get "api/cart/show"
+  get "api/cart/remove_product"
+  get "api/cart/history"
+  match  "api/cart/buy", :via => :post
+  match "api/cart/modify_quantity", :via => :post
+  match "api/cart/clear_cart", :via => :post
   match "/api/login" => "api/sessions#create", :via => :post
   get "/api/logout" => "api/sessions#destroy", :via => :post
+  get "api/client/info"
+  get "api/products/scan"
+  get "api/products" => "api/products#show"
+
 
   get "api/limits/show"
+  get "api/limits/all"
+  match "api/limits/modify", :via => :post
 
-  get "api/client/info"  
-  
-  get "api/products/scan"
-  match "api/products" => "api/products#show"
   
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration

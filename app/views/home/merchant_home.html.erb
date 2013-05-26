@@ -14,7 +14,7 @@
          <div class="tcenter" style="padding-bottom: 18px;">Empty</div>
         </div>
 
-      <%end%>
+      <%else%>
         <% ords = join_orders_by_date(@order,nil) %>
 
         <% unless ords[:content].blank? %>
@@ -32,6 +32,7 @@
             </div>
             <%= ords[:content].html_safe %>
           </div>
+        <%end%>
         <%end%>
     </div>
   </div>

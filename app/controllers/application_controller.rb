@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
         redirect_to root_path
     end
   end
+
+  def invalid_params
+    render :json => {:success => false, :message => "invalid parameters"}
+    false
+  end
 end

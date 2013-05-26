@@ -44,10 +44,10 @@ class Product < ActiveRecord::Base
     self.qrcode = token
   end
 
-  def will_break_limit client
+  def will_break_limit client,quantity
       limit = Limit.where(:category_id => self.categories.first.id, :client_id => client.id).first
       return false if limit.nil?
-      limit.current_price+self.price > limit.max
+      limit.current_price+self.price*quantity > limit.max
   end
 
   def will_break_cart client
@@ -77,8 +77,28 @@ class Product < ActiveRecord::Base
                     :quantity => qt,
                     :cart_id => cart.id)
 
-    cart.total+=item.actual_price
+    cart.total+=self.price*qt
     cart.save
+    item.save
+  end
+
+  def remove_from_cart client
+    item = Item.joins("INNER JOIN carts ON Items.cart_id = Carts.id").where("client_id=?",client.id).first
+    cart = Cart.active.from_client(client).first
+    cart.total-=item.actual_price*item.quantity
+    item.destroy
+    if cart.items.size==0
+      success = cart.destroy
+    else
+      success = cart.save
+    end
+    success
+  end
+
+  def edit_quantity client, quantity
+    item = Item.joins("INNER JOIN Carts ON Items.cart_id = Carts.id").where("complete=?", false).where(:product_id => self.id).where("client_id=?",client.id).readonly(false).first
+    return false if item.nil?
+    item.quantity=quantity
     item.save
   end
 

@@ -3,27 +3,40 @@ class Api::LimitsController < ApplicationController
   respond_to :json
 
   def show
-    limits = current_user.client.limits
-    if(limits != nil)
-      result = {:success => true}
-      result.merge(:content => [] )
-      content = []
-      limits.each do |limit|
-        cat = Category.find(limit.category_id)
-        limitshow = {     :category => cat.name,
-                          :max => limit.max,
-                          :type => limit.period,
-                          :credit_percentage => limit.credit_percentage,
-                          :time_percentage => limit.time_percentage
-        }
+    return invalid_params unless params.has_key?(:id)
 
-        content << limitshow
-      end
-      result[:content] = content
+    limit = Limit.from_client(current_user.client).where(:id => params[:id]).first
+    if limit.nil?
+      render :json => {:success => false}
     else
-      result = {:success => false}
+      render :json => {:success => true, :limit => limit}
+    end
+  end
+
+  def all
+    limits = Limit.from_client(current_user.client)
+    if limits.nil?
+      render :json => {:success => false}
+    else
+      render :json => {:success => true, :limits => limits}
+    end
+  end
+
+  def modify
+    return invalid_params unless params.has_key?(:id)
+    edits = {}
+    if params.has_key?(:max)
+      edits[:max] = params[:max]
+    end
+    if params.has_key?(:period)
+      edits[:period] = params[:period]
     end
 
-    render :json=> result
+    limit = Limit.from_client(current_user.client).where(:id => params[:id]).first
+    if !limit.nil? and limit.update_attributes(edits)
+      render :json => {:success => true, :limit => limit}
+    else
+      render :json => {:success => false}
+    end
   end
 end

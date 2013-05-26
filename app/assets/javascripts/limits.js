@@ -106,6 +106,7 @@ function bind_new_limit_cancel(){
 
 function add_to_limit_list(evt,data){
     if(data.success == true){
+        $(".no-limits-span").remove();
         notice(data.notice);
         var a = $(data.html).addClass("new-item");
         $("#limits-container-inner").prepend(a);

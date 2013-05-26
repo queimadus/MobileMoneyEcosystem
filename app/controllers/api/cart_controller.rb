@@ -3,27 +3,14 @@ class Api::CartController < ApplicationController
   respond_to :json
   before_filter :authenticate_user!
 
-  #complete
-  def create
-      c = Cart.new
-      c.client=current_user.client
-      if c.save
-        render :json=> {:success=>true,:cart_id =>c.id}
-      else
-        render :json=> {:success=>false }
-      end
-  end
-
-
   def add_product
 
-    return false unless params.has_key?(:id) and params.has_key?(:quantity)
-
+    return invalid_params unless params.has_key?(:id) and params.has_key?(:quantity)
 
     product = Product.find(params[:id])
     force = params[:force] || false
 
-    if !force and  product.will_break_limit current_user.client
+    if !force and  product.will_break_limit current_user.client, params[:quantity].to_i
       render :json => {:success => false, :code=> 1, :message => "Will break limit"}
       return
     else
@@ -31,7 +18,7 @@ class Api::CartController < ApplicationController
         render :json => {:success => false, :code=> 2, :message => "Will break cart"}
         return
       else
-        if product.add_to_cart current_user.client, params[:quantity]
+        if product.add_to_cart current_user.client, params[:quantity].to_i
           render :json => {:success => true, :cart => Cart.active.from_client(current_user.client)}
           return
         else
@@ -43,49 +30,98 @@ class Api::CartController < ApplicationController
  end
 
  def show
-   render :json => Cart.active.from_client(current_user.client)
+   if(params.has_key?(:id))
+     cart = Cart.archived.from_client(current_user.client).where(:id => params[:id]).first
+     if cart and cart.items.size > 0
+       render :json =>  {:success => true, :cart => cart}
+     else
+       render :json => {:success => false}
+     end
+   else
+     cart = Cart.active.from_client(current_user.client).first
+     if cart and cart.items.size > 0
+      render :json => {:success => true, :cart => cart}
+     else
+       render :json => {:success => false}
+     end
+   end
  end
+
+ def remove_product
+   return invalid_params unless params.has_key?(:id)
+
+   product = Product.find(params[:id])
+   if product.remove_from_cart current_user.client
+      render :json => {:success => true}
+   else
+     render :json => {:success => false}
+   end
+ end
+
+  def modify_quantity
+    return invalid_params unless params.has_key?(:id) and params.has_key?(:quantity)
+
+    product = Product.find(params[:id])
+
+    if product.edit_quantity current_user.client, params[:quantity]
+      render :json => {:success => true}
+    else
+      render :json => {:success => false}
+    end
+  end
+
+  def history
+    #return invalid_params unless params.has_key?(:id)
+
+    page = params[:page] || 1
+
+    carts = Cart.archived.from_client(current_user.client)
+    cart_slice = Kaminari.paginate_array(carts).page(page).per(20)
+
+    if cart_slice.size>0
+      render :json => {:success => true, :page => page, :carts => cart_slice}
+    else
+      render :json => {:success => false}
+    end
+  end
+
+  def clear_cart
+    success = Cart.clear_from_client current_user.client
+    render :json=> {:success=>success}
+  end
+
+  def buy
+    force = params[:force] || false
+
+    cart = Cart.active.from_client(current_user.client).first
+
+    if cart and  cart.items.size > 0
+
+      cats = Limit.breaks_on_buy_from_client current_user.client
+      if !cats.empty? and !force
+          cats_j = []
+          cats.each do |c|
+            cats_j << {:name => c}
+          end
+          render :json => {:success => false, :code => 1, :categories => cats_j, :message => "Will break limit" }
+      end
+
+      if Cart.buy_from_client current_user.client
+        render :json=> {:success=>true}
+      else
+        render :json => {:success=>false, :code => 2, :message => "Insufficient credit"}
+      end
+
+    else
+
+      render :json => {:success=>false, :code => 3, :message => "No cart"}
+
+    end
+  end
 
 
 
 =begin
-    c = Cart.active.from_client(current_user.client).first
-    p = Product.find(params[:id])
-
-    prodcat = Categorization.where(:product_id => p.id).first.category
-    limit =  current_user.client.limits.where(:category_id => prodcat.id).first
-    limitleft = ((100-limit.credit_percentage)/100)*limit.max
-
-    categorypricesum = 0
-
-    c.items.each do |i|                                      +
-      if(i.category_id == prodcat.id)
-        categorypricesum += i.actual_price * i.quantity
-      end
-    end
-
-    if((categorypricesum + (p.price * params[:quantity].to_i))  > limitleft)
-      result = {:success=>false, :message => "Passing limit"}
-    elsif(current_user.client.credit < (p.price * params[:quantity].to_i ))#&& params[:force] == false)
-      result = {:success=>false, :message => "Not enough credit"}
-    elsif(limitleft <(p.price * params[:quantity].to_i))
-      result = {:success=>false, :message => "Passing limit"}
-    else
-      i = Item.new
-      i.cart = c
-      i.product = p
-      i.actual_price = p.price
-      i.category_id = prodcat.id
-      i.quantity = params[:quantity]
-      if i.save
-        result = {:success=>true}
-      else
-        result = {:success=>false}
-      end
-    end
-    render :json => result
-=end
-
   #complete
   def listcart
 
@@ -122,121 +158,5 @@ class Api::CartController < ApplicationController
     end
       render :json=> result
   end
-
-  #complete 7
-=begin
-  def show
-    c = Cart.find(params[:id])
-    if c == nil
-      result = {:success=>false}
-    else
-      result = {:success=>true}
-      result.merge(:content=>[])
-      res = []
-      qt = {}
-      cartitems = []
-      c.items.each do |item|
-        if(qt[item.product_id] != nil)
-          qt[item.product_id] = qt[item.product_id] + item.quantity
-        else
-          qt[item.product_id] = item.quantity
-          cartitems << item
-        end
-      end
-
-      cartitems.each do |i|
-        new= []
-        p = Product.find(i.product_id)
-        m = Merchant.find(p.merchant_id)
-        new  = {:product_id => i.product_id,:actual_price => i.actual_price,
-                :quantity => qt[i.product_id], :name => p.name,:image_url => p.image_url,
-                :merchant_name => m.name}
-        #juntar item quantity do mesmo merch
-        res << new
-      end
-      result[:content] = res
-
-    end
-    render :json=> result
-  end
 =end
-
-  #complete
-  def removeproduct
-
-    i = Item.where(:product_id => params[:product_id],
-                   :cart_id => Cart.active.from_client(current_user.client).first )
-    if Item.destroy(i.id)
-      render :json=> {:success=>true}
-    else
-      render :json=> {:success=>false}
-    end
-
-  end
-
-  #complete
-  def completed
-    c = Cart.active.from_client(current_user.client).first
-    cli = Client.find(current_user.client.id)
-    cartprice = 0
-    c.items.each do |item|
-      p = Product.find(item.product_id)
-      if(!Order.where(:merchant_id => p.merchant_id,:sent => false))
-        o = Order.new
-        o.merchant = p.merchant
-        o.save
-      else
-        o = Order.where(:merchant_id => p.merchant_id,:sent => false).first
-      end
-       cartprice = cartprice + item.actual_price * item.quantity;
-       item.order = o
-    end
-    c.complete = true
-    if c.save
-      cli.credit =  cli.credit - cartprice
-      cli.save!
-      render :json=> {:success=>true}
-    else
-      render :json=> {:success=>false}
-    end
-  end
-
-  #complete
-  def clearcart
-    c = Cart.active.from_client(current_user.client).first
-    if c == nil
-      render :json=> {:success=>false}
-    else
-      c.items.each do |item|
-        Item.destroy(item.id)
-      end
-      render :json=> {:success=>true}
-    end
-  end
-
-  #complete
-  def allcarts
-    c = Cart.where("created_at >= :start_date AND created_at <= :end_date", {:start_date => params[:start_date], :end_date => params[:end_date],:client_id => current_user.client.id})
-    #c = Cart.from(current_user.client).between_dates(params[:start_date],params[:end_date])
-    if c == nil
-      result = {:success=>false}
-    else
-      result = {:success=>true}
-      result.merge(:content=>[])
-      carts = []
-        c.each do |cart|
-        cartprice = 0
-        cart.items.each do |i|
-          cartprice = cartprice + i.actual_price
-        end
-        carts << {:date => cart.created_at,
-                 :pricesum => cartprice,
-                 :cart_id => cart.id
-        }
-      end
-      result[:content] = carts
-    end
-    render :json=> result
-  end
-
 end

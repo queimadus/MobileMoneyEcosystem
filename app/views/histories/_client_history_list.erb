@@ -13,11 +13,11 @@
   <% carts.each do |c| %>
 
     <% content = "" %>
-    <% price = 0 %>
+    <%# price = 0 %>
     <% c.items.order("category_id").each do |i| %>
       <% if filter_categories(i.product,categories) %>
         <% content << render('client_product', item: i) %>
-        <% price += i.actual_price*i.quantity %>
+        <%# price += i.actual_price*i.quantity %>
       <% end %>
     <%end %>
     <%unless content.blank? %>
@@ -33,7 +33,7 @@
             </span>
             <span class="cart-title-sub">
               <small>price:</small>
-              <%= price %>€
+              <%= c.total %>€
             </span>
           </span>
         </div>

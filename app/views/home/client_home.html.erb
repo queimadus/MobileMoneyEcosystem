@@ -15,7 +15,9 @@
 
         <span class="home-cart-title">
           <span class="cart-title-sub">Open Cart</span>
-          <span class="cart-title-sub"> <small>price:</small><%= price%>€</span>
+          <%unless @current_cart.nil? %>
+            <span class="cart-title-sub"> <small>price:</small><%= price%>€</span>
+          <%end%>
         </span>
 
       </div>
@@ -63,7 +65,9 @@
 
         <span class="home-cart-title">
           <span class="cart-title-sub"> last cart bought</span>
+          <% unless @last_cart.nil? %>
           <span class="cart-title-sub"> <small>price:</small><%= price%>€</span>
+          <%end%>
         </span>
 
         <span style="float:right;"><%= link_to "See More" ,history_path  %></span>
