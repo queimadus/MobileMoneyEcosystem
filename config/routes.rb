@@ -23,6 +23,8 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "api/limits/all"
   match "api/limits/modify", :via => :post
 
+  get "api/statistics"
+
   
   devise_scope :user do
     get "/register/merchant" => "registrations#new_merchant", :as => :merchant_registration
