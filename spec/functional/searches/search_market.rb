@@ -1,16 +1,15 @@
 require 'spec_helper'
 
 feature "Search market" do
-	@merchant = 'Bruno'
 	Steps "Unregistered user access market page of a merchant" do
 		When "I go to a merchant page" do
-			page.visit "/market/" + @merchant
+			page.visit "/market/Bruno"
 		end
 		Then "I should see some products added by that merchant" do
+			page.should have_content("Cenoura")
 			page.should have_content("Papel higienico")
 			page.should have_content("Tomate")
 			page.should have_content("Frango Assado")
-			page.should have_content("Alface")
 		end
 	end
 	Steps "Unregistered user search a single product on market page of a merchant" do
@@ -20,11 +19,13 @@ feature "Search market" do
 		And "I fill in search box with desired search" do
 			page.fill_in "search", :with => 'Cotonetes'
 		end
-		And "I click search" do
-			page.click_button "icon-button"
+		And "I click ENTER" do
+			searchbox = page.find_by_id('search')
+			searchbox.set "\r"
+			page.should have_content("Cotonetes")
+			page.should have_content("1.9")
 		end
 		Then "I should see searched item with its atributes" do
-			page.should have_content("HIGIENE")
 			page.should have_content("Cotonetes")
 			page.should have_content("1.9")
 		end
@@ -42,7 +43,7 @@ feature "Search market" do
 			page.fill_in "search", :with => 'Vegetais'
 		end
 		And "I click search" do
-			page.click_button "icon-button"
+			page.click_link_or_button "icon-button"
 		end
 		Then "I should see various products with its atributes" do
 			page.should have_content("Tomate")
