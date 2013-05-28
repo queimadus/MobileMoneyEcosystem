@@ -7,7 +7,7 @@
       <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:first_name) unless resource.errors[:first_name].empty?  %>
       <%= f.text_field :last_name,  :placeholder => 'Last name' %>
       <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:last_name) unless resource.errors[:last_name].empty?  %>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button id="save_name" type="submit" class="btn btn-primary">Save</button>
     </div>
   </div>
 <% end %>

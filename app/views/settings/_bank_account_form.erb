@@ -6,7 +6,7 @@
     <div class="controls">
       <%= f.text_field :bank_account,  :placeholder => 'Bank account' %>
       <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:bank_account) unless resource.errors[:bank_account].empty?  %>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button id="save_bank_account" type="submit" class="btn btn-primary">Save</button>
     </div>
   </div>
 <% end %>

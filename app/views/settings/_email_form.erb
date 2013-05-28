@@ -5,7 +5,7 @@
     <div class="controls">
       <%= f.text_field :email,  :placeholder => 'Email' %>
       <%=	render 'settings/error_on_form', message: error_on_form(resource.errors,:email) unless resource.errors[:email].empty?  %>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button id="save_email" type="submit" class="btn btn-primary">Save</button>
     </div>
   </div>
 <% end %>

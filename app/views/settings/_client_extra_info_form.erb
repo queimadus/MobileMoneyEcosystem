@@ -7,7 +7,7 @@
       <%=  f.date_select :dob, :start_year => Time.now.year, :end_year =>1913 ,  :order => [:day, :month, :year],:prompt => true%>
       <%=  f.select( :sex , options_for_select([['N/A',"na"],['Male', 'Male'], ['Female', 'Female']],resource.sex),
                      {}, {:prompt => 'Gender',:selected => resource.sex, :style =>  "width:300px;display:block; "}) %>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button id="save_extra_info" type="submit" class="btn btn-primary">Save</button>
     </div>
   </div>
 <%end%>

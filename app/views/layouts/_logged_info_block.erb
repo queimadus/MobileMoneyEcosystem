@@ -41,7 +41,7 @@
     <%else%>
       <li><%= link_to "Credits", credits_path %></li>
     <%end%>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "")%></li>
+    <li><%= link_to('Logout', destroy_user_session_path)%></li>
   </ol>
 </div>
 <%# link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "header-btn")%>
