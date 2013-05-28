@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20130509005755) do
   create_table "carts", :force => true do |t|
     t.integer  "client_id"
     t.boolean  "complete",                                 :default => false
-    t.decimal  "total",      :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "decimal",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "total",      :precision => 8, :scale => 2
+    t.decimal  "decimal",    :precision => 8, :scale => 2
     t.string   "categories"
     t.datetime "created_at",                                                  :null => false
     t.datetime "updated_at",                                                  :null => false

@@ -131,6 +131,7 @@ class LimitsController < ApplicationController
                                        :html => render_to_string( :partial => 'container',
                                                                   :locals => {:limit => @limit})}}
         format.html # new.html.erb
+		return
       else
         format.json { render :json => {:success => false,
                                       :id => @limit.id,
@@ -139,6 +140,7 @@ class LimitsController < ApplicationController
                                       :html => render_to_string( :partial => 'new',
                                                                  :locals => {:limit => @limit})}}
         format.html # new.html.erb
+		return
       end
     end
   end

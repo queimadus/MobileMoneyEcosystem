@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Warden::Test::Helpers
 
 feature "Add limit" do
 	Steps "Add a new limit to user account" do
