@@ -12,30 +12,34 @@ feature "Search market" do
 			page.should have_content("Frango Assado")
 		end
 	end
-	Steps "Unregistered user search a single product on market page of a merchant" do
+	Steps "Unregistered user search by product on market page of a merchant" do
 		When "I go to a merchant page" do
 			page.visit "/market/Bruno"
 		end
 		And "I fill in search box with desired search" do
 			page.fill_in "search", :with => 'Cotonetes'
 		end
-		And "I click ENTER" do
-			searchbox = page.find_by_id('search')
-			searchbox.set "\r"
-			page.should have_content("Cotonetes")
-			page.should have_content("1.9")
+		And "I click on search button" do
+			page.click_button "search_button"
 		end
 		Then "I should see searched item with its atributes" do
 			page.should have_content("Cotonetes")
 			page.should have_content("1.9")
 		end
-		And "Not see other category items" do
-			page.should have_no_content("VEGETAIS")
-			page.should have_no_content("ASSADOS")
-			page.should have_no_content("HIGIENE")
+		And "Not see other items" do
+			page.should have_no_content("Frango Assado")
+			page.should have_no_content("Tomate")
+			page.should have_no_content("Alface")
+			page.should have_no_content("Cebola")
+			page.should have_no_content("Broculos")
+		end
+		And "Not see other categories displayed" do
+			page.should have_no_content("Vegetais")
+			page.should have_no_content("Assados")
+			page.should have_no_content("Fruta")
 		end
 	end
-	Steps "Unregistered user search multiple products on market page of a merchant" do
+	Steps "Unregistered user search by category on market page of a merchant" do
 		When "I go to a merchant page" do
 			page.visit "/market/Bruno"
 		end
@@ -43,7 +47,7 @@ feature "Search market" do
 			page.fill_in "search", :with => 'Vegetais'
 		end
 		And "I click search" do
-			page.click_link_or_button "icon-button"
+			page.click_link_or_button "search_button"
 		end
 		Then "I should see various products with its atributes" do
 			page.should have_content("Tomate")
@@ -55,8 +59,9 @@ feature "Search market" do
 			page.should have_content("Pepino")
 		end
 		And "Not see other category items" do
-			page.should have_no_content("ASSADOS")
-			page.should have_no_content("HIGIENE")
+			page.should have_no_content("Assados")
+			page.should have_no_content("Higiene")
+			page.should have_no_content("Fruta")
 		end
 	end
 end
