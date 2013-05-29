@@ -45,17 +45,17 @@ RSpec.configure do |config|
   config.order = "random"
   
   #Cleaning Database
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  #config.before(:suite) do
+  #  DatabaseCleaner.strategy = :truncation
+  #  DatabaseCleaner.clean_with(:truncation)
+  #end
 
-  config.before(:each) do
-    DatabaseCleaner.start 
-  end
+  #config.before(:each) do
+  #  DatabaseCleaner.start 
+  #end
   
   #Seeding Database
-  config.before(:each) do
-    load "#{Rails.root}/db/seeds.rb" 
-  end
+  #config.before(:each) do
+  #  load "#{Rails.root}/db/seeds.rb" 
+  #end
 end

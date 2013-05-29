@@ -18,13 +18,17 @@ feature "Remove limit" do
 			page.visit "/limits"
 		end
 		And "I click on edit limit button" do
-			page.find("#edit_button").click
+			page.visit "/limits/1"
+			page.click_link("Delete")
+		end
+		And "I click on Delete button" do
+			page.click_link("Delete")
+		end
+		And "I return to limits page" do
+			page.visit "/limits"
 		end
 		And "I shouldnt see Vegetais limit created" do
 			page.should have_no_content "Vegetais"
-		end
-		And "I click on delete limit button" do
-			page.find(".del").click
 		end
 	end
 end
