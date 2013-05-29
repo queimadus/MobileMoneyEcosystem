@@ -49,3 +49,75 @@
 .home-stats-chart{
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 }
+.main-hero{
+  background-color: #fff;
+  margin-top: -70px;
+  padding-top: 80px;
+  width: 100%;
+  height: 500px;
+  background: url("http://www.finish.tv/img/originals/thinking-of-you-smartphone-blur.jpg");
+  background-repeat: no-repeat;
+  animation: uphero 2s ease-in;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  background-position: 0px -20px;
+}
+
+.phone-image{
+  background: url("app.png");
+  width: 940px;
+  height: 420px;
+  background-size: 350px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-position: 581px 0px;
+  animation: upphone 2s ease-in-out;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  opacity: 0;
+
+}
+
+@keyframes upphone{
+  to{
+    background-position: 581px 50px;
+    opacity: 1;
+  }
+}
+
+@keyframes uphero{
+  to{
+    background-position: 0px 0px;
+  }
+}
+
+.global-list{
+  padding: 15px 15px;
+}
+
+.global-list ul{
+  list-style-type: none;
+
+}
+
+.global-list li{
+  font-size: 18px;
+  font-weight: 300;
+  clear:both;
+  padding: 10px 10px;
+  border-bottom: 1px solid #428bca;
+  margin: 40px 5px;
+  float:left;
+}
+
+.global-list li:nth-child(odd){
+  float:right;
+}
+
+

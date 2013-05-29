@@ -3,7 +3,7 @@
     <%= form_tag products_path, :method => :get, :id=>"product-search-form", :remote => true do %>
       <div class="span search-bar">
         <input id="search" name="q" type="text" class="wsearch" placeholder="Search for products by name and category"
-               value="<%= @query %>" data-provide="typeahead" autocomplete="on" data-source='<%= all_categories %>'>
+               value="<%= @query %>" data-provide="typeahead" autocomplete="off" data-source='<%= all_categories %>'>
 
         <i class="search-reset glyphicon-remove glyphicon"> </i>
         <button id="search_button" class="icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>

@@ -16,8 +16,8 @@
   <%if current_page?(root_path) or current_page?("/statistics")%>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <%end%>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900,500' rel='stylesheet' type='text/css' data-noprefix>
 
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900,700,500,300' rel='stylesheet' type='text/css'>
   <!--link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'-->
   <%= stylesheet_link_tag "application", :media => "all" %>
 
@@ -59,8 +59,8 @@
             <div class="col-span-5">
               <div class="header-btn-toolbar pull-right">
                 <% unless user_signed_in? %>
-                  <%= link_to('Login', new_user_session_path, :class => "header-btn")%>
-                  <%= link_to('Register', selection_registration_path, :class => "header-btn")%>
+                  <%= link_to('Login', new_user_session_path, :class => "btn btn-primary", :style => "margin-right:10px;")   %>
+                  <%= link_to('Register', selection_registration_path, :class => "btn")%>
                 <%else%>
                    <%# render "layouts/logged_info_block" %>
                 <%end%>
@@ -78,19 +78,19 @@
               <span class="menu-inner">
                 <% if current_user.is_merchant? %>
                   <%= render "layouts/logged_info_block" %>
-                  <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
-                  <%= link_to 'Products', products_path, :class=> "menu-item"+active(products_path) %>
-                  <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
-                  <%= link_to 'Analytics', "/statistics", :class=> "menu-item"+active("/statistics") %>
-                  <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
+                  <%= link_to 'Home', root_path, :class=> "menu-item home"+active(root_path) %>
+                  <%= link_to 'Products', products_path, :class=> "menu-item products"+active(products_path) %>
+                  <%= link_to 'History', history_path, :class=> "menu-item history"+active(history_path) %>
+                  <%= link_to 'Analytics', "/statistics", :class=> "menu-item analytics"+active("/statistics") %>
+                  <%= link_to 'Settings', settings_path, :class=> "menu-item settings"+active(settings_path) %>
                   <span id="menu-bar"></span>
                 <%elsif current_user.is_client?%>
                    <%= render "layouts/logged_info_block" %>
-                  <%= link_to 'Home', root_path, :class=> "menu-item"+active(root_path) %>
-                  <%= link_to 'Limits', limits_path, :class=> "menu-item"+active(limits_path) %>
-                  <%= link_to 'History', history_path, :class=> "menu-item"+active(history_path) %>
-                  <%= link_to 'Statistics', "/statistics", :class=> "menu-item"+active("/statistics") %>
-                  <%= link_to 'Settings', settings_path, :class=> "menu-item"+active(settings_path) %>
+                  <%= link_to 'Home', root_path, :class=> "menu-item home"+active(root_path) %>
+                  <%= link_to 'Limits', limits_path, :class=> "menu-item limits"+active(limits_path) %>
+                  <%= link_to 'History', history_path, :class=> "menu-item history"+active(history_path) %>
+                  <%= link_to 'Statistics', "/statistics", :class=> "menu-item analytics"+active("/statistics") %>
+                  <%= link_to 'Settings', settings_path, :class=> "menu-item settings"+active(settings_path) %>
                   <span id="menu-bar" ></span>
                 <%end%>
               </span>

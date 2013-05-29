@@ -24,6 +24,7 @@ class Api::LimitsController < ApplicationController
 
   def modify
     return invalid_params unless params.has_key?(:id)
+
     edits = {}
     if params.has_key?(:max)
       edits[:max] = params[:max]

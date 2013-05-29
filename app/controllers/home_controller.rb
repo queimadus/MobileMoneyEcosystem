@@ -10,7 +10,7 @@ class HomeController < ApplicationController
         merchant_home #params
       end
     else
-      render "global"
+      render "global", :layout => false
     end
   end
 
