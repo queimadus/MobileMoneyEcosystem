@@ -1,5 +1,5 @@
-class Statistic
-  def self.credit_time(id,from,to)
+module Statistic
+  def credit_time(id,from,to)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "carts" ON carts.id=items.cart_id')
     .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price")
@@ -25,7 +25,7 @@ class Statistic
 
   end
 
-  def self.category_prices_time(client_id, from, to)
+  def category_prices_time(client_id, from, to)
     from ||=  1.month.ago.to_date
     to   ||=  Time.now.to_date
 
@@ -50,7 +50,7 @@ class Statistic
     }
   end
 
-  def self.merchant_category_prices_time(client_id, from, to)
+  def merchant_category_prices_time(client_id, from, to)
     from ||=  1.month.ago.to_date
     to   ||=  Time.now.to_date
 
@@ -75,7 +75,7 @@ class Statistic
     }
   end
 
-  def self.merchant_credit_time(id,from,to)
+  def merchant_credit_time(id,from,to)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "orders" ON orders.id=items.order_id')
     .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price")

@@ -64,6 +64,8 @@ class Cart < ActiveRecord::Base
 
     orders.each do |merc_id,o|
       ord =  Order.new(:merchant_id => merc_id, :sent => false)
+      m = Merchant.find(merc_id).credit+=o[:total]
+      m.save
       ord.save
       o[:orders].each do |it|
         it.order_id = ord.id
@@ -71,12 +73,14 @@ class Cart < ActiveRecord::Base
       end
     end
 
+    client.credit -= c.total
+    client.save
     c.complete=true
     c.save
   end
 
   def as_json(options={})
-    {:items => self.items, :total => self.total, :success => self.items.size>0}
+    {:items => self.items, :date => self.updated_at.to_date ,:total => self.total, :success => self.items.size>0}
   end
 
 end

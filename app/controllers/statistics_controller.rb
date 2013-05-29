@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :json
-  require "statistic"
+  include Statistic
 
   def index
 
@@ -32,25 +32,25 @@ class StatisticsController < ApplicationController
   def merchant_statistics_categories
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => Statistic.merchant_category_prices_time(current_user.merchant.id,from,to)
+    render :json => merchant_category_prices_time(current_user.merchant.id,from,to)
   end
 
   def client_statistics_categories
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => Statistic.category_prices_time(current_user.client.id,from,to)
+    render :json => category_prices_time(current_user.client.id,from,to)
   end
 
   def client_statistics_credit
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => Statistic.credit_time(current_user.client.id,from,to)
+    render :json => credit_time(current_user.client.id,from,to)
   end
 
   def merchant_statistics_credit
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => Statistic.merchant_credit_time(current_user.merchant.id,from,to)
+    render :json => merchant_credit_time(current_user.merchant.id,from,to)
   end
 
 

@@ -1,7 +1,8 @@
-class Api::LimitsController < ApplicationController
+class Api::StatisticsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :json
-  require "statistic"
+  include Statistic
+
 
   def index
     return invalid_params unless params.has_key?(:period)
@@ -17,8 +18,8 @@ class Api::LimitsController < ApplicationController
     to = Time.now.to_date
 
     reply = {
-      :pie => Statistic.client_statistics_categories(current_user.client.id, from,to),
-      :bar =>Statistic.client_statistics_credit(current_user.client.id, from,to)
+      :pie => category_prices_time(current_user.client.id, from,to),
+      :bar => credit_time(current_user.client.id, from,to)
     }
 
     if reply.nil?

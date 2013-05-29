@@ -23,7 +23,7 @@ MobileMoneyEcosystem::Application.routes.draw do
   get "api/limits/all"
   match "api/limits/modify", :via => :post
 
-  get "api/statistics"
+  get "api/statistics" => "api/statistics#index"
 
   
   devise_scope :user do

@@ -73,13 +73,13 @@ class Api::CartController < ApplicationController
   def history
     #return invalid_params unless params.has_key?(:id)
 
-    page = params[:page] || 1
+    #page = params[:page] || 1
 
     carts = Cart.archived.from_client(current_user.client)
-    cart_slice = Kaminari.paginate_array(carts).page(page).per(20)
+    #cart_slice = Kaminari.paginate_array(carts).page(page).per(20)
 
     if cart_slice.size>0
-      render :json => {:success => true, :page => page, :carts => cart_slice}
+      render :json => {:success => true,:carts => carts}
     else
       render :json => {:success => false}
     end
