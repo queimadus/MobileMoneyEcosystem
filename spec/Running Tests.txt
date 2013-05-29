@@ -1,8 +1,9 @@
-1- rake db:migrate
-2- rake db:test:prepare
-3- rake db:seed RAILS_ENV=test --trace
-4- <optional> rails server -e test
+1- rake db:test:prepare
 
-5- (individual testing) rspec -fs spec/functional/<folder_name>/<test_name>.rb
+
+2- (individual testing) rspec -fs spec/functional/<folder_name>/<test_name>.rb
 or
-5- (Run all tests) rspec -fs spec
+2- (Run all tests) rspec -fs spec
+
+
+3- <optional> rails server -e test

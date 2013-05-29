@@ -15,6 +15,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
   
+  
   ActiveSupport::Deprecation.silenced = true
   # ## Mock Framework
   #
@@ -42,4 +43,19 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  
+  #Cleaning Database
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start 
+  end
+  
+  #Seeding Database
+  config.before(:each) do
+    load "#{Rails.root}/db/seeds.rb" 
+  end
 end
