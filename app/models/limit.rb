@@ -34,11 +34,12 @@ class Limit < ActiveRecord::Base
     end
                                                                         #:complete => true, to only search on archived ones
     Item.where(:category_id => self.category.id ,:cart_id => Cart.where( :client_id => self.client_id )
-    .between_dates(self.starting,ending)).sum("actual_price*quantity")
+    .between_dates(self.starting,ending)).sum("actual_price*quantity").to_f
   end
 
   def credit_percentage
     a = self.current_price
+    return 0 if self.max==0 or a==0
     b = self.max/100.0
     a/b
     #number_with_precision(a/b, :precision => 0)
