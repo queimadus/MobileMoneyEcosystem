@@ -2,7 +2,7 @@ module Statistic
   def credit_time(id,from,to,cat)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "carts" ON carts.id=items.cart_id')
-    .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
+    .group("date(items.updated_at), items.category_id").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
     .where("client_id=?",id).where(:carts => {:complete => true})
 
     if !cat.nil? and cat.to_i!=0
@@ -83,7 +83,7 @@ module Statistic
   def merchant_credit_time(id,from,to,cat)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "orders" ON orders.id=items.order_id')
-    .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
+    .group("date(items.updated_at), items.category_id").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
     .where("merchant_id=?",id)
 
     if !cat.nil? and cat.to_i!=0
