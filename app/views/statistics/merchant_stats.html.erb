@@ -3,20 +3,19 @@
 
     <form action="#" id="merchant-stat-form" style="margin-right: 9px; float:right;">
 
-      <div class="history-date-selector-container">
-        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>FROM</span>
-        <span id="from" class="date-content"><span class="mock-date">A MONTH AGO</span><span class="down-arrow">&#x25BC;</span></span>
-        <%# text_field_tag "starting", Time.now.to_date, :class => "datepicker" %>
-      </div>
-
-      <div class="history-date-selector-container">
+      <button class="history icon-button" type="submit"  style="float:right;margin-right:6px;" ><i class="glyphicon-search glyphicon"> </i></button>
+      <div class="history-date-selector-container"  style="float:right;">
         <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>TO</span>
         <span id="to" class="date-content"><span class="mock-date">TODAY</span><span class="down-arrow">&#x25BC;</span></span>
 
       </div>
 
-      <button class="history icon-button" type="submit"><i class="glyphicon-search glyphicon"> </i></button>
-    </form>
+      <div class="history-date-selector-container" style="float:right;">
+        <span class="date-title"><i class="glyphicon glyphicon-calendar"> </i>FROM</span>
+        <span id="from" class="date-content"><span class="mock-date">A MONTH AGO</span><span class="down-arrow">&#x25BC;</span></span>
+        <%# text_field_tag "starting", Time.now.to_date, :class => "datepicker" %>
+      </div>
+
 
     <div id="merchant-stats-one" class="history-products-container clearfix home-stats">
       <div class="history-header">
@@ -32,6 +31,10 @@
         <div class="stats-loader loading"></div>
       </div>
 
+      <div style="height:34px;">
+        <%= collection_select "statistic","category_id", Category.all, :id, :name, options ={:prompt => "All categories", :selected => 0,}, :style => "width: 300px;float: right;margin-right: 6px;"  %>
+      </div>
+
       <div class="stats-chart-container">
 
         <div id="merchant-stats-bar" class="home-stats-chart"></div>
@@ -41,7 +44,7 @@
     </div>
 
 
-
+    </form>
   </div>
 
 </div>

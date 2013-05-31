@@ -44,13 +44,19 @@ class StatisticsController < ApplicationController
   def client_statistics_credit
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => credit_time(current_user.client.id,from,to)
+    if params.has_key?(:statistic) and params[:statistic].has_key?(:category_id)
+      cat =  params[:statistic][:category_id]
+    end
+    render :json => credit_time(current_user.client.id,from,to,cat)
   end
 
   def merchant_statistics_credit
     from = params[:from] ? params[:from].to_date : 1.month.ago.to_date
     to   = params[:to]   ? params[:to].to_date   : Time.now.to_date
-    render :json => merchant_credit_time(current_user.merchant.id,from,to)
+    if params.has_key?(:statistic) and params[:statistic].has_key?(:category_id)
+      cat =  params[:statistic][:category_id]
+    end
+    render :json => merchant_credit_time(current_user.merchant.id,from,to,cat)
   end
 
 
