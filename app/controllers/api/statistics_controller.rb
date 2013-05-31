@@ -19,7 +19,7 @@ class Api::StatisticsController < ApplicationController
 
     reply = {
       :pie => category_prices_time(current_user.client.id, from,to),
-      :bar => credit_time(current_user.client.id, from,to)
+      :bar => credit_time(current_user.client.id, from,to, nil)
     }
 
     if reply.nil?
