@@ -2,11 +2,13 @@ module Statistic
   def credit_time(id,from,to,cat)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "carts" ON carts.id=items.cart_id')
-    .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
+    .select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
     .where("client_id=?",id).where(:carts => {:complete => true})
 
     if !cat.nil? and cat.to_i!=0
-      items = items.where(:category_id => cat.to_i).group("items.category_id")
+      items = items.where(:category_id => cat.to_i).group("date(items.updated_at), items.category_id")
+    else
+      items = items.group("date(items.updated_at)")
     end
 
     rows = []
@@ -85,17 +87,19 @@ module Statistic
   def merchant_credit_time(id,from,to,cat)
 
     items = Item.between_dates(from, to).joins('INNER JOIN "orders" ON orders.id=items.order_id')
-    .group("date(items.updated_at)").select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
+    .select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
     .where("merchant_id=?",id)
 
     if !cat.nil? and cat.to_i!=0
-      items = items.where("category_id = ?", cat.to_i).group("items.category_id")
+      items = items.where("category_id = ?", cat.to_i).group("date(items.updated_at), items.category_id")
+    else
+      items = items.group("date(items.updated_at)")
     end
 
     rows = []
 
     (from..to).each do |t|
-      unless items.any {|i| i.updated_at.to_date==t}
+      unless items.any? {|i| i.updated_at.to_date==t}
         rows <<  {:c => [{:v => t.to_formatted_s(:short)},{:v => 0}]}
       end
     end
