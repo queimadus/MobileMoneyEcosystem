@@ -99,7 +99,7 @@ module Statistic
     rows = []
 
     (from..to).each do |t|
-      unless items.any {|i| i.updated_at.to_date==t}
+      unless items.any? {|i| i.updated_at.to_date==t}
         rows <<  {:c => [{:v => t.to_formatted_s(:short)},{:v => 0}]}
       end
     end
