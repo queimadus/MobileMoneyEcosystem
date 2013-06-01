@@ -36,7 +36,6 @@ def new_product(name, brand, price, stock, img, cat, merc)
   p.set_hash
   file.close
   p.save
-  p
 end
 
 ip1=new_product("Desodorizante para homens","LIMPEX","6.19","25","axe.png",higiene,m)
@@ -60,11 +59,10 @@ uu = User.new(:email => "c@c.c", :password => "bbbbbbbb")
 c = Client.new(:first_name => "Paulo", :last_name => "Maia", :sex => "Male")
 c.user = uu
 uu.save
-c.credit = 55
+c.credit = 150
 c.save
 
 #Limits
-
 def new_limit(max,period,cat,client)
   l = Limit.new(:max => max, :period => period)
   l.category = cat
@@ -77,102 +75,101 @@ lim2 = new_limit(50,"monthly",higiene,c)
 lim3 = new_limit(50,"monthly",mercearia,c)
 
 #Purchases
+i1 = Product.find(1).add_to_cart c,2
+i2 = Product.find(2).add_to_cart c,3
 
-def new_cart(client)
-cart = Cart.new()
-cart.client = client
-cart.save
-end
+i3 = Product.find(3).add_to_cart c,1
 
-cart1 = Cart.new()
-cart1.client = c
-cart1.save
-cart2 = Cart.new()
-cart2.client = c
-cart2.save
-cart3 = Cart.new()
-cart3.client = c
-cart3.save
+i4 = Product.find(4).add_to_cart c,1
 
-#orders
+i5 = Product.find(5).add_to_cart c,3
 
-order = Order.new()
-order.merchant = m
-order.save
 
-order2 = Order.new()
-order2.merchant =m
-order2.save
+Cart.buy_from_client c
+c1 = Cart.find(1)
+c1.updated_at= "2013-05-09 18:15:06.754862"
+c1.save
+o1 = Order.find(1)
+o1.created_at =  "2013-05-09 18:15:06.754862"
+o1.save
+it1 = Item.find(1)
+it1.updated_at = "2013-05-09 18:15:06.754862"
+it1.save
+it2 = Item.find(2)
+it2.updated_at = "2013-05-09 18:16:06.754862"
+it2.save
+it3 = Item.find(3)
+it3.updated_at = "2013-05-09 18:17:06.754862"
+it3.save
+it4 = Item.find(4)
+it4.updated_at = "2013-05-09 18:18:06.754862"
+it4.save
+it5 = Item.find(5)
+it5.updated_at = "2013-05-09 18:15:06.754862"
+it5.save
 
-order3 = Order.new()
-order3.merchant = m
-order3.save
 
-#items
-def new_item(pro,car,ord,qt)
-  i = Item.new()
-  i.product = pro
-  i.quantity = qt
-  i.actual_price = pro.price
-  i.category_id = pro.categories.first.id
-  i.cart= car
-  i.order = ord
-  i.save
-end
+i6 = Product.find(6).add_to_cart c,1
 
-def new_item1(pro,car,ord,qt)
-  i = Item.new()
-  i.product = pro
-  i.quantity = qt
-  i.actual_price = pro.price
-  i.category_id = pro.categories.first.id
-  i.cart= car
-  i.order = ord
-  #i.create_at =   "2013-05-21 18:14:06.754862"
-  i.updated_at = "2013-05-21 18:15:06.754862"
-  i.save
-end
+i7 = Product.find(7).add_to_cart c,3
 
-def new_item2(pro,car,ord,qt)
-  i = Item.new()
-  i.product = pro
-  i.quantity = qt
-  i.actual_price = pro.price
-  i.category_id = pro.categories.first.id
-  i.cart= car
-  i.order = ord
- # i.create_at =   "2013-05-09 18:11:06.754862"
-  i.updated_at = "2013-05-09 18:15:06.754862"
-  i.save
-end
+i8 = Product.find(8).add_to_cart c,1
 
-item1 = new_item(ip1,cart1,order,1)
-item2 = new_item(ip10,cart1,order,3)
-item6 = new_item(ip6,cart1,order,1)
-item10 = new_item(ip11,cart1,order,1)
-item9 = new_item(ip4,cart1,order,3)
+i9 = Product.find(9).add_to_cart c,2
 
-item3 = new_item1(ip2,cart2,order2,6)
-item4 = new_item1(ip3,cart2,order2,2)
-item5 = new_item1(ip13,cart2,order2,1)
+i10 = Product.find(10).add_to_cart c,1
 
-order2.created_at =  "2013-05-21 19:15:06.754862"
-order2.sent = true
-order2.save
+Cart.buy_from_client(c)
 
-item7 = new_item2(ip4,cart3,order3,2)
-item8 = new_item2(ip8,cart3,order3,3)
+c2 = Cart.find(2)
+c2.updated_at= "2013-05-14 18:15:06.754862"
+c2.save
+o6 = Order.find(2)
+o6.created_at =  "2013-05-14 18:15:06.754862"
+o6.save
 
-order3.created_at = "2013-05-09 19:14:06.754862"
-order3.sent = true
-order3.save
+it6 = Item.find(6)
+it6.updated_at = "2013-05-14 18:15:06.754862"
+it6.save
+it7 = Item.find(7)
+it7.updated_at = "2013-05-14 18:15:06.754862"
+it7.save
+it8 = Item.find(8)
+it8.updated_at = "2013-05-14 18:15:06.754862"
+it8.save
+it9 = Item.find(9)
+it9.updated_at = "2013-05-14 18:15:06.754862"
+it9.save
+it10 = Item.find(10)
+it10.updated_at = "2013-05-14 18:15:06.754862"
+it10.save
 
-cart3.complete = true
-#cart3.create_at = "2013-05-09 18:13:06.754862"
-cart3.updated_at = "2013-05-09 18:14:06.754862"
-cart3.save
-cart2.complete = true
-#cart3.create_at = "2013-05-21 18:15:06.754862"
-cart2.updated_at = "2013-05-21 18:15:06.754862"
-cart2.save
 
+i11 = Product.find(4).add_to_cart c,2
+
+i12 = Product.find(2).add_to_cart c,3
+
+i13 = Product.find(7).add_to_cart c,1
+
+Cart.buy_from_client(c)
+c3 = Cart.find(3)
+c3.updated_at= "2013-05-23 18:15:06.754862"
+c3.save
+o11 = Order.find(3)
+o11.created_at =  "2013-05-23 18:15:06.754862"
+o11.save
+
+it11 = Item.find(11)
+it11.updated_at = "2013-05-23 18:15:06.754862"
+it11.save
+it12 = Item.find(12)
+it12.updated_at = "2013-05-23 18:16:06.754862"
+it12.save
+it13 = Item.find(13)
+it13.updated_at = "2013-05-23 18:17:06.754862"
+it13.save
+
+
+i11 = Product.find(8).add_to_cart c,1
+i12 = Product.find(4).add_to_cart c,3
+i13 = Product.find(9).add_to_cart c,1
