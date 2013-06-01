@@ -90,7 +90,7 @@ module ApplicationHelper
     ret = 'style='
     attr.split(",").each do |a|
 
-      ret+= a+':rgba('+color+',0.59);'
+      ret+= a+':rgb('+color+');'
     end
 
     ret

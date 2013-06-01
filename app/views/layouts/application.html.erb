@@ -43,7 +43,11 @@
 </head>
 <body>
 <div id="wrap">
-
+  <div class="row" style="position: absolute;width: 940px;margin-top:5px;">
+    <div id="notice" class="col-span-10 col-offset-1 tcenter">
+      <%= bootstrap_flash %>
+    </div>
+  </div>
     <div id="header">
         <div class="container up">
           <div class="row">
@@ -101,11 +105,6 @@
     <%end%>
 
     <div id="main" class="container">
-        <div class="row" style="position: absolute;width: 940px;">
-          <div id="notice" class="col-span-10 col-offset-1 tcenter">
-            <%= bootstrap_flash %>
-          </div>
-        </div>
         <%= yield %>
     </div>
 
