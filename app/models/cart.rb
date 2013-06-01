@@ -64,7 +64,8 @@ class Cart < ActiveRecord::Base
 
     orders.each do |merc_id,o|
       ord =  Order.new(:merchant_id => merc_id, :sent => false)
-      m = Merchant.find(merc_id).credit+=o[:total]
+      m = Merchant.find(merc_id)
+      m.credit+=o[:total]
       m.save
       ord.save
       o[:orders].each do |it|
