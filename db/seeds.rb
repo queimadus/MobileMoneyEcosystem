@@ -8,14 +8,14 @@
 
 #merchant
 u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
-m = Merchant.new(:name => "Bruno")
+m = Merchant.new(:name => "BigMarket")
 m.user = u
 u.save
 m.save
 
 #categories
-mercearia = Category.create(:name => "groceries", :color => "127, 170, 129")
-bebidas = Category.create(:name => "beverages", :color => "219, 171, 46")
+mercearia = Category.create(:name => "groceries", :color => "127,170,129")
+bebidas = Category.create(:name => "beverages", :color => "219,171,46")
 higiene = Category.create(:name => "hygiene", :color => "200,202,219")
 cleaning = Category.create(:name => "cleaning", :color => "236,165,228")
 casa = Category.create(:name => "home", :color => "165,136,92")
@@ -56,7 +56,7 @@ ip14=new_product("Cenoura","Golden","1.33","33","CENOURA.png",mercearia,m)
 
 #client
 uu = User.new(:email => "c@c.c", :password => "bbbbbbbb")
-c = Client.new(:first_name => "Paulo", :last_name => "Maia", :sex => "Male")
+c = Client.new(:first_name => "Bruno", :last_name => "Maia", :sex => "Male")
 c.user = uu
 uu.save
 c.credit = 150

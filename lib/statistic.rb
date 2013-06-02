@@ -92,7 +92,7 @@ module Statistic
 
     if !cat.nil? and cat.to_i!=0
       items = items.select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price, Items.category_id AS category_id")
-          where("category_id = ?", cat.to_i).group("date(items.updated_at), items.category_id")
+          .where("category_id = ?", cat.to_i).group("date(items.updated_at), items.category_id")
     else
       items = items.select("date(items.updated_at) as updated_at, SUM(actual_price) AS total_price")
           .group("date(items.updated_at)")

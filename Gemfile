@@ -27,7 +27,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'closure-compiler'
-
+  gem 'uglifier'
   #gem "cancan"
 
 end
@@ -38,7 +38,7 @@ gem 'braintree'
 gem 'rake'
 gem 'jquery-rails'
 gem 'rqrcode-rails3'
-gem "remotipart"
+gem 'remotipart'
 gem "paperclip", "~> 3.0"
 
 # To use ActiveModel has_secure_password

@@ -24,9 +24,9 @@
     <span>
 
         <% if current_user.is_client? %>
-          <%=  link_to current_user.client.credit, credits_path %>
+          <%=  link_to sprintf("%.2f",current_user.client.credit), credits_path %>
         <%else%>
-          <%=  current_user.merchant.credit %>
+          <%=  sprintf("%.2f",current_user.merchant.credit) %>
         <%end%>
 
      </span>

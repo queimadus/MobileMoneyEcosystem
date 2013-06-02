@@ -17,7 +17,7 @@ class HistoriesController < ApplicationController
   def client_history
 
     search = params[:q]  ? params[:q]    : ""
-    from = params[:from_client] ? params[:from_client] : Time.now.to_date-1.month
+    from = params[:from] ? params[:from] : Time.now.to_date-1.month
     to   = params[:to]   ? params[:to]   : Time.now.to_date
 
 
@@ -35,7 +35,7 @@ class HistoriesController < ApplicationController
 
   def merchant_history
     search = params[:q]  ? params[:q]    : ""
-    from = params[:from_client] ? params[:from_client] : Time.now.to_date-1.month
+    from = params[:from] ? params[:from] : Time.now.to_date-1.month
     to   = params[:to]   ? params[:to]   : Time.now.to_date
 
 

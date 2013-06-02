@@ -17,6 +17,12 @@ class Client < ActiveRecord::Base
 
   before_save :set_name
   before_save :set_sex
+  before_save :round_price
+
+  def round_price
+    puts self.credit
+    self.credit = sprintf("%.2f", self.credit)
+  end
 
   def set_name
     if first_name.nil? or last_name.nil?
