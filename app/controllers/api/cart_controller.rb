@@ -78,7 +78,7 @@ class Api::CartController < ApplicationController
     carts = Cart.archived.from_client(current_user.client)
     #cart_slice = Kaminari.paginate_array(carts).page(page).per(20)
 
-    if cart_slice.size>0
+    unless carts.nil?
       render :json => {:success => true,:carts => carts}
     else
       render :json => {:success => false}
@@ -118,45 +118,4 @@ class Api::CartController < ApplicationController
 
     end
   end
-
-
-
-=begin
-  #complete
-  def listcart
-
-    c = Cart.active.from_client(current_user.client).first
-    if c == nil
-      result = {:success=>false}
-    else
-      result = {:success=>true}
-      result.merge(:content=>[])
-      res = []
-      qt = {}
-      cartitems = []
-      c.items.each do |item|
-        if(qt[item.product_id] != nil)
-          qt[item.product_id] = qt[item.product_id] + item.quantity
-        else
-          qt[item.product_id] = item.quantity
-          cartitems << item
-        end
-      end
-      cartitems.each do |i|
-        new= []
-        p = Product.find(i.product_id)
-        m = Merchant.find(p.merchant_id)
-        new  = {:product_id => i.product_id,:actual_price => i.actual_price,
-                :quantity => qt[i.product_id], :name => p.name,:image_url => p.image_url,
-                :category => Category.find(i.category_id).name,
-                :merchant => m.name}
-        #juntar item quantity do mesmo merch
-        res << new
-      end
-      result[:content] = res
-
-    end
-      render :json=> result
-  end
-=end
 end
