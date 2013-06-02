@@ -83,8 +83,10 @@ class Product < ActiveRecord::Base
   end
 
   def remove_from_cart client
-    item = Item.joins("INNER JOIN carts ON Items.cart_id = Carts.id").where("client_id=?",client.id).first
     cart = Cart.active.from_client(client).first
+    return false if cart.nil?
+    item = Item.where(:cart_id => cart.id, :product_id => self.id).first
+
     cart.total-=item.actual_price*item.quantity
     item.destroy
     if cart.items.size==0
