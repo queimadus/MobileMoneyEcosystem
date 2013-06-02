@@ -32,52 +32,56 @@ class Cart < ActiveRecord::Base
   end
 
   def self.clear_from_client client
-    c = Cart.active.from_client(client).first
-    if c.nil?
-      return  false
-    else
-      c.items.each do |item|
-        Item.destroy(item.id)
+    Cart.transaction do
+      c = Cart.active.from_client(client).first
+      if c.nil?
+        return  false
+      else
+        c.items.each do |item|
+          Item.destroy(item.id)
+        end
+        c.destroy
+        return true
       end
-      c.destroy
-      return true
     end
   end
 
   def self.buy_from_client client
-    c = Cart.active.from_client(client).first
-    return false if c.total > client.credit
+    Cart.transaction do
+      c = Cart.active.from_client(client).first
+      return false if c.total > client.credit
 
-    items = c.items.joins("INNER JOIN Products ON Items.product_id=Products.id")
-              .select("Items.*,merchant_id")
+      items = c.items.joins("INNER JOIN Products ON Items.product_id=Products.id")
+                .select("Items.*,merchant_id")
 
-    orders = {}
-    items.each do |i|
-      order_id = i.merchant_id
-      if orders.has_key?(order_id)
-        orders[order_id][:orders] << i
-        orders[order_id][:total]  += i.actual_price*i.quantity
-      else
-         orders[order_id] = {:orders => [i], :total => i.actual_price*i.quantity}
+      orders = {}
+      items.each do |i|
+        order_id = i.merchant_id
+        if orders.has_key?(order_id)
+          orders[order_id][:orders] << i
+          orders[order_id][:total]  += i.actual_price*i.quantity
+        else
+           orders[order_id] = {:orders => [i], :total => i.actual_price*i.quantity}
+        end
       end
-    end
 
-    orders.each do |merc_id,o|
-      ord =  Order.new(:merchant_id => merc_id, :sent => false)
-      m = Merchant.find(merc_id)
-      m.credit+=o[:total]
-      m.save
-      ord.save
-      o[:orders].each do |it|
-        it.order_id = ord.id
-        it.save
+      orders.each do |merc_id,o|
+        ord =  Order.new(:merchant_id => merc_id, :sent => false)
+        m = Merchant.find(merc_id)
+        m.credit+=o[:total]
+        m.save
+        ord.save
+        o[:orders].each do |it|
+          it.order_id = ord.id
+          it.save
+        end
       end
-    end
 
-    client.credit -= c.total
-    client.save
-    c.complete=true
-    c.save
+      client.credit -= c.total
+      client.save
+      c.complete=true
+      c.save
+    end
   end
 
   def as_json(options={})

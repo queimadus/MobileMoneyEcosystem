@@ -98,9 +98,15 @@ class Product < ActiveRecord::Base
   end
 
   def edit_quantity client, quantity
-    item = Item.joins("INNER JOIN Carts ON Items.cart_id = Carts.id").where("complete=?", false).where(:product_id => self.id).where("client_id=?",client.id).readonly(false).first
+    cart = Cart.active.from_client(client).first
+    return false if cart.nil?
+    item = Item.where(:cart_id => cart.id, :product_id => self.id).first
+    #item = Item.joins("INNER JOIN Carts ON Items.cart_id = Carts.id").where("complete=?", false).where(:product_id => self.id).where("client_id=?",client.id).readonly(false).first
     return false if item.nil?
+    cart.total-=item.actual_price*item.quantity
     item.quantity=quantity
+    cart.total+=item.actual_price*item.quantity
+    cart.save
     item.save
   end
 

@@ -104,6 +104,7 @@ class Api::CartController < ApplicationController
             cats_j << {:name => c}
           end
           render :json => {:success => false, :code => 1, :categories => cats_j, :message => "Will break limit" }
+         return
       end
 
       if Cart.buy_from_client current_user.client

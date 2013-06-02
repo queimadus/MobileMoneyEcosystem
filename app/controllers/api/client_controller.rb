@@ -3,7 +3,7 @@ class Api::ClientController < ApplicationController
   before_filter :authenticate_user!
 
   def info
-      render :json=> {:success=>true,:credit =>current_user.client.credit ,:name => current_user.client.first_name+" "+current_user.client.last_name}
+      render :json=> {:success=>true,:credit =>sprintf("%.2f",current_user.client.credit) ,:name => current_user.client.first_name+" "+current_user.client.last_name}
   end
 
 end
