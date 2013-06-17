@@ -6,12 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#merchant
-u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
-m = Merchant.new(:name => "BigMarket")
-m.user = u
-u.save
-m.save
 
 #categories
 mercearia = Category.create(:name => "groceries", :color => "127,170,129")
@@ -24,6 +18,16 @@ fresco = Category.create(:name => "fresh", :color => "211,99,99")
 dairy = Category.create(:name => "dairy", :color => "245,236,20")
 lazer = Category.create(:name => "leisure", :color => "164,133,185")
 outros = Category.create(:name => "others", :color => "182,182,182")
+
+=begin
+
+
+#merchant
+u = User.new(:email => "m@m.m", :password => "bbbbbbbb")
+m = Merchant.new(:name => "BigMarket")
+m.user = u
+u.save
+m.save
 
 #products
 
@@ -173,3 +177,4 @@ it13.save
 i11 = Product.find(8).add_to_cart c,1
 i12 = Product.find(4).add_to_cart c,3
 i13 = Product.find(9).add_to_cart c,1
+=end
